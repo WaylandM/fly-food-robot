@@ -1,0 +1,1771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xml" href="docubricks.xsl"?>
+<docubricks>
+  <physical_part id="465396538">
+    <description>Delrin Dual V Wheel.
+Dimensions (mm) 24.39 OD x 15.974 +/- 0.026 ID  x 10.23 'thick'</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 25</supplier_part_num>
+    <manufacturer_part_num>SKU: 25</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/delrin-v-wheel/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1329328142">
+    <description>625 2RS Ball Bearing. 5mm Bore; 16mm OD; 5mm Width.</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 30</supplier_part_num>
+    <manufacturer_part_num>SKU: 30</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/ball-bearing-625-2rs-5x16x5/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1476891621">
+    <description>Precision Shim 10mm OD * 5mm Bore * 1mm thickness</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 5</supplier_part_num>
+    <manufacturer_part_num>SKU: 5</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/precision-shim-10x5x1mm/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="375339629">
+    <description>Longitudinal beam: 710 mm length of 20 x 40 mm cross-section V-slot linear rail.</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 235 - LP</supplier_part_num>
+    <manufacturer_part_num>SKU: 235 - LP</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/v-slot-linear-rail/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction>
+      <step>
+        <description>Cut to length using mitre saw.</description>
+        <media />
+      </step>
+    </manufacturing_instruction>
+  </physical_part>
+  <physical_part id="1153134511">
+    <description>M5 T-nut</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 536</supplier_part_num>
+    <manufacturer_part_num>SKU: 536</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/tee-nuts-25-pack/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1003724140">
+    <description>Universal L bracket - double</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 485</supplier_part_num>
+    <manufacturer_part_num>SKU: 485</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/l-bracket/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1420365321">
+    <description>8mm M5 Low profile bolt.</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 946</supplier_part_num>
+    <manufacturer_part_num>SKU: 946</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/low-profile-screws-m5/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="522339604">
+    <description>Foot: 400 mm length of 80 x 20 mm cross-section V-slot linear rail.</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 145 - LP</supplier_part_num>
+    <manufacturer_part_num>SKU: 145 - LP</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/v-slot-linear-rail/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction>
+      <step>
+        <description>Cut to length using mitre saw.</description>
+        <media />
+      </step>
+    </manufacturing_instruction>
+  </physical_part>
+  <physical_part id="2031264473">
+    <description>24V 350W 14.6A Power Supply</description>
+    <supplier>Ooznest</supplier>
+    <supplier_part_num>PWSPLY-12V-350</supplier_part_num>
+    <manufacturer_part_num>PWSPLY-12V-350</manufacturer_part_num>
+    <url>http://ooznest.co.uk/3D-Printer-Electronic-Parts/Power-Supplies/12V-350W-Power-Supply</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1921182216">
+    <description>NEMA 17 Stepper Motor 77oz 1.68A</description>
+    <supplier>Ooznest</supplier>
+    <supplier_part_num>NEMA17STEPPERMOTOR</supplier_part_num>
+    <manufacturer_part_num>1704HS168A</manufacturer_part_num>
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="394556964">
+    <description>Adafruit Synthetos gShield (grblshield) V5</description>
+    <supplier>makersify</supplier>
+    <supplier_part_num>Adafruit product code: 1750</supplier_part_num>
+    <manufacturer_part_num>Adafruit product code: 1750</manufacturer_part_num>
+    <url>https://makersify.com/products/adafruit-synthetos-gshield-grblshield-v5</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1103298512">
+    <description>Adafruit Proto Shield for Arduino Kit - Stackable Version R3</description>
+    <supplier>Makersify</supplier>
+    <supplier_part_num>Adafruit product code: 2077</supplier_part_num>
+    <manufacturer_part_num>Adafruit product code: 2077</manufacturer_part_num>
+    <url>https://makersify.com/products/adafruit-proto-shield-for-arduino-kit-stackable-version-r3</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1740620439">
+    <description>Raspberry Pi 3</description>
+    <supplier>pimoroni</supplier>
+    <supplier_part_num>RPI-007</supplier_part_num>
+    <manufacturer_part_num>Raspberry Pi 3 Model B</manufacturer_part_num>
+    <url>https://shop.pimoroni.com/products/raspberry-pi-3</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="483063596">
+    <description>Pibow PiTFT+</description>
+    <supplier>pimoroni</supplier>
+    <supplier_part_num>PIM118</supplier_part_num>
+    <manufacturer_part_num>PIM118</manufacturer_part_num>
+    <url>https://shop.pimoroni.com/products/pitft-plus-pibow</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="193647161">
+    <description>Arduino Uno Revision 3</description>
+    <supplier>RS Online</supplier>
+    <supplier_part_num>715-4081</supplier_part_num>
+    <manufacturer_part_num>A000066</manufacturer_part_num>
+    <url>http://uk.rs-online.com/web/p/products/7154081/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="583136212">
+    <description>Adafruit PiTFT Plus 320 x 240 2.8" TFT+ Resistive Touchscreen</description>
+    <supplier />
+    <supplier_part_num>ADA2298</supplier_part_num>
+    <manufacturer_part_num>ADA2298</manufacturer_part_num>
+    <url>https://shop.pimoroni.com/search?type=product&amp;q=pitft%2B</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1243201716">
+    <description>15 pin solder D-sub male</description>
+    <supplier>RS Online</supplier>
+    <supplier_part_num>2508599299</supplier_part_num>
+    <manufacturer_part_num>DSC-1115</manufacturer_part_num>
+    <url>http://uk.rs-online.com/web/p/solder-d-sub-connectors/2508599299/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="504254057">
+    <description>Harting Metal D-sub Connector Hood, 15 way</description>
+    <supplier>RS Online</supplier>
+    <supplier_part_num>548-9953</supplier_part_num>
+    <manufacturer_part_num>09670150348</manufacturer_part_num>
+    <url>http://uk.rs-online.com/web/p/d-sub-connector-backshells/5489953/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="2086043145">
+    <description>Cole-Parmer Masterflex Peristaltic Pump</description>
+    <supplier>Cole-Parmer</supplier>
+    <supplier_part_num>7523-60</supplier_part_num>
+    <manufacturer_part_num>7523-60</manufacturer_part_num>
+    <url>https://www.coleparmer.com/i/mn/0752360</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1311252284">
+    <description>MULTICOMP G2111 Plastic Enclosure, Multipurpose, Polycarbonate, 200mm, IP65, 90mm</description>
+    <supplier>Farnell</supplier>
+    <supplier_part_num>1526667</supplier_part_num>
+    <manufacturer_part_num>G2111</manufacturer_part_num>
+    <url>http://uk.farnell.com/multicomp/g2111/box-polycarbonate-200x120x90mm/dp/1526667?ost=1526667&amp;selectedCategoryId=&amp;categoryNameResp=All&amp;searchView=table&amp;iscrfnonsku=false</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="271908541">
+    <description>Multilayer Ceramic Capacitor, Gold Max, 0.47 μF, 50V, 300 Series, ± 20%, Radial Leaded.</description>
+    <supplier>Farnell</supplier>
+    <supplier_part_num>1457710</supplier_part_num>
+    <manufacturer_part_num>C3222C474M5U5TA</manufacturer_part_num>
+    <url>http://uk.farnell.com/kemet/c322c474m5u5ta/cap-mlcc-z5u-470nf-50v-rad/dp/1457710?ost=1457710&amp;selectedCategoryId=&amp;categoryNameResp=All&amp;searchView=table&amp;iscrfnonsku=false</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="147483907">
+    <description>EBM PAPST  414F  Axial Fan, Compact, Tubeaxial, Square, Wire Leaded, Sleeve, 24 VDC, 40 mm, 10 mm, 400F Series</description>
+    <supplier>Farnell</supplier>
+    <supplier_part_num>9601295</supplier_part_num>
+    <manufacturer_part_num>414F</manufacturer_part_num>
+    <url>http://uk.farnell.com/ebm-papst/414f/fan-40x40x10mm-24vdc-8m3-h-22/dp/9601295?ost=9601295&amp;selectedCategoryId=&amp;categoryNameResp=All&amp;searchView=table&amp;iscrfnonsku=false</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="569834756">
+    <description>Through Hole Resistor, 220 ohm, 350 V, Axial Leaded, 600 mW, ± 1%, LR Series</description>
+    <supplier>Farnell</supplier>
+    <supplier_part_num>2330065</supplier_part_num>
+    <manufacturer_part_num>LR1F220R</manufacturer_part_num>
+    <url>http://uk.farnell.com/te-connectivity/lr1f220r/resistor-metal-220r-0-6w-1/dp/2330065?ost=2330065&amp;selectedCategoryId=&amp;categoryNameResp=All&amp;searchView=table&amp;iscrfnonsku=false</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1413390366">
+    <description>Vishay 4N35 Optocoupler, Transistor Output, 1 Channel, DIP, 6 Pins, 50 mA, 5kV, 100%</description>
+    <supplier>Farnell</supplier>
+    <supplier_part_num>1328375</supplier_part_num>
+    <manufacturer_part_num>4N35</manufacturer_part_num>
+    <url>http://uk.farnell.com/vishay/4n35/optocoupler-phototransistor-5000vrms/dp/1328375?ost=1328375&amp;selectedCategoryId=&amp;categoryNameResp=All&amp;searchView=table&amp;iscrfnonsku=false</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="2049686096">
+    <description>Microswitch, SPDT, Solder, 5 A, 250 VAC, 250 VDC</description>
+    <supplier>Farnell</supplier>
+    <supplier_part_num>2213983</supplier_part_num>
+    <manufacturer_part_num>VX521A3</manufacturer_part_num>
+    <url>http://uk.farnell.com/omron-electronic-components/vx521a3/microswitch-lever-5a-solder/dp/2213983?ost=2213983&amp;selectedCategoryId=&amp;categoryNameResp=All&amp;searchView=table&amp;iscrfnonsku=false</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="127015022">
+    <description>Microswitch, SPDT, Solder, 5 A, 125 VAC</description>
+    <supplier>Farnell</supplier>
+    <supplier_part_num>103444</supplier_part_num>
+    <manufacturer_part_num>SS-5GL</manufacturer_part_num>
+    <url>http://uk.farnell.com/omron-electronic-components/ss-5gl/microswitch-spdt-lever-125vac/dp/103444?ost=103444&amp;selectedCategoryId=&amp;categoryNameResp=All&amp;searchView=table&amp;iscrfnonsku=false</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1022324150">
+    <description>Burglar Alarm Cable 4 Core White</description>
+    <supplier>Maplin</supplier>
+    <supplier_part_num>XR89W</supplier_part_num>
+    <manufacturer_part_num>XR89W</manufacturer_part_num>
+    <url>http://www.maplin.co.uk/p/burglar-alarm-cable-4-core-white-priced-per-metre-xr89w</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="261310144">
+    <description>USB 2.0 Cable Assembly, Male USB A to Male USB B, 3m</description>
+    <supplier>RS Online</supplier>
+    <supplier_part_num>790-3940</supplier_part_num>
+    <manufacturer_part_num>790-3940</manufacturer_part_num>
+    <url>http://uk.rs-online.com/web/p/usb-cable-assemblies/7903940/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="255027995">
+    <description>3 Core 13A Mains Cable Black</description>
+    <supplier>Maplin</supplier>
+    <supplier_part_num>XR09K</supplier_part_num>
+    <manufacturer_part_num>XR09K</manufacturer_part_num>
+    <url>http://www.maplin.co.uk/p/3-core-13a-mains-cable-black-priced-per-metre-xr09k</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="10217983">
+    <description>Official Raspberry Pi Power Supply, 5.1V, 2.5A, 13W</description>
+    <supplier>RS Online</supplier>
+    <supplier_part_num>909-8126</supplier_part_num>
+    <manufacturer_part_num>T5875DV</manufacturer_part_num>
+    <url>http://uk.rs-online.com/web/p/plug-in-power-supply/9098126/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1946528">
+    <description>GT2-2M Timing Pulley - 20 Tooth</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 210</supplier_part_num>
+    <manufacturer_part_num>SKU: 210</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/gt2-2m-timing-pulley-20-tooth/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="957585916">
+    <description>M3 Cap Head Bolts 45 mm</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 105</supplier_part_num>
+    <manufacturer_part_num>SKU: 105</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/m3-cap-head-screws/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1362752078">
+    <description>Aluminium Spacer 1.5"</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 80</supplier_part_num>
+    <manufacturer_part_num>SKU: 80</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/aluminum-spacers/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1901789903">
+    <description>Motor Mount Plate - NEMA 17 Stepper Motor</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 575</supplier_part_num>
+    <manufacturer_part_num>SKU: 575</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/motor-mount-plate-nema-17-stepper-motor/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1161402462">
+    <description>V-Slot Gantry Plate</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 621</supplier_part_num>
+    <manufacturer_part_num>SKU: 621</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/v-slot-gantry-plates/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media>
+      <file url="././././././././././././././././././././V-Slot-Gantry-Plate.jpg" />
+    </media>
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="246810053">
+    <description>25 mm M5 Low profile bolt</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 20</supplier_part_num>
+    <manufacturer_part_num>SKU: 20</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/low-profile-screws-m5/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1286756598">
+    <description>Eccentric Spacer 6 mm</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 226</supplier_part_num>
+    <manufacturer_part_num>SKU: 226</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/eccentric-spacer/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1025711165">
+    <description>Aluminium spacer 6 mm</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 90</supplier_part_num>
+    <manufacturer_part_num>SKU: 90</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/aluminum-spacers/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="980954410">
+    <description>M5 Nylon Insert Hex Locknut</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 10</supplier_part_num>
+    <manufacturer_part_num>SKU: 10</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/nylon-insert-hex-locknut/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1437856632">
+    <description>Vertical post: 300 mm length of 20 x 40 mm cross-section V-Slot linear rail.</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 175 - LP</supplier_part_num>
+    <manufacturer_part_num>SKU: 175 - LP</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/v-slot-linear-rail/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction>
+      <step>
+        <description>Cut to length using mitre saw.</description>
+        <media />
+      </step>
+    </manufacturing_instruction>
+  </physical_part>
+  <physical_part id="1363606810">
+    <description>Y-axis rail: 750 mm length of 20 x 60 mm cross-section V-Slot linear rail.</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 240 - LP</supplier_part_num>
+    <manufacturer_part_num>SKU: 240 - LP</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/v-slot-linear-rail/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction>
+      <step>
+        <description>Cut to length using mitre saw.</description>
+        <media />
+      </step>
+    </manufacturing_instruction>
+  </physical_part>
+  <physical_part id="471366522">
+    <description>GT2-2M timing belt</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 470</supplier_part_num>
+    <manufacturer_part_num>SKU: 470</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/gt2-2m-timing-belt/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="81012717">
+    <description>Cast corner bracket</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 490</supplier_part_num>
+    <manufacturer_part_num>SKU: 490</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/cast-corner-bracket/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1529459088">
+    <description>10mm M5 Low Profile Bolt</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 878</supplier_part_num>
+    <manufacturer_part_num>SKU: 878</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/low-profile-screws-m5/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1146002923">
+    <description>X-axis rail: 412 mm length of 20 x 60 mm cross-section V-Slot linear rail</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 290 - LP</supplier_part_num>
+    <manufacturer_part_num>SKU: 290 - LP</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/v-slot-linear-rail/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction>
+      <step>
+        <description>Cut to length using mitre saw.</description>
+        <media />
+      </step>
+    </manufacturing_instruction>
+  </physical_part>
+  <physical_part id="1970698343">
+    <description>6mm M3 Bolt</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 856</supplier_part_num>
+    <manufacturer_part_num>SKU: 856</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/button-head-screws-m3-25-pack/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="473228756">
+    <description>40mm M5 Low Profile Bolt</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 135</supplier_part_num>
+    <manufacturer_part_num>SKU: 135</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/low-profile-screws-m5/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1525566354">
+    <description>15mm M5 Low Profile Bolt</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 992</supplier_part_num>
+    <manufacturer_part_num>SKU: 992</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/low-profile-screws-m5/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1862946946">
+    <description>5mm * 8mm Flexible Coupling</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 222</supplier_part_num>
+    <manufacturer_part_num>SKU: 222</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/5mm-8mm-flexible-coupling/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="22454537">
+    <description>3/4" Self Tapping Screw</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 720</supplier_part_num>
+    <manufacturer_part_num>SKU: 720</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/self-tapping-screw/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="451263334">
+    <description>Threaded Rod Plate - NEMA 17 Stepper Motor</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 560</supplier_part_num>
+    <manufacturer_part_num>SKU: 560</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/threaded-rod-plate-nema-17-stepper-motor/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1260189628">
+    <description>Spacer Block</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 580</supplier_part_num>
+    <manufacturer_part_num>SKU: 580</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/spacer-block/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1296297481">
+    <description>Lock Collar</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 840</supplier_part_num>
+    <manufacturer_part_num>SKU: 840</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/lock-collar/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1032430542">
+    <description>Ball Bearing 688Z 8x16x5</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 780</supplier_part_num>
+    <manufacturer_part_num>SKU: 780</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/ball-bearing-688z-8x16x5/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="16101183">
+    <description>Nut Block for 8mm Metric Acme Lead Screw</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 740</supplier_part_num>
+    <manufacturer_part_num>SKU: 740</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/nut-block-for-8mm-metric-acme-lead-screw/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="623188953">
+    <description>Z-axis rail: 285mm length of 20 x 40 mm cross-section V-Slot linear rail</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 135 - LP</supplier_part_num>
+    <manufacturer_part_num>SKU: 135 - LP</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/v-slot-linear-rail/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction>
+      <step>
+        <description>Cut to length using mitre saw.</description>
+        <media />
+      </step>
+    </manufacturing_instruction>
+  </physical_part>
+  <physical_part id="2059958257">
+    <description>300mm length of 8mm diameter acme lead screw</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 20 - LP</supplier_part_num>
+    <manufacturer_part_num>SKU: 20 - LP</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/8mm-metric-acme-lead-screw/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction>
+      <step>
+        <description>Cut to length using mitre saw.</description>
+        <media />
+      </step>
+    </manufacturing_instruction>
+  </physical_part>
+  <physical_part id="575863699">
+    <description>2 Hole Joining Plate</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 644</supplier_part_num>
+    <manufacturer_part_num>SKU: 644</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/2-hole-joining-strip-plate/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1912192592">
+    <description>12mm M5 Low Profile Bolt</description>
+    <supplier />
+    <supplier_part_num>SKU: 755</supplier_part_num>
+    <manufacturer_part_num>SKU: 755</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/low-profile-screws-m5/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction>
+      <step>
+        <description>Trim a 50mm M5 Low Profile Bolt to a length of 12mm using a hack saw. Starting with a relatively long bolt (50mm) makes sawing easier, because most of the bolt can be clamped in a vice.</description>
+        <media />
+      </step>
+    </manufacturing_instruction>
+  </physical_part>
+  <physical_part id="892398104">
+    <description>Tool Mount: 88mm length of 20 x 40 mm cross-section V-slot linear rail.</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 260 - LP</supplier_part_num>
+    <manufacturer_part_num>SKU: 260 - LP</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/v-slot-linear-rail/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction>
+      <step>
+        <description>Cut to length using mitre saw.</description>
+        <media />
+      </step>
+    </manufacturing_instruction>
+  </physical_part>
+  <brick id="159776940">
+    <name>CNC fly food dispenser</name>
+    <abstract>One line summary</abstract>
+    <long_description>Based on original design by...
+Types of actuator (belt and pulley, screw thread)
+Pump control (functions, electrical isolation)
+Software source code</long_description>
+    <notes />
+    <license>CC-BY 3.0</license>
+    <media>
+      <file url="./././././././././././././system.jpg" />
+    </media>
+    <assembly_instruction />
+    <function id="1687955803">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="brick" id="1774157860" />
+    </function>
+    <function id="1065397470">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="brick" id="1394106408" />
+    </function>
+    <function id="736732419">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="brick" id="773928319" />
+    </function>
+  </brick>
+  <brick id="1774157860">
+    <name>Base frame</name>
+    <abstract />
+    <long_description>Base frame for machine. Provides rigid base for robot and also supports the platform for trays/boxes.</long_description>
+    <notes />
+    <license />
+    <media />
+    <assembly_instruction>
+      <step>
+        <description>Layout components for base frame.</description>
+        <media>
+          <file url="././././././././././././././././././././././base_frame_components.jpg" />
+          <file url="././././././././././././././././././././././base_frame_bracket_and_fastenings.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Take a longitudinal beam and lay it on its side so that two parallel v-slots are facing upwards. Slide a T-nut into each of the slots as shown.</description>
+        <media>
+          <file url="././././././././././././././././././././././base_frame_t-nuts_long_beam.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach universal L bracket to the longitudinal beam using 2 x 8mm M5 low profile bolts and the T-nuts inserted in the previous step. Leave bolts loose.</description>
+        <media>
+          <file url="././././././././././././././././././././././base_frame_attach_bracket_to_long_beam.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Repeat steps above to attach a 2nd universal L bracket to the other end of the longitudinal beam. Then attach a pair of brackets to the other longitudinal beam.</description>
+        <media>
+          <file url="././././././././././././././././././././././base_frame_long_beams_prepared.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach longitudinal beam to feet using universal L bracket, 8mm M5 low profile bolts and T-nuts. Longitudinal beams should be positioned 90mm from the end of the feet. Turning the frame upside down so that the longitudinal beams are resting on the work surface will aid alignment.</description>
+        <media>
+          <file url="././././././././././././././././././././././base_frame_attach_long_beam_to_feet.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Completed base frame (upside down).</description>
+        <media>
+          <file url="././././././././././././././././././././././base_frame_completed.jpg" />
+        </media>
+      </step>
+    </assembly_instruction>
+    <function id="2126552331">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="522339604" />
+    </function>
+    <function id="866090484">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="375339629" />
+    </function>
+    <function id="419854934">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="1003724140" />
+    </function>
+    <function id="1461436320">
+      <description />
+      <designator />
+      <quantity>16</quantity>
+      <implementation type="physical_part" id="1153134511" />
+    </function>
+    <function id="110166651">
+      <description />
+      <designator />
+      <quantity>16</quantity>
+      <implementation type="physical_part" id="1420365321" />
+    </function>
+    <instruction name="" />
+  </brick>
+  <brick id="1394106408">
+    <name>Y-axis actuator</name>
+    <abstract />
+    <long_description>Provides linear movement in Y direction using a belt and pinion mechanism. A pair of motors are used for motion in the Y axis, because they are required to move the entire gantry. A single motor is used for each of the other two axes.</long_description>
+    <notes />
+    <license />
+    <media />
+    <assembly_instruction>
+      <step>
+        <description>Start by attaching a timing pulley and mount plate to each stepper motor.</description>
+        <media>
+          <file url="././././././././././././././././././././././Y-motor-plate-1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The timing pulley slides over the shaft of the motor and is held in place by two grub screws. Tighten grub screws using 1.5 mm Allen (hex) key.</description>
+        <media>
+          <file url="././././././././././././././././././././././Y-motor-plate-2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach a motor plate to each motor. Place a 1.5" aluminium spacer over each of the four M3 threaded holes in the motor. These spacers act as standoffs between the motor and motor plate. Position the motor plate over the spacers. Insert an M3 Cap Head Bolt through one of the four slots in the plate and through the corresponding spacer and screw loosely into motor. Repeat for the other three bolts. Tighten bolts in diagonal pairs. Note the positions of the cable connector for each motor; this orientation is important for routing cables.</description>
+        <media>
+          <file url="././././././././././././././././././././././Y-motor-plate-3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The next stage of the build involves attaching each motor to a Y-axis actuator carriage. This requires 3 x 8mm M5 low profile bolts and three T-nuts per motor.</description>
+        <media>
+          <file url="././././././././././././././././././Y-motor-carriage-assembly-1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The motor plate is attached to the bottom of the Y-axis actuator carriage. The bottom of the  carriage is the end where the two wheels are mounted on eccentric spacers, i.e. the end with the larger diameter (7.14 mm) holes. Place the carriage on top of the motor plate and insert the three bolts as shown.</description>
+        <media>
+          <file url="././././././././././././././././././Y-motor-carriage-assembly-2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The bolts are secured using M5 T-nuts.</description>
+        <media>
+          <file url="././././././././././././././././././Y-motor-carriage-assembly-3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The completed motor-carriage assemblies should appear as in the photograph.</description>
+        <media>
+          <file url="././././././././././././././././././Y-motor-carriage-assembly-4.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>In the next stage of the build a vertical post (300 mm length of 20 x 40 mm cross-section V-slot linear rail) is attached to each Y-axis actuator carriage. These posts will support the gantry. Four 8mm M5 low profile bolts and four M5 T-nuts are required to attach each post.</description>
+        <media>
+          <file url="././././././././././././././././././Y-vertical-post-1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Slide a pair of M5 T-nuts into each of two parallel slots of the post (V-slot linear rail).</description>
+        <media>
+          <file url="././././././././././././././././././Y-vertical-post-2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Insert the bolts through the gantry plate so that each engages with a T-nut.</description>
+        <media>
+          <file url="././././././././././././././././././Y-vertical-post-3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Check that the base of the post is flush with the edge of the motor plate before tightening the four bolts.</description>
+        <media>
+          <file url="././././././././././././././././././Y-vertical-post-4.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The finished assembly should appear as in this photograph.</description>
+        <media>
+          <file url="././././././././././././././././././Y-vertical-post-5.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The pair of carriages run on parallel rails (Y-axis rail: 750 mm length of 20 x 60 mm V-Slot rail). To complete the build of the Y-axis actuator, each carriage has to be mounted on a rail and these rails have to be attached to the base frame of he machine. For each carriage we require: one Y-axis rail, approximately 1 metre of GT2-2M timing belt, two cast corners, two 10 mm M5 low profile bolts, four  8 mm M5 low profile bolts and six T-nuts.</description>
+        <media>
+          <file url="./././././././././././././././././Y-actuator-and-rail-components.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The distance between the top and bottom wheels of the carriage can be adjusted by rotating the eccentric spacers on the axles of the bottom two wheels, using an 8 mm spanner. Rotate the eccentric spacers until the gap between the top and bottom wheels is maximized. This will make it easier to slide the carriage on to the rail.</description>
+        <media>
+          <file url="./././././././././././././././././Y-adj-eccentric.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Slide the carriage on to the Y-axis rail and then determine the orientation of the Y-axis rail. The photograph shows the left side rail. Note that the gantry plate of the carriage and the vertical post will be on the outside of the machine. Also, the cable connector for the motor (arrowed) faces towards the rear of the machine.</description>
+        <media>
+          <file url="./././././././././././././././Y-actuator-carriage-on-rail-labelled.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Lay the timing belt into the slot of the rail (tooth-side down), feeding it under the bottom wheels of the carriage. At the end of the rail that will be at the front of the machine, leave 20-30 mm of timing belt protruding. Gripping the end of the timing belt between thumb and forefinger of one hand, use the other hand to slide two M5 T-nuts over the timing belt and into the slot. Screw an  8mm M5 low profile bolt into the T-nut nearest the end of the rail to secure this end of the timing belt in position. Loosely attach a cast corner bracket (not shown) to the rail using the 2nd T-nut and an 8mm M5 low profile bolt.</description>
+        <media>
+          <file url="./././././././././././././././././Y-anchor-belt-front.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Create a loop in the timing belt between the bottom wheels of the carriage. Hook the looped timing belt over the pulley on the motor. It may be necessary to adjust the position of the pulley on the shaft of the motor, so that the teeth on the pulley align with the timing belt. Loosen the two grub screws using a 1.5 mm Allen (hex) key, reposition the pulley and then tighten the two grub screws.</description>
+        <media>
+          <file url="./././././././././././././././././Y-actuator-adj-pulley.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>At the other (rear) end of the rail, slide an M5 T-nut over the timing belt and into the slot. Push this T-nut along the slot until it is approximately 50 mm away from the end of the rail. The timing belt posterior to this T-nut should be pulled out of the slot. Then slide a 2nd M5 T-nut into the slot.</description>
+        <media>
+          <file url="./././././././././././././././././Y-anchor-belt-rear-1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Grasp the end of the timing belt between thumb and forefinger, and pull towards the rear end of the rail to remove slack. While continuing to pull on the timing belt, anchor it in place by screwing an 8 mm M5 low profile bolt into the front T-nut. Loosely attach a cast corner bracket to the rail using the other T-nut and an 8mm M5 low profile bolt.</description>
+        <media>
+          <file url="./././././././././././././././././Y-anchor-belt-rear-2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The Y-axis rail is now ready to be mounted on the base frame of the machine. Insert an M5 T-nut into the top slot on the inner-side of both feet. These T-nuts will be used to attach the cast corner brackets on the Y-axis rail.</description>
+        <media>
+          <file url="./././././././././././././././././Y-T-nut-in-foot.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Rest the rear end of the Y-axis rail on the rear foot of the base frame. The head of the bolt anchoring the timing belt at the front end of the rail should slide into the slot at the top of the front foot. It may be necessary to adjust the position of this bolt to that the end of the rail and the front of the foot can be made flush. Once the rail is properly aligned with the base frame, secure it in position using the cast corner brackets. Use 10 mm M5 low profile bolts to fix the brackets to the feet.</description>
+        <media>
+          <file url="./././././././././././././././././Y-bolt-head-in-v-slot.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Repeat the previous nine steps for the Y-axis rail on the other side of the machine.</description>
+        <media>
+          <file url="./././././././././././././././././Y-actuators-attached-main-frame-labeled.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Tighten the wheels of the carriages against the Y-axis rail by rotating the eccentric spacers using an 8mm spanner. The eccentric spacers provide an adjustment range of approximately 0.79 mm.</description>
+        <media>
+          <file url="./././././././././././././././././Y-adj-eccentric-mounted.jpg" />
+        </media>
+      </step>
+    </assembly_instruction>
+    <function id="1096334944">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1921182216" />
+    </function>
+    <function id="1792212584">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1901789903" />
+    </function>
+    <function id="1397846322">
+      <description />
+      <designator />
+      <quantity>8</quantity>
+      <implementation type="physical_part" id="1362752078" />
+    </function>
+    <function id="375474614">
+      <description />
+      <designator />
+      <quantity>8</quantity>
+      <implementation type="physical_part" id="957585916" />
+    </function>
+    <function id="393809605">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1946528" />
+    </function>
+    <function id="1904473031">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="brick" id="1584869661" />
+    </function>
+    <function id="2037633447">
+      <description />
+      <designator />
+      <quantity>22</quantity>
+      <implementation type="physical_part" id="1420365321" />
+    </function>
+    <function id="207976163">
+      <description />
+      <designator />
+      <quantity>26</quantity>
+      <implementation type="physical_part" id="1153134511" />
+    </function>
+    <function id="1005706548">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1437856632" />
+    </function>
+    <function id="1629861635">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1363606810" />
+    </function>
+    <function id="1851045702">
+      <description />
+      <designator />
+      <quantity>2 metres</quantity>
+      <implementation type="physical_part" id="471366522" />
+    </function>
+    <function id="1381284288">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="1529459088" />
+    </function>
+    <function id="971894559">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="81012717" />
+    </function>
+    <instruction name="" />
+    <instruction name="" />
+    <instruction name="" />
+  </brick>
+  <brick id="1584869661">
+    <name>Y-axis actuator carriage</name>
+    <abstract />
+    <long_description />
+    <notes />
+    <license />
+    <media />
+    <assembly_instruction>
+      <step>
+        <description>Each of the four Delrin wheels requires two 625 2RS ball bearings and a precision shim. Insert a bearing into one side of the wheel and then place the wheel bearing side down on the work surface. Place the precision shim inside the wheel on top of the centre of the bearing. Insert the 2nd bearing into the wheel.</description>
+        <media>
+          <file url="./././././././././././././././././././././wheel_components.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Layout the parts required to build the Y-axis actuator carriage.</description>
+        <media>
+          <file url="./././././././././././././././././././././Y-carriage-components.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Insert 25 mm M5 bolts through holes in the plate as shown in the photograph. Note that two of the bolts pass through the 5 mm diameter holes and the other two through the 7.14 mm diameter holes. The 7.14 mm diameter holes are designed to accommodate the eccentric spacers (see below).</description>
+        <media>
+          <file url="./././././././././././././././././././././Y-carriage-1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Start with the bolts passing through the 5 mm diameter holes. Slide a 6 mm aluminium spacer over each bolt.</description>
+        <media>
+          <file url="./././././././././././././././././././././Y-carriage-2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Next place a precision shim on top of each aluminium spacer.</description>
+        <media>
+          <file url="./././././././././././././././././././././Y-carriage-3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Then add a wheel. If the shim between the bearings is not centered, it may prevent the wheel from sliding onto the bolt. To centre the shim between the bearings, rotate the wheel as you slide it onto the bolt.</description>
+        <media>
+          <file url="./././././././././././././././././././././Y-carriage-4.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Secure each wheel in place using an M5 nylon insert hex locknut.</description>
+        <media>
+          <file url="./././././././././././././././././././././Y-carriage-5.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The bolts passing through the 7.14 mm diameter holes are fitted with 6mm eccentric spacers, instead of the circular spacers used on the other pair of bolts. One end of the eccentric spacer is circular in cross-section and the other end is hexagonal. There is a flange where the two different profiles meet. Slide an eccentric spacer over the bolt, round end first, and push into the gantry plate.</description>
+        <media>
+          <file url="./././././././././././././././././././././Y-carriage-6.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Place a precision shim on top of the eccentric spacer.</description>
+        <media>
+          <file url="./././././././././././././././././././././Y-carriage-7.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Add a wheel.</description>
+        <media>
+          <file url="./././././././././././././././././././././Y-carriage-8.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Secure wheel using an M5 nylon insert hex locknut.</description>
+        <media>
+          <file url="./././././././././././././././././././././Y-carriage-9.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The completed Y-axis actuator carriage should look like this.</description>
+        <media>
+          <file url="./././././././././././././././././././././Y-carriage-10.jpg" />
+        </media>
+      </step>
+    </assembly_instruction>
+    <function id="1938140154">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="465396538" />
+    </function>
+    <function id="731490866">
+      <description />
+      <designator />
+      <quantity>8</quantity>
+      <implementation type="physical_part" id="1329328142" />
+    </function>
+    <function id="922979825">
+      <description />
+      <designator />
+      <quantity>8</quantity>
+      <implementation type="physical_part" id="1476891621" />
+    </function>
+    <function id="1867569524">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="980954410" />
+    </function>
+    <function id="630820453">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1286756598" />
+    </function>
+    <function id="1731614501">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1025711165" />
+    </function>
+    <function id="549794192">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="246810053" />
+    </function>
+  </brick>
+  <brick id="1604629165">
+    <name>X-axis actuator</name>
+    <abstract />
+    <long_description>Provides linear motion in X-axis using a belt and pinion mechanism.</long_description>
+    <notes />
+    <license />
+    <media />
+    <assembly_instruction>
+      <step>
+        <description>Each of the four Delrin wheels requires two 625 2RS ball bearings and a precision shim. Insert a bearing into one side of the wheel and then place the wheel bearing side down on the work surface. Place the precision shim inside the wheel on top of the centre of the bearing. Insert the 2nd bearing into the wheel.</description>
+        <media>
+          <file url="././././././././././././././wheel_components.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Layout parts required to build X-axis actuator.</description>
+        <media>
+          <file url="././././././././././././././x-axis-components.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach NEMA 17 stepper motor to mount plate using four 6mm M3 bolts.</description>
+        <media>
+          <file url="././././././././././././././x-axis-1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach motor mount plate to one of the two V-Slot gantry plates. Note that most of the holes in the V-Slot gantry plates are 5 mm in diameter, however on one half of the plate there are three rows of larger holes, 7.14 mm in diameter. The 7.14 mm diameter holes are designed to accommodate eccentric spacers. The motor plate is attached to the end of the V-slot gantry plate without the larger holes. Place the V-slot gantry plate over the motor plate, line up three 5mm diameter holes in a triangular formation and insert three 8 mm M5 low profile bolts.</description>
+        <media>
+          <file url="././././././././././././././x-axis-2a.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Secure the bolts using three M5 T-nuts.</description>
+        <media>
+          <file url="././././././././././././././x-axis-2b.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Take the other V-slot gantry plate and insert four 40mm M5 low profile bolts. Note two pass through 5mm diameter holes and the other two through 7.14 mm diameter holes.</description>
+        <media>
+          <file url="././././././././././././././x-axis-3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The two bolts passing through the 7.14 mm diameter holes are fitted with 6mm eccentric spacers. One end of the eccentric spacer is circular in cross-section and the other end is hexagonal. There is a flange where the two different profiles meet. Slide the eccentric spacer over the bolt, round end first, and push into the gantry plate. Place 6mm aluminium spacers over the other two bolts.</description>
+        <media>
+          <file url="././././././././././././././x-axis-4.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Place a precision shim on top of each of the four spacers.</description>
+        <media>
+          <file url="././././././././././././././x-axis-5.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Slide a wheel on to each bolt. If the shim between the bearings is not centered, it may prevent the wheel from sliding onto the bolt. To centre the shim between the bearings, rotate the wheel as you slide it onto the bolt.</description>
+        <media>
+          <file url="././././././././././././././x-axis-6.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Place a precision shim on top of each wheel.</description>
+        <media>
+          <file url="././././././././././././././x-axis-7.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Add a 6mm aluminium spacer to each bolt.</description>
+        <media>
+          <file url="././././././././././././././x-axis-8.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Complete the build of the carriage by placing the other V-Slot gantry plate with motor attached over the four bolts. Ensure that the large holes on both gantry plates are aligned. Secure the assembly by screwing an M5 Nylon Insert Hex Locknut onto the end of each bolt.</description>
+        <media>
+          <file url="././././././././././././././x-axis-9.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The carriage can then be slid onto the X-axis rail. If the carriage will not slide easily on to the rail, rotate the eccentric spacers using an 8 mm spanner until the distance between the top and bottom pair of wheels is maximized.</description>
+        <media>
+          <file url="././././././././././././././x-axis-10.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Slide the GT2-2M timing pulley on to the shaft of the stepper motor. Align the teeth of the pulley with the slot in the rail below and then fix the pulley in position using the two grub screws. A 1.5 mm Allen (hex) key is required to tighten the grub screws.</description>
+        <media>
+          <file url="././././././././././././././x-axis-11.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Lay the GT2-2M timing belt into the slot of the rail (tooth-side down), feeding it under the top wheels of the carriage. Slide a T-nut over the timing belt and into the slot of the rail. Screw an 8mm M5 low profile bolt through the M5 T-nut to anchor the timing belt at one end of the rail.</description>
+        <media>
+          <file url="././././././././././././././x-axis-12.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Create a loop in the timing belt between the top wheels of the carriage. Hook the looped timing belt over the pulley on the motor. It may be necessary to adjust the position of the pulley on the shaft of the motor, so that the teeth on the pulley align with the timing belt. Loosen the two grub screws using a 1.5 mm Allen (hex) key, reposition the pulley and then tighten the two grub screws. 
+
+Finally pull on the free end of the timing belt to take up slack and then anchor it to the end or the X-axis rail using an 8mm M5 low profile bolt and M5 T-nut.</description>
+        <media>
+          <file url="././././././././././././././x-axis-13.jpg" />
+        </media>
+      </step>
+    </assembly_instruction>
+    <function id="818143008">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="1921182216" />
+    </function>
+    <function id="597822144">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="1901789903" />
+    </function>
+    <function id="1350494149">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1286756598" />
+    </function>
+    <function id="755760436">
+      <description />
+      <designator />
+      <quantity>6</quantity>
+      <implementation type="physical_part" id="1025711165" />
+    </function>
+    <function id="1467648123">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1161402462" />
+    </function>
+    <function id="1219162758">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="1146002923" />
+    </function>
+    <function id="1862939115">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="465396538" />
+    </function>
+    <function id="1614715426">
+      <description />
+      <designator />
+      <quantity>8</quantity>
+      <implementation type="physical_part" id="1329328142" />
+    </function>
+    <function id="379020012">
+      <description />
+      <designator />
+      <quantity>12</quantity>
+      <implementation type="physical_part" id="1476891621" />
+    </function>
+    <function id="813179031">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="980954410" />
+    </function>
+    <function id="1694140439">
+      <description />
+      <designator />
+      <quantity>5</quantity>
+      <implementation type="physical_part" id="1153134511" />
+    </function>
+    <function id="1303580700">
+      <description />
+      <designator />
+      <quantity>5</quantity>
+      <implementation type="physical_part" id="1420365321" />
+    </function>
+    <function id="1825864049">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="1970698343" />
+    </function>
+    <function id="1296527519">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="473228756" />
+    </function>
+    <function id="1590062720">
+      <description />
+      <designator />
+      <quantity>600 mm</quantity>
+      <implementation type="physical_part" id="471366522" />
+    </function>
+    <function id="1758005492">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="1946528" />
+    </function>
+  </brick>
+  <brick id="939357724">
+    <name>Z-axis actuator</name>
+    <abstract />
+    <long_description>Provides linear motion in Z using a leadscrew mechanism.</long_description>
+    <notes />
+    <license />
+    <media />
+    <assembly_instruction>
+      <step>
+        <description>Each of the four Delrin wheels requires two 625 2RS ball bearings and a precision shim. Insert a bearing into one side of the wheel and then place the wheel bearing side down on the work surface. Place the precision shim inside the wheel on top of the centre of the bearing. Insert the 2nd bearing into the wheel.</description>
+        <media>
+          <file url="./././wheel_components.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Layout components required to build the Z-axis actuator. This picture shows all components, except four of the precision shims and all four of the 8mm low profile M5 bolts.</description>
+        <media>
+          <file url="././././z-components.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The nutblock will run along the 8mm lead screw of the z-actuator. Insert two M5 nyloc nuts into the nut block.</description>
+        <media>
+          <file url="./././z-nut-block.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach nut block to V-slot gantry plate using two 15mm M5 low profile bolts and the M5 nyloc nuts.</description>
+        <media>
+          <file url="./././z-nut-block-gantry-plate.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The spacer blocks each have a pair of M5 threaded holes. Use these threaded holes and a pair of 8mm M5 low profile bolts to attach each spacer block to the V-slot gantry plate.</description>
+        <media>
+          <file url="./././z-attach-spacers-gantry-plate-1.jpg" />
+          <file url="./././z-attach-spacers-gantry-plate-2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Insert four 40mm M5 low profile bolts through the V-slot gantry plate and spacer blocks.</description>
+        <media>
+          <file url="./././z-wheels-1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Slide a 6mm aluminium spacer over each of one pair of bolts. Place eccentric spacers over the other pair of bolts. One end of the eccentric spacer is circular in cross-section and the other end is hexagonal. There is a flange where the two different profiles meet. Slide the eccentric spacer over the bolt, round end first, and push into the spacer block. In the picture 6mm aluminium spacers have been place over the left side pair of bolts and eccentric spacers over the right side bolts.</description>
+        <media>
+          <file url="./././z-wheels-2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Add a precision shim to each bolt.</description>
+        <media>
+          <file url="./././z-wheels-3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Add a wheel to each bolt.</description>
+        <media>
+          <file url="./././z-wheels-4.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Secure wheels using M5 nyloc nuts. Z-carriage is complete.</description>
+        <media>
+          <file url="./././z-wheels-5.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Slide carriage onto z-axis rail. Tighten the wheels of the carriage against the Z-axis rail by rotating the eccentric spacers using an 8mm spanner. The eccentric spacers provide an adjustment range of approximately 0.79 mm.</description>
+        <media>
+          <file url="./././z-carriage-onto-rail.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach flexible coupling to shaft of stepper motor using inset grub screws.</description>
+        <media>
+          <file url="./././z-attach-coupler-motor.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Insert lead screw through nut block. Next slide a lock collar onto each end of the lead screw, followed by a ball bearing (688Z 8x16x5).</description>
+        <media>
+          <file url="./././z-leadscrew-bearings.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach a threaded rod plate to the bottom of the Z-axis rail using two 3/4" self tapping screws. Enlarge holes in Z-axis rail using 4.5mm drill bit to make it easier to insert self tapping screws.</description>
+        <media>
+          <file url="./././z-attach-threaded-rod-plate-bottom.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach a threaded rod plate  to the top of the Z-axis rail using two 3/4" self tapping screws.</description>
+        <media>
+          <file url="./././z-attach-threaded-rod-plate-top.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Fix bearings against threaded rod plates using lock collars.</description>
+        <media>
+          <file url="./././z-secure-bearings-using-lock-collars.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Insert the thre 45 mm M3 cap head bolts through the top threaded rod plate. Slide a 1.5" aluminium spacer over each bolt.</description>
+        <media>
+          <file url="./././z-m3bolts-spacers-motor.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach stepper motor to top threaded rod plate using the 45mm M3 bolts. Attach flexible coupling to lead screw using inset grub screws.</description>
+        <media>
+          <file url="./././z-completed-actuator-2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Finished Z-axis actuator.</description>
+        <media>
+          <file url="./././z-completed-actuator-1.jpg" />
+        </media>
+      </step>
+    </assembly_instruction>
+    <function id="942688622">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="1420365321" />
+    </function>
+    <function id="102029844">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="1921182216" />
+    </function>
+    <function id="1765359422">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="1161402462" />
+    </function>
+    <function id="1062212568">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="465396538" />
+    </function>
+    <function id="684158967">
+      <description />
+      <designator />
+      <quantity>8</quantity>
+      <implementation type="physical_part" id="1329328142" />
+    </function>
+    <function id="53996275">
+      <description />
+      <designator />
+      <quantity>8</quantity>
+      <implementation type="physical_part" id="1476891621" />
+    </function>
+    <function id="1399144404">
+      <description />
+      <designator />
+      <quantity>6</quantity>
+      <implementation type="physical_part" id="980954410" />
+    </function>
+    <function id="667381901">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1525566354" />
+    </function>
+    <function id="448659514">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="473228756" />
+    </function>
+    <function id="21128472">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1286756598" />
+    </function>
+    <function id="178409604">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1025711165" />
+    </function>
+    <function id="116647884">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="1862946946" />
+    </function>
+    <function id="2122411066">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="22454537" />
+    </function>
+    <function id="2012605380">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="451263334" />
+    </function>
+    <function id="276134999">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1260189628" />
+    </function>
+    <function id="1142161885">
+      <description />
+      <designator />
+      <quantity>3</quantity>
+      <implementation type="physical_part" id="1362752078" />
+    </function>
+    <function id="1328189696">
+      <description />
+      <designator />
+      <quantity>3</quantity>
+      <implementation type="physical_part" id="957585916" />
+    </function>
+    <function id="2044536214">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1296297481" />
+    </function>
+    <function id="2126566937">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1032430542" />
+    </function>
+    <function id="805148691">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="16101183" />
+    </function>
+    <function id="1974824179">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="2059958257" />
+    </function>
+    <function id="183627585">
+      <description />
+      <designator />
+      <quantity />
+      <implementation type="physical_part" id="623188953" />
+    </function>
+  </brick>
+  <brick id="773928319">
+    <name>Actuator assembly for X and Z axes</name>
+    <abstract />
+    <long_description />
+    <notes />
+    <license />
+    <media />
+    <assembly_instruction>
+      <step>
+        <description>First remove the x-axis actuator carriage from the x-axis linear rail. The components required to attach the x-axis actuator carriage to the z-axis actuator are:  2 x 2 hole joining plates, 4 x 12mm M5 low profile bolts, and 4 x M5 T-nuts.</description>
+        <media>
+          <file url="././xz1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Loosely attach the joining plates to the x-axis actuator carriage as shown, using the 12mm M5 low profile bolts and T-nuts.</description>
+        <media>
+          <file url="././xz2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Remove the threaded rod plate from the bottom of the Z-actuator.</description>
+        <media>
+          <file url="././z-attach-threaded-rod-plate-bottom.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Slide the T-nuts (attached in step 2) into the parallel v-slots of the z-axis rail.</description>
+        <media>
+          <file url="././xz3.jpg" />
+          <file url="././xz4.jpg" />
+          <file url="././xz5.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Make the base of the x-axis actuator carriage level with the base of the z-axis actuator.</description>
+        <media>
+          <file url="././xz7.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Tighten the four 12mm M5 low profile bolts to secure the x-axis actuator carriage to the z-axis actuator.</description>
+        <media>
+          <file url="././xz6.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>In the next step a tool mount is attached to the V-Slot gantry plate of the z-axis actuator. The tool mount will be used to attach a holder for the pipe which will carry the fly food.
+
+Remove the lead screw from the z-axis actuator by loosening the grub screws anchoring it in the flexible coupling. Four 10mm M5 low profile bolts and four T-nuts are required to attach the tool mount to the gantry plate.</description>
+        <media>
+          <file url="././xz9.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Slide the M5 T-nuts into parallel slots in the tool mount.</description>
+        <media>
+          <file url="././xz10.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Secure the tool mount to the gantry plate using the M5 T-nuts and four 10mm M5 low profile bolts.</description>
+        <media>
+          <file url="././xz11.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Reattach lead screw to Z-axis actuator. First insert top end into flexible coupling and secure using the two inset grub screws. Then reattach threaded rod plate to base of z-axis actuator rail.</description>
+        <media>
+          <file url="././z-attach-threaded-rod-plate-bottom.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Slide x-axis actuator carriage onto x-axis rail. Reattach timing belt as described in build instructions for X-axis actuator.</description>
+        <media>
+          <file url="././xz8.jpg" />
+          <file url="././xz12.jpg" />
+        </media>
+      </step>
+    </assembly_instruction>
+    <function id="150515017">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="brick" id="1604629165" />
+    </function>
+    <function id="789623476">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="brick" id="939357724" />
+    </function>
+    <function id="1785962875">
+      <description />
+      <designator />
+      <quantity>8</quantity>
+      <implementation type="physical_part" id="1153134511" />
+    </function>
+    <function id="1934808065">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="1912192592" />
+    </function>
+    <function id="552274300">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="575863699" />
+    </function>
+    <function id="1799464451">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="1529459088" />
+    </function>
+    <function id="1805920858">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="892398104" />
+    </function>
+  </brick>
+  <author id="1685846799">
+    <name>Matthew T Wayland</name>
+    <email>mw283@cam.ac.uk</email>
+    <orcid>0000-0002-8095-858X</orcid>
+    <affiliation>University of Cambridge, Department of Zoology</affiliation>
+  </author>
+  <author id="2145835443">
+    <name />
+    <email />
+    <orcid />
+    <affiliation />
+  </author>
+</docubricks>
