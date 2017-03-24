@@ -1,4 +1,9 @@
-#Fly Food Robot
+---
+layout: page
+title: Fly Food Robot
+tagline: Cartesian robot for dispensing fruit fly food
+---
 
-##Github pages
+# Test
 
+## Test subheading
