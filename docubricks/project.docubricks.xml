@@ -753,6 +753,17 @@ Dimensions (mm) 24.39 OD x 15.974 +/- 0.026 ID  x 10.23 'thick'</description>
     <media />
     <manufacturing_instruction />
   </physical_part>
+  <physical_part id="548478628">
+    <description>Universal L bracket - triple</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 785</supplier_part_num>
+    <manufacturer_part_num>SKU: 785</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/l-bracket/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
   <brick id="159776940">
     <name>CNC fly food dispenser</name>
     <abstract>One line summary</abstract>
@@ -765,7 +776,50 @@ Software source code</long_description>
     <media>
       <file url="././././././././././././././././system.jpg" />
     </media>
-    <assembly_instruction />
+    <assembly_instruction>
+      <step>
+        <description />
+        <media>
+          <file url="./attach_xz3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./attach_xz1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./attach_xz2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./attach_xz4.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./attach_xz5.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./attach_xz6.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./attach_xz7.jpg" />
+        </media>
+      </step>
+    </assembly_instruction>
     <function id="1687955803">
       <description />
       <designator />
@@ -787,8 +841,26 @@ Software source code</long_description>
     <function id="1345178876">
       <description />
       <designator />
-      <quantity />
+      <quantity>1</quantity>
       <implementation type="brick" id="1115249511" />
+    </function>
+    <function id="1836176088">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="548478628" />
+    </function>
+    <function id="2080253833">
+      <description />
+      <designator />
+      <quantity>12</quantity>
+      <implementation type="physical_part" id="1420365321" />
+    </function>
+    <function id="523401039">
+      <description />
+      <designator />
+      <quantity>12</quantity>
+      <implementation type="physical_part" id="1153134511" />
     </function>
   </brick>
   <brick id="1774157860">
