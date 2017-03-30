@@ -797,6 +797,22 @@ Dimensions (mm) 24.39 OD x 15.974 +/- 0.026 ID  x 10.23 'thick'</description>
     <media />
     <manufacturing_instruction />
   </physical_part>
+  <physical_part id="931093262">
+    <description>Mount for electronics control box: 455mm length of 20 x 40 mm cross-section V-Slot linear rail.</description>
+    <supplier>OpenBuilds Part Store</supplier>
+    <supplier_part_num>SKU: 135 - LP</supplier_part_num>
+    <manufacturer_part_num>SKU: 135 - LP</manufacturer_part_num>
+    <url>http://openbuildspartstore.com/v-slot-linear-rail/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction>
+      <step>
+        <description>Cut to length using mitre saw.</description>
+        <media />
+      </step>
+    </manufacturing_instruction>
+  </physical_part>
   <brick id="159776940">
     <name>CNC fly food dispenser</name>
     <abstract>One line summary</abstract>
@@ -853,7 +869,7 @@ Software source code</long_description>
         </media>
       </step>
       <step>
-        <description />
+        <description>The next stage of the build is to attach the mount for the electronics box to the rear of the vertical posts. This requires: 6 x T-nuts, 2 x 8mm M5 low profile bolts, 2 x 10mm M5 low profile bolts, 2 x 12mm M5 low profile bolts, 2 x 2-hole joining plates and 2 x universal L brackets (single hole).</description>
         <media>
           <file url="././ctrl_box_strut3.jpg" />
         </media>
@@ -942,6 +958,12 @@ Software source code</long_description>
       <designator />
       <quantity>2</quantity>
       <implementation type="physical_part" id="1800778712" />
+    </function>
+    <function id="68336906">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="931093262" />
     </function>
   </brick>
   <brick id="1774157860">
