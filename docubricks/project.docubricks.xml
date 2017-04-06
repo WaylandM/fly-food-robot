@@ -2339,14 +2339,23 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
   <brick id="1115249511">
     <name>Electronics</name>
     <abstract />
-    <long_description />
+    <long_description>For CNC motion control we use grbl (https://github.com/grbl/grbl), an open source, embedded, high performance g-code parser. Grbl is written in optimized C and runs directly on an Arduino. This is used in conjunction with the gShield (formerly known as grblshield) which provides the hardware drivers for the stepper motors. Grbl sends out TTL signals on pins A3 and 13 or the Arduino to control coolant flow and spindle direction, respectively. Here these signals are used to remotely control a peristaltic pump. A Raspberry Pi is used to generate and stream gcode to the Arduino. A touch screen on the Raspberry Pi provides the user interface; a resistive rather than capacitive touch screen was chosen so that it could be operated by a person wearing gloves. Instructions on software installation and use can be found here: https://waylandm.github.io/fly-food-robot/</long_description>
     <notes />
     <license />
     <media />
     <assembly_instruction>
       <step>
-        <description />
-        <media />
+        <description>Use 3-core mains cable for both input and output from 24V power supply unit (PSU). Here we have used 1m of cable to connect the PSU to the mains and the remaining 3m runs from the PSU to the gShield stepper motor controller. The earth wire in the output cable will be used to ground shielded cables and so here it is attached to teh chassis of the PSU.</description>
+        <media>
+          <file url="./psu1.jpg" />
+          <file url="./psu2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Build Pibow case around Raspberry Pi and connect touch screen to Raspberry Pi, following instructions provided by Adafruit.</description>
+        <media>
+          <file url="./raspberryPi.jpg" />
+        </media>
       </step>
     </assembly_instruction>
     <function id="976749113">
