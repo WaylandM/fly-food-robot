@@ -1155,6 +1155,38 @@ Software source code</long_description>
           <file url="./tube_mount4.jpg" />
         </media>
       </step>
+      <step>
+        <description>The final stage of assembling the CNC fly food dispenser involves connecting the peristaltic pump.</description>
+        <media>
+          <file url="./pump1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Connect the remote control cable to the pump's 15 pin DSUB socket.</description>
+        <media>
+          <file url="./pump2.jpg" />
+          <file url="./pump3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The hose barb serves as a nozzle. Insert the 6mm end into one end of the Masterflex Norprene tubing. Attach the nozzle end of the tubing to the holder on the Z-axis actuator using releasable cable ties.</description>
+        <media>
+          <file url="./pump4.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach the Masterflex Norprene tubing to the right-hand side vertical post using a releasable cable tie. Ensure there is a large loop in the tubing between this attachment point and the nozzle, so that the x-axis acuator can move freely.</description>
+        <media>
+          <file url="./pump5.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Feed the tubing through the peristaltic pump and into your vat of fly food.</description>
+        <media>
+          <file url="./pump6.jpg" />
+          <file url="./pump7.jpg" />
+        </media>
+      </step>
     </assembly_instruction>
     <function id="1065397470">
       <description />
@@ -1255,8 +1287,32 @@ Software source code</long_description>
     <function id="1137533129">
       <description />
       <designator />
-      <quantity />
+      <quantity>1</quantity>
       <implementation type="physical_part" id="1542518841" />
+    </function>
+    <function id="6599053">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="295023994" />
+    </function>
+    <function id="39457107">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="2086043145" />
+    </function>
+    <function id="1487444240">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="609644005" />
+    </function>
+    <function id="821632678">
+      <description />
+      <designator />
+      <quantity />
+      <implementation type="physical_part" id="68502758" />
     </function>
   </brick>
   <brick id="1774157860">
