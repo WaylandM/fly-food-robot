@@ -2345,7 +2345,7 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
     <media />
     <assembly_instruction>
       <step>
-        <description>Use 3-core mains cable for both input and output from 24V power supply unit (PSU). Here we have used 1m of cable to connect the PSU to the mains and the remaining 3m runs from the PSU to the gShield stepper motor controller. The earth wire in the output cable will be used to ground shielded cables and so here it is attached to teh chassis of the PSU.</description>
+        <description>Use 3-core mains cable for both input and output from 24V power supply unit (PSU). Here we have used 1m of cable to connect the PSU to the mains and the remaining 3m runs from the PSU to the gShield stepper motor controller. The earth wire in the output cable will be used to ground shielded cables and so here it is attached to the chassis of the PSU. Check the output voltage and adjust if necessary using the trimmer.</description>
         <media>
           <file url="./psu1.jpg" />
           <file url="./psu2.jpg" />
@@ -2355,6 +2355,67 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
         <description>Build Pibow case around Raspberry Pi and connect touch screen to Raspberry Pi, following instructions provided by Adafruit.</description>
         <media>
           <file url="./raspberryPi.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./box_and_lid.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./box_ventilation.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./box_lhs.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./box_rhs.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./box_mounting_holes.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./arduino_mounting_holes.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./x-limit-switch_holes.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./arduino_mounting_components.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./mount_control_box1.jpg" />
+          <file url="./mount_control_box2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./mount_control_box3.jpg" />
         </media>
       </step>
     </assembly_instruction>
