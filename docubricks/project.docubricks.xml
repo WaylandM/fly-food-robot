@@ -957,6 +957,17 @@ Dimensions (mm) 24.39 OD x 15.974 +/- 0.026 ID  x 10.23 'thick'</description>
     <media />
     <manufacturing_instruction />
   </physical_part>
+  <physical_part id="1140268197">
+    <description>MicroSD card 8GB</description>
+    <supplier>RS Online</supplier>
+    <supplier_part_num>877-5566</supplier_part_num>
+    <manufacturer_part_num>44081</manufacturer_part_num>
+    <url>http://uk.rs-online.com/web/p/secure-digital-cards/8775566/</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
   <brick id="159776940">
     <name>CNC fly food dispenser</name>
     <abstract>One line summary</abstract>
@@ -1126,19 +1137,19 @@ Software source code</long_description>
         </media>
       </step>
       <step>
-        <description />
+        <description>The tube mount comprises two components: an L-shaped piece with holes for the cable ties that will be used to anchor the tube carrying fly food, and a rectangular spacer. Four 10mm and M5 low profile bolts and four M5 T-nuts are required to attach the tube mount to the tool mount on the Z-axis actuator.</description>
         <media>
           <file url="./tube_mount1.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>Insert the four 10mm bolts through both pieces of the acrylic tube mount. Thread a T-nut onto the end of each bolt.</description>
         <media>
           <file url="./tube_mount2.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>Slide the T-nuts into the parallel V-slots on the front of the tool mount and then tighten the bolts.</description>
         <media>
           <file url="./tube_mount3.jpg" />
           <file url="./tube_mount4.jpg" />
@@ -1178,7 +1189,7 @@ Software source code</long_description>
     <function id="523401039">
       <description />
       <designator />
-      <quantity>31</quantity>
+      <quantity>35</quantity>
       <implementation type="physical_part" id="1153134511" />
     </function>
     <function id="2014155244">
@@ -1190,7 +1201,7 @@ Software source code</long_description>
     <function id="317484796">
       <description />
       <designator />
-      <quantity>4</quantity>
+      <quantity>8</quantity>
       <implementation type="physical_part" id="1529459088" />
     </function>
     <function id="1755505561">
@@ -1240,6 +1251,12 @@ Software source code</long_description>
       <designator />
       <quantity>8</quantity>
       <implementation type="physical_part" id="22454537" />
+    </function>
+    <function id="1137533129">
+      <description />
+      <designator />
+      <quantity />
+      <implementation type="physical_part" id="1542518841" />
     </function>
   </brick>
   <brick id="1774157860">
@@ -2419,6 +2436,12 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
       <designator />
       <quantity>1</quantity>
       <implementation type="physical_part" id="1556864155" />
+    </function>
+    <function id="904168388">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="1140268197" />
     </function>
   </brick>
   <brick id="2080717152">
