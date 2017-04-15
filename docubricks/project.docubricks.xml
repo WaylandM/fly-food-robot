@@ -1012,13 +1012,38 @@ Dimensions (mm) 24.39 OD x 15.974 +/- 0.026 ID  x 10.23 'thick'</description>
     <media />
     <manufacturing_instruction />
   </physical_part>
+  <physical_part id="495267629">
+    <description>IC DIP socket 16 contacts</description>
+    <supplier>Farnell</supplier>
+    <supplier_part_num>1103846</supplier_part_num>
+    <manufacturer_part_num>2227MC-16-03-09-F1</manufacturer_part_num>
+    <url>http://uk.farnell.com/multicomp/2227mc-16-03-09-f1/socket-ic-dil-0-3-16way/dp/1103846</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="712161625">
+    <description>Heatshrink sleeve</description>
+    <supplier>Maplin</supplier>
+    <supplier_part_num>N83FX</supplier_part_num>
+    <manufacturer_part_num>S058</manufacturer_part_num>
+    <url>http://www.maplin.co.uk/p/heatshrink-lucky-bag-n83fx</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
   <brick id="159776940">
     <name>CNC fly food dispenser</name>
     <abstract>One line summary</abstract>
     <long_description>Based on original design by...
 Types of actuator (belt and pulley, screw thread)
 Pump control (functions, electrical isolation)
-Software source code</long_description>
+Software source code
+
+User manual: https://waylandm.github.io/fly-food-robot/
+Source code: https://github.com/WaylandM/fly-food-robot</long_description>
     <notes />
     <license>CC-BY 3.0</license>
     <media>
@@ -2389,6 +2414,26 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
     <media />
     <assembly_instruction>
       <step>
+        <description>Before starting on the assembly of the electronics, review the circuit diagrams for the limit switches and interface to the peristaltic pump.</description>
+        <media />
+      </step>
+      <step>
+        <description>Limit/homing switches</description>
+        <media>
+          <file url="./limit_switches_schematic.png" />
+          <file url="./limit_switches_schematic.pdf" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./peristaltic_pump_control_schematic_v2.pdf" />
+          <file url="./DB-15_pin_config.png" />
+          <file url="./peristaltic_pump_control_schematic_v2.png" />
+          <file url="./peristaltic_pump_control_schematic_v2.pdf" />
+        </media>
+      </step>
+      <step>
         <description>Use 3-core mains cable for both input and output from 24V power supply unit (PSU). Here we have used 1m of cable to connect the PSU to the mains and the remaining 3m runs from the PSU to the gShield stepper motor controller. The earth wire in the output cable will be used to ground shielded cables and so here it is attached to the chassis of the PSU. Check the output voltage and adjust if necessary using the trimmer.</description>
         <media>
           <file url="./././psu1.jpg" />
@@ -2460,6 +2505,63 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
         <description>Use four 8mm M5 low profile bolts,  and the T-nuts inserted in the previous step, to attach the box to the mounting rail. Position the box midway along the rail before tightening the bolts.</description>
         <media>
           <file url="./././mount_control_box3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./proto_board_1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./proto_board_2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./DSUB_wiring.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./xLimit1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./xLimit2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./xLimit3.jpg" />
+          <file url="./xLimit4.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./xLimit5.jpg" />
+          <file url="./xLimit6.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./xLimit8.jpg" />
+          <file url="./xLimit9.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./xLimit7.jpg" />
         </media>
       </step>
     </assembly_instruction>
@@ -2648,6 +2750,12 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
       <designator />
       <quantity>2</quantity>
       <implementation type="physical_part" id="57342553" />
+    </function>
+    <function id="1693252546">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="495267629" />
     </function>
     <instruction name="" />
   </brick>
