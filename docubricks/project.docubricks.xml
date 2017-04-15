@@ -2522,12 +2522,6 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
       <step>
         <description />
         <media>
-          <file url="./DSUB_wiring.jpg" />
-        </media>
-      </step>
-      <step>
-        <description />
-        <media>
           <file url="./xLimit1.jpg" />
         </media>
       </step>
@@ -2562,6 +2556,86 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
         <description />
         <media>
           <file url="./xLimit7.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./yLimit1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./yLimit2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./yLimit3.jpg" />
+          <file url="./yLimit4.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./yLimit5.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./yLimit6.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./yLimit7.jpg" />
+          <file url="./yLimit8.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./zLimit1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./zLimit2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./zLimit4.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./zLimit3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./zLimit5.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./proto_board_3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./DSUB_wiring.jpg" />
         </media>
       </step>
     </assembly_instruction>
