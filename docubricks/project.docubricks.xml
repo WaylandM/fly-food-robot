@@ -2418,14 +2418,16 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
         <media />
       </step>
       <step>
-        <description>A pair of limit switches are used to define the range of motion for each axis. The limit switches are also used for 'homing'; i.e. setting the origin of the coordinate system. Microswitches are wired in the normally-open configuration (Grbl default). Grbl uses the Arduino's digital pins 9 (x-axis), 10 (y-axis) and 12 (z-axis) for the limit switches. These limit pins are held high with an internal pull-up resistor. Capacitors across each pair of switches filter noise to prevent false alarms.</description>
+        <description>A pair of limit switches are used to define the range of motion for each axis. The limit switches are also used for 'homing'; i.e. setting the origin of the coordinate system. Microswitches are wired in the normally-open configuration (Grbl default). Grbl uses the Arduino's digital pins 9 (x-axis), 10 (y-axis) and 12 (z-axis) for the limit switches. These limit pins are held high with an internal pull-up resistor. A capacitor across each pair of switches filters noise to prevent false alarms.</description>
         <media>
           <file url="./limit_switches_schematic.png" />
           <file url="./limit_switches_schematic.pdf" />
         </media>
       </step>
       <step>
-        <description />
+        <description>The peristaltic pump can be operated by remote control. We need to be able to start and stop the pump. For some applications it may also be useful to control the direction of flow. The remote control interface on the peristaltic pump is a DB15 female port. Closing contact between pins 10 and 12 starts the pump; breaking contact stops the pump. The pump can be switched from CW rotation to CCW rotation by closing contact between pins 11 and 12. 
+
+In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling coolant and changing spindle direction respectively. Here we use A3 for pump stop/start and D13 for pump direction (CW/CCW).</description>
         <media>
           <file url="./peristaltic_pump_control_schematic_v2.pdf" />
           <file url="./DB-15_pin_config.png" />
