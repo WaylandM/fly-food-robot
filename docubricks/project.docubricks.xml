@@ -1042,7 +1042,7 @@ Types of actuator (belt and pulley, screw thread)
 Pump control (functions, electrical isolation)
 Software source code
 
-User manual: https://waylandm.github.io/fly-food-robot/
+User manual: https://github.com/WaylandM/fly-food-robot/wiki
 Source code: https://github.com/WaylandM/fly-food-robot</long_description>
     <notes />
     <license>CC-BY 3.0</license>
@@ -2418,7 +2418,7 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
         <media />
       </step>
       <step>
-        <description>Limit/homing switches</description>
+        <description>A pair of limit switches are used to define the range of motion for each axis. The limit switches are also used for 'homing'; i.e. setting the origin of the coordinate system. Microswitches are wired in the normally-open configuration (Grbl default). Grbl uses the Arduino's digital pins 9 (x-axis), 10 (y-axis) and 12 (z-axis) for the limit switches. These limit pins are held high with an internal pull-up resistor. Capacitors across each pair of switches filter noise to prevent false alarms.</description>
         <media>
           <file url="./limit_switches_schematic.png" />
           <file url="./limit_switches_schematic.pdf" />
@@ -2830,6 +2830,12 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
       <designator />
       <quantity>1</quantity>
       <implementation type="physical_part" id="495267629" />
+    </function>
+    <function id="710687715">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="712161625" />
     </function>
     <instruction name="" />
   </brick>
