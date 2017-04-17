@@ -1067,6 +1067,61 @@ Dimensions (mm) 24.39 OD x 15.974 +/- 0.026 ID  x 10.23 'thick'</description>
     <media />
     <manufacturing_instruction />
   </physical_part>
+  <physical_part id="2035061300">
+    <description>12mm M2 bolt</description>
+    <supplier />
+    <supplier_part_num />
+    <manufacturer_part_num />
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1648308349">
+    <description>M2 washer</description>
+    <supplier />
+    <supplier_part_num />
+    <manufacturer_part_num />
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1250034202">
+    <description>M2 nut</description>
+    <supplier />
+    <supplier_part_num />
+    <manufacturer_part_num />
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="284799840">
+    <description>PCI slot cover</description>
+    <supplier />
+    <supplier_part_num />
+    <manufacturer_part_num />
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1407088459">
+    <description>19mm M2 bolt</description>
+    <supplier />
+    <supplier_part_num />
+    <manufacturer_part_num />
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
   <brick id="159776940">
     <name>CNC fly food dispenser</name>
     <abstract>One line summary</abstract>
@@ -2579,7 +2634,7 @@ In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling 
         </media>
       </step>
       <step>
-        <description>Cut two 380mm lengths of audio/visual twin screened two core cable. Connect one cable to the NO and COM terminals of the left-hand limit switch. Use heatshrink sleeve to cover the connections. Repeat for the other cable and right-hand limit switch.</description>
+        <description>Cut two 380mm lengths of audio/visual twin screened two core cable. Solder one cable to the NO and COM terminals of the left-hand limit switch. Use heatshrink sleeve to cover and insulate the connections. Repeat for the other cable and right-hand limit switch.</description>
         <media>
           <file url="./xLimit8.jpg" />
           <file url="./xLimit9.jpg" />
@@ -2598,38 +2653,33 @@ In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling 
         </media>
       </step>
       <step>
-        <description>The limit switches will be mounted on the right-hand side Y-axis actuator carriage. Using the holes in the microswitch as templates, drill two pairs of 2mm diameter holes in the gantry plate; one pair for each microswitch. The holes should be approximately 3mm from the vertical edge of the gantry plate.</description>
+        <description>The limit switches will be mounted on the right-hand side Y-axis actuator carriage. Using the holes in the microswitch as a template, drill two pairs of 2mm diameter holes in the gantry plate; one pair for each microswitch. The holes should be approximately 3mm from the vertical edge of the gantry plate. The lower holes should be approximately 5mm from the bottom edge of the gantry plate.</description>
         <media>
           <file url="./yLimit1.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>Layout parts required to attach each microswitch: 2 x 12mm M2 bolts, 2 x M2 washers and 2 x M2 nuts.</description>
         <media>
           <file url="./yLimit2.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>Attach the microswitches to the gantry plate.</description>
         <media>
           <file url="./yLimit3.jpg" />
           <file url="./yLimit4.jpg" />
         </media>
       </step>
       <step>
-        <description>end stop</description>
+        <description>PCI slot covers are used as end stops for the Y-axis limit switches. Attach one to each end of the Y-axis rail using 2 x 8mm M5 low profile bolts and 2 x M5 T-nuts.</description>
         <media>
           <file url="./yLimit5.jpg" />
-        </media>
-      </step>
-      <step>
-        <description />
-        <media>
           <file url="./yLimit6.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>Cut two 1000mm lengths of audio/visual twin screened two core cable. Attach a cable to each microswitch: solder cores to NO and COM terminals and insulate the connections with heatshrink sleeving. Route the cables through the vertical post, then along the mounting rail for the electronics box. The free ends of the cables are inserted through the 18mm diameter hole in the right-hand wall of the electronics box.</description>
         <media>
           <file url="./yLimit7.jpg" />
           <file url="./yLimit8.jpg" />
@@ -2639,6 +2689,12 @@ In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling 
         <description />
         <media>
           <file url="./zLimit1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./z-axis-microswitch-components.jpg" />
         </media>
       </step>
       <step>
@@ -2831,13 +2887,13 @@ In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling 
     <function id="1941624082">
       <description />
       <designator />
-      <quantity>4</quantity>
+      <quantity>8</quantity>
       <implementation type="physical_part" id="1420365321" />
     </function>
     <function id="1990165396">
       <description />
       <designator />
-      <quantity>4</quantity>
+      <quantity>8</quantity>
       <implementation type="physical_part" id="1153134511" />
     </function>
     <function id="1530466931">
@@ -2887,6 +2943,30 @@ In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling 
       <designator />
       <quantity>1</quantity>
       <implementation type="physical_part" id="1385383954" />
+    </function>
+    <function id="74031721">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="2035061300" />
+    </function>
+    <function id="1429044270">
+      <description />
+      <designator />
+      <quantity>6</quantity>
+      <implementation type="physical_part" id="1648308349" />
+    </function>
+    <function id="1973649468">
+      <description />
+      <designator />
+      <quantity>6</quantity>
+      <implementation type="physical_part" id="1250034202" />
+    </function>
+    <function id="114454359">
+      <description />
+      <designator />
+      <quantity>2</quantity>
+      <implementation type="physical_part" id="1407088459" />
     </function>
     <instruction name="" />
   </brick>
