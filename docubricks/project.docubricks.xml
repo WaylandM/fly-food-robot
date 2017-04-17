@@ -1034,6 +1034,39 @@ Dimensions (mm) 24.39 OD x 15.974 +/- 0.026 ID  x 10.23 'thick'</description>
     <media />
     <manufacturing_instruction />
   </physical_part>
+  <physical_part id="1674348722">
+    <description>Terminal blocks 3A</description>
+    <supplier>Maplin</supplier>
+    <supplier_part_num>L96AR</supplier_part_num>
+    <manufacturer_part_num>L96AR</manufacturer_part_num>
+    <url>http://www.maplin.co.uk/p/3a-terminal-blocks-3-pack-l96ar</url>
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1871448701">
+    <description>14mm M3 bolt</description>
+    <supplier />
+    <supplier_part_num />
+    <manufacturer_part_num />
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1385383954">
+    <description>Un-Insulated Ring Crimp Terminal Eyelet</description>
+    <supplier />
+    <supplier_part_num />
+    <manufacturer_part_num />
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
   <brick id="159776940">
     <name>CNC fly food dispenser</name>
     <abstract>One line summary</abstract>
@@ -2408,26 +2441,24 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
   <brick id="1115249511">
     <name>Electronics</name>
     <abstract />
-    <long_description>For CNC motion control we use grbl (https://github.com/grbl/grbl), an open source, embedded, high performance g-code parser. Grbl is written in optimized C and runs directly on an Arduino. This is used in conjunction with the gShield (formerly known as grblshield) which provides the hardware drivers for the stepper motors. Grbl sends out TTL signals on pins A3 and 13 or the Arduino to control coolant flow and spindle direction, respectively. Here these signals are used to remotely control a peristaltic pump. A Raspberry Pi is used to generate and stream gcode to the Arduino. A touch screen on the Raspberry Pi provides the user interface; a resistive rather than capacitive touch screen was chosen so that it could be operated by a person wearing gloves. Instructions on software installation and use can be found here: https://waylandm.github.io/fly-food-robot/</long_description>
+    <long_description>For CNC motion control we use grbl (https://github.com/grbl/grbl), an open source, embedded, high performance g-code parser. Grbl is written in optimized C and runs directly on an Arduino. This is used in conjunction with the gShield (formerly known as grblshield) which provides the hardware drivers for the stepper motors. Grbl sends out TTL signals on pins A3 and 13 or the Arduino to control coolant flow and spindle direction, respectively. Here these signals are used to remotely control a peristaltic pump. A Raspberry Pi is used to generate and stream gcode to the Arduino. A touch screen on the Raspberry Pi provides the user interface; a resistive rather than capacitive touch screen was chosen so that it could be operated by a person wearing gloves. Instructions on software installation and use can be found here: https://github.com/WaylandM/fly-food-robot/wiki</long_description>
     <notes />
     <license />
     <media />
     <assembly_instruction>
       <step>
-        <description>Before starting on the assembly of the electronics, review the circuit diagrams for the limit switches and interface to the peristaltic pump.</description>
-        <media />
-      </step>
-      <step>
-        <description>A pair of limit switches are used to define the range of motion for each axis. The limit switches are also used for 'homing'; i.e. setting the origin of the coordinate system. Microswitches are wired in the normally-open configuration (Grbl default). Grbl uses the Arduino's digital pins 9 (x-axis), 10 (y-axis) and 12 (z-axis) for the limit switches. These limit pins are held high with an internal pull-up resistor. A capacitor across each pair of switches filters noise to prevent false alarms.</description>
+        <description>Before starting on the assembly of the electronics, review the circuit diagrams for the limit switches and interface to the peristaltic pump. We will begin by looking at the circuit diagram for the limit switches.
+
+A pair of limit switches are used to define the range of motion for each axis. The limit switches are also used for 'homing'; i.e. setting the origin of the coordinate system. Microswitches are wired in the normally-open configuration (Grbl default). Grbl uses the Arduino's digital pins 9 (x-axis), 10 (y-axis) and 12 (z-axis) for the limit switches. These limit pins are held high with an internal pull-up resistor. A capacitor across each pair of switches filters noise to prevent false alarms.</description>
         <media>
           <file url="./limit_switches_schematic.png" />
           <file url="./limit_switches_schematic.pdf" />
         </media>
       </step>
       <step>
-        <description>The peristaltic pump can be operated by remote control. We need to be able to start and stop the pump. For some applications it may also be useful to control the direction of flow. The remote control interface on the peristaltic pump is a DB15 female port. Closing contact between pins 10 and 12 starts the pump; breaking contact stops the pump. The pump can be switched from CW rotation to CCW rotation by closing contact between pins 11 and 12. 
+        <description>Next, review the circuit diagram for the interface to the peristaltic pump. The peristaltic pump can be operated by remote control. We need to be able to start and stop the pump. For some applications it may also be useful to control the direction of flow. The remote control interface on the peristaltic pump is a DB15 female port. Closing contact between pins 10 and 12 starts the pump; breaking contact stops the pump. The pump can be switched from CW rotation to CCW rotation by closing contact between pins 11 and 12. 
 
-In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling coolant and changing spindle direction respectively. Here we use A3 for pump stop/start and D13 for pump direction (CW/CCW).</description>
+In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling coolant and changing spindle direction respectively. Here we use A3 for pump stop/start and D13 for pump direction (CW/CCW). Two optocouplers are used to connect the Arduino to the pump while maintaining electrical isolation. When Arduino pin A3 is high, optocoupler 1 makes contact between pins 10 and 12 on the DB15 port starting the pump.</description>
         <media>
           <file url="./peristaltic_pump_control_schematic_v2.pdf" />
           <file url="./DB-15_pin_config.png" />
@@ -2436,7 +2467,19 @@ In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling 
         </media>
       </step>
       <step>
-        <description>Use 3-core mains cable for both input and output from 24V power supply unit (PSU). Here we have used 1m of cable to connect the PSU to the mains and the remaining 3m runs from the PSU to the gShield stepper motor controller. The earth wire in the output cable will be used to ground shielded cables and so here it is attached to the chassis of the PSU. Check the output voltage and adjust if necessary using the trimmer.</description>
+        <description>Electronic components and connecting wires are soldered onto the Adafruit proto shield according to the circuit diagrams above. The Adafruit proto shield can be stacked on top of an Arduino board and every pin on the Arduino has a contact on the proto shield. An IC DIP socket is used to mount the optocouplers. The four core alarm cable is used to connect the optocouplers on the proto shield to the peristaltic pump. Only three of the four cores are needed (start/stop, CW/CCW, ground return); connect a core to pin 5 of one optocoupler, another core to pin 5 of the other optocoupler and a third core to pin 4 of both optocouplers.</description>
+        <media>
+          <file url="./proto_board_1.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>A terminal block with four terminals will be used for connecting the six pairs of wires from the limit switches. Wire a terminal to each of Arduino pins D9, D10, D12, and ground.</description>
+        <media>
+          <file url="./proto_board_2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Prepare 24V power supply unit (PSU). Use 3-core mains cable for both input and output from PSU. Here we have used 1m of cable to connect the PSU to the mains and the remaining 3m runs from the PSU to the gShield stepper motor controller. The earth wire in the output cable will be used to ground shielded cables for the limit switches. Crimp an un-insulated ring crimp terminal eyelet onto the earth wire and attach it to the chassis of the PSU using a 12mm M3 bolt, washer and nut. Check the output voltage of the PSU and adjust if necessary using the trimmer.</description>
         <media>
           <file url="./././psu1.jpg" />
           <file url="./././psu2.jpg" />
@@ -2510,58 +2553,52 @@ In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling 
         </media>
       </step>
       <step>
-        <description />
-        <media>
-          <file url="./proto_board_1.jpg" />
-        </media>
-      </step>
-      <step>
-        <description />
-        <media>
-          <file url="./proto_board_2.jpg" />
-        </media>
-      </step>
-      <step>
-        <description />
+        <description>For defining the x-axis limits we use a pair of these microswitches: Farnell 2213983 (SPDT, 5A, 250VAC).</description>
         <media>
           <file url="./xLimit1.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>Use pliers to bend the lever of each microswitch.</description>
         <media>
           <file url="./xLimit2.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>Insert a 14mm M3 bolt through each of the holes in the microswitch. Place an M3 washer over the end of each bolt. Then thread an M3 nut onto the tip of each bolt. Pictured here is the microswitch for the left-hand side; bolts are inserted in the opposite direction for the righ-hand side microswitch.</description>
         <media>
           <file url="./xLimit3.jpg" />
           <file url="./xLimit4.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>The x-axis limit switches are attached to the mount rail for the electronics box. Slide the washers into the top V-slot of this rail. When tightening each bolt it is helpful to hold the tip of a small flat-head screwdriver against the nut to prevent it from turning. The switches will be activated by the gantry plate of the x-axis actuator carriage.</description>
         <media>
           <file url="./xLimit5.jpg" />
           <file url="./xLimit6.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>Cut two 380mm lengths of audio/visual twin screened two core cable. Connect one cable to the NO and COM terminals of the left-hand limit switch. Use heatshrink sleeve to cover the connections. Repeat for the other cable and right-hand limit switch.</description>
         <media>
           <file url="./xLimit8.jpg" />
           <file url="./xLimit9.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>Thread the cables through the holes in the back of the electronics box.</description>
         <media>
           <file url="./xLimit7.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>A pair of these microswitches (Farnell 103444) are used as limit switches for the Y-axis.</description>
+        <media>
+          <file url="./small_microswitch.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>The limit switches will be mounted on the right-hand side Y-axis actuator carriage. Using the holes in the microswitch as templates, drill two pairs of 2mm diameter holes in the gantry plate; one pair for each microswitch. The holes should be approximately 3mm from the vertical edge of the gantry plate.</description>
         <media>
           <file url="./yLimit1.jpg" />
         </media>
@@ -2580,7 +2617,7 @@ In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling 
         </media>
       </step>
       <step>
-        <description />
+        <description>end stop</description>
         <media>
           <file url="./yLimit5.jpg" />
         </media>
@@ -2812,19 +2849,19 @@ In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling 
     <function id="1034300891">
       <description />
       <designator />
-      <quantity>2</quantity>
+      <quantity>3</quantity>
       <implementation type="physical_part" id="947113944" />
     </function>
     <function id="759804310">
       <description />
       <designator />
-      <quantity>2</quantity>
+      <quantity>3</quantity>
       <implementation type="physical_part" id="1967379058" />
     </function>
     <function id="101187369">
       <description />
       <designator />
-      <quantity>2</quantity>
+      <quantity>3</quantity>
       <implementation type="physical_part" id="57342553" />
     </function>
     <function id="1693252546">
@@ -2838,6 +2875,18 @@ In the operation of a CNC router Grbl uses Arduino pins A3 and D13 for enabling 
       <designator />
       <quantity>1</quantity>
       <implementation type="physical_part" id="712161625" />
+    </function>
+    <function id="1819280228">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="1674348722" />
+    </function>
+    <function id="1227469581">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="1385383954" />
     </function>
     <instruction name="" />
   </brick>
