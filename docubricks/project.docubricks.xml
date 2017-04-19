@@ -1122,6 +1122,17 @@ Dimensions (mm) 24.39 OD x 15.974 +/- 0.026 ID  x 10.23 'thick'</description>
     <media />
     <manufacturing_instruction />
   </physical_part>
+  <physical_part id="1514939441">
+    <description>19mm M3 bolt</description>
+    <supplier />
+    <supplier_part_num />
+    <manufacturer_part_num />
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
   <brick id="159776940">
     <name>CNC fly food dispenser</name>
     <abstract>One line summary</abstract>
@@ -2783,6 +2794,14 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
           <file url="./motor-cable9.jpg" />
         </media>
       </step>
+      <step>
+        <description>Attach axial fan to electronics box lid using 3 x 19mm M3 bolts, 3 x M3 nuts and 6 M3 washers. Feed the wires through the 4th mounting hole.</description>
+        <media>
+          <file url="./box_lid1.jpg" />
+          <file url="./box_lid3.jpg" />
+          <file url="./box_lid2.jpg" />
+        </media>
+      </step>
     </assembly_instruction>
     <function id="976749113">
       <description />
@@ -2961,13 +2980,13 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
     <function id="759804310">
       <description />
       <designator />
-      <quantity>3</quantity>
+      <quantity>9</quantity>
       <implementation type="physical_part" id="1967379058" />
     </function>
     <function id="101187369">
       <description />
       <designator />
-      <quantity>3</quantity>
+      <quantity>6</quantity>
       <implementation type="physical_part" id="57342553" />
     </function>
     <function id="1693252546">
@@ -3023,6 +3042,18 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
       <designator />
       <quantity>2</quantity>
       <implementation type="physical_part" id="284799840" />
+    </function>
+    <function id="804959486">
+      <description />
+      <designator />
+      <quantity>1</quantity>
+      <implementation type="physical_part" id="1720127841" />
+    </function>
+    <function id="1706352692">
+      <description />
+      <designator />
+      <quantity>3</quantity>
+      <implementation type="physical_part" id="1514939441" />
     </function>
     <instruction name="" />
   </brick>
