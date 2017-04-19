@@ -2802,6 +2802,13 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
           <file url="./box_lid2.jpg" />
         </media>
       </step>
+      <step>
+        <description>Stack the Adafruit Synthetos gShield (grblshield) on top of the proto shield.</description>
+        <media>
+          <file url="./grblShield.jpg" />
+          <file url="./gShield-stack.jpg" />
+        </media>
+      </step>
     </assembly_instruction>
     <function id="976749113">
       <description />
