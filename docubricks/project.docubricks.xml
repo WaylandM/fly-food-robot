@@ -2729,7 +2729,7 @@ Drill a similar hole at the other end of the rail; 3mm from the vertical edge of
       <step>
         <description>Stack the proto shield on top of the Arduino. Feed the four-core alarm cable (which will be used to connect the peristaltic pump) through the 18mm diameter hole in the right-hand side of the electronics box.
 
-Strip approximately 10mm of insulation from the end of each of the six limit switch cables to expose the shield. Connect the cables to the terminal block according to the circuit diagram provided above (the X, Y and Z limit switches should be connected to Arduino pins 9, 10 and 12 respectively). 
+Strip approximately 10mm of insulation from the end of each of the six limit switch cables to expose the shield. Connect the cables to the terminal block according to the circuit diagram provided in step 1 (above); the X, Y and Z limit switches should be connected to Arduino pins 9, 10 and 12 respectively. 
 
 Tightly wrap one end of the copper wire around the exposed shield of the limit switch cables.</description>
         <media>
@@ -2737,9 +2737,50 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
         </media>
       </step>
       <step>
-        <description />
+        <description>Solder the wires of the four-core alarm cable to the appropriate terminals on the 15 pin D-sub male connector; refer to the circuit diagram provided in step 2. Enclose the D-sub connector in the metal hood.</description>
         <media>
           <file url="././DSUB_wiring.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Insert the B connector of the USB cable through the hole in hte right-hand side of the electronics box and plug into the socket on the Arduino board. The USB cable's A plug will be connected to the Raspberry Pi.</description>
+        <media>
+          <file url="./usb1.jpg" />
+          <file url="./usb2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Each NEMA 17 stepper motor is supplied with a power cable. One end of the power cable is terminated with a black socket designed for connection to header pins. The other end is terminated with a white socket which mates with the white plug on the stepper motor. Remove the black socket from all four stepper motor power cables.</description>
+        <media>
+          <file url="./motor-cable1.jpg" />
+          <file url="./motor-cable2.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Connect a power cable to the stepper motor on the right-hand side of the Y-axis actuator. Route the cable up the central cavity of the vertical post, along the mount rail for the electronics box and then through the hole in the right-hand side of the box. Secure the cable at regular intervals using cable ties.</description>
+        <media>
+          <file url="./motor-cable3.jpg" />
+          <file url="./motor-cable4.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Connect a power cable to the stepper motor on the left-hand side of the Y-axis actuator. Route the cable up the central cavity of the vertical post, along the mount rail for the electronics box and then through the 7mm diameter hole in the box. Secure the cable at regular intervals uing cable ties.</description>
+        <media>
+          <file url="./motor-cable5.jpg" />
+          <file url="./motor-cable6.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Attach power cables to the X-axis and Z-axis stepper motors.</description>
+        <media>
+          <file url="./motor-cable7.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Secure power cables to X-axis and Z-axis stepper motors using cable ties.</description>
+        <media>
+          <file url="./motor-cable8.jpg" />
+          <file url="./motor-cable9.jpg" />
         </media>
       </step>
     </assembly_instruction>
