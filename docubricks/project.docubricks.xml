@@ -2809,7 +2809,11 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
         </media>
       </step>
       <step>
-        <description />
+        <description>Configuration of gShield: The microstepping mode of each stepper motor is set by adding/removing jumpers from a four pin male header (these are located at the top of the shield). Stepper motors can be configured to use 1x, 2x, 4x or 8x microstepping; the appropriate jumper placement for each mode is printed on the shield (see rectangle with solid red outline in the first picture). The Z-axis motor is set to use 2x microstepping by placement of a jumper over pins 1 and 2 (see rectangle with dashed red outline in the first picture). The motors for the X and Y motors are set to use 8x microstepping (no jumpers).
+
+Motor current for each axis is adjusted using a trimpot (highlighted in the 2nd photograph). This is done once the Grbl software has been loaded onto the Arduino and is described in detail here: https://github.com/WaylandM/fly-food-robot/wiki
+
+For more information on the gShield see: https://github.com/synthetos/grblShield/wiki/</description>
         <media>
           <file url="./gShield_stepper_jumpers.jpg" />
           <file url="./gShield-trimpots.jpg" />
@@ -2824,32 +2828,54 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
         </media>
       </step>
       <step>
-        <description />
+        <description>Insert end of cable from PSU through hole in right-hand side of the electronics box. Check the polarity of the power lines using a voltmeter before wiring them to the appropriate terminals on the gShield (incorrect polarity will damage board). The axial fan on the box lid should also be wired to these terminals (red wire is connected to + and blue wire to GND).</description>
         <media>
           <file url="./gShield_power_input.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>The earth wire (green/yellow) from the PSU cable is connected to the copper wire wrapped around the shielding of the limit switch cables, using a single terminal block.</description>
         <media>
           <file url="./gShield_earth_shielding.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>Before connecting the stepper motor wires to the gShield you must identify which wires are connected to the same coil. Coil pairs can be determined using an ohmmeter; a coil pair on a NEMA 17 typically show a resistance of 2 to 20 ohms. The coil pairs of the stepper motors used here are: (1) red and blue; (2) green and black.
+
+The gShield has a four terminal block for each motor:
+Pin 1: coil A positive
+Pin 2: coil A negative
+Pin 3: coil B positive
+Pin 4: coil B negative
+
+Connect the wires for the stepper motors for the X and Z axes:
+Pin 1: black
+Pin 2: green
+Pin 3: blue
+Pin 4: red</description>
         <media>
           <file url="./gShield_XZ_wiring.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>The Y-axis actuator has two stepper motors, however the terminal block on the gShield can only accommodate one wire per pin. Use four different coloured jumper wires to connect the terminal block on the gShield to a separate, larger terminal block. The eight wires from the paired Y-axis stepper motors can then be connected to this 2nd terminal block. One stepper motor uses the same pinout as the X and Z axes, i.e.:
+Pin 1: black
+Pin 2: green
+Pin 3: blue
+Pin 4: red
+
+The other, which will rotate in the opposite direction, has the pinout reversed:
+Pin 1: red
+Pin 2: blue
+Pin 3: green
+Pin 4: black</description>
         <media>
           <file url="./gShield_Y_wiring1.jpg" />
           <file url="./gShield_Y_wiring2.jpg" />
         </media>
       </step>
       <step>
-        <description />
+        <description>Use spiral wrap to bind the PSU cable, USB cable and pump cable. The resulting cable bundle should be secured to the electronics box mount rail using one or more cable ties.</description>
         <media>
           <file url="./spiral1.jpg" />
           <file url="./spiral2.jpg" />
@@ -2857,12 +2883,26 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
         </media>
       </step>
       <step>
-        <description />
+        <description>Also use spiral wrap to bind the following cables together:
+X-axis stepper motor cable;
+Z-axis stepper motor cable;
+Z-axis limit switches.
+
+N.B. the loop in the cable bundle is necessary to provide sufficient slack for unrestricted movement of the X-axis actuator.
+
+This cable bundle should be secured to the electronics box using a cable tie inserted through the 5mm holes in the left-hand side panel.</description>
         <media>
           <file url="./spiral4.jpg" />
           <file url="./spiral7.jpg" />
           <file url="./spiral5.jpg" />
           <file url="./spiral6.jpg" />
+        </media>
+      </step>
+      <step>
+        <description>Tuck terminal blocks and associated cables into the electronics box and then add lid. The lid is secured using</description>
+        <media>
+          <file url="./add_box_lid1.jpg" />
+          <file url="./add_box_lid2.jpg" />
         </media>
       </step>
     </assembly_instruction>
