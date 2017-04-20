@@ -2803,10 +2803,43 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
         </media>
       </step>
       <step>
+        <description />
+        <media>
+          <file url="./gShield_stepper_jumpers.jpg" />
+          <file url="./gShield-trimpots.jpg" />
+        </media>
+      </step>
+      <step>
         <description>Stack the Adafruit Synthetos gShield (grblshield) on top of the proto shield.</description>
         <media>
           <file url="./grblShield.jpg" />
+          <file url="./proto_board_3.jpg" />
           <file url="./gShield-stack.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./gShield_power_input.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./gShield_earth_shielding.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./gShield_XZ_wiring.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./gShield_Y_wiring1.jpg" />
+          <file url="./gShield_Y_wiring2.jpg" />
         </media>
       </step>
     </assembly_instruction>
