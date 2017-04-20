@@ -1324,6 +1324,12 @@ Source code: https://github.com/WaylandM/fly-food-robot</long_description>
         </media>
       </step>
       <step>
+        <description>Connect Raspberry Pi to Arduino using usb cable.</description>
+        <media>
+          <file url="./plug_usb_into_raspberryPi.jpg" />
+        </media>
+      </step>
+      <step>
         <description>The final stage of assembling the CNC fly food dispenser involves connecting the peristaltic pump.</description>
         <media>
           <file url="././././pump1.jpg" />
@@ -2842,6 +2848,23 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
           <file url="./gShield_Y_wiring2.jpg" />
         </media>
       </step>
+      <step>
+        <description />
+        <media>
+          <file url="./spiral1.jpg" />
+          <file url="./spiral2.jpg" />
+          <file url="./spiral3.jpg" />
+        </media>
+      </step>
+      <step>
+        <description />
+        <media>
+          <file url="./spiral4.jpg" />
+          <file url="./spiral7.jpg" />
+          <file url="./spiral5.jpg" />
+          <file url="./spiral6.jpg" />
+        </media>
+      </step>
     </assembly_instruction>
     <function id="976749113">
       <description />
@@ -3094,6 +3117,12 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
       <designator />
       <quantity>3</quantity>
       <implementation type="physical_part" id="1514939441" />
+    </function>
+    <function id="1211623861">
+      <description />
+      <designator />
+      <quantity>20</quantity>
+      <implementation type="physical_part" id="560135727" />
     </function>
     <instruction name="" />
   </brick>
