@@ -1133,9 +1133,42 @@ Dimensions (mm) 24.39 OD x 15.974 +/- 0.026 ID  x 10.23 'thick'</description>
     <media />
     <manufacturing_instruction />
   </physical_part>
+  <physical_part id="1078891307">
+    <description>10mm M4 bolt</description>
+    <supplier />
+    <supplier_part_num />
+    <manufacturer_part_num />
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1669720009">
+    <description>M4 washer</description>
+    <supplier />
+    <supplier_part_num />
+    <manufacturer_part_num />
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
+  <physical_part id="1465955462">
+    <description>M4 nut</description>
+    <supplier />
+    <supplier_part_num />
+    <manufacturer_part_num />
+    <url />
+    <material_amount />
+    <material_unit>NONE</material_unit>
+    <media />
+    <manufacturing_instruction />
+  </physical_part>
   <brick id="159776940">
     <name>CNC fly food dispenser</name>
-    <abstract>One line summary</abstract>
+    <abstract>Catesian robot for dispensing fruit fly food into vials.</abstract>
     <long_description>Based on original design by...
 Types of actuator (belt and pulley, screw thread)
 Pump control (functions, electrical isolation)
@@ -2767,7 +2800,7 @@ Tightly wrap one end of the copper wire around the exposed shield of the limit s
         </media>
       </step>
       <step>
-        <description>Each NEMA 17 stepper motor is supplied with a power cable. One end of the power cable is terminated with a black socket designed for connection to header pins. The other end is terminated with a white socket which mates with the white plug on the stepper motor. Remove the black socket from all four stepper motor power cables.</description>
+        <description>Each NEMA 17 stepper motor is supplied with a power cable. One end of the power cable is terminated in a black socket designed for connection to header pins. The other end is terminated in a white socket which mates with the white plug on the stepper motor. Remove the black socket from all four stepper motor power cables.</description>
         <media>
           <file url="./motor-cable1.jpg" />
           <file url="./motor-cable2.jpg" />
@@ -2899,7 +2932,7 @@ This cable bundle should be secured to the electronics box using a cable tie ins
         </media>
       </step>
       <step>
-        <description>Tuck terminal blocks and associated cables into the electronics box and then add lid. The lid is secured using</description>
+        <description>Tuck terminal blocks and associated cables into the electronics box and then add lid. The lid is secured using 4 x 10mm M4 bolts, 4 x M4 washers and 4 x M4 nuts.</description>
         <media>
           <file url="./add_box_lid1.jpg" />
           <file url="./add_box_lid2.jpg" />
@@ -3163,6 +3196,24 @@ This cable bundle should be secured to the electronics box using a cable tie ins
       <designator />
       <quantity>20</quantity>
       <implementation type="physical_part" id="560135727" />
+    </function>
+    <function id="766839099">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="1078891307" />
+    </function>
+    <function id="834659144">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="1669720009" />
+    </function>
+    <function id="730957111">
+      <description />
+      <designator />
+      <quantity>4</quantity>
+      <implementation type="physical_part" id="1465955462" />
     </function>
     <instruction name="" />
   </brick>
