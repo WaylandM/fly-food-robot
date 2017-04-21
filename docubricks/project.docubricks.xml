@@ -1168,14 +1168,8 @@ Dimensions (mm) 24.39 OD x 15.974 +/- 0.026 ID  x 10.23 'thick'</description>
   </physical_part>
   <brick id="159776940">
     <name>CNC fly food dispenser</name>
-    <abstract>Catesian robot for dispensing fruit fly food into vials.</abstract>
-    <long_description>Based on original design by...
-Types of actuator (belt and pulley, screw thread)
-Pump control (functions, electrical isolation)
-Software source code
-
-User manual: https://github.com/WaylandM/fly-food-robot/wiki
-Source code: https://github.com/WaylandM/fly-food-robot</long_description>
+    <abstract>Cartesian coordinate robot for dispensing fruit fly food into vials.</abstract>
+    <long_description>The fruit fly, Drosophila melanogaster, is one of the most important model organisms in biological research. Maintaining stocks of fruit flies in the laboratory is labour-intensive. One task which lends itself to automation is the production of the vials of food in which the flies are reared. Fly facilities typically have to generate several thousand vials of fly food each week to sustain their fly stocks. The system presented here combines a cartesian coordinate robot with a peristaltic pump. The design of the robot is based on the Routy CNC Router created by Mark Carew (http://openbuilds.org/builds/routy-cnc-router-v-slot-belt-pinion.101/), and uses belt and pully actuators for the X and Y axes, and a leadscrew actuator for the Z axis. CNC motion and operation of the peristaltic pump are controlled by grbl (https://github.com/grbl/grbl), an open source, embedded, high performance g-code parser. Grbl is written in optimized C and runs directly on an Arduino.  A Raspberry Pi is used to generate and stream G-code instructions to Grbl. A touch screen on the Raspberry Pi provides a graphical user interface to the system. This documentation describes the design and build of the hardware. Software source code and operating instructions can be found here: https://github.com/WaylandM/fly-food-robot</long_description>
     <notes />
     <license>CC-BY 3.0</license>
     <media>
@@ -2546,7 +2540,7 @@ Remove the lead screw from the z-axis actuator by loosening the grub screws anch
   <brick id="1115249511">
     <name>Electronics</name>
     <abstract />
-    <long_description>For CNC motion control we use grbl (https://github.com/grbl/grbl), an open source, embedded, high performance g-code parser. Grbl is written in optimized C and runs directly on an Arduino. This is used in conjunction with the gShield (formerly known as grblshield) which provides the hardware drivers for the stepper motors. Grbl sends out TTL signals on pins A3 and 13 or the Arduino to control coolant flow and spindle direction, respectively. Here these signals are used to remotely control a peristaltic pump. A Raspberry Pi is used to generate and stream gcode to the Arduino. A touch screen on the Raspberry Pi provides the user interface; a resistive rather than capacitive touch screen was chosen so that it could be operated by a person wearing gloves. Instructions on software installation and use can be found here: https://github.com/WaylandM/fly-food-robot/wiki</long_description>
+    <long_description>CNC motion control is provided by grbl (https://github.com/grbl/grbl), an open source, embedded, high performance g-code parser. Grbl is written in optimized C and runs directly on an Arduino. This is used in conjunction with the gShield (formerly known as grblshield) which provides the hardware drivers for the stepper motors. Grbl sends out TTL signals on pins A3 and 13 or the Arduino to control coolant flow and spindle direction, respectively. Here these signals are used to remotely control a peristaltic pump. A Raspberry Pi is used to generate and stream G-code to the Arduino. A touch screen on the Raspberry Pi provides the user interface; a resistive rather than capacitive touch screen was chosen so that it could be operated by a person wearing gloves. Instructions on software installation and use can be found here: https://github.com/WaylandM/fly-food-robot/wiki</long_description>
     <notes />
     <license />
     <media />
