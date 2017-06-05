@@ -16,10 +16,14 @@ cover-image: images/system.jpg
 
 # About
 
-<div class="figure" style="text-align: center">
-<img src="images/system.jpg" alt="Robot" width="75%" />
-<p class="caption">(\#fig:test)Robot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/system} 
+
+}
+
+\caption{Robot}(\#fig:test)
+\end{figure}
 
 
 ## Overview

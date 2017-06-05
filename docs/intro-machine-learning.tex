@@ -135,17 +135,6 @@
 }
 \makeatother
 
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}{Lemma}[chapter]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
-\newtheorem{corollary}{Corollary}[chapter]
-\newtheorem{proposition}{Proposition}[chapter]
-\theoremstyle{definition}
-\newtheorem{example}{Example}[chapter]
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
 \begin{document}
 \maketitle
 
@@ -153,78 +142,26 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter{About the course}\label{about-the-course}
+\chapter{About}\label{about}
 
-\includegraphics[width=0.75\linewidth]{images/system}
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/system} 
+
+}
+
+\caption{Robot}\label{fig:test}
+\end{figure}
 
 \section{Overview}\label{overview}
 
-Machine learning gives computers the ability to learn without being
-explicitly programmed. It encompasses a broad range of approaches to
-data analysis with applicability across the biological sciences.
-Lectures will introduce commonly used algorithms and provide insight
-into their theoretical underpinnings. In the practicals students will
-apply these algorithms to real biological data-sets using the R language
-and environment.
-
-During this course you will learn about:
-
-\begin{itemize}
-\tightlist
-\item
-  Some of the core mathematical concepts underpinning machine learning
-  algorithms: matrices and linear algebra; Bayes' theorem.
-\item
-  Classification (supervised learning): partitioning data into training
-  and test sets; feature selection; logistic regression; support vector
-  machines; artificial neural networks; decision trees; nearest
-  neighbours, cross-validation.
-\item
-  Exploratory data analysis (unsupervised learning): dimensionality
-  reduction, anomaly detection, clustering.
-\end{itemize}
-
-After this course you should be able to:
-
-\begin{itemize}
-\tightlist
-\item
-  Understand the concepts of machine learning.
-\item
-  Understand the strengths and limitations of the various machine
-  learning algorithms presented in this course.
-\item
-  Select appropriate machine learning methods for your data.
-\item
-  Perform machine learning in R.
-\end{itemize}
-
-\section{Registration}\label{registration}
-
-\href{https://training.csx.cam.ac.uk/bioinformatics/search?type=events\&query=an+introduction+to+machine+learning\&x=0\&y=0}{Bioinformatics
-Training: An Introduction to Machine Learning}
-
-\section{Prerequisites}\label{prerequisites}
-
-\begin{itemize}
-\tightlist
-\item
-  Some familiarity with R would be helpful.
-\item
-  For an introduction to R see
-  \href{http://training.csx.cam.ac.uk/bioinformatics/course/bioinfo-rintro/}{An
-  Introduction to Solving Biological Problems with R course}.
-\end{itemize}
+Figure \ref{fig:test}
 
 \section{Github}\label{github}
 
-\href{https://github.com/bioinformatics-training/intro-machine-learning}{bioinformatics-training/intro-machine-learning}
-
 \section{Contact}\label{contact}
 
-If you have any \textbf{comments}, \textbf{questions} or
-\textbf{suggestions} about the material, please contact the authors:
-Sudhakaran Prabakaran, Matt Wayland and Chris Penfold.
+Matt Wayland
 
 \section{Colophon}\label{colophon}
 
@@ -309,20 +246,13 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 \end{tabular}
 \end{table}
 
-\chapter{Linear models and matrix
-algebra}\label{linear-models-and-matrix-algebra}
+\chapter{Software installation}\label{software-installation}
 
-\chapter{Linear and non linear logistic
-regression}\label{linear-and-non-linear-logistic-regression}
+\chapter{Calibration}\label{calibration}
 
-\chapter{Nearest neighbours}\label{nearest-neighbours}
+\chapter{Operation}\label{operation}
 
-\section{Example one}\label{example-one}
-
-\section{Example two}\label{example-two}
-
-\chapter{Decision trees and random
-forests}\label{decision-trees-and-random-forests}
+\chapter{Trouble-shooting}\label{trouble-shooting}
 
 \bibliography{packages.bib,book.bib}
 
