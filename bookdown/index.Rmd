@@ -1,7 +1,7 @@
 --- 
 title: "CNC Fly Food Dispenser"
 author: "Matt Wayland"
-date: "2017-06-05"
+date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -16,10 +16,9 @@ cover-image: images/system.jpg
 
 # About
 
-<div class="figure" style="text-align: center">
-<img src="images/system.jpg" alt="Robot" width="75%" />
-<p class="caption">(\#fig:test)Robot</p>
-</div>
+```{r test, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Robot"}
+knitr::include_graphics("images/system.jpg")
+```
 
 
 ## Overview
