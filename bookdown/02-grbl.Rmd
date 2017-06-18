@@ -50,13 +50,19 @@ knitr::include_graphics("images/laptop_connected_to_arduino.jpg")
 
 _**NOTE: Before powering up the gShield and motors, check that the actuator carriages for all three axes are approximately centred. Initially we do not know in which direction the actuator carriages will travel when G-code commands are issued, so positioning each in the middle of its range reduces the risk of collisions with the end stops.**_
 
-```{r actuators_centred, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Actuator carriages centred in preparation for powering-up motors for first time."}
+```{r actuatorsCentred, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Actuator carriages centred in preparation for powering-up motors for first time"}
 knitr::include_graphics("images/actuator_carriages_centred.jpg")
 ```
 
 
 1. Open serial monitor in Arduino IDE
  * Click ```Tools``` drop-down menu, and select ```Serial Monitor```
+```{r serialMonitor, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Arduino IDE Serial Monitor"}
+knitr::include_graphics("images/Arduino_IDE_serial_monitor.png")
+```
+ * Note that line-ending is set to ```Carriage return``` and baud rate is set to ```115200```
+ * Try issuing a G-code command. Type ```?``` and hit return. This command will report the current position; as we have just started the system up all axes will be at 0.000.
+ * Now try moving the x-actuator by typing 
  
 
 

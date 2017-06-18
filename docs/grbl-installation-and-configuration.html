@@ -113,7 +113,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html"><i class="fa fa-check"></i><b>3</b> Grbl installation and configuration</a><ul>
 <li class="chapter" data-level="3.1" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#flashing-grbl-to-arduino"><i class="fa fa-check"></i><b>3.2</b> Flashing Grbl to Arduino</a></li>
-<li class="chapter" data-level="3.3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#check-connection-to-arduino"><i class="fa fa-check"></i><b>3.3</b> Check connection to Arduino</a></li>
+<li class="chapter" data-level="3.3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#check-serial-connection-to-grbl"><i class="fa fa-check"></i><b>3.3</b> Check serial connection to Grbl</a></li>
 <li class="chapter" data-level="3.4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#fine-adjustment-of-motors"><i class="fa fa-check"></i><b>3.4</b> fine adjustment of motors</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>4</b> Raspberry Pi setup</a></li>
@@ -190,7 +190,7 @@ Figure 3.2: Loading Grbl library into the Arduino IDE
 <li>Open the <code>GrblUpload</code> Arduino example.</li>
 </ol>
 <ul>
-<li>Click the <code>File</code> down-down menu, navigate to <code>Examples-&gt;Grbl</code>, and select <code>GrblUpload</code>.
+<li>Click the <code>File</code> drop-down menu, navigate to <code>Examples-&gt;Grbl</code>, and select <code>GrblUpload</code>.
 <div class="figure" style="text-align: center"><span id="fig:grblUploadFile"></span>
 <img src="images/grbl_upload_file.png" alt="GrblUpload example file" width="75%" />
 <p class="caption">
@@ -213,18 +213,30 @@ Figure 3.4: Laptop connected directly to Arduino
 <li>Click the <code>Upload</code>, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the <code>Upload Using Programmer</code> menu command.)</li>
 </ul>
 </div>
-<div id="check-connection-to-arduino" class="section level2">
-<h2><span class="header-section-number">3.3</span> Check connection to Arduino</h2>
-<p><em><strong>NOTE: Before powering up the gShield and motors, check that the actuator carriages for all three axes are approximately centred. Initially we do not know in which direction the actuators carriages will travel when G-code commands are issued, so positioning each in the middle of its range reduces the likelihood of collisions with the end stops.</strong></em></p>
-<div class="figure" style="text-align: center">
-<img src="images/actuator_carriages_centred.jpg" alt="Actuator carriages centred in preparation for powering-up motors for first time." width="75%" />
+<div id="check-serial-connection-to-grbl" class="section level2">
+<h2><span class="header-section-number">3.3</span> Check serial connection to Grbl</h2>
+<p><em><strong>NOTE: Before powering up the gShield and motors, check that the actuator carriages for all three axes are approximately centred. Initially we do not know in which direction the actuator carriages will travel when G-code commands are issued, so positioning each in the middle of its range reduces the risk of collisions with the end stops.</strong></em></p>
+<div class="figure" style="text-align: center"><span id="fig:actuatorsCentred"></span>
+<img src="images/actuator_carriages_centred.jpg" alt="Actuator carriages centred in preparation for powering-up motors for first time" width="75%" />
 <p class="caption">
-(#fig:actuators_centred)Actuator carriages centred in preparation for powering-up motors for first time.
+Figure 3.5: Actuator carriages centred in preparation for powering-up motors for first time
 </p>
 </div>
 <ol style="list-style-type: decimal">
-<li>Check that the acutuator carriages for all three axes are centred</li>
+<li>Open serial monitor in Arduino IDE</li>
 </ol>
+<ul>
+<li>Click <code>Tools</code> drop-down menu, and select <code>Serial Monitor</code>
+<div class="figure" style="text-align: center"><span id="fig:serialMonitor"></span>
+<img src="images/arduino_IDE_serial_monitor.png" alt="Arduino IDE Serial Monitor" width="75%" />
+<p class="caption">
+Figure 3.6: Arduino IDE Serial Monitor
+</p>
+</div></li>
+<li>Note that line-ending is set to <code>Carriage return</code> and baud rate is set to <code>115200</code></li>
+<li>Try issuing a G-code command. Type <code>?</code> and hit return. This command will report the current position; as we have just started the system up all axes will be at 0.000.</li>
+<li>Now try moving the x-actuator by typing</li>
+</ul>
 </div>
 <div id="fine-adjustment-of-motors" class="section level2">
 <h2><span class="header-section-number">3.4</span> fine adjustment of motors</h2>

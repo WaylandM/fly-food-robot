@@ -34,7 +34,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
  * If you accidentally select the `.zip` file or the wrong folder, you will need to navigate to your Arduino library, delete the mistake, and re-do Step 3.
  
 4. Open the `GrblUpload` Arduino example.
- * Click the ```File``` down-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
+ * Click the ```File``` drop-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
 <div class="figure" style="text-align: center">
 <img src="images/grbl_upload_file.png" alt="GrblUpload example file" width="75%" />
 <p class="caption">(\#fig:grblUploadFile)GrblUpload example file</p>
@@ -50,16 +50,26 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
  * Make sure your board is set to the Arduino Uno in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. 
  * Click the ```Upload```, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the ```Upload Using Programmer``` menu command.)
 
-## Check connection to Arduino
+## Check serial connection to Grbl
 
-_**NOTE: Before powering up the gShield and motors, check that the actuator carriages for all three axes are approximately centred. Initially we do not know in which direction the actuators carriages will travel when G-code commands are issued, so positioning each in the middle of its range reduces the likelihood of collisions with the end stops.**_
+_**NOTE: Before powering up the gShield and motors, check that the actuator carriages for all three axes are approximately centred. Initially we do not know in which direction the actuator carriages will travel when G-code commands are issued, so positioning each in the middle of its range reduces the risk of collisions with the end stops.**_
 
 <div class="figure" style="text-align: center">
-<img src="images/actuator_carriages_centred.jpg" alt="Actuator carriages centred in preparation for powering-up motors for first time." width="75%" />
-<p class="caption">(\#fig:actuators_centred)Actuator carriages centred in preparation for powering-up motors for first time.</p>
+<img src="images/actuator_carriages_centred.jpg" alt="Actuator carriages centred in preparation for powering-up motors for first time" width="75%" />
+<p class="caption">(\#fig:actuatorsCentred)Actuator carriages centred in preparation for powering-up motors for first time</p>
 </div>
 
 
-1. Check that the acutuator carriages for all three axes are centred
+1. Open serial monitor in Arduino IDE
+ * Click ```Tools``` drop-down menu, and select ```Serial Monitor```
+<div class="figure" style="text-align: center">
+<img src="images/Arduino_IDE_serial_monitor.png" alt="Arduino IDE Serial Monitor" width="75%" />
+<p class="caption">(\#fig:serialMonitor)Arduino IDE Serial Monitor</p>
+</div>
+ * Note that line-ending is set to ```Carriage return``` and baud rate is set to ```115200```
+ * Try issuing a G-code command. Type ```?``` and hit return. This command will report the current position; as we have just started the system up all axes will be at 0.000.
+ * Now try moving the x-actuator by typing 
+ 
+
 
 ## fine adjustment of motors
