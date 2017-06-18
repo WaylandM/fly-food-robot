@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-06-07">
+<meta name="date" content="2017-06-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="index.html">
-<link rel="next" href="raspberry-pi-setup.html">
+<link rel="next" href="grbl-installation-and-configuration.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -110,8 +110,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#colophon"><i class="fa fa-check"></i><b>1.4</b> Colophon</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>3</b> Raspberry Pi setup</a></li>
-<li class="chapter" data-level="4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html"><i class="fa fa-check"></i><b>4</b> Grbl installation and configuration</a></li>
+<li class="chapter" data-level="3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html"><i class="fa fa-check"></i><b>3</b> Grbl installation and configuration</a><ul>
+<li class="chapter" data-level="3.1" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#flashing-grbl-to-arduino"><i class="fa fa-check"></i><b>3.2</b> Flashing Grbl to Arduino</a></li>
+<li class="chapter" data-level="3.3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#check-connection-to-arduino"><i class="fa fa-check"></i><b>3.3</b> Check connection to Arduino</a></li>
+<li class="chapter" data-level="3.4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#fine-adjustment-of-motors"><i class="fa fa-check"></i><b>3.4</b> fine adjustment of motors</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>4</b> Raspberry Pi setup</a></li>
 <li class="chapter" data-level="5" data-path="creating-jobs-in-g-code.html"><a href="creating-jobs-in-g-code.html"><i class="fa fa-check"></i><b>5</b> Creating jobs in G-code</a></li>
 <li class="chapter" data-level="6" data-path="trouble-shooting.html"><a href="trouble-shooting.html"><i class="fa fa-check"></i><b>6</b> Trouble-shooting</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -137,6 +142,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">2</span> Introduction</h1>
+<p>The fruit fly, <em>Drosophila melanogaster</em>, is one of the most important model organisms in biological research. Maintaining stocks of fruit flies in the laboratory is labour-intensive. One task which lends itself to automation is the production of the vials of food in which the flies are reared. Fly facilities typically have to generate several thousand vials of fly food each week to sustain their fly stocks. The system presented here combines a cartesian coordinate robot with a peristaltic pump. The design of the robot is based on the Routy CNC Router created by Mark Carew (<a href="http://openbuilds.org/builds/routy-cnc-router-v-slot-belt-pinion.101/" class="uri">http://openbuilds.org/builds/routy-cnc-router-v-slot-belt-pinion.101/</a>), and uses belt and pully actuators for the X and Y axes, and a leadscrew actuator for the Z axis. CNC motion and operation of the peristaltic pump are controlled by grbl (<a href="https://github.com/gnea/grbl" class="uri">https://github.com/gnea/grbl</a>), an open source, embedded, high performance g-code parser. Grbl is written in optimized C and runs directly on an Arduino. A Raspberry Pi is used to generate and stream G-code instructions to Grbl. A touch screen on the Raspberry Pi provides a graphical user interface to the system. This manual explains how to install the required software and operate the robot. Instructions for building the hardware are available on <a href="http://docubricks.com/viewer.jsp?id=8652757760093769728">DocuBricks</a>.</p>
+<p>A Raspberry Pi is used to generate and stream G-code to the Arduino. A touch screen on the Raspberry Pi provides the user interface; a resistive rather than capacitive touch screen was chosen so that it could be operated by a person wearing gloves.</p>
 <p>knitr::include_graphics(“images/system.jpg”)</p>
 <p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">2</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="#methods"><strong>??</strong></a>.</p>
 <p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
@@ -315,7 +322,7 @@ Figure 2.1: Here is a nice figure!
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="raspberry-pi-setup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="grbl-installation-and-configuration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

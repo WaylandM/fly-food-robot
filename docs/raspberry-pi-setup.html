@@ -25,15 +25,15 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-06-07">
+<meta name="date" content="2017-06-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="intro.html">
-<link rel="next" href="grbl-installation-and-configuration.html">
+<link rel="prev" href="grbl-installation-and-configuration.html">
+<link rel="next" href="creating-jobs-in-g-code.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -110,8 +110,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#colophon"><i class="fa fa-check"></i><b>1.4</b> Colophon</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>3</b> Raspberry Pi setup</a></li>
-<li class="chapter" data-level="4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html"><i class="fa fa-check"></i><b>4</b> Grbl installation and configuration</a></li>
+<li class="chapter" data-level="3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html"><i class="fa fa-check"></i><b>3</b> Grbl installation and configuration</a><ul>
+<li class="chapter" data-level="3.1" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#flashing-grbl-to-arduino"><i class="fa fa-check"></i><b>3.2</b> Flashing Grbl to Arduino</a></li>
+<li class="chapter" data-level="3.3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#check-connection-to-arduino"><i class="fa fa-check"></i><b>3.3</b> Check connection to Arduino</a></li>
+<li class="chapter" data-level="3.4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#fine-adjustment-of-motors"><i class="fa fa-check"></i><b>3.4</b> fine adjustment of motors</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>4</b> Raspberry Pi setup</a></li>
 <li class="chapter" data-level="5" data-path="creating-jobs-in-g-code.html"><a href="creating-jobs-in-g-code.html"><i class="fa fa-check"></i><b>5</b> Creating jobs in G-code</a></li>
 <li class="chapter" data-level="6" data-path="trouble-shooting.html"><a href="trouble-shooting.html"><i class="fa fa-check"></i><b>6</b> Trouble-shooting</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -136,13 +141,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="raspberry-pi-setup" class="section level1">
-<h1><span class="header-section-number">3</span> Raspberry Pi setup</h1>
+<h1><span class="header-section-number">4</span> Raspberry Pi setup</h1>
 <p><a href="https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi/easy-install" class="uri">https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi/easy-install</a></p>
 <p><a href="https://s3.amazonaws.com/adafruit-raspberry-pi/2016-10-18-pitft-28r.zip" class="uri">https://s3.amazonaws.com/adafruit-raspberry-pi/2016-10-18-pitft-28r.zip</a></p>
 <p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/" class="uri">https://www.raspberrypi.org/documentation/installation/installing-images/</a></p>
 <pre><code>    sudo raspi-config
     (expand filesystem)
     sudo reboot</code></pre>
+<p>/etc/dhcpcd.conf</p>
+<p>interface eth0</p>
+<p>static ip_address=192.168.2.2/24 static routers=192.168.2.1 static domain_name_servers=192.168.2.1</p>
 
 </div>
             </section>
@@ -150,8 +158,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="grbl-installation-and-configuration.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="grbl-installation-and-configuration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="creating-jobs-in-g-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -180,7 +188,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/WaylandM/fly-food-robot/edit/master/02-raspi-setup.Rmd",
+"link": "https://github.com/WaylandM/fly-food-robot/edit/master/03-raspi-setup.Rmd",
 "text": "Edit"
 },
 "download": ["intro-machine-learning.pdf"],

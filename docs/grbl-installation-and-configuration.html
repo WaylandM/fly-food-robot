@@ -25,15 +25,15 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-06-07">
+<meta name="date" content="2017-06-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="raspberry-pi-setup.html">
-<link rel="next" href="creating-jobs-in-g-code.html">
+<link rel="prev" href="intro.html">
+<link rel="next" href="raspberry-pi-setup.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -110,8 +110,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#colophon"><i class="fa fa-check"></i><b>1.4</b> Colophon</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>3</b> Raspberry Pi setup</a></li>
-<li class="chapter" data-level="4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html"><i class="fa fa-check"></i><b>4</b> Grbl installation and configuration</a></li>
+<li class="chapter" data-level="3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html"><i class="fa fa-check"></i><b>3</b> Grbl installation and configuration</a><ul>
+<li class="chapter" data-level="3.1" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#flashing-grbl-to-arduino"><i class="fa fa-check"></i><b>3.2</b> Flashing Grbl to Arduino</a></li>
+<li class="chapter" data-level="3.3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#check-connection-to-arduino"><i class="fa fa-check"></i><b>3.3</b> Check connection to Arduino</a></li>
+<li class="chapter" data-level="3.4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#fine-adjustment-of-motors"><i class="fa fa-check"></i><b>3.4</b> fine adjustment of motors</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>4</b> Raspberry Pi setup</a></li>
 <li class="chapter" data-level="5" data-path="creating-jobs-in-g-code.html"><a href="creating-jobs-in-g-code.html"><i class="fa fa-check"></i><b>5</b> Creating jobs in G-code</a></li>
 <li class="chapter" data-level="6" data-path="trouble-shooting.html"><a href="trouble-shooting.html"><i class="fa fa-check"></i><b>6</b> Trouble-shooting</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -136,16 +141,103 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="grbl-installation-and-configuration" class="section level1">
-<h1><span class="header-section-number">4</span> Grbl installation and configuration</h1>
+<h1><span class="header-section-number">3</span> Grbl installation and configuration</h1>
+<div id="overview-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Overview</h2>
+<p>CNC motion control is provided by grbl (<a href="https://github.com/gnea/grbl" class="uri">https://github.com/gnea/grbl</a>), an open source, embedded, high performance g-code parser. Grbl is written in optimized C and runs directly on an Arduino. This is used in conjunction with the gShield (formerly known as grblshield) which provides the hardware drivers for the stepper motors. Grbl sends out TTL signals on pins A3 and 13 or the Arduino to control coolant flow and spindle direction, respectively. Here these signals are used to remotely control a peristaltic pump.</p>
+</div>
+<div id="flashing-grbl-to-arduino" class="section level2">
+<h2><span class="header-section-number">3.2</span> Flashing Grbl to Arduino</h2>
+<p>To flash Grbl to the Arduino you will need a computer with the latest version of the <a href="https://www.arduino.cc/en/Main/Software">Arduino IDE</a> installed. The following instructions for flashing Grbl to the Arduino are taken from: <a href="https://github.com/gnea/grbl/wiki/Compiling-Grbl" class="uri">https://github.com/gnea/grbl/wiki/Compiling-Grbl</a></p>
+<p><em><strong>NOTE: Before starting, delete prior Grbl library installations from the Arduino IDE. Otherwise, you’ll have compiling issues! On a Mac, Arduino libraries are located in <code>~/Documents/Arduino/libraries/</code>. On Windows, it’s in <code>My Documents\Arduino\libraries</code>.</strong></em></p>
+<ol style="list-style-type: decimal">
+<li>Download the Grbl source code.</li>
+</ol>
+<ul>
+<li>Open the following page in your web browser: <a href="https://github.com/gnea/grbl" class="uri">https://github.com/gnea/grbl</a></li>
+<li>Click on the <code>&lt;&gt;Code</code> Tab</li>
+<li>Click the <code>Clone or Download</code> green button on the Grbl home page.</li>
+<li>Click the <code>Download ZIP</code></li>
+<li>Unzip the download and you’ll have a folder called <code>grbl-XXX</code>, where <code>XXX</code> is the release version.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Launch the Arduino IDE</li>
+</ol>
+<ul>
+<li>Make sure you are using the most recent version of the Arduino IDE!
+<div class="figure" style="text-align: center"><span id="fig:arduinoIDE"></span>
+<img src="images/arduino_IDE.png" alt="Arduino IDE" width="75%" />
+<p class="caption">
+Figure 3.1: Arduino IDE
+</p>
+</div></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Load Grbl into the Arduino IDE as a Library.</li>
+</ol>
+<ul>
+<li>Click the <code>Sketch</code> drop-down menu, navigate to <code>Include Library</code> and select <code>Add .ZIP Library</code>.</li>
+<li><strong>IMPORTANT:</strong> Select the <code>Grbl</code> folder <strong><em>inside</em></strong> the <code>grbl-XXX</code> folder, which <strong>only</strong> contains the source files and an example directory.
+<div class="figure" style="text-align: center"><span id="fig:addGrblLib"></span>
+<img src="images/add_grbl_lib.png" alt="Loading Grbl library into the Arduino IDE" width="75%" />
+<p class="caption">
+Figure 3.2: Loading Grbl library into the Arduino IDE
+</p>
+</div></li>
+<li>If you accidentally select the <code>.zip</code> file or the wrong folder, you will need to navigate to your Arduino library, delete the mistake, and re-do Step 3.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Open the <code>GrblUpload</code> Arduino example.</li>
+</ol>
+<ul>
+<li>Click the <code>File</code> down-down menu, navigate to <code>Examples-&gt;Grbl</code>, and select <code>GrblUpload</code>.
+<div class="figure" style="text-align: center"><span id="fig:grblUploadFile"></span>
+<img src="images/grbl_upload_file.png" alt="GrblUpload example file" width="75%" />
+<p class="caption">
+Figure 3.3: GrblUpload example file
+</p>
+</div></li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Compile and upload Grbl to your Arduino.</li>
+</ol>
+<ul>
+<li>Connect your computer directly to the Arduino using the USB cable.
+<div class="figure" style="text-align: center"><span id="fig:laptop2arduino"></span>
+<img src="images/laptop_connected_to_arduino.jpg" alt="Laptop connected directly to Arduino" width="75%" />
+<p class="caption">
+Figure 3.4: Laptop connected directly to Arduino
+</p>
+</div></li>
+<li>Make sure your board is set to the Arduino Uno in the <code>Tool-&gt;Board</code> menu and the serial port is selected correctly in <code>Tool-&gt;Serial Port</code>.</li>
+<li>Click the <code>Upload</code>, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the <code>Upload Using Programmer</code> menu command.)</li>
+</ul>
+</div>
+<div id="check-connection-to-arduino" class="section level2">
+<h2><span class="header-section-number">3.3</span> Check connection to Arduino</h2>
+<p><em><strong>NOTE: Before powering up the gShield and motors, check that the actuator carriages for all three axes are approximately centred. Initially we do not know in which direction the actuators carriages will travel when G-code commands are issued, so positioning each in the middle of its range reduces the likelihood of collisions with the end stops.</strong></em></p>
+<div class="figure" style="text-align: center">
+<img src="images/actuator_carriages_centred.jpg" alt="Actuator carriages centred in preparation for powering-up motors for first time." width="75%" />
+<p class="caption">
+(#fig:actuators_centred)Actuator carriages centred in preparation for powering-up motors for first time.
+</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>Check that the acutuator carriages for all three axes are centred</li>
+</ol>
+</div>
+<div id="fine-adjustment-of-motors" class="section level2">
+<h2><span class="header-section-number">3.4</span> fine adjustment of motors</h2>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="raspberry-pi-setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="creating-jobs-in-g-code.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="raspberry-pi-setup.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -174,7 +266,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/WaylandM/fly-food-robot/edit/master/03-grbl.Rmd",
+"link": "https://github.com/WaylandM/fly-food-robot/edit/master/02-grbl.Rmd",
 "text": "Edit"
 },
 "download": ["intro-machine-learning.pdf"],

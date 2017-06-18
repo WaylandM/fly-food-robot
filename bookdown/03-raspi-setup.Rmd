@@ -15,3 +15,11 @@ https://www.raspberrypi.org/documentation/installation/installing-images/
     sudo reboot
 ```
     
+/etc/dhcpcd.conf
+
+interface eth0
+
+static ip_address=192.168.2.2/24
+static routers=192.168.2.1
+static domain_name_servers=192.168.2.1
+
