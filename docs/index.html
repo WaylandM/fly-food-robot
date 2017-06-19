@@ -6,26 +6,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>CNC Fly Food Dispenser</title>
-  <meta name="description" content="Course materials for An Introduction to Machine Learning">
+  <meta name="description" content="Manual for CNC Fly Food Dispenser">
   <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
   <meta property="og:title" content="CNC Fly Food Dispenser" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/system.jpg" />
-  <meta property="og:description" content="Course materials for An Introduction to Machine Learning" />
-  <meta name="github-repo" content="bioinformatics-training/intro-machine-learning" />
+  <meta property="og:description" content="Manual for CNC Fly Food Dispenser" />
+  <meta name="github-repo" content="waylandm/fly-food-robot" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="CNC Fly Food Dispenser" />
   
-  <meta name="twitter:description" content="Course materials for An Introduction to Machine Learning" />
+  <meta name="twitter:description" content="Manual for CNC Fly Food Dispenser" />
   <meta name="twitter:image" content="images/system.jpg" />
 
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-06-18">
+<meta name="date" content="2017-06-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -114,7 +114,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#flashing-grbl-to-arduino"><i class="fa fa-check"></i><b>3.2</b> Flashing Grbl to Arduino</a></li>
 <li class="chapter" data-level="3.3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#check-serial-connection-to-grbl"><i class="fa fa-check"></i><b>3.3</b> Check serial connection to Grbl</a></li>
-<li class="chapter" data-level="3.4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#fine-adjustment-of-motors"><i class="fa fa-check"></i><b>3.4</b> fine adjustment of motors</a></li>
+<li class="chapter" data-level="3.4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#grbl-configuration"><i class="fa fa-check"></i><b>3.4</b> Grbl configuration</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#read-current-configuration"><i class="fa fa-check"></i><b>3.4.1</b> Read current configuration</a></li>
+<li class="chapter" data-level="3.4.2" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#check-directionality-of-each-axis."><i class="fa fa-check"></i><b>3.4.2</b> Check directionality of each axis.</a></li>
+<li class="chapter" data-level="3.4.3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#activate-hard-limits"><i class="fa fa-check"></i><b>3.4.3</b> Activate hard limits</a></li>
+<li class="chapter" data-level="3.4.4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#setup-homing"><i class="fa fa-check"></i><b>3.4.4</b> Setup homing</a></li>
+<li class="chapter" data-level="3.4.5" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#motor-step-size"><i class="fa fa-check"></i><b>3.4.5</b> Motor step size</a></li>
+<li class="chapter" data-level="3.4.6" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#feed-rates-and-acceleration"><i class="fa fa-check"></i><b>3.4.6</b> Feed rates and acceleration</a></li>
+<li class="chapter" data-level="3.4.7" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#summary-of-settings"><i class="fa fa-check"></i><b>3.4.7</b> Summary of settings</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#fine-adjustment-of-motors"><i class="fa fa-check"></i><b>3.5</b> fine adjustment of motors</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>4</b> Raspberry Pi setup</a></li>
 <li class="chapter" data-level="5" data-path="creating-jobs-in-g-code.html"><a href="creating-jobs-in-g-code.html"><i class="fa fa-check"></i><b>5</b> Creating jobs in G-code</a></li>
@@ -143,7 +152,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">CNC Fly Food Dispenser</h1>
 <h4 class="author"><em>Matt Wayland</em></h4>
-<h4 class="date"><em>2017-06-18</em></h4>
+<h4 class="date"><em>2017-06-19</em></h4>
 </div>
 <div id="about" class="section level1">
 <h1><span class="header-section-number">1</span> About</h1>
@@ -217,7 +226,7 @@ gitbook.start({
 "link": "https://github.com/WaylandM/fly-food-robot/edit/master/index.Rmd",
 "text": "Edit"
 },
-"download": ["intro-machine-learning.pdf"],
+"download": ["fly-food-robot.pdf"],
 "toc": {
 "collapse": "subsection"
 }

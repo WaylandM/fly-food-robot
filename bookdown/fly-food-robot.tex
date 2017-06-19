@@ -1,0 +1,758 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={CNC Fly Food Dispenser},
+            pdfauthor={Matt Wayland},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{CNC Fly Food Dispenser}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Matt Wayland}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2017-06-19}
+
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter{About}\label{about}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/system} 
+
+}
+
+\caption{Robot}\label{fig:test}
+\end{figure}
+
+\section{Overview}\label{overview}
+
+Figure \ref{fig:test}
+
+\section{Github}\label{github}
+
+\section{Contact}\label{contact}
+
+Matt Wayland
+
+\section{Colophon}\label{colophon}
+
+This book was produced using the \textbf{bookdown} package
+\citep{R-bookdown}, which was built on top of R Markdown and
+\textbf{knitr} \citep{xie2015}.
+
+\chapter{Introduction}\label{intro}
+
+The fruit fly, \emph{Drosophila melanogaster}, is one of the most
+important model organisms in biological research. Maintaining stocks of
+fruit flies in the laboratory is labour-intensive. One task which lends
+itself to automation is the production of the vials of food in which the
+flies are reared. Fly facilities typically have to generate several
+thousand vials of fly food each week to sustain their fly stocks. The
+system presented here combines a cartesian coordinate robot with a
+peristaltic pump. The design of the robot is based on the Routy CNC
+Router created by Mark Carew
+(\url{http://openbuilds.org/builds/routy-cnc-router-v-slot-belt-pinion.101/}),
+and uses belt and pully actuators for the X and Y axes, and a leadscrew
+actuator for the Z axis. CNC motion and operation of the peristaltic
+pump are controlled by grbl (\url{https://github.com/gnea/grbl}), an
+open source, embedded, high performance g-code parser. Grbl is written
+in optimized C and runs directly on an Arduino. A Raspberry Pi is used
+to generate and stream G-code instructions to Grbl. A touch screen on
+the Raspberry Pi provides a graphical user interface to the system. This
+manual explains how to install the required software and operate the
+robot. Instructions for building the hardware are available on
+\href{http://docubricks.com/viewer.jsp?id=8652757760093769728}{DocuBricks}.
+
+A Raspberry Pi is used to generate and stream G-code to the Arduino. A
+touch screen on the Raspberry Pi provides the user interface; a
+resistive rather than capacitive touch screen was chosen so that it
+could be operated by a person wearing gloves.
+
+knitr::include\_graphics(``images/system.jpg'')
+
+You can label chapter and section titles using \texttt{\{\#label\}}
+after them, e.g., we can reference Chapter \ref{intro}. If you do not
+manually label them, there will be automatic labels anyway, e.g.,
+Chapter \ref{methods}.
+
+Figures and tables with captions will be placed in \texttt{figure} and
+\texttt{table} environments, respectively.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(pressure, }\DataTypeTok{type =} \StringTok{'b'}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{01-intro_files/figure-latex/nice-fig-1} 
+
+}
+
+\caption{Here is a nice figure!}\label{fig:nice-fig}
+\end{figure}
+
+Reference a figure by its code chunk label with the \texttt{fig:}
+prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can
+reference tables generated from \texttt{knitr::kable()}, e.g., see Table
+\ref{tab:nice-tab}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{head}\NormalTok{(iris, }\DecValTok{20}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Here is a nice table!'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:nice-tab}Here is a nice table!}
+\centering
+\begin{tabular}[t]{rrrrl}
+\toprule
+Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
+\midrule
+5.1 & 3.5 & 1.4 & 0.2 & setosa\\
+4.9 & 3.0 & 1.4 & 0.2 & setosa\\
+4.7 & 3.2 & 1.3 & 0.2 & setosa\\
+4.6 & 3.1 & 1.5 & 0.2 & setosa\\
+5.0 & 3.6 & 1.4 & 0.2 & setosa\\
+\addlinespace
+5.4 & 3.9 & 1.7 & 0.4 & setosa\\
+4.6 & 3.4 & 1.4 & 0.3 & setosa\\
+5.0 & 3.4 & 1.5 & 0.2 & setosa\\
+4.4 & 2.9 & 1.4 & 0.2 & setosa\\
+4.9 & 3.1 & 1.5 & 0.1 & setosa\\
+\addlinespace
+5.4 & 3.7 & 1.5 & 0.2 & setosa\\
+4.8 & 3.4 & 1.6 & 0.2 & setosa\\
+4.8 & 3.0 & 1.4 & 0.1 & setosa\\
+4.3 & 3.0 & 1.1 & 0.1 & setosa\\
+5.8 & 4.0 & 1.2 & 0.2 & setosa\\
+\addlinespace
+5.7 & 4.4 & 1.5 & 0.4 & setosa\\
+5.4 & 3.9 & 1.3 & 0.4 & setosa\\
+5.1 & 3.5 & 1.4 & 0.3 & setosa\\
+5.7 & 3.8 & 1.7 & 0.3 & setosa\\
+5.1 & 3.8 & 1.5 & 0.3 & setosa\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\chapter{Grbl installation and
+configuration}\label{grbl-installation-and-configuration}
+
+\section{Overview}\label{overview-1}
+
+CNC motion control is provided by grbl
+(\url{https://github.com/gnea/grbl}), an open source, embedded, high
+performance g-code parser. Grbl is written in optimized C and runs
+directly on an Arduino. This is used in conjunction with the gShield
+(formerly known as grblshield) which provides the hardware drivers for
+the stepper motors. Grbl sends out TTL signals on pins A3 and 13 or the
+Arduino to control coolant flow and spindle direction, respectively.
+Here these signals are used to remotely control a peristaltic pump.
+
+\section{Flashing Grbl to Arduino}\label{flashing-grbl-to-arduino}
+
+To flash Grbl to the Arduino you will need a computer with the latest
+version of the \href{https://www.arduino.cc/en/Main/Software}{Arduino
+IDE} installed. The following instructions for flashing Grbl to the
+Arduino are taken from:
+\url{https://github.com/gnea/grbl/wiki/Compiling-Grbl}
+
+\emph{\textbf{NOTE: Before starting, delete prior Grbl library
+installations from the Arduino IDE. Otherwise, you'll have compiling
+issues! On a Mac, Arduino libraries are located in
+\texttt{\textasciitilde{}/Documents/Arduino/libraries/}. On Windows,
+it's in
+\texttt{My\ Documents\textbackslash{}Arduino\textbackslash{}libraries}.}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Download the Grbl source code.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Open the following page in your web browser:
+  \url{https://github.com/gnea/grbl}
+\item
+  Click on the \texttt{\textless{}\textgreater{}Code} Tab
+\item
+  Click the \texttt{Clone\ or\ Download} green button on the Grbl home
+  page.
+\item
+  Click the \texttt{Download\ ZIP}
+\item
+  Unzip the download and you'll have a folder called \texttt{grbl-XXX},
+  where \texttt{XXX} is the release version.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Launch the Arduino IDE
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Make sure you are using the most recent version of the Arduino IDE!
+  \textbackslash{}begin\{figure\}
+\end{itemize}
+
+\{\centering \includegraphics[width=0.75\linewidth]{images/arduino_IDE}
+
+\}
+
+\caption{Arduino IDE}
+
+\label{fig:arduinoIDE} \textbackslash{}end\{figure\}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Load Grbl into the Arduino IDE as a Library.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Click the \texttt{Sketch} drop-down menu, navigate to
+  \texttt{Include\ Library} and select \texttt{Add\ .ZIP\ Library}.
+\item
+  \textbf{IMPORTANT:} Select the \texttt{Grbl} folder
+  \textbf{\emph{inside}} the \texttt{grbl-XXX} folder, which
+  \textbf{only} contains the source files and an example directory.
+  \textbackslash{}begin\{figure\}
+\end{itemize}
+
+\{\centering \includegraphics[width=0.75\linewidth]{images/add_grbl_lib}
+
+\}
+
+\caption{Loading Grbl library into the Arduino IDE}
+
+\label{fig:addGrblLib} \textbackslash{}end\{figure\} * If you accidentally
+select the \texttt{.zip} file or the wrong folder, you will need to
+navigate to your Arduino library, delete the mistake, and re-do Step 3.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Open the \texttt{GrblUpload} Arduino example.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Click the \texttt{File} drop-down menu, navigate to
+  \texttt{Examples-\textgreater{}Grbl}, and select \texttt{GrblUpload}.
+  \textbackslash{}begin\{figure\}
+\end{itemize}
+
+\{\centering \includegraphics[width=0.75\linewidth]{images/grbl_upload_file}
+
+\}
+
+\caption{GrblUpload example file}
+
+\label{fig:grblUploadFile} \textbackslash{}end\{figure\}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Compile and upload Grbl to your Arduino.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Connect your computer directly to the Arduino using the USB cable.
+  \textbackslash{}begin\{figure\}
+\end{itemize}
+
+\{\centering \includegraphics[width=0.75\linewidth]{images/laptop_connected_to_arduino}
+
+\}
+
+\caption{Laptop connected directly to Arduino}
+
+\label{fig:laptop2arduino} \textbackslash{}end\{figure\}
+
+\begin{itemize}
+\tightlist
+\item
+  Make sure your board is set to the Arduino Uno in the
+  \texttt{Tool-\textgreater{}Board} menu and the serial port is selected
+  correctly in \texttt{Tool-\textgreater{}Serial\ Port}.
+\item
+  Click the \texttt{Upload}, and Grbl should compile and flash to your
+  Arduino! (Flashing with a programmer also works by using the
+  \texttt{Upload\ Using\ Programmer} menu command.)
+\end{itemize}
+
+\section{Check serial connection to
+Grbl}\label{check-serial-connection-to-grbl}
+
+\emph{\textbf{NOTE: Before powering up the gShield and motors, check
+that the actuator carriages for all three axes are approximately
+centred. Initially we do not know in which direction the actuator
+carriages will travel when G-code commands are issued, so positioning
+each in the middle of its range reduces the risk of collisions with the
+end stops.}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/actuator_carriages_centred} 
+
+}
+
+\caption{Actuator carriages centred in preparation for powering-up motors for first time}\label{fig:actuatorsCentred}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Open serial monitor in Arduino IDE
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Click \texttt{Tools} drop-down menu, and select
+  \texttt{Serial\ Monitor} \textbackslash{}begin\{figure\}
+\end{itemize}
+
+\{\centering \includegraphics[width=0.75\linewidth]{images/Arduino_IDE_serial_monitor}
+
+\}
+
+\caption{Arduino IDE Serial Monitor}
+
+\label{fig:serialMonitor} \textbackslash{}end\{figure\} * Note that
+line-ending is set to \texttt{Carriage\ return} and baud rate is set to
+\texttt{115200} 2. Try issuing a G-code command. * Type \texttt{?} and
+hit return. \emph{This command will report the current position; as we
+have just started the system up all axes will be at 0.000. 3. Now try
+moving actuators } To move in the x-axis type \texttt{x5} and hit
+return. Make a note of the direction in which the actuator carriage
+moves. N.B. this command tells Grbl to move to the x coordinate that is
+5 units from the origin, it is not equivalent to telling the robot to
+move 5 units in the x-axis. * To move in the opposite direction along
+the x-axis type \texttt{x-5} and hit return. * To return to the starting
+point, use \texttt{x0} * Repeat for the other axes, replacing the x in
+the commands with y or z. Make a note of the direction the actuator
+carriages move with each command.
+
+\section{Grbl configuration}\label{grbl-configuration}
+
+\subsection{Read current
+configuration}\label{read-current-configuration}
+
+\begin{itemize}
+\tightlist
+\item
+  The \texttt{\$\$} command will report Grbl's current configuration.
+\item
+  Descriptions of these settings can be found here:
+  \url{https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration}
+\item
+  These settings will be modified in subsequent steps.
+\end{itemize}
+
+\subsection{Check directionality of each
+axis.}\label{check-directionality-of-each-axis.}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/robot_orientation} 
+
+}
+
+\caption{Orientation of robot.}\label{fig:robotOrientation}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  At present the origins of all three axes are mid-way along each
+  actuator, because this was the position of the actuator carriages when
+  the system was started.
+\item
+  Make sure actuator carriages are at their current origin by entering
+  this command: \texttt{x0y0z0}
+\item
+  Enter the command: \texttt{x5}. The x-axis carriage should move from
+  right to left (orientation of robot is shown in figure
+  \ref{fig:robotOrientation}. If it doesn't, make a note that it will
+  need to be inverted.
+\item
+  Enter the command: \texttt{y5}. The y-axis carriage should move
+  forwards. If it doesn't, make a note that it will need to be inverted.
+\item
+  Enter the command: \texttt{z5}. The z-axis carriage should move up. If
+  it doesn't, make a note that it will need to be inverted.
+\item
+  The direction of the actuators can be inverted using setting
+  \textbf{\$3}, the
+  \href{https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration\#3--direction-port-invert-mask}{Direction
+  port invert (mask)}. An appropriate value is selected from table
+  \ref{tab:invertMaskSettings}. For example, to invert the direction of
+  the X and Z axis actuators use the following command: \texttt{\$3=5}
+\end{itemize}
+
+\begin{longtable}[]{@{}ccccc@{}}
+\caption{\label{tab:invertMaskSettings} Masks for direction port
+inversion.}\tabularnewline
+\toprule
+Setting Value & Mask & Invert X & Invert Y & Invert Z\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Setting Value & Mask & Invert X & Invert Y & Invert Z\tabularnewline
+\midrule
+\endhead
+0 & 00000000 & N & N & N\tabularnewline
+1 & 00000001 & Y & N & N\tabularnewline
+2 & 00000010 & N & Y & N\tabularnewline
+3 & 00000011 & Y & Y & N\tabularnewline
+4 & 00000100 & N & N & Y\tabularnewline
+5 & 00000101 & Y & N & Y\tabularnewline
+6 & 00000110 & N & Y & Y\tabularnewline
+7 & 00000111 & Y & Y & Y\tabularnewline
+\bottomrule
+\end{longtable}
+
+\subsection{Activate hard limits}\label{activate-hard-limits}
+
+Hard limits are a safety feature to prevent the machine from travelling
+beyond the limits of travel. Grbl monitors the paired limit switches on
+each axis and if a switch is triggered it will immediately switch off
+all motors. Hard limits are activated by setting \textbf{\$21}
+\href{https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration\#21---hard-limits-boolean}{hard
+limits ( boolean)} to 1:
+
+\begin{verbatim}
+$21=1
+\end{verbatim}
+
+\subsection{Setup homing}\label{setup-homing}
+
+The homing cycle is used to set the origin of the cartesian coordinate
+system used by the robot. During the homing cycle Grbl moves each
+actuator in the positive direction until the limit switches are
+triggered. The homing cycle is activated by setting \textbf{\$22}
+\href{https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration\#22---homing-cycle-boolean}{homing
+cycle (boolean)} to 1:
+
+\begin{verbatim}
+$22=1
+\end{verbatim}
+
+Initiate a homing cycle using the following command: \texttt{\$h}. All
+actuator carriages should move to the origin of their axes. The origin
+of the cartesian coordinate system (home) for the robot is shown in
+figures \ref{fig:xyOrigin} and \ref{fig:zOrigin}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/xy_origin} 
+
+}
+
+\caption{Origin of XY coordinate system.}\label{fig:xyOrigin}
+\end{figure}\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/z_origin} 
+
+}
+
+\caption{Origin of Z axis.}\label{fig:zOrigin}
+\end{figure}
+
+We also need to set \textbf{\$24}
+\href{https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration\#24---homing-feed-mmmin}{homing
+feed rate} and \textbf{\$25}
+\href{https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration\#25---homing-seek-mmmin}{homing
+seek rate}. Homing seek rate is the initial speed at which Grbl searches
+for the limit switches. Once it has them, it makes slower approach at
+the homing feed rate to get a more precise location for machine zero. We
+will set homing seek rate to 1000 mm/min \texttt{\$24=100} and homing
+feed rate to 100 mm/min \texttt{\$25=1000}.
+
+At the end of a homing cycle each actuator carriage must be moved off
+its home limit switch, otherwise the hard limit will be triggered. The
+\textbf{\$27}
+\href{https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration\#27---homing-pull-off-mm}{Homing
+pull-off (mm)} specifies the distance required to clear the limit
+switches. For our robot we will use a value of 5mm:
+
+\begin{verbatim}
+$27=5
+\end{verbatim}
+
+\subsection{Motor step size}\label{motor-step-size}
+
+\textbf{\$100}, \textbf{\$101} and \textbf{\$102} define
+\href{https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration\#100-101-and-102--xyz-stepsmm}{{[}X,Y,Z{]}
+steps/mm}. Suitable values for our stepper motors are:
+
+\begin{verbatim}
+$100=40
+$101=40
+$102=49.673
+\end{verbatim}
+
+\subsection{Feed rates and
+acceleration}\label{feed-rates-and-acceleration}
+
+\textbf{\$110}, \textbf{\$111} and \textbf{\$112} set the
+\href{https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration\#110-111-and-112--xyz-max-rate-mmmin}{maximum
+rates (mm/min)} for the X, Y and Z actuators, respectively. We will use
+the following values:
+
+\begin{verbatim}
+$110=5000
+$111=5000
+$112=2500
+\end{verbatim}
+
+\href{https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration\#120-121-122--xyz-acceleration-mmsec2}{Acceleration
+(mm/sec\^{}2)} is set to 50 for all axes:
+
+\begin{verbatim}
+$120=50
+$121=50
+$122=50
+\end{verbatim}
+
+\subsection{Summary of settings}\label{summary-of-settings}
+
+\begin{verbatim}
+$0=10
+$1=25
+$2=0
+$3=5
+$4=0
+$5=0
+$6=0
+$10=1
+$11=0.010
+$12=0.002
+$13=0
+$20=0
+$21=1
+$22=1
+$23=0
+$24=25.000
+$25=500.000
+$26=250
+$27=5.000
+$30=1000
+$31=0
+$32=0
+$100=40.000
+$101=40.000
+$102=49.673
+$110=5000.000
+$111=5000.000
+$112=2500.000
+$120=50.000
+$121=50.000
+$122=50.000
+$130=200.000
+$131=200.000
+$132=200.000
+\end{verbatim}
+
+\section{fine adjustment of motors}\label{fine-adjustment-of-motors}
+
+\chapter{Raspberry Pi setup}\label{raspberry-pi-setup}
+
+\url{https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi/easy-install}
+
+\url{https://s3.amazonaws.com/adafruit-raspberry-pi/2016-10-18-pitft-28r.zip}
+
+\url{https://www.raspberrypi.org/documentation/installation/installing-images/}
+
+\begin{verbatim}
+    sudo raspi-config
+    (expand filesystem)
+    sudo reboot
+\end{verbatim}
+
+/etc/dhcpcd.conf
+
+interface eth0
+
+static ip\_address=192.168.2.2/24 static routers=192.168.2.1 static
+domain\_name\_servers=192.168.2.1
+
+\chapter{Creating jobs in G-code}\label{creating-jobs-in-g-code}
+
+Running job without GUI - for testing
+
+\chapter{Trouble-shooting}\label{trouble-shooting}
+
+\bibliography{packages.bib,book.bib}
+
+
+\end{document}

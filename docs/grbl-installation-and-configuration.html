@@ -6,26 +6,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>CNC Fly Food Dispenser</title>
-  <meta name="description" content="Course materials for An Introduction to Machine Learning">
+  <meta name="description" content="Manual for CNC Fly Food Dispenser">
   <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
   <meta property="og:title" content="CNC Fly Food Dispenser" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/system.jpg" />
-  <meta property="og:description" content="Course materials for An Introduction to Machine Learning" />
-  <meta name="github-repo" content="bioinformatics-training/intro-machine-learning" />
+  <meta property="og:description" content="Manual for CNC Fly Food Dispenser" />
+  <meta name="github-repo" content="waylandm/fly-food-robot" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="CNC Fly Food Dispenser" />
   
-  <meta name="twitter:description" content="Course materials for An Introduction to Machine Learning" />
+  <meta name="twitter:description" content="Manual for CNC Fly Food Dispenser" />
   <meta name="twitter:image" content="images/system.jpg" />
 
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-06-18">
+<meta name="date" content="2017-06-19">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -114,7 +114,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#flashing-grbl-to-arduino"><i class="fa fa-check"></i><b>3.2</b> Flashing Grbl to Arduino</a></li>
 <li class="chapter" data-level="3.3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#check-serial-connection-to-grbl"><i class="fa fa-check"></i><b>3.3</b> Check serial connection to Grbl</a></li>
-<li class="chapter" data-level="3.4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#fine-adjustment-of-motors"><i class="fa fa-check"></i><b>3.4</b> fine adjustment of motors</a></li>
+<li class="chapter" data-level="3.4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#grbl-configuration"><i class="fa fa-check"></i><b>3.4</b> Grbl configuration</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#read-current-configuration"><i class="fa fa-check"></i><b>3.4.1</b> Read current configuration</a></li>
+<li class="chapter" data-level="3.4.2" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#check-directionality-of-each-axis."><i class="fa fa-check"></i><b>3.4.2</b> Check directionality of each axis.</a></li>
+<li class="chapter" data-level="3.4.3" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#activate-hard-limits"><i class="fa fa-check"></i><b>3.4.3</b> Activate hard limits</a></li>
+<li class="chapter" data-level="3.4.4" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#setup-homing"><i class="fa fa-check"></i><b>3.4.4</b> Setup homing</a></li>
+<li class="chapter" data-level="3.4.5" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#motor-step-size"><i class="fa fa-check"></i><b>3.4.5</b> Motor step size</a></li>
+<li class="chapter" data-level="3.4.6" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#feed-rates-and-acceleration"><i class="fa fa-check"></i><b>3.4.6</b> Feed rates and acceleration</a></li>
+<li class="chapter" data-level="3.4.7" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#summary-of-settings"><i class="fa fa-check"></i><b>3.4.7</b> Summary of settings</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="grbl-installation-and-configuration.html"><a href="grbl-installation-and-configuration.html#fine-adjustment-of-motors"><i class="fa fa-check"></i><b>3.5</b> fine adjustment of motors</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>4</b> Raspberry Pi setup</a></li>
 <li class="chapter" data-level="5" data-path="creating-jobs-in-g-code.html"><a href="creating-jobs-in-g-code.html"><i class="fa fa-check"></i><b>5</b> Creating jobs in G-code</a></li>
@@ -234,12 +243,206 @@ Figure 3.6: Arduino IDE Serial Monitor
 </p>
 </div></li>
 <li>Note that line-ending is set to <code>Carriage return</code> and baud rate is set to <code>115200</code></li>
-<li>Try issuing a G-code command. Type <code>?</code> and hit return. This command will report the current position; as we have just started the system up all axes will be at 0.000.</li>
-<li>Now try moving the x-actuator by typing</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Try issuing a G-code command.</li>
+</ol>
+<ul>
+<li>Type <code>?</code> and hit return. *This command will report the current position; as we have just started the system up all axes will be at 0.000.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Now try moving actuators</li>
+</ol>
+<ul>
+<li>To move in the x-axis type <code>x5</code> and hit return. Make a note of the direction in which the actuator carriage moves. N.B. this command tells Grbl to move to the x coordinate that is 5 units from the origin, it is not equivalent to telling the robot to move 5 units in the x-axis.</li>
+<li>To move in the opposite direction along the x-axis type <code>x-5</code> and hit return.</li>
+<li>To return to the starting point, use <code>x0</code></li>
+<li>Repeat for the other axes, replacing the x in the commands with y or z. Make a note of the direction the actuator carriages move with each command.</li>
 </ul>
 </div>
+<div id="grbl-configuration" class="section level2">
+<h2><span class="header-section-number">3.4</span> Grbl configuration</h2>
+<div id="read-current-configuration" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Read current configuration</h3>
+<ul>
+<li>The <code>$$</code> command will report Grbl’s current configuration.</li>
+<li>Descriptions of these settings can be found here: <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration" class="uri">https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration</a></li>
+<li>These settings will be modified in subsequent steps.</li>
+</ul>
+</div>
+<div id="check-directionality-of-each-axis." class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Check directionality of each axis.</h3>
+<div class="figure" style="text-align: center"><span id="fig:robotOrientation"></span>
+<img src="images/robot_orientation.png" alt="Orientation of robot." width="75%" />
+<p class="caption">
+Figure 3.7: Orientation of robot.
+</p>
+</div>
+<ul>
+<li>At present the origins of all three axes are mid-way along each actuator, because this was the position of the actuator carriages when the system was started.</li>
+<li>Make sure actuator carriages are at their current origin by entering this command: <code>x0y0z0</code></li>
+<li>Enter the command: <code>x5</code>. The x-axis carriage should move from right to left (orientation of robot is shown in figure <a href="grbl-installation-and-configuration.html#fig:robotOrientation">3.7</a>. If it doesn’t, make a note that it will need to be inverted.</li>
+<li>Enter the command: <code>y5</code>. The y-axis carriage should move forwards. If it doesn’t, make a note that it will need to be inverted.</li>
+<li>Enter the command: <code>z5</code>. The z-axis carriage should move up. If it doesn’t, make a note that it will need to be inverted.</li>
+<li>The direction of the actuators can be inverted using setting <strong>$3</strong>, the <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#3--direction-port-invert-mask">Direction port invert (mask)</a>. An appropriate value is selected from table <a href="grbl-installation-and-configuration.html#tab:invertMaskSettings">3.1</a>. For example, to invert the direction of the X and Z axis actuators use the following command: <code>$3=5</code></li>
+</ul>
+<table>
+<caption><span id="tab:invertMaskSettings">Table 3.1: </span> Masks for direction port inversion.</caption>
+<thead>
+<tr class="header">
+<th align="center">Setting Value</th>
+<th align="center">Mask</th>
+<th align="center">Invert X</th>
+<th align="center">Invert Y</th>
+<th align="center">Invert Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">00000000</td>
+<td align="center">N</td>
+<td align="center">N</td>
+<td align="center">N</td>
+</tr>
+<tr class="even">
+<td align="center">1</td>
+<td align="center">00000001</td>
+<td align="center">Y</td>
+<td align="center">N</td>
+<td align="center">N</td>
+</tr>
+<tr class="odd">
+<td align="center">2</td>
+<td align="center">00000010</td>
+<td align="center">N</td>
+<td align="center">Y</td>
+<td align="center">N</td>
+</tr>
+<tr class="even">
+<td align="center">3</td>
+<td align="center">00000011</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+<td align="center">N</td>
+</tr>
+<tr class="odd">
+<td align="center">4</td>
+<td align="center">00000100</td>
+<td align="center">N</td>
+<td align="center">N</td>
+<td align="center">Y</td>
+</tr>
+<tr class="even">
+<td align="center">5</td>
+<td align="center">00000101</td>
+<td align="center">Y</td>
+<td align="center">N</td>
+<td align="center">Y</td>
+</tr>
+<tr class="odd">
+<td align="center">6</td>
+<td align="center">00000110</td>
+<td align="center">N</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+</tr>
+<tr class="even">
+<td align="center">7</td>
+<td align="center">00000111</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="activate-hard-limits" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Activate hard limits</h3>
+<p>Hard limits are a safety feature to prevent the machine from travelling beyond the limits of travel. Grbl monitors the paired limit switches on each axis and if a switch is triggered it will immediately switch off all motors. Hard limits are activated by setting <strong>$21</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#21---hard-limits-boolean">hard limits ( boolean)</a> to 1:</p>
+<pre><code>$21=1</code></pre>
+</div>
+<div id="setup-homing" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Setup homing</h3>
+<p>The homing cycle is used to set the origin of the cartesian coordinate system used by the robot. During the homing cycle Grbl moves each actuator in the positive direction until the limit switches are triggered. The homing cycle is activated by setting <strong>$22</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#22---homing-cycle-boolean">homing cycle (boolean)</a> to 1:</p>
+<pre><code>$22=1</code></pre>
+<p>Initiate a homing cycle using the following command: <code>$h</code>. All actuator carriages should move to the origin of their axes. The origin of the cartesian coordinate system (home) for the robot is shown in figures <a href="grbl-installation-and-configuration.html#fig:xyOrigin">3.8</a> and <a href="grbl-installation-and-configuration.html#fig:zOrigin">3.9</a></p>
+<div class="figure" style="text-align: center"><span id="fig:xyOrigin"></span>
+<img src="images/xy_origin.jpg" alt="Origin of XY coordinate system." width="75%" />
+<p class="caption">
+Figure 3.8: Origin of XY coordinate system.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:zOrigin"></span>
+<img src="images/z_origin.jpg" alt="Origin of Z axis." width="75%" />
+<p class="caption">
+Figure 3.9: Origin of Z axis.
+</p>
+</div>
+<p>We also need to set <strong>$24</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#24---homing-feed-mmmin">homing feed rate</a> and <strong>$25</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#25---homing-seek-mmmin">homing seek rate</a>. Homing seek rate is the initial speed at which Grbl searches for the limit switches. Once it has them, it makes slower approach at the homing feed rate to get a more precise location for machine zero. We will set homing seek rate to 1000 mm/min <code>$24=100</code> and homing feed rate to 100 mm/min <code>$25=1000</code>.</p>
+<p>At the end of a homing cycle each actuator carriage must be moved off its home limit switch, otherwise the hard limit will be triggered. The <strong>$27</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#27---homing-pull-off-mm">Homing pull-off (mm)</a> specifies the distance required to clear the limit switches. For our robot we will use a value of 5mm:</p>
+<pre><code>$27=5</code></pre>
+</div>
+<div id="motor-step-size" class="section level3">
+<h3><span class="header-section-number">3.4.5</span> Motor step size</h3>
+<p><strong>$100</strong>, <strong>$101</strong> and <strong>$102</strong> define <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#100-101-and-102--xyz-stepsmm">[X,Y,Z] steps/mm</a>. Suitable values for our stepper motors are:</p>
+<pre><code>$100=40
+$101=40
+$102=49.673</code></pre>
+<p>curr_steps_per_mm = steps/mm in current configuration start_pos_grbl = starting position reported by software end_pos_grbl = end position reported by software start_pos_physical = actual/physical start position end_pos_physical = actual/physical end position</p>
+<p>steps/mm = (curr_steps_per_mm * (end_pos_grbl-start_pos_grbl)) / (end_pos_physical - start_pos_physical)</p>
+</div>
+<div id="feed-rates-and-acceleration" class="section level3">
+<h3><span class="header-section-number">3.4.6</span> Feed rates and acceleration</h3>
+<p><strong>$110</strong>, <strong>$111</strong> and <strong>$112</strong> set the <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#110-111-and-112--xyz-max-rate-mmmin">maximum rates (mm/min)</a> for the X, Y and Z actuators, respectively. We will use the following values:</p>
+<pre><code>$110=5000
+$111=5000
+$112=2500</code></pre>
+<p><a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#120-121-122--xyz-acceleration-mmsec2">Acceleration (mm/sec^2)</a> is set to 50 for all axes:</p>
+<pre><code>$120=50
+$121=50
+$122=50</code></pre>
+</div>
+<div id="summary-of-settings" class="section level3">
+<h3><span class="header-section-number">3.4.7</span> Summary of settings</h3>
+<pre><code>$0=10
+$1=25
+$2=0
+$3=5
+$4=0
+$5=0
+$6=0
+$10=1
+$11=0.010
+$12=0.002
+$13=0
+$20=0
+$21=1
+$22=1
+$23=0
+$24=25.000
+$25=500.000
+$26=250
+$27=5.000
+$30=1000
+$31=0
+$32=0
+$100=40.000
+$101=40.000
+$102=49.673
+$110=5000.000
+$111=5000.000
+$112=2500.000
+$120=50.000
+$121=50.000
+$122=50.000
+$130=200.000
+$131=200.000
+$132=200.000</code></pre>
+</div>
+</div>
 <div id="fine-adjustment-of-motors" class="section level2">
-<h2><span class="header-section-number">3.4</span> fine adjustment of motors</h2>
+<h2><span class="header-section-number">3.5</span> fine adjustment of motors</h2>
 
 </div>
 </div>
@@ -281,7 +484,7 @@ gitbook.start({
 "link": "https://github.com/WaylandM/fly-food-robot/edit/master/02-grbl.Rmd",
 "text": "Edit"
 },
-"download": ["intro-machine-learning.pdf"],
+"download": ["fly-food-robot.pdf"],
 "toc": {
 "collapse": "subsection"
 }

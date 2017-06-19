@@ -1,25 +1,29 @@
 --- 
 title: "CNC Fly Food Dispenser"
 author: "Matt Wayland"
-date: "2017-06-18"
+date: "2017-06-19"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: bioinformatics-training/intro-machine-learning
-description: "Course materials for An Introduction to Machine Learning"
+github-repo: waylandm/fly-food-robot
+description: "Manual for CNC Fly Food Dispenser"
 cover-image: images/system.jpg
 ---
 
 
 # About
 
-<div class="figure" style="text-align: center">
-<img src="images/system.jpg" alt="Robot" width="75%" />
-<p class="caption">(\#fig:test)Robot</p>
-</div>
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/system} 
+
+}
+
+\caption{Robot}(\#fig:test)
+\end{figure}
 
 
 ## Overview

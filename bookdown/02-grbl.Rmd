@@ -54,16 +54,151 @@ _**NOTE: Before powering up the gShield and motors, check that the actuator carr
 knitr::include_graphics("images/actuator_carriages_centred.jpg")
 ```
 
-
 1. Open serial monitor in Arduino IDE
  * Click ```Tools``` drop-down menu, and select ```Serial Monitor```
 ```{r serialMonitor, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Arduino IDE Serial Monitor"}
 knitr::include_graphics("images/Arduino_IDE_serial_monitor.png")
 ```
  * Note that line-ending is set to ```Carriage return``` and baud rate is set to ```115200```
- * Try issuing a G-code command. Type ```?``` and hit return. This command will report the current position; as we have just started the system up all axes will be at 0.000.
- * Now try moving the x-actuator by typing 
- 
+2. Try issuing a G-code command. 
+ * Type ```?``` and hit return. 
+ *This command will report the current position; as we have just started the system up all axes will be at 0.000.
+3. Now try moving actuators
+ * To move in the x-axis type ```x5``` and hit return. Make a note of the direction in which the actuator carriage moves. N.B. this command tells Grbl to move to the x coordinate that is 5 units from the origin, it is not equivalent to telling the robot to move 5 units in the x-axis.
+ * To move in the opposite direction along the x-axis type ```x-5``` and hit return.
+ * To return to the starting point, use ```x0```
+ * Repeat for the other axes, replacing the x in the commands with y or z. Make a note of the direction the actuator carriages move with each command.
+
+## Grbl configuration
+
+### Read current configuration
+ * The ```$$``` command will report Grbl's current configuration.
+ * Descriptions of these settings can be found here: https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration
+ * These settings will be modified in subsequent steps.
+
+### Check directionality of each axis.
+```{r robotOrientation, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Orientation of robot."}
+knitr::include_graphics("images/robot_orientation.png")
+```
+ * At present the origins of all three axes are mid-way along each actuator, because this was the position of the actuator carriages when the system was started.
+ * Make sure actuator carriages are at their current origin by entering this command: ```x0y0z0```
+ * Enter the command: ```x5```. The x-axis carriage should move from right to left (orientation of robot is shown in figure \@ref(fig:robotOrientation). If it doesn't, make a note that it will need to be inverted.
+ * Enter the command: ```y5```. The y-axis carriage should move forwards. If it doesn't, make a note that it will need to be inverted.
+ * Enter the command: ```z5```. The z-axis carriage should move up. If it doesn't, make a note that it will need to be inverted.
+ * The direction of the actuators can be inverted using setting **$3**, the [Direction port invert (mask)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#3--direction-port-invert-mask). An appropriate value is selected from table \@ref(tab:invertMaskSettings). For example, to invert the direction of the X and Z axis actuators use the following command: ```$3=5```
+
+Table: (\#tab:invertMaskSettings) Masks for direction port inversion.
+
+| Setting Value | Mask |Invert X | Invert Y | Invert Z |
+|:-------------:|:----:|:-------:|:--------:|:--------:|
+| 0 | 00000000 |N | N | N |
+| 1 | 00000001 |Y | N | N |
+| 2 | 00000010 |N | Y | N |
+| 3 | 00000011 |Y | Y | N |
+| 4 | 00000100 |N | N | Y |
+| 5 | 00000101 |Y | N | Y |
+| 6 | 00000110 |N | Y | Y |
+| 7 | 00000111 |Y | Y | Y |
+
+### Activate hard limits
+Hard limits are a safety feature to prevent the machine from travelling beyond the limits of travel. Grbl monitors the paired limit switches on each axis and if a switch is triggered it will immediately switch off all motors. Hard limits are activated by setting **$21** [hard limits ( boolean)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#21---hard-limits-boolean) to 1: 
+```
+$21=1
+```
+
+### Setup homing
+The homing cycle is used to set the origin of the cartesian coordinate system used by the robot. During the homing cycle Grbl moves each actuator in the positive direction until the limit switches are triggered. The homing cycle is activated by setting **$22** [homing cycle (boolean)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#22---homing-cycle-boolean) to 1: 
+```
+$22=1
+```
+
+Initiate  a homing cycle using the following command: ```$h```. All actuator carriages should move to the origin of their axes. The origin of the cartesian coordinate system (home) for the robot is shown in figures \@ref(fig:xyOrigin) and \@ref(fig:zOrigin)
+
+```{r xyOrigin, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Origin of XY coordinate system."}
+knitr::include_graphics("images/xy_origin.jpg")
+```
+```{r zOrigin, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Origin of Z axis."}
+knitr::include_graphics("images/z_origin.jpg")
+```
+
+We also need to set **$24** [homing feed rate](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#24---homing-feed-mmmin) and **$25** [homing seek rate](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#25---homing-seek-mmmin). Homing seek rate is the initial speed at which Grbl searches for the limit switches. Once it has them, it makes slower approach at the homing feed rate to get a more precise location for machine zero. We will set homing seek rate to 1000 mm/min ```$24=100``` and homing feed rate to 100 mm/min ```$25=1000```.
+
+At the end of a homing cycle each actuator carriage must be moved off its home limit switch, otherwise the hard limit will be triggered. 
+The **$27** [Homing pull-off (mm)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#27---homing-pull-off-mm) specifies the distance required to clear the limit switches. For our robot we will use a value of 5mm:
+```
+$27=5
+```
+
+### Motor step size
+**$100**, **$101** and **$102** define [[X,Y,Z] steps/mm](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#100-101-and-102--xyz-stepsmm).
+Suitable values for our stepper motors are:
+```
+$100=40
+$101=40
+$102=49.673
+```
+curr_steps_per_mm = steps/mm in current configuration
+start_pos_grbl = starting position reported by software
+end_pos_grbl = end position reported by software
+start_pos_physical = actual/physical start position
+end_pos_physical = actual/physical end position
+
+steps/mm = (curr_steps_per_mm * (end_pos_grbl-start_pos_grbl)) / (end_pos_physical - start_pos_physical)
+
+
+
+### Feed rates and acceleration
+**$110**, **$111** and **$112** set the [maximum rates (mm/min)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#110-111-and-112--xyz-max-rate-mmmin) for the X, Y and Z actuators, respectively. We will use the following values:
+```
+$110=5000
+$111=5000
+$112=2500
+```
+
+[Acceleration (mm/sec^2)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#120-121-122--xyz-acceleration-mmsec2) is set to 50 for all axes:
+```
+$120=50
+$121=50
+$122=50
+```
+
+### Summary of settings
+```
+$0=10
+$1=25
+$2=0
+$3=5
+$4=0
+$5=0
+$6=0
+$10=1
+$11=0.010
+$12=0.002
+$13=0
+$20=0
+$21=1
+$22=1
+$23=0
+$24=25.000
+$25=500.000
+$26=250
+$27=5.000
+$30=1000
+$31=0
+$32=0
+$100=40.000
+$101=40.000
+$102=49.673
+$110=5000.000
+$111=5000.000
+$112=2500.000
+$120=50.000
+$121=50.000
+$122=50.000
+$130=200.000
+$131=200.000
+$132=200.000
+```
 
 
 ## fine adjustment of motors

@@ -8,8 +8,8 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: bioinformatics-training/intro-machine-learning
-description: "Course materials for An Introduction to Machine Learning"
+github-repo: waylandm/fly-food-robot
+description: "Manual for CNC Fly Food Dispenser"
 cover-image: images/system.jpg
 ---
 
