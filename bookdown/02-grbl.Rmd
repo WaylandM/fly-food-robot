@@ -16,9 +16,10 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
  * Click the ```Clone or Download``` green button on the Grbl home page.
  * Click the ```Download ZIP```
  * Unzip the download and you'll have a folder called ```grbl-XXX```, where `XXX` is the release version. 
- 
+
 2. Launch the Arduino IDE
  * Make sure you are using the most recent version of the Arduino IDE!
+
 ```{r arduinoIDE, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Arduino IDE"}
 knitr::include_graphics("images/arduino_IDE.png")
 ```
@@ -26,19 +27,23 @@ knitr::include_graphics("images/arduino_IDE.png")
 3. Load Grbl into the Arduino IDE as a Library.
  * Click the ```Sketch``` drop-down menu, navigate to ```Include Library``` and select ```Add .ZIP Library```.
  * **IMPORTANT:** Select the ```Grbl``` folder **_inside_** the ```grbl-XXX``` folder, which **only** contains the source files and an example directory.
+ 
 ```{r addGrblLib, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Loading Grbl library into the Arduino IDE"}
 knitr::include_graphics("images/add_grbl_lib.png")
 ```
+
  * If you accidentally select the `.zip` file or the wrong folder, you will need to navigate to your Arduino library, delete the mistake, and re-do Step 3.
  
 4. Open the `GrblUpload` Arduino example.
  * Click the ```File``` drop-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
+
 ```{r grblUploadFile, echo=FALSE, out.width='75%', fig.align='center', fig.cap="GrblUpload example file"}
 knitr::include_graphics("images/grbl_upload_file.png")
 ```
 
 5. Compile and upload Grbl to your Arduino.
  * Connect your computer directly to the Arduino using the USB cable.
+
 ```{r laptop2arduino, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Laptop connected directly to Arduino"}
 knitr::include_graphics("images/laptop_connected_to_arduino.jpg")
 ```
@@ -56,9 +61,11 @@ knitr::include_graphics("images/actuator_carriages_centred.jpg")
 
 1. Open serial monitor in Arduino IDE
  * Click ```Tools``` drop-down menu, and select ```Serial Monitor```
+
 ```{r serialMonitor, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Arduino IDE Serial Monitor"}
 knitr::include_graphics("images/Arduino_IDE_serial_monitor.png")
 ```
+
  * Note that line-ending is set to ```Carriage return``` and baud rate is set to ```115200```
 2. Try issuing a G-code command. 
  * Type ```?``` and hit return. 
@@ -77,9 +84,11 @@ knitr::include_graphics("images/Arduino_IDE_serial_monitor.png")
  * These settings will be modified in subsequent steps.
 
 ### Check directionality of each axis.
+
 ```{r robotOrientation, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Orientation of robot."}
 knitr::include_graphics("images/robot_orientation.png")
 ```
+
  * At present the origins of all three axes are mid-way along each actuator, because this was the position of the actuator carriages when the system was started.
  * Make sure actuator carriages are at their current origin by entering this command: ```x0y0z0```
  * Enter the command: ```x5```. The x-axis carriage should move from right to left (orientation of robot is shown in figure \@ref(fig:robotOrientation). If it doesn't, make a note that it will need to be inverted.
@@ -117,6 +126,7 @@ Initiate  a homing cycle using the following command: ```$h```. All actuator car
 ```{r xyOrigin, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Origin of XY coordinate system."}
 knitr::include_graphics("images/xy_origin.jpg")
 ```
+
 ```{r zOrigin, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Origin of Z axis."}
 knitr::include_graphics("images/z_origin.jpg")
 ```

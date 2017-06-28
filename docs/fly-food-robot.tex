@@ -124,7 +124,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-06-19}
+  \date{2017-06-28}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -348,16 +348,16 @@ it's in
 \tightlist
 \item
   Make sure you are using the most recent version of the Arduino IDE!
-  \textbackslash{}begin\{figure\}
 \end{itemize}
 
-\{\centering \includegraphics[width=0.75\linewidth]{images/arduino_IDE}
+\begin{figure}
 
-\}
+{\centering \includegraphics[width=0.75\linewidth]{images/arduino_IDE} 
 
-\caption{Arduino IDE}
+}
 
-\label{fig:arduinoIDE} \textbackslash{}end\{figure\}
+\caption{Arduino IDE}\label{fig:arduinoIDE}
+\end{figure}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -376,18 +376,24 @@ it's in
   \textbf{IMPORTANT:} Select the \texttt{Grbl} folder
   \textbf{\emph{inside}} the \texttt{grbl-XXX} folder, which
   \textbf{only} contains the source files and an example directory.
-  \textbackslash{}begin\{figure\}
 \end{itemize}
 
-\{\centering \includegraphics[width=0.75\linewidth]{images/add_grbl_lib}
+\begin{figure}
 
-\}
+{\centering \includegraphics[width=0.75\linewidth]{images/add_grbl_lib} 
 
-\caption{Loading Grbl library into the Arduino IDE}
+}
 
-\label{fig:addGrblLib} \textbackslash{}end\{figure\} * If you accidentally
-select the \texttt{.zip} file or the wrong folder, you will need to
-navigate to your Arduino library, delete the mistake, and re-do Step 3.
+\caption{Loading Grbl library into the Arduino IDE}\label{fig:addGrblLib}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  If you accidentally select the \texttt{.zip} file or the wrong folder,
+  you will need to navigate to your Arduino library, delete the mistake,
+  and re-do Step 3.
+\end{itemize}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -402,16 +408,16 @@ navigate to your Arduino library, delete the mistake, and re-do Step 3.
 \item
   Click the \texttt{File} drop-down menu, navigate to
   \texttt{Examples-\textgreater{}Grbl}, and select \texttt{GrblUpload}.
-  \textbackslash{}begin\{figure\}
 \end{itemize}
 
-\{\centering \includegraphics[width=0.75\linewidth]{images/grbl_upload_file}
+\begin{figure}
 
-\}
+{\centering \includegraphics[width=0.75\linewidth]{images/grbl_upload_file} 
 
-\caption{GrblUpload example file}
+}
 
-\label{fig:grblUploadFile} \textbackslash{}end\{figure\}
+\caption{GrblUpload example file}\label{fig:grblUploadFile}
+\end{figure}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -425,16 +431,16 @@ navigate to your Arduino library, delete the mistake, and re-do Step 3.
 \tightlist
 \item
   Connect your computer directly to the Arduino using the USB cable.
-  \textbackslash{}begin\{figure\}
 \end{itemize}
 
-\{\centering \includegraphics[width=0.75\linewidth]{images/laptop_connected_to_arduino}
+\begin{figure}
 
-\}
+{\centering \includegraphics[width=0.75\linewidth]{images/laptop_connected_to_arduino} 
 
-\caption{Laptop connected directly to Arduino}
+}
 
-\label{fig:laptop2arduino} \textbackslash{}end\{figure\}
+\caption{Laptop connected directly to Arduino}\label{fig:laptop2arduino}
+\end{figure}
 
 \begin{itemize}
 \tightlist
@@ -478,29 +484,67 @@ end stops.}}
 \tightlist
 \item
   Click \texttt{Tools} drop-down menu, and select
-  \texttt{Serial\ Monitor} \textbackslash{}begin\{figure\}
+  \texttt{Serial\ Monitor}
 \end{itemize}
 
-\{\centering \includegraphics[width=0.75\linewidth]{images/Arduino_IDE_serial_monitor}
+\begin{figure}
 
-\}
+{\centering \includegraphics[width=0.75\linewidth]{images/Arduino_IDE_serial_monitor} 
 
-\caption{Arduino IDE Serial Monitor}
+}
 
-\label{fig:serialMonitor} \textbackslash{}end\{figure\} * Note that
-line-ending is set to \texttt{Carriage\ return} and baud rate is set to
-\texttt{115200} 2. Try issuing a G-code command. * Type \texttt{?} and
-hit return. \emph{This command will report the current position; as we
-have just started the system up all axes will be at 0.000. 3. Now try
-moving actuators } To move in the x-axis type \texttt{x5} and hit
-return. Make a note of the direction in which the actuator carriage
-moves. N.B. this command tells Grbl to move to the x coordinate that is
-5 units from the origin, it is not equivalent to telling the robot to
-move 5 units in the x-axis. * To move in the opposite direction along
-the x-axis type \texttt{x-5} and hit return. * To return to the starting
-point, use \texttt{x0} * Repeat for the other axes, replacing the x in
-the commands with y or z. Make a note of the direction the actuator
-carriages move with each command.
+\caption{Arduino IDE Serial Monitor}\label{fig:serialMonitor}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  Note that line-ending is set to \texttt{Carriage\ return} and baud
+  rate is set to \texttt{115200}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Try issuing a G-code command.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Type \texttt{?} and hit return. *This command will report the current
+  position; as we have just started the system up all axes will be at
+  0.000.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Now try moving actuators
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  To move in the x-axis type \texttt{x5} and hit return. Make a note of
+  the direction in which the actuator carriage moves. N.B. this command
+  tells Grbl to move to the x coordinate that is 5 units from the
+  origin, it is not equivalent to telling the robot to move 5 units in
+  the x-axis.
+\item
+  To move in the opposite direction along the x-axis type \texttt{x-5}
+  and hit return.
+\item
+  To return to the starting point, use \texttt{x0}
+\item
+  Repeat for the other axes, replacing the x in the commands with y or
+  z. Make a note of the direction the actuator carriages move with each
+  command.
+\end{itemize}
 
 \section{Grbl configuration}\label{grbl-configuration}
 
@@ -619,7 +663,9 @@ figures \ref{fig:xyOrigin} and \ref{fig:zOrigin}
 }
 
 \caption{Origin of XY coordinate system.}\label{fig:xyOrigin}
-\end{figure}\begin{figure}
+\end{figure}
+
+\begin{figure}
 
 {\centering \includegraphics[width=0.75\linewidth]{images/z_origin} 
 
@@ -660,6 +706,15 @@ $100=40
 $101=40
 $102=49.673
 \end{verbatim}
+
+curr\_steps\_per\_mm = steps/mm in current configuration
+start\_pos\_grbl = starting position reported by software end\_pos\_grbl
+= end position reported by software start\_pos\_physical =
+actual/physical start position end\_pos\_physical = actual/physical end
+position
+
+steps/mm = (curr\_steps\_per\_mm * (end\_pos\_grbl-start\_pos\_grbl)) /
+(end\_pos\_physical - start\_pos\_physical)
 
 \subsection{Feed rates and
 acceleration}\label{feed-rates-and-acceleration}

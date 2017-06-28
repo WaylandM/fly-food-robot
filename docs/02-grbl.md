@@ -16,9 +16,10 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
  * Click the ```Clone or Download``` green button on the Grbl home page.
  * Click the ```Download ZIP```
  * Unzip the download and you'll have a folder called ```grbl-XXX```, where `XXX` is the release version. 
- 
+
 2. Launch the Arduino IDE
  * Make sure you are using the most recent version of the Arduino IDE!
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.75\linewidth]{images/arduino_IDE} 
@@ -31,6 +32,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 3. Load Grbl into the Arduino IDE as a Library.
  * Click the ```Sketch``` drop-down menu, navigate to ```Include Library``` and select ```Add .ZIP Library```.
  * **IMPORTANT:** Select the ```Grbl``` folder **_inside_** the ```grbl-XXX``` folder, which **only** contains the source files and an example directory.
+ 
 \begin{figure}
 
 {\centering \includegraphics[width=0.75\linewidth]{images/add_grbl_lib} 
@@ -39,10 +41,12 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 
 \caption{Loading Grbl library into the Arduino IDE}(\#fig:addGrblLib)
 \end{figure}
+
  * If you accidentally select the `.zip` file or the wrong folder, you will need to navigate to your Arduino library, delete the mistake, and re-do Step 3.
  
 4. Open the `GrblUpload` Arduino example.
  * Click the ```File``` drop-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.75\linewidth]{images/grbl_upload_file} 
@@ -54,6 +58,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 
 5. Compile and upload Grbl to your Arduino.
  * Connect your computer directly to the Arduino using the USB cable.
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.75\linewidth]{images/laptop_connected_to_arduino} 
@@ -81,6 +86,7 @@ _**NOTE: Before powering up the gShield and motors, check that the actuator carr
 
 1. Open serial monitor in Arduino IDE
  * Click ```Tools``` drop-down menu, and select ```Serial Monitor```
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.75\linewidth]{images/Arduino_IDE_serial_monitor} 
@@ -89,6 +95,7 @@ _**NOTE: Before powering up the gShield and motors, check that the actuator carr
 
 \caption{Arduino IDE Serial Monitor}(\#fig:serialMonitor)
 \end{figure}
+
  * Note that line-ending is set to ```Carriage return``` and baud rate is set to ```115200```
 2. Try issuing a G-code command. 
  * Type ```?``` and hit return. 
@@ -107,6 +114,7 @@ _**NOTE: Before powering up the gShield and motors, check that the actuator carr
  * These settings will be modified in subsequent steps.
 
 ### Check directionality of each axis.
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.75\linewidth]{images/robot_orientation} 
@@ -115,6 +123,7 @@ _**NOTE: Before powering up the gShield and motors, check that the actuator carr
 
 \caption{Orientation of robot.}(\#fig:robotOrientation)
 \end{figure}
+
  * At present the origins of all three axes are mid-way along each actuator, because this was the position of the actuator carriages when the system was started.
  * Make sure actuator carriages are at their current origin by entering this command: ```x0y0z0```
  * Enter the command: ```x5```. The x-axis carriage should move from right to left (orientation of robot is shown in figure \@ref(fig:robotOrientation). If it doesn't, make a note that it will need to be inverted.
@@ -157,6 +166,7 @@ Initiate  a homing cycle using the following command: ```$h```. All actuator car
 
 \caption{Origin of XY coordinate system.}(\#fig:xyOrigin)
 \end{figure}
+
 \begin{figure}
 
 {\centering \includegraphics[width=0.75\linewidth]{images/z_origin} 
@@ -182,6 +192,14 @@ $100=40
 $101=40
 $102=49.673
 ```
+curr_steps_per_mm = steps/mm in current configuration
+start_pos_grbl = starting position reported by software
+end_pos_grbl = end position reported by software
+start_pos_physical = actual/physical start position
+end_pos_physical = actual/physical end position
+
+steps/mm = (curr_steps_per_mm * (end_pos_grbl-start_pos_grbl)) / (end_pos_physical - start_pos_physical)
+
 
 
 ### Feed rates and acceleration
