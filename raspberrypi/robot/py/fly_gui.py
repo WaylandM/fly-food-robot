@@ -1,6 +1,35 @@
 #!/usr/bin/python
 
-# description
+##################################################################################
+#                                                                                #
+#  Fly Food Robot                                                                #
+#                                                                                #
+#  Version 0.1                                                                   #
+#                                                                                #
+#  Copyright (C) 2017 Matthew Thomas Wayland                                     #
+#                                                                                #
+#  This file is part of Fly Food Robot.                                          #
+#                                                                                #
+#  Fly Food Robot is free software: you can redistribute it and/or modify it     #
+#  under the terms of the GNU General Public License as published by the Free    #
+#  Software Foundation, either version 3 of the License, or (at your option)     #
+#  any later version.                                                            #
+#                                                                                #
+#  Fly Food Robot is distributed in the hope that it will be useful, but         #
+#  WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY    #
+#  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License      #
+#  for more details.                                                             #
+#                                                                                #
+#  You should have received a copy of the GNU General Public License along       #
+#  with Fly Food Robot.                                                          #
+#  If not, see <http://www.gnu.org/licenses/>.                                   #
+#                                                                                #
+#                                                                                #
+##################################################################################
+
+# graphical user interface for touch screen and g-code streamer
+
+# stream method is based on stream.py written by Sungeun K. Jeon (https://github.com/gnea/grbl/blob/master/doc/script/stream.py)
 
 # import modules
 from Tkinter import *
@@ -14,18 +43,15 @@ import re
 import sys
 import threading
 
-
-
-
 class FlyGUI():
     
     def __init__(self):
         #self.loop = False
         self.continueRun = True
         self.deviceFile = "/dev/ttyACM0"
-        self.homingGCode = "/home/pi/grbl/nc/home.nc"
-        self.fillOneBoxGCode = "/home/pi/grbl/nc/1_box_vials_no_dip.nc"
-        self.fillTwoBoxesGCode = "/home/pi/grbl/nc/2_boxes_vials_no_dip.nc"
+        self.homingGCode = "/home/pi/robot/nc/home.nc"
+        self.fillOneBoxGCode = "/home/pi/robot/nc/1_box.nc"
+        self.fillTwoBoxesGCode = "//home/pi/robot/nc/2_boxes.nc"
         #self.switchOffPumpGCode = "/home/pi/grbl/nc/switch_off_pump.nc"
         self.homeBtnBgEnabled = "#984EA3"
         self.homeBtnBgDisabled = "grey80"
@@ -39,8 +65,6 @@ class FlyGUI():
         self.twoBoxesBtnBgDisabled = "grey80"
         
     def stream(self, gCodeFile):
-        #if tkMessageBox.showinfo("Debug", "Entered stream", icon="info"):
-         #   time.sleep(1)
 
         self.continueRun = True
         
@@ -69,16 +93,12 @@ class FlyGUI():
         # periodic() # Start status report periodic timer
         for line in f:
             if self.continueRun == False:
-                #if tkMessageBox.showinfo("Debug", "Detected continueRun changed to False", icon="info"):
-                    #time.sleep(1)
 
                 s.flushInput
                 #s.write(chr(24) + '\n')
                 s.write("m9\n")
                 f.close()
                 s.close()
-                #if tkMessageBox.showinfo("Debug", "About to exit stream function", icon="info"):
-                    #time.sleep(1)
 
                 return
             l_count += 1 # Iterate line counter
@@ -106,12 +126,8 @@ class FlyGUI():
         self.activateMenu()
         
     def streamInThread(self, gCodeFile):
-        #if tkMessageBox.showinfo("Debug", "Entered streamInThread", icon="info"):
-         #   time.sleep(1)
  
         self.deactivateMenu()
-        #self.thread = threading.Thread(None,self.stream, gCodeFile, (), {})
-        #threading.Thread(group=None, target=None, name=None, args=(), kwargs={})
         self.thread = threading.Thread(group=None, target=self.stream, args=(gCodeFile,), kwargs={})
         self.thread.start()
 
@@ -120,11 +136,6 @@ class FlyGUI():
             os.system("sudo shutdown -h now")
 
     def home(self):
-        #self.root.config(cursor="wait")
-        #self.root.update()
-        #os.system("python ~/grbl/py/stream2.py ~/grbl/nc/home.nc /dev/ttyACM0") #either use stream method or just send $h via serial
-        #time.sleep(5)
-        #self.root.config(cursor="")
         self.streamInThread(self.homingGCode)
         
         
@@ -134,22 +145,9 @@ class FlyGUI():
         self.activateMenu()
     
     def fillOneBox(self):
-        #self.root.config(cursor="wait")
-        #self.deactivateMenu()
-        #self.root.update()
-        #os.system("python ~/grbl/py/stream2.py ~/grbl/nc/1_box_vials_no_dip.nc /dev/ttyACM0")
-        #time.sleep(30)
-        #self.root.config(cursor="")
-        #self.root.update()
         self.streamInThread(self.fillOneBoxGCode)
    
     def fillTwoBoxes(self):
-        #self.root.config(cursor="wait")
-        #self.root.update()
-        #os.system("python ~/grbl/py/stream2.py ~/grbl/nc/2_boxes_vials_no_dip.nc /dev/ttyACM0")
-        #time.sleep(30)
-        #self.root.config(cursor="")
-        #self.root.update()
         self.streamInThread(self.fillTwoBoxesGCode)
         
     def activateMenu(self):

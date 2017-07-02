@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+
+# modified version of stream.py written by Sungeun K. Jeon (https://github.com/gnea/grbl/blob/master/doc/script/stream.py)
+
 """\
 
 Stream g-code to grbl controller

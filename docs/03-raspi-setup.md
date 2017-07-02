@@ -19,7 +19,9 @@ https://www.raspberrypi.org/documentation/installation/installing-images/
 
 interface eth0
 
-static ip_address=192.168.2.2/24
-static routers=192.168.2.1
-static domain_name_servers=192.168.2.1
+static ip_address=192.168.1.3/24
+static routers=192.168.1.254
+static domain_name_servers=192.168.1.254
 
+sudo apt-get update
+sudo apt-get install minicom

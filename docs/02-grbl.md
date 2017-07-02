@@ -20,53 +20,37 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 2. Launch the Arduino IDE
  * Make sure you are using the most recent version of the Arduino IDE!
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/arduino_IDE} 
-
-}
-
-\caption{Arduino IDE}(\#fig:arduinoIDE)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/arduino_IDE.png" alt="Arduino IDE" width="75%" />
+<p class="caption">(\#fig:arduinoIDE)Arduino IDE</p>
+</div>
 
 3. Load Grbl into the Arduino IDE as a Library.
  * Click the ```Sketch``` drop-down menu, navigate to ```Include Library``` and select ```Add .ZIP Library```.
  * **IMPORTANT:** Select the ```Grbl``` folder **_inside_** the ```grbl-XXX``` folder, which **only** contains the source files and an example directory.
  
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/add_grbl_lib} 
-
-}
-
-\caption{Loading Grbl library into the Arduino IDE}(\#fig:addGrblLib)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/add_grbl_lib.png" alt="Loading Grbl library into the Arduino IDE" width="75%" />
+<p class="caption">(\#fig:addGrblLib)Loading Grbl library into the Arduino IDE</p>
+</div>
 
  * If you accidentally select the `.zip` file or the wrong folder, you will need to navigate to your Arduino library, delete the mistake, and re-do Step 3.
  
 4. Open the `GrblUpload` Arduino example.
  * Click the ```File``` drop-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/grbl_upload_file} 
-
-}
-
-\caption{GrblUpload example file}(\#fig:grblUploadFile)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/grbl_upload_file.png" alt="GrblUpload example file" width="75%" />
+<p class="caption">(\#fig:grblUploadFile)GrblUpload example file</p>
+</div>
 
 5. Compile and upload Grbl to your Arduino.
  * Connect your computer directly to the Arduino using the USB cable.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/laptop_connected_to_arduino} 
-
-}
-
-\caption{Laptop connected directly to Arduino}(\#fig:laptop2arduino)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/laptop_connected_to_arduino.jpg" alt="Laptop connected directly to Arduino" width="75%" />
+<p class="caption">(\#fig:laptop2arduino)Laptop connected directly to Arduino</p>
+</div>
 
  * Make sure your board is set to the Arduino Uno in the ```Tool->Board``` menu and the serial port is selected correctly in ```Tool->Serial Port```. 
  * Click the ```Upload```, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the ```Upload Using Programmer``` menu command.)
@@ -75,31 +59,23 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 
 _**NOTE: Before powering up the gShield and motors, check that the actuator carriages for all three axes are approximately centred. Initially we do not know in which direction the actuator carriages will travel when G-code commands are issued, so positioning each in the middle of its range reduces the risk of collisions with the end stops.**_
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/actuator_carriages_centred} 
-
-}
-
-\caption{Actuator carriages centred in preparation for powering-up motors for first time}(\#fig:actuatorsCentred)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/actuator_carriages_centred.jpg" alt="Actuator carriages centred in preparation for powering-up motors for first time" width="75%" />
+<p class="caption">(\#fig:actuatorsCentred)Actuator carriages centred in preparation for powering-up motors for first time</p>
+</div>
 
 1. Open serial monitor in Arduino IDE
  * Click ```Tools``` drop-down menu, and select ```Serial Monitor```
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/Arduino_IDE_serial_monitor} 
-
-}
-
-\caption{Arduino IDE Serial Monitor}(\#fig:serialMonitor)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/Arduino_IDE_serial_monitor.png" alt="Arduino IDE Serial Monitor" width="75%" />
+<p class="caption">(\#fig:serialMonitor)Arduino IDE Serial Monitor</p>
+</div>
 
  * Note that line-ending is set to ```Carriage return``` and baud rate is set to ```115200```
 2. Try issuing a G-code command. 
  * Type ```?``` and hit return. 
- *This command will report the current position; as we have just started the system up all axes will be at 0.000.
+ * This command will report the current position; as we have just started the system up all axes will be at 0.000.
 3. Now try moving actuators
  * To move in the x-axis type ```x5``` and hit return. Make a note of the direction in which the actuator carriage moves. N.B. this command tells Grbl to move to the x coordinate that is 5 units from the origin, it is not equivalent to telling the robot to move 5 units in the x-axis.
  * To move in the opposite direction along the x-axis type ```x-5``` and hit return.
@@ -115,14 +91,10 @@ _**NOTE: Before powering up the gShield and motors, check that the actuator carr
 
 ### Check directionality of each axis.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/robot_orientation} 
-
-}
-
-\caption{Orientation of robot.}(\#fig:robotOrientation)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/robot_orientation.png" alt="Orientation of robot." width="75%" />
+<p class="caption">(\#fig:robotOrientation)Orientation of robot.</p>
+</div>
 
  * At present the origins of all three axes are mid-way along each actuator, because this was the position of the actuator carriages when the system was started.
  * Make sure actuator carriages are at their current origin by entering this command: ```x0y0z0```
@@ -158,23 +130,15 @@ $22=1
 
 Initiate  a homing cycle using the following command: ```$h```. All actuator carriages should move to the origin of their axes. The origin of the cartesian coordinate system (home) for the robot is shown in figures \@ref(fig:xyOrigin) and \@ref(fig:zOrigin)
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="images/xy_origin.jpg" alt="Origin of XY coordinate system." width="75%" />
+<p class="caption">(\#fig:xyOrigin)Origin of XY coordinate system.</p>
+</div>
 
-{\centering \includegraphics[width=0.75\linewidth]{images/xy_origin} 
-
-}
-
-\caption{Origin of XY coordinate system.}(\#fig:xyOrigin)
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/z_origin} 
-
-}
-
-\caption{Origin of Z axis.}(\#fig:zOrigin)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/z_origin.jpg" alt="Origin of Z axis." width="75%" />
+<p class="caption">(\#fig:zOrigin)Origin of Z axis.</p>
+</div>
 
 We also need to set **$24** [homing feed rate](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#24---homing-feed-mmmin) and **$25** [homing seek rate](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#25---homing-seek-mmmin). Homing seek rate is the initial speed at which Grbl searches for the limit switches. Once it has them, it makes slower approach at the homing feed rate to get a more precise location for machine zero. We will set homing seek rate to 1000 mm/min ```$24=100``` and homing feed rate to 100 mm/min ```$25=1000```.
 
@@ -192,6 +156,12 @@ $100=40
 $101=40
 $102=49.673
 ```
+
+If you are using a different type of stepper motor, the step size can be easily calculated by measuring how far each actuator moves in response to a G-code command.
+1. Read the current position by 
+
+Further the carriage moves, more precision
+
 curr_steps_per_mm = steps/mm in current configuration
 start_pos_grbl = starting position reported by software
 end_pos_grbl = end position reported by software
@@ -256,4 +226,14 @@ $132=200.000
 ```
 
 
-## fine adjustment of motors
+## Setting motor current
+
+The gShield has trimpots for adjusting the motor current of each axis, as shown in Figure \@ref(fig:gShield).
+
+<div class="figure" style="text-align: center">
+<img src="images/gShield-trimpots.jpg" alt="gShield trimpots" width="75%" />
+<p class="caption">(\#fig:gShield)gShield trimpots</p>
+</div>
+
+Instructions for setting motor current are provided here:
+https://github.com/synthetos/grblShield/wiki/Using-grblShield#setting-motor-current

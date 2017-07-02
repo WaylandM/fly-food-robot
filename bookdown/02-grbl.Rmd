@@ -69,7 +69,7 @@ knitr::include_graphics("images/Arduino_IDE_serial_monitor.png")
  * Note that line-ending is set to ```Carriage return``` and baud rate is set to ```115200```
 2. Try issuing a G-code command. 
  * Type ```?``` and hit return. 
- *This command will report the current position; as we have just started the system up all axes will be at 0.000.
+ * This command will report the current position; as we have just started the system up all axes will be at 0.000.
 3. Now try moving actuators
  * To move in the x-axis type ```x5``` and hit return. Make a note of the direction in which the actuator carriage moves. N.B. this command tells Grbl to move to the x coordinate that is 5 units from the origin, it is not equivalent to telling the robot to move 5 units in the x-axis.
  * To move in the opposite direction along the x-axis type ```x-5``` and hit return.
@@ -147,6 +147,12 @@ $100=40
 $101=40
 $102=49.673
 ```
+
+If you are using a different type of stepper motor, the step size can be easily calculated by measuring how far each actuator moves in response to a G-code command.
+1. Read the current position by 
+
+Further the carriage moves, more precision
+
 curr_steps_per_mm = steps/mm in current configuration
 start_pos_grbl = starting position reported by software
 end_pos_grbl = end position reported by software
@@ -211,4 +217,13 @@ $132=200.000
 ```
 
 
-## fine adjustment of motors
+## Setting motor current
+
+The gShield has trimpots for adjusting the motor current of each axis, as shown in Figure \@ref(fig:gShield).
+
+```{r gShield, echo=FALSE, out.width='75%', fig.align='center', fig.cap="gShield trimpots"}
+knitr::include_graphics("images/gShield-trimpots.jpg")
+```
+
+Instructions for setting motor current are provided here:
+https://github.com/synthetos/grblShield/wiki/Using-grblShield#setting-motor-current

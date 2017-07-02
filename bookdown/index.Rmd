@@ -16,19 +16,23 @@ cover-image: images/system.jpg
 
 # About
 
-```{r test, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Robot"}
+```{r system, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Robot"}
 knitr::include_graphics("images/system.jpg")
 ```
 
 
 ## Overview
 
-Figure \@ref(fig:test)
+Figure \@ref(fig:system)
 
 
 
 ## Github
+[WaylandM/fly-food-robot](https://github.com/WaylandM/fly-food-robot)
 
+## License
+License for software and documentation:
+[GPL-3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ## Contact
 <a href="mailto:mw283@cam.ac.uk">Matt Wayland</a>

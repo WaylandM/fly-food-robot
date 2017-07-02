@@ -1,7 +1,7 @@
 --- 
 title: "CNC Fly Food Dispenser"
 author: "Matt Wayland"
-date: "2017-06-28"
+date: "2017-07-02"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -16,24 +16,24 @@ cover-image: images/system.jpg
 
 # About
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/system} 
-
-}
-
-\caption{Robot}(\#fig:test)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/system.jpg" alt="Robot" width="75%" />
+<p class="caption">(\#fig:system)Robot</p>
+</div>
 
 
 ## Overview
 
-Figure \@ref(fig:test)
+Figure \@ref(fig:system)
 
 
 
 ## Github
+[WaylandM/fly-food-robot](https://github.com/WaylandM/fly-food-robot)
 
+## License
+License for software and documentation:
+[GPL-3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
 ## Contact
 <a href="mailto:mw283@cam.ac.uk">Matt Wayland</a>
