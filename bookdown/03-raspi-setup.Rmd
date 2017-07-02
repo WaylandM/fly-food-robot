@@ -74,3 +74,18 @@ Expand filesystem on micro SD card:
     (expand filesystem)
     sudo reboot
 ```
+
+## Install robot software
+
+Make sure you are in pi's home directory:
+
+```
+cd
+```
+
+Download and unpack robot.tar.gz
+
+```
+curl -O https://raw.githubusercontent.com/WaylandM/fly-food-robot/master/raspberrypi/robot.tar.gz
+tar xzvf robot.tar.gz
+```
