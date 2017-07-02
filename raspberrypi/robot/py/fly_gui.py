@@ -169,7 +169,7 @@ class FlyGUI():
         
     def createUI(self):
         # define custom font
-        customFont = tkFont.Font(family="Helvetica", size=20, weight=tkFont.BOLD)
+        customFont = tkFont.Font(family="Helvetica", size=16, weight=tkFont.BOLD)
 
         self.homeBtn = Button(self.root, text="Home", fg="white", bg=self.homeBtnBgEnabled, activeforeground="white", activebackground=self.homeBtnBgEnabled, font=customFont, command=self.home)
         self.homeBtn.grid(row=0, column=0, columnspan=1, rowspan=1,sticky="nesw")
