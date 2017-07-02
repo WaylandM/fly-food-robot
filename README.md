@@ -1,6 +1,6 @@
 # Cartesian coordinate robot for dispensing fruit fly food
 
-![CNC fly food dispenser](bookdown/images/system.jpg){ width=25% }
+![CNC fly food dispenser](bookdown/images/system.jpg){:height="36px" width="36px"}
 
 ## Hardware documentation
 The build of the hardware is described on [docubricks](http://docubricks.com/):
