@@ -2,7 +2,7 @@
 
 Source code for software and documentation.
 
-![CNC fly food dispenser](bookdown/images/system.jpg)
+![CNC fly food dispenser](bookdown/images/very_small_system.jpg)
 
 ## Hardware documentation
 The build of the hardware is described on [docubricks](http://docubricks.com/):
