@@ -1,7 +1,7 @@
 --- 
 title: "CNC Fly Food Dispenser"
 author: "Matt Wayland"
-date: "2017-07-02"
+date: "2017-07-03"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book

@@ -46,6 +46,30 @@ sudo apt-get update
 sudo apt-get install minicom
 ```
 
+Before we can use minicom we need to enable serial:
+
+```
+sudo nano /boot/config.txt
+```
+
+Change the last line of this file from
+
+```
+enable_uart=0
+```
+
+to
+
+```
+enable_uart=1
+```
+
+Once serial is enabled we can connect to the grbl controller running on the arduino by using:
+
+```
+sudo minicom -D /dev/ttyACM0 -b115200
+```
+
 ## Expand filesystem
 Expand filesystem on micro SD card:
 
@@ -53,4 +77,33 @@ Expand filesystem on micro SD card:
     sudo raspi-config
     (expand filesystem)
     sudo reboot
+```
+
+## Install robot software
+
+Make sure you are in pi's home directory:
+
+```
+cd
+```
+
+Download and unpack robot.tar.gz
+
+```
+curl -O https://raw.githubusercontent.com/WaylandM/fly-food-robot/master/raspberrypi/robot.tar.gz
+tar xzvf robot.tar.gz
+```
+
+The **robot** directory contains two subdirectories: **nc** (g-code scripts) and **py** (python scripts).
+
+To automatically launch the robot GUI when the raspberry pi starts up, we need to edit the autostart file for the pi user:
+
+```
+sudo nano /home/pi/.config/lxsession/LXDE-pi/autostart
+```
+
+Add the following line to autostart:
+
+```
+@/home/pi/robot/py/fly_gui.py
 ```
