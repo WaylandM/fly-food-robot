@@ -119,7 +119,7 @@ fobj.close()
 
 fobj = open(filename2Boxes, 'w')
 
-f.write('(gcode instructions to fill two boxes of ' + str(nVials) + ' vials.)\n')
+fobj.write('(gcode instructions to fill two boxes of ' + str(nVials) + ' vials.)\n')
 
 generateG(fobj, box1FirstVial, box1LastVial)
 generateG(fobj, box2FirstVial, box2LastVial)
