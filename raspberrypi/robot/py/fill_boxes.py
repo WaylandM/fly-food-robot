@@ -68,15 +68,6 @@ nVials=nrows*ncols
 # lastVial: coordinates (x,y) of last vial
 def generateG(f, firstVial, lastVial):
 
-    # home 
-    f.write('$h\n')
-
-    # make sure pump set to CW
-    f.write('m3\n')
-
-    # lower nozzle to fill height
-    f.write('z'+str(z_clearance)+'\n')
-
     # calculate distance between adjacent vials
     x_interval = (lastVial[0]-firstVial[0])/(ncols-1.0) # -1.0 to ensure converted to float
     y_interval = (lastVial[1]-firstVial[1])/(nrows-1.0)
@@ -107,6 +98,15 @@ fobj = open(filename1Box, 'w')
 
 fobj.write('(gcode instructions to fill one box of ' + str(nVials) + ' vials.)\n')
 
+# home 
+fobj.write('$h\n')
+
+# make sure pump set to CW
+fobj.write('m3\n')
+
+# lower nozzle to fill height
+fobj.write('z'+str(z_clearance)+'\n')
+
 generateG(fobj, box1FirstVial, box1LastVial)
 
 # return to home position
@@ -120,6 +120,15 @@ fobj.close()
 fobj = open(filename2Boxes, 'w')
 
 fobj.write('(gcode instructions to fill two boxes of ' + str(nVials) + ' vials.)\n')
+
+# home 
+fobj.write('$h\n')
+
+# make sure pump set to CW
+fobj.write('m3\n')
+
+# lower nozzle to fill height
+fobj.write('z'+str(z_clearance)+'\n')
 
 generateG(fobj, box1FirstVial, box1LastVial)
 generateG(fobj, box2FirstVial, box2LastVial)

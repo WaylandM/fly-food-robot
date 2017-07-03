@@ -8,3 +8,10 @@ Running job without GUI - for testing
 # ml/s = 1800/60 = 30
 # fill time = 0.3
 -->
+
+
+```
+ssh pi@192.168.1.3
+
+./robot/py/stream2.py robot/nc/calibrate_pump.nc /dev/ttyACM0
+
