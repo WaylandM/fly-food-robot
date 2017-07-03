@@ -91,9 +91,10 @@
 <li class="chapter" data-level="3" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>3</b> Raspberry Pi setup</a><ul>
 <li class="chapter" data-level="3.1" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-image"><i class="fa fa-check"></i><b>3.1</b> Install image</a></li>
 <li class="chapter" data-level="3.2" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#network-configuration"><i class="fa fa-check"></i><b>3.2</b> Network configuration</a></li>
-<li class="chapter" data-level="3.3" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-minicom"><i class="fa fa-check"></i><b>3.3</b> Install minicom</a></li>
-<li class="chapter" data-level="3.4" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#expand-filesystem"><i class="fa fa-check"></i><b>3.4</b> Expand filesystem</a></li>
-<li class="chapter" data-level="3.5" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-robot-software"><i class="fa fa-check"></i><b>3.5</b> Install robot software</a></li>
+<li class="chapter" data-level="3.3" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#serial-connection"><i class="fa fa-check"></i><b>3.3</b> Serial connection</a></li>
+<li class="chapter" data-level="3.4" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-minicom"><i class="fa fa-check"></i><b>3.4</b> Install minicom</a></li>
+<li class="chapter" data-level="3.5" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#expand-filesystem"><i class="fa fa-check"></i><b>3.5</b> Expand filesystem</a></li>
+<li class="chapter" data-level="3.6" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-robot-software"><i class="fa fa-check"></i><b>3.6</b> Install robot software</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="creating-jobs-in-g-code.html"><a href="creating-jobs-in-g-code.html"><i class="fa fa-check"></i><b>4</b> Creating jobs in G-code</a></li>
 <li class="chapter" data-level="5" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>5</b> Operation</a><ul>
@@ -264,73 +265,88 @@ Figure 2.7: Orientation of robot.
 <li>Enter the command: <code>z5</code>. The z-axis carriage should move up. If it doesn’t, make a note that it will need to be inverted.</li>
 <li>The direction of the actuators can be inverted using setting <strong>$3</strong>, the <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#3--direction-port-invert-mask">Direction port invert (mask)</a>. An appropriate value is selected from table <a href="grbl-installation-and-configuration.html#tab:invertMaskSettings">2.1</a>. For example, to invert the direction of the X and Z axis actuators use the following command: <code>$3=5</code></li>
 </ul>
+<!---
+Table: (\#tab:invertMaskSettings) Masks for direction port inversion.
+
+| Setting Value | Mask |Invert X | Invert Y | Invert Z |
+|:-------------:|:----:|:-------:|:--------:|:--------:|
+| 0 | 00000000 |N | N | N |
+| 1 | 00000001 |Y | N | N |
+| 2 | 00000010 |N | Y | N |
+| 3 | 00000011 |Y | Y | N |
+| 4 | 00000100 |N | N | Y |
+| 5 | 00000101 |Y | N | Y |
+| 6 | 00000110 |N | Y | Y |
+| 7 | 00000111 |Y | Y | Y |
+
+ --->
 <table>
-<caption><span id="tab:invertMaskSettings">Table 2.1: </span> Masks for direction port inversion.</caption>
+<caption><span id="tab:invertMaskSettings">Table 2.1: </span>Masks for direction port inversion.</caption>
 <thead>
 <tr class="header">
-<th align="center">Setting Value</th>
-<th align="center">Mask</th>
-<th align="center">Invert X</th>
-<th align="center">Invert Y</th>
-<th align="center">Invert Z</th>
+<th align="left">Setting Value</th>
+<th align="left">Mask</th>
+<th align="left">Invert X</th>
+<th align="left">Invert Y</th>
+<th align="left">Invert Z</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">0</td>
-<td align="center">00000000</td>
-<td align="center">N</td>
-<td align="center">N</td>
-<td align="center">N</td>
+<td align="left">0</td>
+<td align="left">00000000</td>
+<td align="left">N</td>
+<td align="left">N</td>
+<td align="left">N</td>
 </tr>
 <tr class="even">
-<td align="center">1</td>
-<td align="center">00000001</td>
-<td align="center">Y</td>
-<td align="center">N</td>
-<td align="center">N</td>
+<td align="left">1</td>
+<td align="left">00000001</td>
+<td align="left">Y</td>
+<td align="left">N</td>
+<td align="left">N</td>
 </tr>
 <tr class="odd">
-<td align="center">2</td>
-<td align="center">00000010</td>
-<td align="center">N</td>
-<td align="center">Y</td>
-<td align="center">N</td>
+<td align="left">2</td>
+<td align="left">00000010</td>
+<td align="left">N</td>
+<td align="left">Y</td>
+<td align="left">N</td>
 </tr>
 <tr class="even">
-<td align="center">3</td>
-<td align="center">00000011</td>
-<td align="center">Y</td>
-<td align="center">Y</td>
-<td align="center">N</td>
+<td align="left">3</td>
+<td align="left">00000011</td>
+<td align="left">Y</td>
+<td align="left">Y</td>
+<td align="left">N</td>
 </tr>
 <tr class="odd">
-<td align="center">4</td>
-<td align="center">00000100</td>
-<td align="center">N</td>
-<td align="center">N</td>
-<td align="center">Y</td>
+<td align="left">4</td>
+<td align="left">00000100</td>
+<td align="left">N</td>
+<td align="left">N</td>
+<td align="left">Y</td>
 </tr>
 <tr class="even">
-<td align="center">5</td>
-<td align="center">00000101</td>
-<td align="center">Y</td>
-<td align="center">N</td>
-<td align="center">Y</td>
+<td align="left">5</td>
+<td align="left">00000101</td>
+<td align="left">Y</td>
+<td align="left">N</td>
+<td align="left">Y</td>
 </tr>
 <tr class="odd">
-<td align="center">6</td>
-<td align="center">00000110</td>
-<td align="center">N</td>
-<td align="center">Y</td>
-<td align="center">Y</td>
+<td align="left">6</td>
+<td align="left">00000110</td>
+<td align="left">N</td>
+<td align="left">Y</td>
+<td align="left">Y</td>
 </tr>
 <tr class="even">
-<td align="center">7</td>
-<td align="center">00000111</td>
-<td align="center">Y</td>
-<td align="center">Y</td>
-<td align="center">Y</td>
+<td align="left">7</td>
+<td align="left">00000111</td>
+<td align="left">Y</td>
+<td align="left">Y</td>
+<td align="left">Y</td>
 </tr>
 </tbody>
 </table>
@@ -360,7 +376,6 @@ Figure 2.9: Origin of Z axis.
 <p>We also need to set <strong>$24</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#24---homing-feed-mmmin">homing feed rate</a> and <strong>$25</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#25---homing-seek-mmmin">homing seek rate</a>. Homing seek rate is the initial speed at which Grbl searches for the limit switches. Once it has them, it makes slower approach at the homing feed rate to get a more precise location for machine zero. We will set homing seek rate to 1000 mm/min <code>$24=100</code> and homing feed rate to 100 mm/min <code>$25=1000</code>.</p>
 <p>At the end of a homing cycle each actuator carriage must be moved off its home limit switch, otherwise the hard limit will be triggered. The <strong>$27</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#27---homing-pull-off-mm">Homing pull-off (mm)</a> specifies the distance required to clear the limit switches. For our robot we will use a value of 5mm:</p>
 <pre><code>$27=5</code></pre>
-<p><em><strong>NOTE: </strong></em></p>
 </div>
 <div id="motor-step-size" class="section level3">
 <h3><span class="header-section-number">2.4.5</span> Motor step size</h3>

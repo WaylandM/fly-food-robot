@@ -96,6 +96,7 @@ knitr::include_graphics("images/robot_orientation.png")
  * Enter the command: ```z5```. The z-axis carriage should move up. If it doesn't, make a note that it will need to be inverted.
  * The direction of the actuators can be inverted using setting **$3**, the [Direction port invert (mask)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#3--direction-port-invert-mask). An appropriate value is selected from table \@ref(tab:invertMaskSettings). For example, to invert the direction of the X and Z axis actuators use the following command: ```$3=5```
 
+<!---
 Table: (\#tab:invertMaskSettings) Masks for direction port inversion.
 
 | Setting Value | Mask |Invert X | Invert Y | Invert Z |
@@ -108,6 +109,21 @@ Table: (\#tab:invertMaskSettings) Masks for direction port inversion.
 | 5 | 00000101 |Y | N | Y |
 | 6 | 00000110 |N | Y | Y |
 | 7 | 00000111 |Y | Y | Y |
+
+ --->
+```{r invertMaskSettings, echo=FALSE}
+setting <- 0:7
+mask <- c("00000000", "00000001", "00000010", "00000011", "00000100", "00000101", "00000110", "00000111")
+invX <- rep(c("N", "Y"),4)
+invY <- rep(c("N", "N", "Y", "Y"),2)
+invZ <- c(rep(c("N"),4), rep(c("Y"),4))
+masks <- as.data.frame(cbind(setting, mask, invX, invY, invZ))
+names(masks) <- c("Setting Value", "Mask", "Invert X", "Invert Y", "Invert Z")
+knitr::kable(
+  masks, booktabs = TRUE,
+  caption = 'Masks for direction port inversion.'
+)
+```
 
 ### Activate hard limits
 Hard limits are a safety feature to prevent the machine from travelling beyond the limits of travel. Grbl monitors the paired limit switches on each axis and if a switch is triggered it will immediately switch off all motors. Hard limits are activated by setting **$21** [hard limits ( boolean)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#21---hard-limits-boolean) to 1: 
@@ -139,7 +155,7 @@ The **$27** [Homing pull-off (mm)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-C
 $27=5
 ```
 
-_**NOTE:  **_
+
 
 ### Motor step size
 **$100**, **$101** and **$102** define [[X,Y,Z] steps/mm](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#100-101-and-102--xyz-stepsmm).
@@ -253,7 +269,6 @@ $130=200.000
 $131=500.000
 $132=200.000
 ```
-
 
 ## Setting motor current
 

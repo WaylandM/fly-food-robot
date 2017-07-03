@@ -14,7 +14,6 @@ Instructions on installing images on SD cards can be found here:
 https://www.raspberrypi.org/documentation/installation/installing-images/
 
 
-
 ## Network configuration
 The small screen of the pitft makes using most applications quite tricky. Therefore the first thing we should do after installing the image is configure networking, so that we can access the raspberry pi remotely using ssh.
 
@@ -39,7 +38,10 @@ The default password for the **pi** user account is **raspberry**
 
 
 ## Install minicom
-Minicom is useful for manual control of the robot and for editing grbl settings. To install minicom run these two commands:
+
+Minicom is useful for manual control of the robot and for editing grbl settings. Before installing minicom, make sure the raspberry pi is connected to the arduino via the usb cable.
+
+To install minicom run these two commands:
 
 ```
 sudo apt-get update

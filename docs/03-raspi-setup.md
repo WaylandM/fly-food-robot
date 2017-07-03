@@ -14,7 +14,6 @@ Instructions on installing images on SD cards can be found here:
 https://www.raspberrypi.org/documentation/installation/installing-images/
 
 
-
 ## Network configuration
 The small screen of the pitft makes using most applications quite tricky. Therefore the first thing we should do after installing the image is configure networking, so that we can access the raspberry pi remotely using ssh.
 
@@ -36,6 +35,9 @@ To raspberry pi can then be accessed using ssh, *e.g.*:
 ```
 
 The default password for the **pi** user account is **raspberry**
+
+## Serial connection
+Connect the raspberry pi to the arduino using the usb cable.
 
 
 ## Install minicom

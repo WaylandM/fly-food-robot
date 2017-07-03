@@ -490,27 +490,26 @@ axis.}\label{check-directionality-of-each-axis.}
   the X and Z axis actuators use the following command: \texttt{\$3=5}
 \end{itemize}
 
-\begin{longtable}[]{@{}ccccc@{}}
-\caption{\label{tab:invertMaskSettings} Masks for direction port
-inversion.}\tabularnewline
+\begin{table}
+
+\caption{\label{tab:invertMaskSettings}Masks for direction port inversion.}
+\centering
+\begin{tabular}[t]{lllll}
 \toprule
-Setting Value & Mask & Invert X & Invert Y & Invert Z\tabularnewline
+Setting Value & Mask & Invert X & Invert Y & Invert Z\\
 \midrule
-\endfirsthead
-\toprule
-Setting Value & Mask & Invert X & Invert Y & Invert Z\tabularnewline
-\midrule
-\endhead
-0 & 00000000 & N & N & N\tabularnewline
-1 & 00000001 & Y & N & N\tabularnewline
-2 & 00000010 & N & Y & N\tabularnewline
-3 & 00000011 & Y & Y & N\tabularnewline
-4 & 00000100 & N & N & Y\tabularnewline
-5 & 00000101 & Y & N & Y\tabularnewline
-6 & 00000110 & N & Y & Y\tabularnewline
-7 & 00000111 & Y & Y & Y\tabularnewline
+0 & 00000000 & N & N & N\\
+1 & 00000001 & Y & N & N\\
+2 & 00000010 & N & Y & N\\
+3 & 00000011 & Y & Y & N\\
+4 & 00000100 & N & N & Y\\
+\addlinespace
+5 & 00000101 & Y & N & Y\\
+6 & 00000110 & N & Y & Y\\
+7 & 00000111 & Y & Y & Y\\
 \bottomrule
-\end{longtable}
+\end{tabular}
+\end{table}
 
 \subsection{Activate hard limits}\label{activate-hard-limits}
 
@@ -581,8 +580,6 @@ switches. For our robot we will use a value of 5mm:
 \begin{verbatim}
 $27=5
 \end{verbatim}
-
-\emph{\textbf{NOTE: }}
 
 \subsection{Motor step size}\label{motor-step-size}
 
@@ -805,6 +802,10 @@ To raspberry pi can then be accessed using ssh, \emph{e.g.}:
 
 The default password for the \textbf{pi} user account is
 \textbf{raspberry}
+
+\section{Serial connection}\label{serial-connection}
+
+Connect the raspberry pi to the arduino using the usb cable.
 
 \section{Install minicom}\label{install-minicom}
 

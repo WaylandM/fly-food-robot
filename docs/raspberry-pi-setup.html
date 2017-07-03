@@ -91,9 +91,10 @@
 <li class="chapter" data-level="3" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>3</b> Raspberry Pi setup</a><ul>
 <li class="chapter" data-level="3.1" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-image"><i class="fa fa-check"></i><b>3.1</b> Install image</a></li>
 <li class="chapter" data-level="3.2" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#network-configuration"><i class="fa fa-check"></i><b>3.2</b> Network configuration</a></li>
-<li class="chapter" data-level="3.3" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-minicom"><i class="fa fa-check"></i><b>3.3</b> Install minicom</a></li>
-<li class="chapter" data-level="3.4" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#expand-filesystem"><i class="fa fa-check"></i><b>3.4</b> Expand filesystem</a></li>
-<li class="chapter" data-level="3.5" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-robot-software"><i class="fa fa-check"></i><b>3.5</b> Install robot software</a></li>
+<li class="chapter" data-level="3.3" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#serial-connection"><i class="fa fa-check"></i><b>3.3</b> Serial connection</a></li>
+<li class="chapter" data-level="3.4" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-minicom"><i class="fa fa-check"></i><b>3.4</b> Install minicom</a></li>
+<li class="chapter" data-level="3.5" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#expand-filesystem"><i class="fa fa-check"></i><b>3.5</b> Expand filesystem</a></li>
+<li class="chapter" data-level="3.6" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-robot-software"><i class="fa fa-check"></i><b>3.6</b> Install robot software</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="creating-jobs-in-g-code.html"><a href="creating-jobs-in-g-code.html"><i class="fa fa-check"></i><b>4</b> Creating jobs in G-code</a></li>
 <li class="chapter" data-level="5" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>5</b> Operation</a><ul>
@@ -145,8 +146,12 @@ static domain_name_servers=192.168.1.254</code></pre>
 <pre><code>  ssh pi@192.168.1.3</code></pre>
 <p>The default password for the <strong>pi</strong> user account is <strong>raspberry</strong></p>
 </div>
+<div id="serial-connection" class="section level2">
+<h2><span class="header-section-number">3.3</span> Serial connection</h2>
+<p>Connect the raspberry pi to the arduino using the usb cable.</p>
+</div>
 <div id="install-minicom" class="section level2">
-<h2><span class="header-section-number">3.3</span> Install minicom</h2>
+<h2><span class="header-section-number">3.4</span> Install minicom</h2>
 <p>Minicom is useful for manual control of the robot and for editing grbl settings. To install minicom run these two commands:</p>
 <pre><code>sudo apt-get update
 sudo apt-get install minicom</code></pre>
@@ -160,14 +165,14 @@ sudo apt-get install minicom</code></pre>
 <pre><code>sudo minicom -D /dev/ttyACM0 -b115200</code></pre>
 </div>
 <div id="expand-filesystem" class="section level2">
-<h2><span class="header-section-number">3.4</span> Expand filesystem</h2>
+<h2><span class="header-section-number">3.5</span> Expand filesystem</h2>
 <p>Expand filesystem on micro SD card:</p>
 <pre><code>    sudo raspi-config
     (expand filesystem)
     sudo reboot</code></pre>
 </div>
 <div id="install-robot-software" class="section level2">
-<h2><span class="header-section-number">3.5</span> Install robot software</h2>
+<h2><span class="header-section-number">3.6</span> Install robot software</h2>
 <p>Make sure you are in pi’s home directory:</p>
 <pre><code>cd</code></pre>
 <p>Download and unpack robot.tar.gz</p>
