@@ -13,5 +13,11 @@ Running job without GUI - for testing
 ```
 ssh pi@192.168.1.3
 
+
+./robot/py/calibrate_pump.py
+
 ./robot/py/stream2.py robot/nc/calibrate_pump.nc /dev/ttyACM0
+
+./robot/py/fill_boxes.py
+
 
