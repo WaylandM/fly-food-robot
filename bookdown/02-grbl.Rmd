@@ -139,6 +139,8 @@ The **$27** [Homing pull-off (mm)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-C
 $27=5
 ```
 
+_**NOTE:  **_
+
 ### Motor step size
 **$100**, **$101** and **$102** define [[X,Y,Z] steps/mm](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#100-101-and-102--xyz-stepsmm).
 Suitable values for our stepper motors are:
@@ -148,19 +150,53 @@ $101=40
 $102=49.673
 ```
 
-If you are using a different type of stepper motor, the step size can be easily calculated by measuring how far each actuator moves in response to a G-code command.
-1. Read the current position by 
+If you are using a different type of stepper motor, the step size can be easily calculated by measuring how far each actuator moves in response to a G-code command. For example, we would calculate the step size for the X actuator as follows.
 
-Further the carriage moves, more precision
+1. Using the serial monitor in the Arduino IDE, issue the following command to *home* the machine:
+```
+$h
+```
 
-curr_steps_per_mm = steps/mm in current configuration
-start_pos_grbl = starting position reported by software
-end_pos_grbl = end position reported by software
-start_pos_physical = actual/physical start position
-end_pos_physical = actual/physical end position
+2. Read the current position of the machine, as reported by the Grbl controller:
+```
+?
+```
+After homing the cartesian coordinates should be zero minus the homing pull-off:
+* x = -5
+* y = -5
+* z = -5
 
-steps/mm = (curr_steps_per_mm * (end_pos_grbl-start_pos_grbl)) / (end_pos_physical - start_pos_physical)
 
+3. Make a note of the physical position of the nozzle.
+
+4. Issue a g-code command to move to the -100mm position on the x-axis:
+```
+x-100
+```
+Keep decreasing the value of x until the x-actuator carriage almost meets the limit switch on the right hand side of the machine. The greater the distance moved, the more precise our calculation of step-size will be.
+
+5. Query Grbl's machine coordinates:
+```
+?
+```
+
+6. Measure the physical distance travelled along the x-axis in millimetres.
+
+7. Find **$100**, the currently configured step size for the x-axis:
+```
+$$
+```
+
+8. Calculate the correct value for step-size:
+
+```
+current_step_size = steps/mm in current configuration
+grbl_start = start position reported by Grbl controller (mm)
+grbl_end = end position reported by Grbl controller (mm)
+physical_distance = physical distance moved by actuator (mm)
+
+steps/mm = -(curr_steps_per_mm * (end_pos_grbl-start_pos_grbl)) / physical_distance
+```
 
 
 ### Feed rates and acceleration

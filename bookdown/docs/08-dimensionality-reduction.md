@@ -1,4 +1,0 @@
-# Dimensionality reduction
-
-<!-- Chris -->
-

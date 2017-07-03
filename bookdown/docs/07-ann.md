@@ -1,4 +1,0 @@
-# Artificial neural networks
-
-<!-- Sudhakaran -->
-

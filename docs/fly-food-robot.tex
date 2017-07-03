@@ -31,46 +31,6 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -124,7 +84,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-07-01}
+  \date{2017-07-03}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -153,28 +113,29 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter{About}\label{about}
+\chapter*{Preface}\label{preface}
+\addcontentsline{toc}{chapter}{Preface}
 
-\begin{figure}
+\begin{center}\includegraphics[width=0.75\linewidth]{images/system} \end{center}
 
-{\centering \includegraphics[width=0.75\linewidth]{images/system} 
+\section*{Github}\label{github}
+\addcontentsline{toc}{section}{Github}
 
-}
+\href{https://github.com/WaylandM/fly-food-robot}{WaylandM/fly-food-robot}
 
-\caption{Robot}\label{fig:test}
-\end{figure}
+\section*{License}\label{license}
+\addcontentsline{toc}{section}{License}
 
-\section{Overview}\label{overview}
+License for software and documentation:
+\href{https://www.gnu.org/licenses/gpl-3.0.en.html}{GPL-3}
 
-Figure \ref{fig:test}
-
-\section{Github}\label{github}
-
-\section{Contact}\label{contact}
+\section*{Contact}\label{contact}
+\addcontentsline{toc}{section}{Contact}
 
 Matt Wayland
 
-\section{Colophon}\label{colophon}
+\section*{Colophon}\label{colophon}
+\addcontentsline{toc}{section}{Colophon}
 
 This book was produced using the \textbf{bookdown} package
 \citep{R-bookdown}, which was built on top of R Markdown and
@@ -208,85 +169,10 @@ touch screen on the Raspberry Pi provides the user interface; a
 resistive rather than capacitive touch screen was chosen so that it
 could be operated by a person wearing gloves.
 
-knitr::include\_graphics(``images/system.jpg'')
-
-You can label chapter and section titles using \texttt{\{\#label\}}
-after them, e.g., we can reference Chapter \ref{intro}. If you do not
-manually label them, there will be automatic labels anyway, e.g.,
-Chapter \ref{methods}.
-
-Figures and tables with captions will be placed in \texttt{figure} and
-\texttt{table} environments, respectively.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(pressure, }\DataTypeTok{type =} \StringTok{'b'}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{01-intro_files/figure-latex/nice-fig-1} 
-
-}
-
-\caption{Here is a nice figure!}\label{fig:nice-fig}
-\end{figure}
-
-Reference a figure by its code chunk label with the \texttt{fig:}
-prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can
-reference tables generated from \texttt{knitr::kable()}, e.g., see Table
-\ref{tab:nice-tab}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr::}\KeywordTok{kable}\NormalTok{(}
-  \KeywordTok{head}\NormalTok{(iris, }\DecValTok{20}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Here is a nice table!'}\NormalTok{,}
-  \DataTypeTok{booktabs =} \OtherTok{TRUE}
-\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}[t]{rrrrl}
-\toprule
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\midrule
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\addlinespace
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\addlinespace
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-4.8 & 3.0 & 1.4 & 0.1 & setosa\\
-4.3 & 3.0 & 1.1 & 0.1 & setosa\\
-5.8 & 4.0 & 1.2 & 0.2 & setosa\\
-\addlinespace
-5.7 & 4.4 & 1.5 & 0.4 & setosa\\
-5.4 & 3.9 & 1.3 & 0.4 & setosa\\
-5.1 & 3.5 & 1.4 & 0.3 & setosa\\
-5.7 & 3.8 & 1.7 & 0.3 & setosa\\
-5.1 & 3.8 & 1.5 & 0.3 & setosa\\
-\bottomrule
-\end{tabular}
-\end{table}
-
 \chapter{Grbl installation and
 configuration}\label{grbl-installation-and-configuration}
 
-\section{Overview}\label{overview-1}
+\section{Overview}\label{overview}
 
 CNC motion control is provided by grbl
 (\url{https://github.com/gnea/grbl}), an open source, embedded, high
@@ -514,9 +400,10 @@ end stops.}}
 \begin{itemize}
 \tightlist
 \item
-  Type \texttt{?} and hit return. *This command will report the current
-  position; as we have just started the system up all axes will be at
-  0.000.
+  Type \texttt{?} and hit return.
+\item
+  This command will report the current position; as we have just started
+  the system up all axes will be at 0.000.
 \end{itemize}
 
 \begin{enumerate}
@@ -695,6 +582,8 @@ switches. For our robot we will use a value of 5mm:
 $27=5
 \end{verbatim}
 
+\emph{\textbf{NOTE: }}
+
 \subsection{Motor step size}\label{motor-step-size}
 
 \textbf{\$100}, \textbf{\$101} and \textbf{\$102} define
@@ -707,14 +596,86 @@ $101=40
 $102=49.673
 \end{verbatim}
 
-curr\_steps\_per\_mm = steps/mm in current configuration
-start\_pos\_grbl = starting position reported by software end\_pos\_grbl
-= end position reported by software start\_pos\_physical =
-actual/physical start position end\_pos\_physical = actual/physical end
-position
+If you are using a different type of stepper motor, the step size can be
+easily calculated by measuring how far each actuator moves in response
+to a G-code command. For example, we would calculate the step size for
+the X actuator as follows.
 
-steps/mm = (curr\_steps\_per\_mm * (end\_pos\_grbl-start\_pos\_grbl)) /
-(end\_pos\_physical - start\_pos\_physical)
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Using the serial monitor in the Arduino IDE, issue the following
+  command to \emph{home} the machine:
+
+\begin{verbatim}
+$h
+\end{verbatim}
+\item
+  Read the current position of the machine, as reported by the Grbl
+  controller:
+
+\begin{verbatim}
+?
+\end{verbatim}
+
+  After homing the cartesian coordinates should be zero minus the homing
+  pull-off:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  x = -5
+\item
+  y = -5
+\item
+  z = -5
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Make a note of the physical position of the nozzle.
+\item
+  Issue a g-code command to move to the -100mm position on the x-axis:
+
+\begin{verbatim}
+x-100
+\end{verbatim}
+
+  Keep decreasing the value of x until the x-actuator carriage almost
+  meets the limit switch on the right hand side of the machine. The
+  greater the distance moved, the more precise our calculation of
+  step-size will be.
+\item
+  Query Grbl's machine coordinates:
+
+\begin{verbatim}
+?
+\end{verbatim}
+\item
+  Measure the physical distance travelled along the x-axis in
+  millimetres.
+\item
+  Find \textbf{\$100}, the currently configured step size for the
+  x-axis:
+
+\begin{verbatim}
+$$
+\end{verbatim}
+\item
+  Calculate the correct value for step-size:
+\end{enumerate}
+
+\begin{verbatim}
+current_step_size = steps/mm in current configuration
+grbl_start = start position reported by Grbl controller (mm)
+grbl_end = end position reported by Grbl controller (mm)
+physical_distance = physical distance moved by actuator (mm)
+
+steps/mm = -(curr_steps_per_mm * (end_pos_grbl-start_pos_grbl)) / physical_distance
+\end{verbatim}
 
 \subsection{Feed rates and
 acceleration}\label{feed-rates-and-acceleration}
@@ -757,8 +718,8 @@ $20=0
 $21=1
 $22=1
 $23=0
-$24=25.000
-$25=500.000
+$24=100.000
+$25=1000.000
 $26=250
 $27=5.000
 $30=1000
@@ -774,19 +735,115 @@ $120=50.000
 $121=50.000
 $122=50.000
 $130=200.000
-$131=200.000
+$131=500.000
 $132=200.000
 \end{verbatim}
 
-\section{fine adjustment of motors}\label{fine-adjustment-of-motors}
+\section{Setting motor current}\label{setting-motor-current}
+
+The gShield has trimpots for adjusting the motor current of each axis,
+as shown in Figure \ref{fig:gShield}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/gShield-trimpots} 
+
+}
+
+\caption{gShield trimpots}\label{fig:gShield}
+\end{figure}
+
+Instructions for setting motor current are provided here:
+\url{https://github.com/synthetos/grblShield/wiki/Using-grblShield\#setting-motor-current}
 
 \chapter{Raspberry Pi setup}\label{raspberry-pi-setup}
 
+\section{Install image}\label{install-image}
+
+The first step is to install Adafruit's custom raspberry pi image on the
+micro SD card. The custom image is described here:
+
 \url{https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi/easy-install}
+
+We want the classic version which boots into X by default, rather then
+the lite version that boots to the command line. The classic version can
+be downloaded from this link:
 
 \url{https://s3.amazonaws.com/adafruit-raspberry-pi/2016-10-18-pitft-28r.zip}
 
+Instructions on installing images on SD cards can be found here:
+
 \url{https://www.raspberrypi.org/documentation/installation/installing-images/}
+
+\section{Network configuration}\label{network-configuration}
+
+The small screen of the pitft makes using most applications quite
+tricky. Therefore the first thing we should do after installing the
+image is configure networking, so that we can access the raspberry pi
+remotely using ssh.
+
+To set a static IP address for the ethernet adapter, add the following
+lines to \texttt{/etc/dhcpcd.conf}:
+
+\begin{verbatim}
+interface eth0
+
+static ip_address=192.168.1.3/24
+static routers=192.168.1.254
+static domain_name_servers=192.168.1.254
+\end{verbatim}
+
+\textbf{ip\_address}, \textbf{routers} and
+\textbf{domain\_name\_servers} should be set to values appropriate for
+your network.
+
+To raspberry pi can then be accessed using ssh, \emph{e.g.}:
+
+\begin{verbatim}
+  ssh pi@192.168.1.3
+\end{verbatim}
+
+The default password for the \textbf{pi} user account is
+\textbf{raspberry}
+
+\section{Install minicom}\label{install-minicom}
+
+Minicom is useful for manual control of the robot and for editing grbl
+settings. To install minicom run these two commands:
+
+\begin{verbatim}
+sudo apt-get update
+sudo apt-get install minicom
+\end{verbatim}
+
+Before we can use minicom we need to enable serial:
+
+\begin{verbatim}
+sudo nano /boot/config.txt
+\end{verbatim}
+
+Change the last line of this file from
+
+\begin{verbatim}
+enable_uart=0
+\end{verbatim}
+
+to
+
+\begin{verbatim}
+enable_uart=1
+\end{verbatim}
+
+Once serial is enabled we can connect to the grbl controller running on
+the arduino by using:
+
+\begin{verbatim}
+sudo minicom -D /dev/ttyACM0 -b115200
+\end{verbatim}
+
+\section{Expand filesystem}\label{expand-filesystem}
+
+Expand filesystem on micro SD card:
 
 \begin{verbatim}
     sudo raspi-config
@@ -794,18 +851,44 @@ $132=200.000
     sudo reboot
 \end{verbatim}
 
-/etc/dhcpcd.conf
+\section{Install robot software}\label{install-robot-software}
 
-interface eth0
+Make sure you are in pi's home directory:
 
-static ip\_address=192.168.2.2/24 static routers=192.168.2.1 static
-domain\_name\_servers=192.168.2.1
+\begin{verbatim}
+cd
+\end{verbatim}
+
+Download and unpack robot.tar.gz
+
+\begin{verbatim}
+curl -O https://raw.githubusercontent.com/WaylandM/fly-food-robot/master/raspberrypi/robot.tar.gz
+tar xzvf robot.tar.gz
+\end{verbatim}
+
+The \textbf{robot} directory contains two subdirectories: \textbf{nc}
+(g-code scripts) and \textbf{py} (python scripts).
+
+To automatically launch the robot GUI when the raspberry pi starts up,
+we need to edit the autostart file for the pi user:
+
+\begin{verbatim}
+sudo nano /home/pi/.config/lxsession/LXDE-pi/autostart
+\end{verbatim}
+
+Add the following line to autostart:
+
+\begin{verbatim}
+@/home/pi/robot/py/fly_gui.py
+\end{verbatim}
 
 \chapter{Creating jobs in G-code}\label{creating-jobs-in-g-code}
 
 Running job without GUI - for testing
 
-\chapter{Trouble-shooting}\label{trouble-shooting}
+\chapter{Operation}\label{operation}
+
+\section{Loading boxes of vials}\label{loading-boxes-of-vials}
 
 \bibliography{packages.bib,book.bib}
 

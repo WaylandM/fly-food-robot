@@ -14,31 +14,28 @@ cover-image: images/system.jpg
 ---
 
 
-# About
+# Preface{-}
 
-<div class="figure" style="text-align: center">
-<img src="images/system.jpg" alt="Robot" width="75%" />
-<p class="caption">(\#fig:system)Robot</p>
-</div>
+<img src="images/system.jpg" width="75%" style="display: block; margin: auto;" />
+
+<!---, fig.cap="Robot"--->
 
 
-## Overview
-
-Figure \@ref(fig:system)
+<!---Figure \@ref(fig:system)--->
 
 
 
-## Github
+## Github{-}
 [WaylandM/fly-food-robot](https://github.com/WaylandM/fly-food-robot)
 
-## License
+## License{-}
 License for software and documentation:
 [GPL-3](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-## Contact
+## Contact{-}
 <a href="mailto:mw283@cam.ac.uk">Matt Wayland</a>
 
 
-## Colophon
+## Colophon{-}
 
 This book was produced using the **bookdown** package [@R-bookdown], which was built on top of R Markdown and **knitr** [@xie2015].

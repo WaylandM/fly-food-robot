@@ -32,7 +32,7 @@ static domain_name_servers=192.168.1.254
 
 To raspberry pi can then be accessed using ssh, *e.g.*:
 ```
-ssh pi@192.168.1.3
+  ssh pi@192.168.1.3
 ```
 
 The default password for the **pi** user account is **raspberry**
