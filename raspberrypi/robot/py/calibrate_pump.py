@@ -78,28 +78,28 @@ f.write('m3\n')
 f.write('z'+str(z_clearance)+'\n')
 
 # calculate distance between adjacent vials
-x_interval = (lastVial[0]-firstVial[0])/(ncols=1.0) # -1.0 to ensure converted to float
+x_interval = (lastVial[0]-firstVial[0])/(ncols-1.0) # -1.0 to ensure converted to float
 y_interval = (lastVial[1]-firstVial[1])/(nrows-1.0)
 
 y_current = firstVial[1]
 
 for i in range(1, nrows+1, 1):
-	if i % 2 == 0:
-    	x_current = lastVial[0]
-	else:
-    	x_current = firstVial[0]
-	for j in range(1, ncols+1, 1):
-    	f.write('x' + str(x_current) + ' y' + str(y_current) + '\n')
-    	f.write('m8\n')
-    	f.write('g4 p' + str(fill_times[i-1]) + '\n')
-    	f.write('m9\n')
-    	if drip_pause > 0:
-        	f.write('g4 p' + str(drip_pause) + '\n')
-    	if i % 2 == 0:
-        	x_current = round((x_current - x_interval),2)
-    	else:
-        	x_current = round((x_current + x_interval),2)
-	y_current =round((y_current + y_interval), 2)
+    if i % 2 == 0:
+        x_current = lastVial[0]
+    else:
+        x_current = firstVial[0]
+    for j in range(1, ncols+1, 1):
+        f.write('x' + str(x_current) + ' y' + str(y_current) + '\n')
+        f.write('m8\n')
+        f.write('g4 p' + str(fill_times[i-1]) + '\n')
+        f.write('m9\n')
+        if drip_pause > 0:
+            f.write('g4 p' + str(drip_pause) + '\n')
+        if i % 2 == 0:
+            x_current = round((x_current - x_interval),2)
+        else:
+            x_current = round((x_current + x_interval),2)
+    y_current =round((y_current + y_interval), 2)
 
 
 # return to home position
