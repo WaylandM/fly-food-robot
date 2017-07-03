@@ -105,7 +105,7 @@ def generateG(f, firstVial, lastVial):
 
 fobj = open(filename1Box, 'w')
 
-f.write('(gcode instructions to fill one box of ' + str(nVials) + ' vials.)\n')
+fobj.write('(gcode instructions to fill one box of ' + str(nVials) + ' vials.)\n')
 
 generateG(fobj, box1FirstVial, box1LastVial)
 

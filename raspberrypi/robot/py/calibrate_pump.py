@@ -32,7 +32,7 @@
 # SETTINGS
 
 # filename
-filename = '/home/pi/grbl/nc/calibrate_pump.nc'
+filename = '/home/pi/robot/nc/calibrate_pump.nc'
 
 # home/datum + homing pull-off (mm) (value of Grbl setting $27)
 x_home = -5
