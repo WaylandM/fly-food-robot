@@ -1,4 +1,7 @@
-# Raspberry Pi setup
+# Raspberry Pi setup {#raspi}
+
+## Overview
+The raspberry pi is used to generate, then stream g-code to the Arduino. Routine use of the robot is via a simple touchscreen interface. 
 
 ## Install image
 The first step is to install Adafruit's custom raspberry pi image on the micro SD card. The custom image is described here:
@@ -36,10 +39,12 @@ To raspberry pi can then be accessed using ssh, *e.g.*:
 
 The default password for the **pi** user account is **raspberry**
 
+## Cable connection to arduino
+The raspberry pi uses serial communication to send g-code instructions to the Grbl controller software running on the arduino. For serial communication, the raspberry pi and arduino need to be connected using a usb cable.The arduino also draws power from the raspberry pi via this usb cable. Chapter \@ref(grbl)
 
 ## Install minicom
 
-Minicom is useful for manual control of the robot and for editing grbl settings. Before installing minicom, make sure the raspberry pi is connected to the arduino via the usb cable.
+Minicom is useful for manual control of the robot and for editing grbl settings. 
 
 To install minicom run these two commands:
 
@@ -66,6 +71,7 @@ to
 enable_uart=1
 ```
 
+Before installing minicom, make sure the raspberry pi is connected to the arduino via the usb cable.
 Once serial is enabled we can connect to the grbl controller running on the arduino by using:
 
 ```
@@ -81,7 +87,7 @@ Expand filesystem on micro SD card:
     sudo reboot
 ```
 
-## Install robot software
+## Install python scripts
 
 Make sure you are in pi's home directory:
 

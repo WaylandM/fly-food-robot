@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="raspberry-pi-setup.html">
-<link rel="next" href="operation.html">
+<link rel="prev" href="grbl.html">
+<link rel="next" href="gcode.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -88,15 +88,16 @@
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="grbl.html"><a href="grbl.html#setting-motor-current"><i class="fa fa-check"></i><b>2.5</b> Setting motor current</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html"><i class="fa fa-check"></i><b>3</b> Raspberry Pi setup</a><ul>
-<li class="chapter" data-level="3.1" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-image"><i class="fa fa-check"></i><b>3.1</b> Install image</a></li>
-<li class="chapter" data-level="3.2" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#network-configuration"><i class="fa fa-check"></i><b>3.2</b> Network configuration</a></li>
-<li class="chapter" data-level="3.3" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#cable-connection-to-arduino"><i class="fa fa-check"></i><b>3.3</b> Cable connection to arduino</a></li>
-<li class="chapter" data-level="3.4" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-minicom"><i class="fa fa-check"></i><b>3.4</b> Install minicom</a></li>
-<li class="chapter" data-level="3.5" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#expand-filesystem"><i class="fa fa-check"></i><b>3.5</b> Expand filesystem</a></li>
-<li class="chapter" data-level="3.6" data-path="raspberry-pi-setup.html"><a href="raspberry-pi-setup.html#install-robot-software"><i class="fa fa-check"></i><b>3.6</b> Install robot software</a></li>
+<li class="chapter" data-level="3" data-path="raspi.html"><a href="raspi.html"><i class="fa fa-check"></i><b>3</b> Raspberry Pi setup</a><ul>
+<li class="chapter" data-level="3.1" data-path="raspi.html"><a href="raspi.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
+<li class="chapter" data-level="3.2" data-path="raspi.html"><a href="raspi.html#install-image"><i class="fa fa-check"></i><b>3.2</b> Install image</a></li>
+<li class="chapter" data-level="3.3" data-path="raspi.html"><a href="raspi.html#network-configuration"><i class="fa fa-check"></i><b>3.3</b> Network configuration</a></li>
+<li class="chapter" data-level="3.4" data-path="raspi.html"><a href="raspi.html#cable-connection-to-arduino"><i class="fa fa-check"></i><b>3.4</b> Cable connection to arduino</a></li>
+<li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#install-minicom"><i class="fa fa-check"></i><b>3.5</b> Install minicom</a></li>
+<li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.6</b> Expand filesystem</a></li>
+<li class="chapter" data-level="3.7" data-path="raspi.html"><a href="raspi.html#install-python-scripts"><i class="fa fa-check"></i><b>3.7</b> Install python scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="creating-jobs-in-g-code.html"><a href="creating-jobs-in-g-code.html"><i class="fa fa-check"></i><b>4</b> Creating jobs in G-code</a></li>
+<li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Creating jobs in G-code</a></li>
 <li class="chapter" data-level="5" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>5</b> Operation</a><ul>
 <li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#loading-boxes-of-vials"><i class="fa fa-check"></i><b>5.1</b> Loading boxes of vials</a></li>
 </ul></li>
@@ -121,51 +122,83 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="creating-jobs-in-g-code" class="section level1">
-<h1><span class="header-section-number">4</span> Creating jobs in G-code</h1>
-<p>Running job without GUI - for testing</p>
-<!--
-# need 8-9 ml
-# pump speed 1800ml/min
-# ml/s = 1800/60 = 30
-# fill time = 0.3
--->
-<pre><code>ssh pi@192.168.1.3
+<div id="raspi" class="section level1">
+<h1><span class="header-section-number">3</span> Raspberry Pi setup</h1>
+<div id="overview-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Overview</h2>
+<p>The raspberry pi is used to generate, then stream g-code to the Arduino. Routine use of the robot is via a simple touchscreen interface.</p>
+</div>
+<div id="install-image" class="section level2">
+<h2><span class="header-section-number">3.2</span> Install image</h2>
+<p>The first step is to install Adafruit’s custom raspberry pi image on the micro SD card. The custom image is described here:</p>
+<p><a href="https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi/easy-install" class="uri">https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi/easy-install</a></p>
+<p>We want the classic version which boots into X by default, rather then the lite version that boots to the command line. The classic version can be downloaded from this link:</p>
+<p><a href="https://s3.amazonaws.com/adafruit-raspberry-pi/2016-10-18-pitft-28r.zip" class="uri">https://s3.amazonaws.com/adafruit-raspberry-pi/2016-10-18-pitft-28r.zip</a></p>
+<p>Instructions on installing images on SD cards can be found here:</p>
+<p><a href="https://www.raspberrypi.org/documentation/installation/installing-images/" class="uri">https://www.raspberrypi.org/documentation/installation/installing-images/</a></p>
+</div>
+<div id="network-configuration" class="section level2">
+<h2><span class="header-section-number">3.3</span> Network configuration</h2>
+<p>The small screen of the pitft makes using most applications quite tricky. Therefore the first thing we should do after installing the image is configure networking, so that we can access the raspberry pi remotely using ssh.</p>
+<p>To set a static IP address for the ethernet adapter, add the following lines to <code>/etc/dhcpcd.conf</code>:</p>
+<pre><code>interface eth0
 
-sudo minicom -D /dev/ttyACM0 -b115200
+static ip_address=192.168.1.3/24
+static routers=192.168.1.254
+static domain_name_servers=192.168.1.254</code></pre>
+<p><strong>ip_address</strong>, <strong>routers</strong> and <strong>domain_name_servers</strong> should be set to values appropriate for your network.</p>
+<p>To raspberry pi can then be accessed using ssh, <em>e.g.</em>:</p>
+<pre><code>  ssh pi@192.168.1.3</code></pre>
+<p>The default password for the <strong>pi</strong> user account is <strong>raspberry</strong></p>
+</div>
+<div id="cable-connection-to-arduino" class="section level2">
+<h2><span class="header-section-number">3.4</span> Cable connection to arduino</h2>
+<p>The raspberry pi uses serial communication to send g-code instructions to the Grbl controller software running on the arduino. For serial communication, the raspberry pi and arduino need to be connected using a usb cable.The arduino also draws power from the raspberry pi via this usb cable. Chapter <a href="grbl.html#grbl">2</a></p>
+</div>
+<div id="install-minicom" class="section level2">
+<h2><span class="header-section-number">3.5</span> Install minicom</h2>
+<p>Minicom is useful for manual control of the robot and for editing grbl settings.</p>
+<p>To install minicom run these two commands:</p>
+<pre><code>sudo apt-get update
+sudo apt-get install minicom</code></pre>
+<p>Before we can use minicom we need to enable serial:</p>
+<pre><code>sudo nano /boot/config.txt</code></pre>
+<p>Change the last line of this file from</p>
+<pre><code>enable_uart=0</code></pre>
+<p>to</p>
+<pre><code>enable_uart=1</code></pre>
+<p>Before installing minicom, make sure the raspberry pi is connected to the arduino via the usb cable. Once serial is enabled we can connect to the grbl controller running on the arduino by using:</p>
+<pre><code>sudo minicom -D /dev/ttyACM0 -b115200</code></pre>
+</div>
+<div id="expand-filesystem" class="section level2">
+<h2><span class="header-section-number">3.6</span> Expand filesystem</h2>
+<p>Expand filesystem on micro SD card:</p>
+<pre><code>    sudo raspi-config
+    (expand filesystem)
+    sudo reboot</code></pre>
+</div>
+<div id="install-python-scripts" class="section level2">
+<h2><span class="header-section-number">3.7</span> Install python scripts</h2>
+<p>Make sure you are in pi’s home directory:</p>
+<pre><code>cd</code></pre>
+<p>Download and unpack robot.tar.gz</p>
+<pre><code>curl -O https://raw.githubusercontent.com/WaylandM/fly-food-robot/master/raspberrypi/robot.tar.gz
+tar xzvf robot.tar.gz</code></pre>
+<p>The <strong>robot</strong> directory contains two subdirectories: <strong>nc</strong> (g-code scripts) and <strong>py</strong> (python scripts).</p>
+<p>To automatically launch the robot GUI when the raspberry pi starts up, we need to edit the autostart file for the pi user:</p>
+<pre><code>sudo nano /home/pi/.config/lxsession/LXDE-pi/autostart</code></pre>
+<p>Add the following line to autostart:</p>
+<pre><code>@/home/pi/robot/py/fly_gui.py</code></pre>
 
-?&lt;Idle|MPos:-5.000,-5.000,-4.993|FS:0,0|Ov:100,100,100&gt;
-
-x-10 y-10 z-10
-ok
-?&lt;Idle|MPos:-10.000,-10.000,-10.005|FS:0,0&gt;
-
-
-x-20 y-20 z-30
-ok
-?&lt;Idle|MPos:-20.000,-20.000,-29.996|FS:0,0&gt;
-
-
-x-8 y-14 z-62
-ok
-?&lt;Idle|MPos:-8.000,-14.000,-62.006|FS:0,0&gt;
-
-
-./robot/py/calibrate_pump.py
-
-./robot/py/stream2.py robot/nc/calibrate_pump.nc /dev/ttyACM0
-
-./robot/py/fill_boxes.py
-</code></pre>
-
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="raspberry-pi-setup.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="operation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="grbl.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="gcode.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -194,7 +227,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/WaylandM/fly-food-robot/edit/master/04-g-code.Rmd",
+"link": "https://github.com/WaylandM/fly-food-robot/edit/master/03-raspi-setup.Rmd",
 "text": "Edit"
 },
 "download": ["fly-food-robot.pdf"],
