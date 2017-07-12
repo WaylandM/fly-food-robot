@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-07-04">
+<meta name="date" content="2017-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -92,14 +92,19 @@
 <li class="chapter" data-level="3.1" data-path="raspi.html"><a href="raspi.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="raspi.html"><a href="raspi.html#install-image"><i class="fa fa-check"></i><b>3.2</b> Install image</a></li>
 <li class="chapter" data-level="3.3" data-path="raspi.html"><a href="raspi.html#network-configuration"><i class="fa fa-check"></i><b>3.3</b> Network configuration</a></li>
-<li class="chapter" data-level="3.4" data-path="raspi.html"><a href="raspi.html#cable-connection-to-arduino"><i class="fa fa-check"></i><b>3.4</b> Cable connection to arduino</a></li>
-<li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#install-minicom"><i class="fa fa-check"></i><b>3.5</b> Install minicom</a></li>
-<li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.6</b> Expand filesystem</a></li>
-<li class="chapter" data-level="3.7" data-path="raspi.html"><a href="raspi.html#install-python-scripts"><i class="fa fa-check"></i><b>3.7</b> Install python scripts</a></li>
+<li class="chapter" data-level="3.4" data-path="raspi.html"><a href="raspi.html#install-minicom"><i class="fa fa-check"></i><b>3.4</b> Install minicom</a></li>
+<li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.5</b> Expand filesystem</a></li>
+<li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#install-python-scripts"><i class="fa fa-check"></i><b>3.6</b> Install python scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Creating jobs in G-code</a></li>
+<li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Program robot to fill vials</a><ul>
+<li class="chapter" data-level="4.1" data-path="gcode.html"><a href="gcode.html#overview-2"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
+<li class="chapter" data-level="4.2" data-path="gcode.html"><a href="gcode.html#determine-box-coordinates"><i class="fa fa-check"></i><b>4.2</b> Determine box coordinates</a></li>
+<li class="chapter" data-level="4.3" data-path="gcode.html"><a href="gcode.html#calibrate-pump"><i class="fa fa-check"></i><b>4.3</b> Calibrate pump</a></li>
+<li class="chapter" data-level="4.4" data-path="gcode.html"><a href="gcode.html#generate-g-code-instructions-for-filling-vials"><i class="fa fa-check"></i><b>4.4</b> Generate G-code instructions for filling vials</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>5</b> Operation</a><ul>
-<li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#loading-boxes-of-vials"><i class="fa fa-check"></i><b>5.1</b> Loading boxes of vials</a></li>
+<li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>5.1</b> Prepare system</a></li>
+<li class="chapter" data-level="5.2" data-path="operation.html"><a href="operation.html#fill-boxes"><i class="fa fa-check"></i><b>5.2</b> Fill boxes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -123,7 +128,7 @@
 
             <section class="normal" id="section-">
 <div id="gcode" class="section level1">
-<h1><span class="header-section-number">4</span> Creating jobs in G-code</h1>
+<h1><span class="header-section-number">4</span> Program robot to fill vials</h1>
 <p>Running job without GUI - for testing</p>
 <!--
 # need 8-9 ml
@@ -158,7 +163,78 @@ ok
 
 ./robot/py/fill_boxes.py
 </code></pre>
+<div id="overview-2" class="section level2">
+<h2><span class="header-section-number">4.1</span> Overview</h2>
+<p>The movement of the robot is programmed in <a href="https://en.wikipedia.org/wiki/G-code">G-code</a>. We only need nine G-code commands to control the robot (table <a href="gcode.html#tab:gCodes">4.1</a>).</p>
+<table>
+<caption><span id="tab:gCodes">Table 4.1: </span>G-code commands used to control robot.</caption>
+<thead>
+<tr class="header">
+<th align="left">Code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">x</td>
+<td align="left">absolute position of x-axis</td>
+</tr>
+<tr class="even">
+<td align="left">y</td>
+<td align="left">absolute position of y-axis</td>
+</tr>
+<tr class="odd">
+<td align="left">z</td>
+<td align="left">absolute position of z-axis</td>
+</tr>
+<tr class="even">
+<td align="left">g4</td>
+<td align="left">dwell time (control parameter p specifies seconds)</td>
+</tr>
+<tr class="odd">
+<td align="left">m3</td>
+<td align="left">set pump rotation to clockwise</td>
+</tr>
+<tr class="even">
+<td align="left">m4</td>
+<td align="left">set pump rotation to counter clockwise</td>
+</tr>
+<tr class="odd">
+<td align="left">m8</td>
+<td align="left">start pump</td>
+</tr>
+<tr class="even">
+<td align="left">m9</td>
+<td align="left">stop pump</td>
+</tr>
+<tr class="odd">
+<td align="left">$h</td>
+<td align="left">initiate homing cycle</td>
+</tr>
+</tbody>
+</table>
+<p>A G-code program for filling vials of food could be created manually, by listing the necessary commands sequentially in a text file. However, this would be laborious and error prone. If the size of the boxes of vials are known, the G-code can be programmatically generated.</p>
+</div>
+<div id="determine-box-coordinates" class="section level2">
+<h2><span class="header-section-number">4.2</span> Determine box coordinates</h2>
+<p>First we need to determine the cartesian coordinates</p>
+<ol style="list-style-type: decimal">
+<li><p>Start up system.</p></li>
+<li><p>Login to raspberry pi using ssh. My raspberry pi has the IP address 192.168.1.3 and so I would use:</p>
+<pre><code>ssh pi@192.168.1.3</code></pre>
+<p>Change IP address to match your configuration. Default password for the <strong>pi</strong> user account is ‘raspberry’.</p></li>
+<li><p>Use minicom to connect to the Grbl controller running on the Arduino:</p>
+<pre><code>sudo minicom -D /dev/ttyACM0 -b115200</code></pre></li>
+</ol>
+</div>
+<div id="calibrate-pump" class="section level2">
+<h2><span class="header-section-number">4.3</span> Calibrate pump</h2>
+<p>Prime pump</p>
+</div>
+<div id="generate-g-code-instructions-for-filling-vials" class="section level2">
+<h2><span class="header-section-number">4.4</span> Generate G-code instructions for filling vials</h2>
 
+</div>
 </div>
             </section>
 

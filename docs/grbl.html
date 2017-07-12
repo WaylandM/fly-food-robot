@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-07-04">
+<meta name="date" content="2017-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -92,14 +92,19 @@
 <li class="chapter" data-level="3.1" data-path="raspi.html"><a href="raspi.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="raspi.html"><a href="raspi.html#install-image"><i class="fa fa-check"></i><b>3.2</b> Install image</a></li>
 <li class="chapter" data-level="3.3" data-path="raspi.html"><a href="raspi.html#network-configuration"><i class="fa fa-check"></i><b>3.3</b> Network configuration</a></li>
-<li class="chapter" data-level="3.4" data-path="raspi.html"><a href="raspi.html#cable-connection-to-arduino"><i class="fa fa-check"></i><b>3.4</b> Cable connection to arduino</a></li>
-<li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#install-minicom"><i class="fa fa-check"></i><b>3.5</b> Install minicom</a></li>
-<li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.6</b> Expand filesystem</a></li>
-<li class="chapter" data-level="3.7" data-path="raspi.html"><a href="raspi.html#install-python-scripts"><i class="fa fa-check"></i><b>3.7</b> Install python scripts</a></li>
+<li class="chapter" data-level="3.4" data-path="raspi.html"><a href="raspi.html#install-minicom"><i class="fa fa-check"></i><b>3.4</b> Install minicom</a></li>
+<li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.5</b> Expand filesystem</a></li>
+<li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#install-python-scripts"><i class="fa fa-check"></i><b>3.6</b> Install python scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Creating jobs in G-code</a></li>
+<li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Program robot to fill vials</a><ul>
+<li class="chapter" data-level="4.1" data-path="gcode.html"><a href="gcode.html#overview-2"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
+<li class="chapter" data-level="4.2" data-path="gcode.html"><a href="gcode.html#determine-box-coordinates"><i class="fa fa-check"></i><b>4.2</b> Determine box coordinates</a></li>
+<li class="chapter" data-level="4.3" data-path="gcode.html"><a href="gcode.html#calibrate-pump"><i class="fa fa-check"></i><b>4.3</b> Calibrate pump</a></li>
+<li class="chapter" data-level="4.4" data-path="gcode.html"><a href="gcode.html#generate-g-code-instructions-for-filling-vials"><i class="fa fa-check"></i><b>4.4</b> Generate G-code instructions for filling vials</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>5</b> Operation</a><ul>
-<li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#loading-boxes-of-vials"><i class="fa fa-check"></i><b>5.1</b> Loading boxes of vials</a></li>
+<li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>5.1</b> Prepare system</a></li>
+<li class="chapter" data-level="5.2" data-path="operation.html"><a href="operation.html#fill-boxes"><i class="fa fa-check"></i><b>5.2</b> Fill boxes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -186,7 +191,7 @@ Figure 2.3: GrblUpload example file
 <li>Compile and upload Grbl to your Arduino.</li>
 </ol>
 <ul>
-<li>Connect your computer directly to the Arduino using the USB cable.</li>
+<li>Connect your computer directly to the Arduino using the USB cable. Unplug the USB cable from the raspberry pi and plug it into your computer. Remember to reconnect the raspberry pi to the Arduino after you have finished configuring Grbl.</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:laptop2arduino"></span>
 <img src="images/laptop_connected_to_arduino.jpg" alt="Laptop connected directly to Arduino" width="75%" />
@@ -359,9 +364,9 @@ Table: (\#tab:invertMaskSettings) Masks for direction port inversion.
 </div>
 <div id="setup-homing" class="section level3">
 <h3><span class="header-section-number">2.4.4</span> Setup homing</h3>
-<p>The homing cycle is used to set the origin of the cartesian coordinate system used by the robot. During the homing cycle Grbl moves each actuator in the positive direction until the limit switches are triggered. The homing cycle is activated by setting <strong>$22</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#22---homing-cycle-boolean">homing cycle (boolean)</a> to 1:</p>
+<p>The homing cycle is used to set the origin of the Cartesian coordinate system used by the robot. During the homing cycle Grbl moves each actuator in the positive direction until the limit switches are triggered. The homing cycle is activated by setting <strong>$22</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#22---homing-cycle-boolean">homing cycle (boolean)</a> to 1:</p>
 <pre><code>$22=1</code></pre>
-<p>Initiate a homing cycle using the following command: <code>$h</code>. All actuator carriages should move to the origin of their axes. The origin of the cartesian coordinate system (home) for the robot is shown in figures <a href="grbl.html#fig:xyOrigin">2.8</a> and <a href="grbl.html#fig:zOrigin">2.9</a></p>
+<p>Initiate a homing cycle using the following command: <code>$h</code>. All actuator carriages should move to the origin of their axes. The origin of the Cartesian coordinate system (home) for the robot is shown in figures <a href="grbl.html#fig:xyOrigin">2.8</a> and <a href="grbl.html#fig:zOrigin">2.9</a></p>
 <div class="figure" style="text-align: center"><span id="fig:xyOrigin"></span>
 <img src="images/xy_origin.jpg" alt="Origin of XY coordinate system." width="75%" />
 <p class="caption">
@@ -390,7 +395,7 @@ $102=49.673</code></pre>
 <pre><code>$h</code></pre></li>
 <li><p>Read the current position of the machine, as reported by the Grbl controller:</p>
 <pre><code>?</code></pre>
-After homing the cartesian coordinates should be zero minus the homing pull-off:</li>
+After homing the Cartesian coordinates should be zero minus the homing pull-off:</li>
 </ol>
 <ul>
 <li>x = -5</li>

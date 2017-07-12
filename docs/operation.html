@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-07-04">
+<meta name="date" content="2017-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -92,14 +92,19 @@
 <li class="chapter" data-level="3.1" data-path="raspi.html"><a href="raspi.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="raspi.html"><a href="raspi.html#install-image"><i class="fa fa-check"></i><b>3.2</b> Install image</a></li>
 <li class="chapter" data-level="3.3" data-path="raspi.html"><a href="raspi.html#network-configuration"><i class="fa fa-check"></i><b>3.3</b> Network configuration</a></li>
-<li class="chapter" data-level="3.4" data-path="raspi.html"><a href="raspi.html#cable-connection-to-arduino"><i class="fa fa-check"></i><b>3.4</b> Cable connection to arduino</a></li>
-<li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#install-minicom"><i class="fa fa-check"></i><b>3.5</b> Install minicom</a></li>
-<li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.6</b> Expand filesystem</a></li>
-<li class="chapter" data-level="3.7" data-path="raspi.html"><a href="raspi.html#install-python-scripts"><i class="fa fa-check"></i><b>3.7</b> Install python scripts</a></li>
+<li class="chapter" data-level="3.4" data-path="raspi.html"><a href="raspi.html#install-minicom"><i class="fa fa-check"></i><b>3.4</b> Install minicom</a></li>
+<li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.5</b> Expand filesystem</a></li>
+<li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#install-python-scripts"><i class="fa fa-check"></i><b>3.6</b> Install python scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Creating jobs in G-code</a></li>
+<li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Program robot to fill vials</a><ul>
+<li class="chapter" data-level="4.1" data-path="gcode.html"><a href="gcode.html#overview-2"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
+<li class="chapter" data-level="4.2" data-path="gcode.html"><a href="gcode.html#determine-box-coordinates"><i class="fa fa-check"></i><b>4.2</b> Determine box coordinates</a></li>
+<li class="chapter" data-level="4.3" data-path="gcode.html"><a href="gcode.html#calibrate-pump"><i class="fa fa-check"></i><b>4.3</b> Calibrate pump</a></li>
+<li class="chapter" data-level="4.4" data-path="gcode.html"><a href="gcode.html#generate-g-code-instructions-for-filling-vials"><i class="fa fa-check"></i><b>4.4</b> Generate G-code instructions for filling vials</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>5</b> Operation</a><ul>
-<li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#loading-boxes-of-vials"><i class="fa fa-check"></i><b>5.1</b> Loading boxes of vials</a></li>
+<li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>5.1</b> Prepare system</a></li>
+<li class="chapter" data-level="5.2" data-path="operation.html"><a href="operation.html#fill-boxes"><i class="fa fa-check"></i><b>5.2</b> Fill boxes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -124,8 +129,22 @@
             <section class="normal" id="section-">
 <div id="operation" class="section level1">
 <h1><span class="header-section-number">5</span> Operation</h1>
-<div id="loading-boxes-of-vials" class="section level2">
-<h2><span class="header-section-number">5.1</span> Loading boxes of vials</h2>
+<div id="prepare-system" class="section level2">
+<h2><span class="header-section-number">5.1</span> Prepare system</h2>
+<ol style="list-style-type: decimal">
+<li>attach tube and put other end in heated vat of fly food</li>
+<li>check none of the limit switches are depressed - manually move actuator off limit switch if necessary</li>
+<li>power up</li>
+<li>prime pump</li>
+</ol>
+</div>
+<div id="fill-boxes" class="section level2">
+<h2><span class="header-section-number">5.2</span> Fill boxes</h2>
+<p>Check orientation of boxes and check vials aligned</p>
+<p>From GUI select fill one or two boxes</p>
+<ol style="list-style-type: decimal">
+<li>Start</li>
+</ol>
 
 </div>
 </div>

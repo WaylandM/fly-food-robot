@@ -39,8 +39,7 @@ To raspberry pi can then be accessed using ssh, *e.g.*:
 
 The default password for the **pi** user account is **raspberry**
 
-## Cable connection to arduino
-The raspberry pi uses serial communication to send g-code instructions to the Grbl controller software running on the arduino. For serial communication, the raspberry pi and arduino need to be connected using a usb cable.The arduino also draws power from the raspberry pi via this usb cable. Chapter \@ref(grbl)
+
 
 ## Install minicom
 
@@ -71,8 +70,7 @@ to
 enable_uart=1
 ```
 
-Before installing minicom, make sure the raspberry pi is connected to the arduino via the usb cable.
-Once serial is enabled we can connect to the grbl controller running on the arduino by using:
+If you have not already done so, reconnect the raspberry pi to the arduino using the USB cable. To use minicom to connect to the grbl controller running on the arduino, use:
 
 ```
 sudo minicom -D /dev/ttyACM0 -b115200

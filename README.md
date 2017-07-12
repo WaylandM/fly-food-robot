@@ -3,6 +3,8 @@
 
 ![CNC fly food dispenser](bookdown/images/small_system.jpg)
 
+Video: https://doi.org/10.6084/m9.figshare.5175223.v1
+
 ## Hardware documentation
 The build of the hardware is described on [docubricks](http://docubricks.com/):
 [CNC fly food dispenser](http://docubricks.com/viewer.jsp?id=8652757760093769728)

@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-07-04">
+<meta name="date" content="2017-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -92,14 +92,19 @@
 <li class="chapter" data-level="3.1" data-path="raspi.html"><a href="raspi.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="raspi.html"><a href="raspi.html#install-image"><i class="fa fa-check"></i><b>3.2</b> Install image</a></li>
 <li class="chapter" data-level="3.3" data-path="raspi.html"><a href="raspi.html#network-configuration"><i class="fa fa-check"></i><b>3.3</b> Network configuration</a></li>
-<li class="chapter" data-level="3.4" data-path="raspi.html"><a href="raspi.html#cable-connection-to-arduino"><i class="fa fa-check"></i><b>3.4</b> Cable connection to arduino</a></li>
-<li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#install-minicom"><i class="fa fa-check"></i><b>3.5</b> Install minicom</a></li>
-<li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.6</b> Expand filesystem</a></li>
-<li class="chapter" data-level="3.7" data-path="raspi.html"><a href="raspi.html#install-python-scripts"><i class="fa fa-check"></i><b>3.7</b> Install python scripts</a></li>
+<li class="chapter" data-level="3.4" data-path="raspi.html"><a href="raspi.html#install-minicom"><i class="fa fa-check"></i><b>3.4</b> Install minicom</a></li>
+<li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.5</b> Expand filesystem</a></li>
+<li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#install-python-scripts"><i class="fa fa-check"></i><b>3.6</b> Install python scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Creating jobs in G-code</a></li>
+<li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Program robot to fill vials</a><ul>
+<li class="chapter" data-level="4.1" data-path="gcode.html"><a href="gcode.html#overview-2"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
+<li class="chapter" data-level="4.2" data-path="gcode.html"><a href="gcode.html#determine-box-coordinates"><i class="fa fa-check"></i><b>4.2</b> Determine box coordinates</a></li>
+<li class="chapter" data-level="4.3" data-path="gcode.html"><a href="gcode.html#calibrate-pump"><i class="fa fa-check"></i><b>4.3</b> Calibrate pump</a></li>
+<li class="chapter" data-level="4.4" data-path="gcode.html"><a href="gcode.html#generate-g-code-instructions-for-filling-vials"><i class="fa fa-check"></i><b>4.4</b> Generate G-code instructions for filling vials</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>5</b> Operation</a><ul>
-<li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#loading-boxes-of-vials"><i class="fa fa-check"></i><b>5.1</b> Loading boxes of vials</a></li>
+<li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>5.1</b> Prepare system</a></li>
+<li class="chapter" data-level="5.2" data-path="operation.html"><a href="operation.html#fill-boxes"><i class="fa fa-check"></i><b>5.2</b> Fill boxes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -124,14 +129,15 @@
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>The fruit fly, <em>Drosophila melanogaster</em>, is one of the most important model organisms in biological research. Maintaining stocks of fruit flies in the laboratory is labour-intensive. One task which lends itself to automation is the production of the vials of food in which the flies are reared. Fly facilities typically have to generate several thousand vials of fly food each week to sustain their fly stocks. The system presented here combines a cartesian coordinate robot with a peristaltic pump (Figure <a href="intro.html#fig:architecture">1.1</a>). The design of the robot is based on the Routy CNC Router created by Mark Carew (<a href="http://openbuilds.org/builds/routy-cnc-router-v-slot-belt-pinion.101/" class="uri">http://openbuilds.org/builds/routy-cnc-router-v-slot-belt-pinion.101/</a>), and uses belt and pully actuators for the X and Y axes, and a leadscrew actuator for the Z axis. CNC motion and operation of the peristaltic pump are controlled by grbl (<a href="https://github.com/gnea/grbl" class="uri">https://github.com/gnea/grbl</a>), an open source, embedded, high performance g-code parser. Grbl is written in optimized C and runs directly on an Arduino. A Raspberry Pi is used to generate and stream G-code instructions to Grbl. A touch screen on the Raspberry Pi provides a graphical user interface to the system. Instructions for building the hardware are available on <a href="http://docubricks.com/viewer.jsp?id=8652757760093769728">DocuBricks</a>.</p>
+<p>The fruit fly, <em>Drosophila melanogaster</em>, is one of the most important model organisms in biological research. Maintaining stocks of fruit flies in the laboratory is labour-intensive. One task which lends itself to automation is the production of the vials of food in which the flies are reared. Fly facilities typically have to generate several thousand vials of fly food each week to sustain their fly stocks. The system presented here combines a Cartesian coordinate robot with a peristaltic pump (Figure <a href="intro.html#fig:architecture">1.1</a>). The design of the robot is based on the Routy CNC Router created by Mark Carew (<a href="http://openbuilds.org/builds/routy-cnc-router-v-slot-belt-pinion.101/" class="uri">http://openbuilds.org/builds/routy-cnc-router-v-slot-belt-pinion.101/</a>), and uses belt and pully actuators for the X and Y axes, and a leadscrew actuator for the Z axis. CNC motion and operation of the peristaltic pump are controlled by grbl (<a href="https://github.com/gnea/grbl" class="uri">https://github.com/gnea/grbl</a>), an open source, embedded, high performance g-code parser. Grbl is written in optimized C and runs directly on an Arduino. A Raspberry Pi is used to generate and stream G-code instructions to Grbl. A touch screen on the Raspberry Pi provides a graphical user interface to the system. Instructions for building the hardware are available on <a href="http://docubricks.com/viewer.jsp?id=8652757760093769728">DocuBricks</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:architecture"></span>
 <img src="images/system_architecture.svg" alt="System architecture." width="75%" />
 <p class="caption">
 Figure 1.1: System architecture.
 </p>
 </div>
-<p>Software installation and configuration on the Arduino and raspberry pi are detailed in chapters <a href="grbl.html#grbl">2</a> and <a href="raspi.html#raspi">3</a>, respectively. Chapter <a href="gcode.html#gcode">4</a> explains how to program the robot to fill vials of fly food. Instructions for the routine use of the robot are provided in chapter <a href="operation.html#operation">5</a>.</p>
+<p>Software installation and configuration on the Arduino and raspberry pi are detailed in chapters <a href="grbl.html#grbl">2</a> and <a href="raspi.html#raspi">3</a>. Chapter <a href="gcode.html#gcode">4</a> explains how to program the robot to fill vials of fly food. Instructions for the routine use of the robot are provided in chapter <a href="operation.html#operation">5</a>. To see a video of the robot in action, go to:</p>
+<p><a href="https://doi.org/10.6084/m9.figshare.5175223.v1" class="uri">https://doi.org/10.6084/m9.figshare.5175223.v1</a></p>
 
 </div>
             </section>

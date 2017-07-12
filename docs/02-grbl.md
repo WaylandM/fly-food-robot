@@ -45,7 +45,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 </div>
 
 5. Compile and upload Grbl to your Arduino.
- * Connect your computer directly to the Arduino using the USB cable.
+ * Connect your computer directly to the Arduino using the USB cable. Unplug the USB cable from the raspberry pi and plug it into your computer. Remember to reconnect the raspberry pi to the Arduino after you have finished configuring Grbl.
 
 <div class="figure" style="text-align: center">
 <img src="images/laptop_connected_to_arduino.jpg" alt="Laptop connected directly to Arduino" width="75%" />
@@ -139,12 +139,12 @@ $21=1
 ```
 
 ### Setup homing
-The homing cycle is used to set the origin of the cartesian coordinate system used by the robot. During the homing cycle Grbl moves each actuator in the positive direction until the limit switches are triggered. The homing cycle is activated by setting **$22** [homing cycle (boolean)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#22---homing-cycle-boolean) to 1: 
+The homing cycle is used to set the origin of the Cartesian coordinate system used by the robot. During the homing cycle Grbl moves each actuator in the positive direction until the limit switches are triggered. The homing cycle is activated by setting **$22** [homing cycle (boolean)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#22---homing-cycle-boolean) to 1: 
 ```
 $22=1
 ```
 
-Initiate  a homing cycle using the following command: ```$h```. All actuator carriages should move to the origin of their axes. The origin of the cartesian coordinate system (home) for the robot is shown in figures \@ref(fig:xyOrigin) and \@ref(fig:zOrigin)
+Initiate  a homing cycle using the following command: ```$h```. All actuator carriages should move to the origin of their axes. The origin of the Cartesian coordinate system (home) for the robot is shown in figures \@ref(fig:xyOrigin) and \@ref(fig:zOrigin)
 
 <div class="figure" style="text-align: center">
 <img src="images/xy_origin.jpg" alt="Origin of XY coordinate system." width="75%" />
@@ -186,7 +186,7 @@ $h
 ```
 ?
 ```
-After homing the cartesian coordinates should be zero minus the homing pull-off:
+After homing the Cartesian coordinates should be zero minus the homing pull-off:
 * x = -5
 * y = -5
 * z = -5

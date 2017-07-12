@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-07-04">
+<meta name="date" content="2017-07-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -92,14 +92,19 @@
 <li class="chapter" data-level="3.1" data-path="raspi.html"><a href="raspi.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="raspi.html"><a href="raspi.html#install-image"><i class="fa fa-check"></i><b>3.2</b> Install image</a></li>
 <li class="chapter" data-level="3.3" data-path="raspi.html"><a href="raspi.html#network-configuration"><i class="fa fa-check"></i><b>3.3</b> Network configuration</a></li>
-<li class="chapter" data-level="3.4" data-path="raspi.html"><a href="raspi.html#cable-connection-to-arduino"><i class="fa fa-check"></i><b>3.4</b> Cable connection to arduino</a></li>
-<li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#install-minicom"><i class="fa fa-check"></i><b>3.5</b> Install minicom</a></li>
-<li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.6</b> Expand filesystem</a></li>
-<li class="chapter" data-level="3.7" data-path="raspi.html"><a href="raspi.html#install-python-scripts"><i class="fa fa-check"></i><b>3.7</b> Install python scripts</a></li>
+<li class="chapter" data-level="3.4" data-path="raspi.html"><a href="raspi.html#install-minicom"><i class="fa fa-check"></i><b>3.4</b> Install minicom</a></li>
+<li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.5</b> Expand filesystem</a></li>
+<li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#install-python-scripts"><i class="fa fa-check"></i><b>3.6</b> Install python scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Creating jobs in G-code</a></li>
+<li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Program robot to fill vials</a><ul>
+<li class="chapter" data-level="4.1" data-path="gcode.html"><a href="gcode.html#overview-2"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
+<li class="chapter" data-level="4.2" data-path="gcode.html"><a href="gcode.html#determine-box-coordinates"><i class="fa fa-check"></i><b>4.2</b> Determine box coordinates</a></li>
+<li class="chapter" data-level="4.3" data-path="gcode.html"><a href="gcode.html#calibrate-pump"><i class="fa fa-check"></i><b>4.3</b> Calibrate pump</a></li>
+<li class="chapter" data-level="4.4" data-path="gcode.html"><a href="gcode.html#generate-g-code-instructions-for-filling-vials"><i class="fa fa-check"></i><b>4.4</b> Generate G-code instructions for filling vials</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>5</b> Operation</a><ul>
-<li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#loading-boxes-of-vials"><i class="fa fa-check"></i><b>5.1</b> Loading boxes of vials</a></li>
+<li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>5.1</b> Prepare system</a></li>
+<li class="chapter" data-level="5.2" data-path="operation.html"><a href="operation.html#fill-boxes"><i class="fa fa-check"></i><b>5.2</b> Fill boxes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -151,12 +156,8 @@ static domain_name_servers=192.168.1.254</code></pre>
 <pre><code>  ssh pi@192.168.1.3</code></pre>
 <p>The default password for the <strong>pi</strong> user account is <strong>raspberry</strong></p>
 </div>
-<div id="cable-connection-to-arduino" class="section level2">
-<h2><span class="header-section-number">3.4</span> Cable connection to arduino</h2>
-<p>The raspberry pi uses serial communication to send g-code instructions to the Grbl controller software running on the arduino. For serial communication, the raspberry pi and arduino need to be connected using a usb cable.The arduino also draws power from the raspberry pi via this usb cable. Chapter <a href="grbl.html#grbl">2</a></p>
-</div>
 <div id="install-minicom" class="section level2">
-<h2><span class="header-section-number">3.5</span> Install minicom</h2>
+<h2><span class="header-section-number">3.4</span> Install minicom</h2>
 <p>Minicom is useful for manual control of the robot and for editing grbl settings.</p>
 <p>To install minicom run these two commands:</p>
 <pre><code>sudo apt-get update
@@ -167,18 +168,18 @@ sudo apt-get install minicom</code></pre>
 <pre><code>enable_uart=0</code></pre>
 <p>to</p>
 <pre><code>enable_uart=1</code></pre>
-<p>Before installing minicom, make sure the raspberry pi is connected to the arduino via the usb cable. Once serial is enabled we can connect to the grbl controller running on the arduino by using:</p>
+<p>If you have not already done so, reconnect the raspberry pi to the arduino using the USB cable. To use minicom to connect to the grbl controller running on the arduino, use:</p>
 <pre><code>sudo minicom -D /dev/ttyACM0 -b115200</code></pre>
 </div>
 <div id="expand-filesystem" class="section level2">
-<h2><span class="header-section-number">3.6</span> Expand filesystem</h2>
+<h2><span class="header-section-number">3.5</span> Expand filesystem</h2>
 <p>Expand filesystem on micro SD card:</p>
 <pre><code>    sudo raspi-config
     (expand filesystem)
     sudo reboot</code></pre>
 </div>
 <div id="install-python-scripts" class="section level2">
-<h2><span class="header-section-number">3.7</span> Install python scripts</h2>
+<h2><span class="header-section-number">3.6</span> Install python scripts</h2>
 <p>Make sure you are in pi’s home directory:</p>
 <pre><code>cd</code></pre>
 <p>Download and unpack robot.tar.gz</p>
