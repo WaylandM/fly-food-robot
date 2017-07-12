@@ -58,21 +58,29 @@ A G-code program for filling vials of food could be created manually, by listing
 
 ## Determine box coordinates
 
-First we need to determine the cartesian coordinates
+First we need to determine the Cartesian coordinates of the first and last vial in each box.
 
 
 1. Start up system. 
 
-1. Login to raspberry pi using ssh. My raspberry pi has the IP address 192.168.1.3 and so I would use:
+2. Login to raspberry pi using ssh. My raspberry pi has the IP address 192.168.1.3 and so I would use:
 ```
 ssh pi@192.168.1.3
 ```
 Change IP address to match your configuration. Default password for the **pi** user account is 'raspberry'.
 
-2. Use minicom to connect to the Grbl controller running on the Arduino:
+3. Use minicom to connect to the Grbl controller running on the Arduino:
 ```
 sudo minicom -D /dev/ttyACM0 -b115200
 ```
+
+4. Load two boxes into the robot (Figure \@ref(fig:loadBoxes)). 
+
+```{r loadBoxes, echo = F, fig.cap = 'Loading boxes of vials.', fig.align = 'center', fig.show='hold', out.width = '50%'}
+knitr::include_graphics(c("images/one_box_loaded.jpg", "images/two_boxes_loaded.jpg"))
+```
+
+
 
 ## Calibrate pump
 Prime pump

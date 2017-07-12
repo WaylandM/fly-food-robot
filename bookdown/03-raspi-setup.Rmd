@@ -1,7 +1,7 @@
 # Raspberry Pi setup {#raspi}
 
 ## Overview
-The raspberry pi is used to generate, then stream g-code to the Arduino. Routine use of the robot is via a simple touchscreen interface. 
+The raspberry pi is used to generate, then stream g-code to the Arduino. A small thin-film-transistor (TFT) touchscreen serves as the user interface to the raspberry pi. 
 
 ## Install image
 The first step is to install Adafruit's custom raspberry pi image on the micro SD card. The custom image is described here:
