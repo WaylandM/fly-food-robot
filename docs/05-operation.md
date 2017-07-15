@@ -15,22 +15,15 @@ Check orientation of boxes and check vials aligned
 
 From GUI select fill one or two boxes
 
-1. Start
+Follow instructions in section \@ref(startSystem) to start-up system.
 
 
-<div class="figure" style="text-align: center">
-<img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
-<p class="caption">(\#fig:loadBoxes2)Loading boxes of vials.</p>
-</div>
 
 
 Figure \@ref(fig:loadBoxes2)
 
 
-<div class="figure" style="text-align: center">
-<img src="images/gui.jpg" alt="Touchscreen interface." width="60%" />
-<p class="caption">(\#fig:touchscreen)Touchscreen interface.</p>
-</div>
+
 
 Figure \@ref(fig:touchscreen)
 

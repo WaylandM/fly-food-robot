@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-07-12">
+<meta name="date" content="2017-07-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -98,9 +98,10 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Program robot to fill vials</a><ul>
 <li class="chapter" data-level="4.1" data-path="gcode.html"><a href="gcode.html#overview-2"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
-<li class="chapter" data-level="4.2" data-path="gcode.html"><a href="gcode.html#determine-box-coordinates"><i class="fa fa-check"></i><b>4.2</b> Determine box coordinates</a></li>
-<li class="chapter" data-level="4.3" data-path="gcode.html"><a href="gcode.html#calibrate-pump"><i class="fa fa-check"></i><b>4.3</b> Calibrate pump</a></li>
-<li class="chapter" data-level="4.4" data-path="gcode.html"><a href="gcode.html#generate-g-code-instructions-for-filling-vials"><i class="fa fa-check"></i><b>4.4</b> Generate G-code instructions for filling vials</a></li>
+<li class="chapter" data-level="4.2" data-path="gcode.html"><a href="gcode.html#startSystem"><i class="fa fa-check"></i><b>4.2</b> Start system</a></li>
+<li class="chapter" data-level="4.3" data-path="gcode.html"><a href="gcode.html#determine-box-coordinates"><i class="fa fa-check"></i><b>4.3</b> Determine box coordinates</a></li>
+<li class="chapter" data-level="4.4" data-path="gcode.html"><a href="gcode.html#calibrate-pump"><i class="fa fa-check"></i><b>4.4</b> Calibrate pump</a></li>
+<li class="chapter" data-level="4.5" data-path="gcode.html"><a href="gcode.html#generate-g-code-instructions-for-filling-vials"><i class="fa fa-check"></i><b>4.5</b> Generate G-code instructions for filling vials</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>5</b> Operation</a><ul>
 <li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>5.1</b> Prepare system</a></li>
@@ -215,8 +216,40 @@ ok
 </table>
 <p>A G-code program for filling vials of food could be created manually, by listing the necessary commands sequentially in a text file. However, this would be laborious and error prone. If the size of the boxes of vials are known, the G-code can be programmatically generated.</p>
 </div>
+<div id="startSystem" class="section level2">
+<h2><span class="header-section-number">4.2</span> Start system</h2>
+<p>Prime pump</p>
+<div class="figure" style="text-align: center"><span id="fig:primeBeaker"></span>
+<img src="images/prime_beaker.jpg" alt="Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump." width="75%" />
+<p class="caption">
+Figure 4.1: Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump.
+</p>
+</div>
+<p>Figure <a href="gcode.html#fig:primeBeaker">4.1</a></p>
+<div class="figure" style="text-align: center"><span id="fig:primeButton"></span>
+<img src="images/prime_button.jpg" alt="Prime button on peristaltic pump." width="75%" />
+<p class="caption">
+Figure 4.2: Prime button on peristaltic pump.
+</p>
+</div>
+<p>Figure <a href="gcode.html#fig:primeButton">4.2</a></p>
+<div class="figure" style="text-align: center"><span id="fig:loadBoxes2"></span>
+<img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
+<p class="caption">
+Figure 4.3: Loading boxes of vials.
+</p>
+</div>
+<p>Figure <a href="gcode.html#fig:loadBoxes2">4.3</a></p>
+<div class="figure" style="text-align: center"><span id="fig:touchscreen"></span>
+<img src="images/gui.jpg" alt="Touchscreen interface." width="60%" />
+<p class="caption">
+Figure 4.4: Touchscreen interface.
+</p>
+</div>
+<p>Figure <a href="gcode.html#fig:touchscreen">4.4</a></p>
+</div>
 <div id="determine-box-coordinates" class="section level2">
-<h2><span class="header-section-number">4.2</span> Determine box coordinates</h2>
+<h2><span class="header-section-number">4.3</span> Determine box coordinates</h2>
 <p>First we need to determine the Cartesian coordinates of the first and last vial in each box.</p>
 <ol style="list-style-type: decimal">
 <li><p>Start up system.</p></li>
@@ -225,21 +258,20 @@ ok
 <p>Change IP address to match your configuration. Default password for the <strong>pi</strong> user account is ‘raspberry’.</p></li>
 <li><p>Use minicom to connect to the Grbl controller running on the Arduino:</p>
 <pre><code>sudo minicom -D /dev/ttyACM0 -b115200</code></pre></li>
-<li><p>Load two boxes into the robot (Figure <a href="gcode.html#fig:loadBoxes">4.1</a>).</p></li>
+<li><p>Load two boxes into the robot (Figure <a href="gcode.html#fig:loadBoxes">4.5</a>).</p></li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:loadBoxes"></span>
 <img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
 <p class="caption">
-Figure 4.1: Loading boxes of vials.
+Figure 4.5: Loading boxes of vials.
 </p>
 </div>
 </div>
 <div id="calibrate-pump" class="section level2">
-<h2><span class="header-section-number">4.3</span> Calibrate pump</h2>
-<p>Prime pump</p>
+<h2><span class="header-section-number">4.4</span> Calibrate pump</h2>
 </div>
 <div id="generate-g-code-instructions-for-filling-vials" class="section level2">
-<h2><span class="header-section-number">4.4</span> Generate G-code instructions for filling vials</h2>
+<h2><span class="header-section-number">4.5</span> Generate G-code instructions for filling vials</h2>
 
 </div>
 </div>

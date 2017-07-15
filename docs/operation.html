@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-07-12">
+<meta name="date" content="2017-07-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -98,9 +98,10 @@
 </ul></li>
 <li class="chapter" data-level="4" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>4</b> Program robot to fill vials</a><ul>
 <li class="chapter" data-level="4.1" data-path="gcode.html"><a href="gcode.html#overview-2"><i class="fa fa-check"></i><b>4.1</b> Overview</a></li>
-<li class="chapter" data-level="4.2" data-path="gcode.html"><a href="gcode.html#determine-box-coordinates"><i class="fa fa-check"></i><b>4.2</b> Determine box coordinates</a></li>
-<li class="chapter" data-level="4.3" data-path="gcode.html"><a href="gcode.html#calibrate-pump"><i class="fa fa-check"></i><b>4.3</b> Calibrate pump</a></li>
-<li class="chapter" data-level="4.4" data-path="gcode.html"><a href="gcode.html#generate-g-code-instructions-for-filling-vials"><i class="fa fa-check"></i><b>4.4</b> Generate G-code instructions for filling vials</a></li>
+<li class="chapter" data-level="4.2" data-path="gcode.html"><a href="gcode.html#startSystem"><i class="fa fa-check"></i><b>4.2</b> Start system</a></li>
+<li class="chapter" data-level="4.3" data-path="gcode.html"><a href="gcode.html#determine-box-coordinates"><i class="fa fa-check"></i><b>4.3</b> Determine box coordinates</a></li>
+<li class="chapter" data-level="4.4" data-path="gcode.html"><a href="gcode.html#calibrate-pump"><i class="fa fa-check"></i><b>4.4</b> Calibrate pump</a></li>
+<li class="chapter" data-level="4.5" data-path="gcode.html"><a href="gcode.html#generate-g-code-instructions-for-filling-vials"><i class="fa fa-check"></i><b>4.5</b> Generate G-code instructions for filling vials</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>5</b> Operation</a><ul>
 <li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>5.1</b> Prepare system</a></li>
@@ -142,30 +143,16 @@
 <h2><span class="header-section-number">5.2</span> Fill boxes</h2>
 <p>Check orientation of boxes and check vials aligned</p>
 <p>From GUI select fill one or two boxes</p>
-<ol style="list-style-type: decimal">
-<li>Start</li>
-</ol>
-<div class="figure" style="text-align: center"><span id="fig:loadBoxes2"></span>
-<img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
-<p class="caption">
-Figure 5.1: Loading boxes of vials.
-</p>
-</div>
-<p>Figure <a href="operation.html#fig:loadBoxes2">5.1</a></p>
-<div class="figure" style="text-align: center"><span id="fig:touchscreen"></span>
-<img src="images/gui.jpg" alt="Touchscreen interface." width="60%" />
-<p class="caption">
-Figure 5.2: Touchscreen interface.
-</p>
-</div>
-<p>Figure <a href="operation.html#fig:touchscreen">5.2</a></p>
+<p>Follow instructions in section <a href="gcode.html#startSystem">4.2</a> to start-up system.</p>
+<p>Figure <a href="gcode.html#fig:loadBoxes2">4.3</a></p>
+<p>Figure <a href="gcode.html#fig:touchscreen">4.4</a></p>
 <div class="figure" style="text-align: center"><span id="fig:stopRobot"></span>
 <img src="images/gui_stop2.jpg" alt="Appearance of touchscreen interface when a job is running." width="60%" />
 <p class="caption">
-Figure 5.3: Appearance of touchscreen interface when a job is running.
+Figure 5.1: Appearance of touchscreen interface when a job is running.
 </p>
 </div>
-<p>Figure <a href="operation.html#fig:stopRobot">5.3</a></p>
+<p>Figure <a href="operation.html#fig:stopRobot">5.1</a></p>
 
 </div>
 </div>

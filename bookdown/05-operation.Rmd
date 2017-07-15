@@ -15,20 +15,15 @@ Check orientation of boxes and check vials aligned
 
 From GUI select fill one or two boxes
 
-1. Start
+Follow instructions in section \@ref(startSystem) to start-up system.
 
 
-```{r loadBoxes2, echo = F, fig.cap = 'Loading boxes of vials.', fig.align = 'center', fig.show='hold', out.width = '50%'}
-knitr::include_graphics(c("images/one_box_loaded.jpg", "images/two_boxes_loaded.jpg"))
-```
 
 
 Figure \@ref(fig:loadBoxes2)
 
 
-```{r touchscreen, echo=FALSE, out.width='60%', fig.align='center', fig.cap="Touchscreen interface."}
-knitr::include_graphics("images/gui.jpg")
-```
+
 
 Figure \@ref(fig:touchscreen)
 

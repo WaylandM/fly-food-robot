@@ -56,6 +56,40 @@ knitr::kable(
 
 A G-code program for filling vials of food could be created manually, by listing the necessary commands sequentially in a text file.  However, this would be laborious and error prone. If the size of the boxes of vials are known, the G-code can be programmatically generated. 
 
+## Start system {#startSystem}
+
+Prime pump
+
+```{r primeBeaker, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump."}
+knitr::include_graphics("images/prime_beaker.jpg")
+```
+
+Figure \@ref(fig:primeBeaker)
+
+```{r primeButton, echo=FALSE, out.width='75%', fig.align='center', fig.cap="Prime button on peristaltic pump."}
+knitr::include_graphics("images/prime_button.jpg")
+```
+
+Figure \@ref(fig:primeButton)
+
+
+
+
+```{r loadBoxes2, echo = F, fig.cap = 'Loading boxes of vials.', fig.align = 'center', fig.show='hold', out.width = '50%'}
+knitr::include_graphics(c("images/one_box_loaded.jpg", "images/two_boxes_loaded.jpg"))
+```
+
+
+Figure \@ref(fig:loadBoxes2)
+
+
+```{r touchscreen, echo=FALSE, out.width='60%', fig.align='center', fig.cap="Touchscreen interface."}
+knitr::include_graphics("images/gui.jpg")
+```
+
+Figure \@ref(fig:touchscreen)
+
+
 ## Determine box coordinates
 
 First we need to determine the Cartesian coordinates of the first and last vial in each box.
@@ -83,7 +117,7 @@ knitr::include_graphics(c("images/one_box_loaded.jpg", "images/two_boxes_loaded.
 
 
 ## Calibrate pump
-Prime pump
+
 
 ## Generate G-code instructions for filling vials
 

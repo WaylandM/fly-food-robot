@@ -60,6 +60,44 @@ $h     initiate homing cycle
 
 A G-code program for filling vials of food could be created manually, by listing the necessary commands sequentially in a text file.  However, this would be laborious and error prone. If the size of the boxes of vials are known, the G-code can be programmatically generated. 
 
+## Start system {#startSystem}
+
+Prime pump
+
+<div class="figure" style="text-align: center">
+<img src="images/prime_beaker.jpg" alt="Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump." width="75%" />
+<p class="caption">(\#fig:primeBeaker)Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump.</p>
+</div>
+
+Figure \@ref(fig:primeBeaker)
+
+<div class="figure" style="text-align: center">
+<img src="images/prime_button.jpg" alt="Prime button on peristaltic pump." width="75%" />
+<p class="caption">(\#fig:primeButton)Prime button on peristaltic pump.</p>
+</div>
+
+Figure \@ref(fig:primeButton)
+
+
+
+
+<div class="figure" style="text-align: center">
+<img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
+<p class="caption">(\#fig:loadBoxes2)Loading boxes of vials.</p>
+</div>
+
+
+Figure \@ref(fig:loadBoxes2)
+
+
+<div class="figure" style="text-align: center">
+<img src="images/gui.jpg" alt="Touchscreen interface." width="60%" />
+<p class="caption">(\#fig:touchscreen)Touchscreen interface.</p>
+</div>
+
+Figure \@ref(fig:touchscreen)
+
+
 ## Determine box coordinates
 
 First we need to determine the Cartesian coordinates of the first and last vial in each box.
@@ -88,7 +126,7 @@ sudo minicom -D /dev/ttyACM0 -b115200
 
 
 ## Calibrate pump
-Prime pump
+
 
 ## Generate G-code instructions for filling vials
 
