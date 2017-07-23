@@ -24,6 +24,13 @@ Figure \@ref(fig:loadBoxes2)
 
 
 
+<div class="figure" style="text-align: center">
+<img src="images/gui.jpg" alt="Touchscreen interface." width="60%" />
+<p class="caption">(\#fig:touchscreen)Touchscreen interface.</p>
+</div>
+
+
+
 
 Figure \@ref(fig:touchscreen)
 

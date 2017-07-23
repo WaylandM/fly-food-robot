@@ -84,7 +84,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-07-03}
+  \date{2017-07-23}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -149,9 +149,9 @@ fruit flies in the laboratory is labour-intensive. One task which lends
 itself to automation is the production of the vials of food in which the
 flies are reared. Fly facilities typically have to generate several
 thousand vials of fly food each week to sustain their fly stocks. The
-system presented here combines a cartesian coordinate robot with a
-peristaltic pump. The design of the robot is based on the Routy CNC
-Router created by Mark Carew
+system presented here combines a Cartesian coordinate robot with a
+peristaltic pump (Figure \ref{fig:architecture}). The design of the
+robot is based on the Routy CNC Router created by Mark Carew
 (\url{http://openbuilds.org/builds/routy-cnc-router-v-slot-belt-pinion.101/}),
 and uses belt and pully actuators for the X and Y axes, and a leadscrew
 actuator for the Z axis. CNC motion and operation of the peristaltic
@@ -159,18 +159,29 @@ pump are controlled by grbl (\url{https://github.com/gnea/grbl}), an
 open source, embedded, high performance g-code parser. Grbl is written
 in optimized C and runs directly on an Arduino. A Raspberry Pi is used
 to generate and stream G-code instructions to Grbl. A touch screen on
-the Raspberry Pi provides a graphical user interface to the system. This
-manual explains how to install the required software and operate the
-robot. Instructions for building the hardware are available on
+the Raspberry Pi provides a graphical user interface to the system. The
+system has capacity to fill two boxes of fly food vials at a time.
+Instructions for building the hardware are available on
 \href{http://docubricks.com/viewer.jsp?id=8652757760093769728}{DocuBricks}.
 
-A Raspberry Pi is used to generate and stream G-code to the Arduino. A
-touch screen on the Raspberry Pi provides the user interface; a
-resistive rather than capacitive touch screen was chosen so that it
-could be operated by a person wearing gloves.
+\begin{figure}
 
-\chapter{Grbl installation and
-configuration}\label{grbl-installation-and-configuration}
+{\centering \includegraphics[width=0.75\linewidth]{images/system_architecture} 
+
+}
+
+\caption{System architecture.}\label{fig:architecture}
+\end{figure}
+
+Software installation and configuration on the Arduino and raspberry pi
+are detailed in chapters \ref{grbl} and \ref{raspi}. Chapter \ref{gcode}
+explains how to program the robot to fill vials of fly food.
+Instructions for the routine use of the robot are provided in chapter
+\ref{operation}. To see a video of the robot in action, go to:
+
+\url{https://doi.org/10.6084/m9.figshare.5175223.v1}
+
+\chapter{Grbl installation and configuration}\label{grbl}
 
 \section{Overview}\label{overview}
 
@@ -179,7 +190,7 @@ CNC motion control is provided by grbl
 performance g-code parser. Grbl is written in optimized C and runs
 directly on an Arduino. This is used in conjunction with the gShield
 (formerly known as grblshield) which provides the hardware drivers for
-the stepper motors. Grbl sends out TTL signals on pins A3 and 13 or the
+the stepper motors. Grbl sends out TTL signals on pins A3 and 13 of the
 Arduino to control coolant flow and spindle direction, respectively.
 Here these signals are used to remotely control a peristaltic pump.
 
@@ -317,6 +328,9 @@ it's in
 \tightlist
 \item
   Connect your computer directly to the Arduino using the USB cable.
+  Unplug the USB cable from the raspberry pi and plug it into your
+  computer. Remember to reconnect the raspberry pi to the Arduino after
+  you have finished configuring Grbl.
 \end{itemize}
 
 \begin{figure}
@@ -526,7 +540,7 @@ $21=1
 
 \subsection{Setup homing}\label{setup-homing}
 
-The homing cycle is used to set the origin of the cartesian coordinate
+The homing cycle is used to set the origin of the Cartesian coordinate
 system used by the robot. During the homing cycle Grbl moves each
 actuator in the positive direction until the limit switches are
 triggered. The homing cycle is activated by setting \textbf{\$22}
@@ -539,7 +553,7 @@ $22=1
 
 Initiate a homing cycle using the following command: \texttt{\$h}. All
 actuator carriages should move to the origin of their axes. The origin
-of the cartesian coordinate system (home) for the robot is shown in
+of the Cartesian coordinate system (home) for the robot is shown in
 figures \ref{fig:xyOrigin} and \ref{fig:zOrigin}
 
 \begin{figure}
@@ -615,7 +629,7 @@ $h
 ?
 \end{verbatim}
 
-  After homing the cartesian coordinates should be zero minus the homing
+  After homing the Cartesian coordinates should be zero minus the homing
   pull-off:
 \end{enumerate}
 
@@ -753,7 +767,13 @@ as shown in Figure \ref{fig:gShield}.
 Instructions for setting motor current are provided here:
 \url{https://github.com/synthetos/grblShield/wiki/Using-grblShield\#setting-motor-current}
 
-\chapter{Raspberry Pi setup}\label{raspberry-pi-setup}
+\chapter{Raspberry Pi setup}\label{raspi}
+
+\section{Overview}\label{overview-1}
+
+The raspberry pi is used to generate, then stream g-code to the Arduino.
+A small thin-film-transistor (TFT) touchscreen serves as the user
+interface to the raspberry pi.
 
 \section{Install image}\label{install-image}
 
@@ -803,14 +823,12 @@ To raspberry pi can then be accessed using ssh, \emph{e.g.}:
 The default password for the \textbf{pi} user account is
 \textbf{raspberry}
 
-\section{Serial connection}\label{serial-connection}
-
-Connect the raspberry pi to the arduino using the usb cable.
-
 \section{Install minicom}\label{install-minicom}
 
 Minicom is useful for manual control of the robot and for editing grbl
-settings. To install minicom run these two commands:
+settings.
+
+To install minicom run these two commands:
 
 \begin{verbatim}
 sudo apt-get update
@@ -835,8 +853,9 @@ to
 enable_uart=1
 \end{verbatim}
 
-Once serial is enabled we can connect to the grbl controller running on
-the arduino by using:
+If you have not already done so, reconnect the raspberry pi to the
+arduino using the USB cable. To use minicom to connect to the grbl
+controller running on the arduino, use:
 
 \begin{verbatim}
 sudo minicom -D /dev/ttyACM0 -b115200
@@ -852,7 +871,7 @@ Expand filesystem on micro SD card:
     sudo reboot
 \end{verbatim}
 
-\section{Install robot software}\label{install-robot-software}
+\section{Install python scripts}\label{install-python-scripts}
 
 Make sure you are in pi's home directory:
 
@@ -883,13 +902,284 @@ Add the following line to autostart:
 @/home/pi/robot/py/fly_gui.py
 \end{verbatim}
 
-\chapter{Creating jobs in G-code}\label{creating-jobs-in-g-code}
+\chapter{Program robot to fill vials}\label{gcode}
 
 Running job without GUI - for testing
 
+\begin{verbatim}
+ssh pi@192.168.1.3
+
+sudo minicom -D /dev/ttyACM0 -b115200
+
+?<Idle|MPos:-5.000,-5.000,-4.993|FS:0,0|Ov:100,100,100>
+
+x-10 y-10 z-10
+ok
+?<Idle|MPos:-10.000,-10.000,-10.005|FS:0,0>
+
+
+x-20 y-20 z-30
+ok
+?<Idle|MPos:-20.000,-20.000,-29.996|FS:0,0>
+
+
+x-8 y-14 z-62
+ok
+?<Idle|MPos:-8.000,-14.000,-62.006|FS:0,0>
+
+
+./robot/py/calibrate_pump.py
+
+./robot/py/stream2.py robot/nc/calibrate_pump.nc /dev/ttyACM0
+
+./robot/py/fill_boxes.py
+\end{verbatim}
+
+\section{Overview}\label{overview-2}
+
+The movement of the robot is programmed in
+\href{https://en.wikipedia.org/wiki/G-code}{G-code}. We only need nine
+G-code commands to control the robot (table \ref{tab:gCodes}).
+
+\begin{table}
+
+\caption{\label{tab:gCodes}G-code commands used to control robot.}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+Code & Description\\
+\midrule
+x & absolute position of x-axis\\
+y & absolute position of y-axis\\
+z & absolute position of z-axis\\
+g4 & dwell time (control parameter p specifies seconds)\\
+m3 & set pump rotation to clockwise\\
+\addlinespace
+m4 & set pump rotation to counter clockwise\\
+m8 & start pump\\
+m9 & stop pump\\
+\$h & initiate homing cycle\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A G-code program for filling vials of food could be created manually, by
+listing the necessary commands sequentially in a text file. However,
+this would be laborious and error prone. If the size of the boxes of
+vials are known, the G-code can be programmatically generated.
+
+\section{Start system}\label{startSystem}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Switch on all devices:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  power supply unit for gShield and motors
+\item
+  raspberry pi
+\item
+  peristaltic pump
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Prime pump
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Position a beaker under the nozzle (figure \ref{fig:primeBeaker}).
+\item
+  Press and hold the prime button on the front of the peristaltic pump
+  until a continuous stream of fly food is pumped into the beaker
+  (figure \ref{fig:primeButton})
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/prime_beaker} 
+
+}
+
+\caption{Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump.}\label{fig:primeBeaker}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/prime_button} 
+
+}
+
+\caption{Prime button on peristaltic pump.}\label{fig:primeButton}
+\end{figure}
+
+\section{Determine box coordinates}\label{determine-box-coordinates}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/one_box_loaded} \includegraphics[width=0.5\linewidth]{images/two_boxes_loaded} 
+
+}
+
+\caption{Loading boxes of vials.}\label{fig:loadBoxes2}
+\end{figure}
+
+First we need to determine the Cartesian coordinates of the first and
+last vial in each box.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load boxes onto the platform of the robot (figure
+  \ref{fig:loadBoxes2}).
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  The first box should be flush with the fence and the guide rail.
+\item
+  The second box should be flush with the first and the guide rail.
+\item
+  The boxes we are using have a pair of double-thickness side-walls and
+  a pair of single-thickness side-walls. The pairs are on opposite sides
+  of the box. With this type of box it is important to note the
+  orientation of the boxes when the Cartesian coordinates of the vials
+  are determined, because the same orientation must be used when filling
+  vials with food. We load the boxes with a double-thickness side-wall
+  facing forwards.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Login to raspberry pi using ssh. My raspberry pi has the IP address
+  192.168.1.3 and so I would use:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ssh\ pi@192.168.1.3}
+\item
+  Default password for the \textbf{pi} user account is `raspberry'.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  Use minicom to connect to the Grbl controller running on the Arduino:
+
+\begin{verbatim}
+sudo minicom -D /dev/ttyACM0 -b115200
+\end{verbatim}
+\item
+  Make sure nozzle is at ** home ** position by issuing homing command:
+
+\begin{verbatim}
+$h
+\end{verbatim}
+\item
+  First we will determine the Cartesian coordinates of the first vial in
+  the first box; this is the vial in the front left corner.
+\end{enumerate}
+
+\begin{itemize}
+\item
+  Make small movements in X and Y until the nozzle is centred over this
+  vial, \emph{e.g.}:
+
+\begin{verbatim}
+x-8 y-8
+\end{verbatim}
+\item
+  Lower the nozzle in small increments until it is just 2-3mm above the
+  the top of the first vial (figure ), \emph{e.g.}:
+
+\begin{verbatim}
+z-20
+\end{verbatim}
+\item
+  Query the current X, Y and Z coordinates:
+
+\begin{verbatim}
+?
+\end{verbatim}
+
+  Make a note of all three coordinates.
+\end{itemize}
+
+box1\_first\_vial.jpg box1\_last\_vial.jpg box2\_first\_vial.jpg
+box2\_last\_vial.jpg
+
+\section{Calibrate pump}\label{calibrate-pump}
+
+\section{Generate G-code instructions for filling
+vials}\label{generate-g-code-instructions-for-filling-vials}
+
 \chapter{Operation}\label{operation}
 
-\section{Loading boxes of vials}\label{loading-boxes-of-vials}
+\section{Prepare system}\label{prepare-system}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  attach tube and put other end in heated vat of fly food
+\item
+  check none of the limit switches are depressed - manually move
+  actuator off limit switch if necessary
+\item
+  power up
+\item
+  prime pump
+\end{enumerate}
+
+\section{Fill boxes}\label{fill-boxes}
+
+Check orientation of boxes and check vials aligned
+
+From GUI select fill one or two boxes
+
+Follow instructions in section \ref{startSystem} to start-up system.
+
+Figure \ref{fig:loadBoxes2}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{images/gui} 
+
+}
+
+\caption{Touchscreen interface.}\label{fig:touchscreen}
+\end{figure}
+
+Figure \ref{fig:touchscreen}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.6\linewidth]{images/gui_stop2} 
+
+}
+
+\caption{Appearance of touchscreen interface when a job is running.}\label{fig:stopRobot}
+\end{figure}
+
+Figure \ref{fig:stopRobot}
 
 \bibliography{packages.bib,book.bib}
 

@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-07-13">
+<meta name="date" content="2017-07-23">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -218,52 +218,96 @@ ok
 </div>
 <div id="startSystem" class="section level2">
 <h2><span class="header-section-number">4.2</span> Start system</h2>
-<p>Prime pump</p>
+<ol style="list-style-type: decimal">
+<li>Switch on all devices:</li>
+</ol>
+<ul>
+<li>power supply unit for gShield and motors</li>
+<li>raspberry pi</li>
+<li>peristaltic pump</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Prime pump</li>
+</ol>
+<ul>
+<li>Position a beaker under the nozzle (figure <a href="gcode.html#fig:primeBeaker">4.1</a>).</li>
+<li>Press and hold the prime button on the front of the peristaltic pump until a continuous stream of fly food is pumped into the beaker (figure <a href="gcode.html#fig:primeButton">4.2</a>)</li>
+</ul>
 <div class="figure" style="text-align: center"><span id="fig:primeBeaker"></span>
 <img src="images/prime_beaker.jpg" alt="Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump." width="75%" />
 <p class="caption">
 Figure 4.1: Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump.
 </p>
 </div>
-<p>Figure <a href="gcode.html#fig:primeBeaker">4.1</a></p>
 <div class="figure" style="text-align: center"><span id="fig:primeButton"></span>
 <img src="images/prime_button.jpg" alt="Prime button on peristaltic pump." width="75%" />
 <p class="caption">
 Figure 4.2: Prime button on peristaltic pump.
 </p>
 </div>
-<p>Figure <a href="gcode.html#fig:primeButton">4.2</a></p>
+</div>
+<div id="determine-box-coordinates" class="section level2">
+<h2><span class="header-section-number">4.3</span> Determine box coordinates</h2>
 <div class="figure" style="text-align: center"><span id="fig:loadBoxes2"></span>
 <img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
 <p class="caption">
 Figure 4.3: Loading boxes of vials.
 </p>
 </div>
-<p>Figure <a href="gcode.html#fig:loadBoxes2">4.3</a></p>
-<div class="figure" style="text-align: center"><span id="fig:touchscreen"></span>
-<img src="images/gui.jpg" alt="Touchscreen interface." width="60%" />
-<p class="caption">
-Figure 4.4: Touchscreen interface.
-</p>
-</div>
-<p>Figure <a href="gcode.html#fig:touchscreen">4.4</a></p>
-</div>
-<div id="determine-box-coordinates" class="section level2">
-<h2><span class="header-section-number">4.3</span> Determine box coordinates</h2>
 <p>First we need to determine the Cartesian coordinates of the first and last vial in each box.</p>
 <ol style="list-style-type: decimal">
-<li><p>Start up system.</p></li>
-<li><p>Login to raspberry pi using ssh. My raspberry pi has the IP address 192.168.1.3 and so I would use:</p>
-<pre><code>ssh pi@192.168.1.3</code></pre>
-<p>Change IP address to match your configuration. Default password for the <strong>pi</strong> user account is ‘raspberry’.</p></li>
+<li>Load boxes onto the platform of the robot (figure <a href="gcode.html#fig:loadBoxes2">4.3</a>).</li>
+</ol>
+<ul>
+<li>The first box should be flush with the fence and the guide rail.</li>
+<li>The second box should be flush with the first and the guide rail.</li>
+<li>The boxes we are using have a pair of double-thickness side-walls and a pair of single-thickness side-walls. The pairs are on opposite sides of the box. With this type of box it is important to note the orientation of the boxes when the Cartesian coordinates of the vials are determined, because the same orientation must be used when filling vials with food. We load the boxes with a double-thickness side-wall facing forwards.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Login to raspberry pi using ssh. My raspberry pi has the IP address 192.168.1.3 and so I would use:</li>
+</ol>
+<ul>
+<li><code>ssh pi@192.168.1.3</code></li>
+<li>Default password for the <strong>pi</strong> user account is ‘raspberry’.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
 <li><p>Use minicom to connect to the Grbl controller running on the Arduino:</p>
 <pre><code>sudo minicom -D /dev/ttyACM0 -b115200</code></pre></li>
-<li><p>Load two boxes into the robot (Figure <a href="gcode.html#fig:loadBoxes">4.5</a>).</p></li>
+<li><p>Make sure nozzle is at ** home ** position by issuing homing command:</p>
+<pre><code>$h</code></pre></li>
+<li><p>First we will determine the Cartesian coordinates of the first vial in the first box; this is the vial in the front left corner.</p></li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:loadBoxes"></span>
-<img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
+<ul>
+<li><p>Make small movements in X and Y until the nozzle is centred over this vial, <em>e.g.</em>:</p>
+<pre><code>x-8 y-8</code></pre></li>
+<li><p>Lower the nozzle in small increments until it is just 2-3mm above the the top of the first vial (figure ), <em>e.g.</em>:</p>
+<pre><code>z-20</code></pre></li>
+<li><p>Query the current X, Y and Z coordinates:</p>
+<pre><code>?</code></pre>
+<p>Make a note of all three coordinates.</p></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:box1FirstVial"></span>
+<img src="images/box1_first_vial.jpg" alt="Nozzle positioned over the first vial in box 1." width="50%" />
 <p class="caption">
-Figure 4.5: Loading boxes of vials.
+Figure 4.4: Nozzle positioned over the first vial in box 1.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:box1LastVial"></span>
+<img src="images/box1_last_vial.jpg" alt="Nozzle positioned over last vial in box 1." width="50%" />
+<p class="caption">
+Figure 4.5: Nozzle positioned over last vial in box 1.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:box2FirstVial"></span>
+<img src="images/box2_first_vial.jpg" alt="Nozzle positioned over the first vial in box 2." width="50%" />
+<p class="caption">
+Figure 4.6: Nozzle positioned over the first vial in box 2.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:box2LastVial"></span>
+<img src="images/box2_last_vial.jpg" alt="Nozzle positioned over the last vial in box 2." width="50%" />
+<p class="caption">
+Figure 4.7: Nozzle positioned over the last vial in box 2.
 </p>
 </div>
 </div>

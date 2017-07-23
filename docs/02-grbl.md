@@ -17,7 +17,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
  * Click the ```Download ZIP```
  * Unzip the download and you'll have a folder called ```grbl-XXX```, where `XXX` is the release version. 
 
-2. Launch the Arduino IDE
+2. Launch the Arduino IDE (figure \@ref(fig:arduinoIDE))
  * Make sure you are using the most recent version of the Arduino IDE!
 
 <div class="figure" style="text-align: center">
@@ -27,7 +27,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 
 3. Load Grbl into the Arduino IDE as a Library.
  * Click the ```Sketch``` drop-down menu, navigate to ```Include Library``` and select ```Add .ZIP Library```.
- * **IMPORTANT:** Select the ```Grbl``` folder **_inside_** the ```grbl-XXX``` folder, which **only** contains the source files and an example directory.
+ * **IMPORTANT:** Select the ```Grbl``` folder **_inside_** the ```grbl-XXX``` folder, which **only** contains the source files and an example directory (figure \@ref(fig:addGrblLib)).
  
 <div class="figure" style="text-align: center">
 <img src="images/add_grbl_lib.png" alt="Loading Grbl library into the Arduino IDE" width="75%" />
@@ -37,7 +37,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
  * If you accidentally select the `.zip` file or the wrong folder, you will need to navigate to your Arduino library, delete the mistake, and re-do Step 3.
  
 4. Open the `GrblUpload` Arduino example.
- * Click the ```File``` drop-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload```.
+ * Click the ```File``` drop-down menu, navigate to ```Examples->Grbl```, and select ```GrblUpload``` (figure \@ref(fig:grblUploadFile)).
 
 <div class="figure" style="text-align: center">
 <img src="images/grbl_upload_file.png" alt="GrblUpload example file" width="75%" />
@@ -45,7 +45,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 </div>
 
 5. Compile and upload Grbl to your Arduino.
- * Connect your computer directly to the Arduino using the USB cable. Unplug the USB cable from the raspberry pi and plug it into your computer. Remember to reconnect the raspberry pi to the Arduino after you have finished configuring Grbl.
+ * Connect your computer directly to the Arduino using the USB cable. Unplug the USB cable from the raspberry pi and plug it into your computer. Remember to reconnect the raspberry pi to the Arduino after you have finished configuring Grbl (figure \@ref(fig:laptop2arduino)).
 
 <div class="figure" style="text-align: center">
 <img src="images/laptop_connected_to_arduino.jpg" alt="Laptop connected directly to Arduino" width="75%" />
@@ -57,7 +57,7 @@ _**NOTE: Before starting, delete prior Grbl library installations from the Ardui
 
 ## Check serial connection to Grbl
 
-_**NOTE: Before powering up the gShield and motors, check that the actuator carriages for all three axes are approximately centred. Initially we do not know in which direction the actuator carriages will travel when G-code commands are issued, so positioning each in the middle of its range reduces the risk of collisions with the end stops.**_
+_**NOTE: Before powering up the gShield and motors, check that the actuator carriages for all three axes are approximately centred (figure \@ref(fig:actuatorsCentred)). Initially we do not know in which direction the actuator carriages will travel when G-code commands are issued, so positioning each in the middle of its range reduces the risk of collisions with the end stops.**_
 
 <div class="figure" style="text-align: center">
 <img src="images/actuator_carriages_centred.jpg" alt="Actuator carriages centred in preparation for powering-up motors for first time" width="75%" />
@@ -72,7 +72,7 @@ _**NOTE: Before powering up the gShield and motors, check that the actuator carr
 <p class="caption">(\#fig:serialMonitor)Arduino IDE Serial Monitor</p>
 </div>
 
- * Note that line-ending is set to ```Carriage return``` and baud rate is set to ```115200```
+ * Note that line-ending is set to ```Carriage return``` and baud rate is set to ```115200``` (figure \@ref(fig:serialMonitor))
 2. Try issuing a G-code command. 
  * Type ```?``` and hit return. 
  * This command will report the current position; as we have just started the system up all axes will be at 0.000.
@@ -96,6 +96,7 @@ _**NOTE: Before powering up the gShield and motors, check that the actuator carr
 <p class="caption">(\#fig:robotOrientation)Orientation of robot.</p>
 </div>
 
+ * Orientation of the robot is shown in figure \@ref(fig:robotOrientation).
  * At present the origins of all three axes are mid-way along each actuator, because this was the position of the actuator carriages when the system was started.
  * Make sure actuator carriages are at their current origin by entering this command: ```x0y0z0```
  * Enter the command: ```x5```. The x-axis carriage should move from right to left (orientation of robot is shown in figure \@ref(fig:robotOrientation). If it doesn't, make a note that it will need to be inverted.
@@ -281,7 +282,7 @@ $132=200.000
 
 ## Setting motor current
 
-The gShield has trimpots for adjusting the motor current of each axis, as shown in Figure \@ref(fig:gShield).
+The gShield has trimpots for adjusting the motor current of each axis, as shown in figure \@ref(fig:gShield).
 
 <div class="figure" style="text-align: center">
 <img src="images/gShield-trimpots.jpg" alt="gShield trimpots" width="75%" />
