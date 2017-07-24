@@ -40,7 +40,7 @@ y_home = -5
 z_home = -5
 
 # z value providing minimal clearance between nozzle and top of vials
-z_clearance = -62 
+z_fill = -62 
 
 # peristaltic pump settings
 min_fill_time = 0.2
@@ -49,8 +49,8 @@ max_fill_time = 0.6
 drip_pause = 0.1 
 
 # vial coordinates (x,y)
-firstVial = (-8,-14)
-lastVial = (-236,-240)
+frontLeft = (-8,-14)
+backRight = (-236,-240)
 
 nrows=10
 ncols=10
@@ -75,19 +75,19 @@ f.write('$h\n')
 f.write('m3\n')
 
 # lower nozzle to fill height
-f.write('z'+str(z_clearance)+'\n')
+f.write('z'+str(z_fill)+'\n')
 
 # calculate distance between adjacent vials
-x_interval = (lastVial[0]-firstVial[0])/(ncols-1.0) # -1.0 to ensure converted to float
-y_interval = (lastVial[1]-firstVial[1])/(nrows-1.0)
+x_interval = (backRight[0]-frontLeft[0])/(ncols-1.0) # -1.0 to ensure converted to float
+y_interval = (backRight[1]-frontLeft[1])/(nrows-1.0)
 
-y_current = firstVial[1]
+y_current = frontLeft[1]
 
 for i in range(1, nrows+1, 1):
     if i % 2 == 0:
-        x_current = lastVial[0]
+        x_current = backRight[0]
     else:
-        x_current = firstVial[0]
+        x_current = frontLeft[0]
     for j in range(1, ncols+1, 1):
         f.write('x' + str(x_current) + ' y' + str(y_current) + '\n')
         f.write('m8\n')

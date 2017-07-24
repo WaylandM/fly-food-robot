@@ -42,7 +42,7 @@ y_home = -5
 z_home = -5
 
 # z value providing minimal clearance between nozzle and top of vials
-z_clearance = -62 
+z_fill = -62 
 
 # peristaltic pump settings
 fill_time = 0.43
@@ -50,10 +50,10 @@ fill_time = 0.43
 drip_pause = 0.1 
 
 # vial coordinates (x,y)
-box1FirstVial = (-8,-14)
-box1LastVial = (-236,-240)
-box2FirstVial = (-8,-286)
-box2LastVial = (-236,-513)
+box1FrontLeft = (-8,-14)
+box1BackRight = (-236,-240)
+box2FrontLeft = (-8,-286)
+box2BackRight = (-236,-513)
 
 nrows=10
 ncols=10
@@ -66,18 +66,18 @@ nVials=nrows*ncols
 # f: file object
 # firstVial: coordinates (x,y) of first vial
 # lastVial: coordinates (x,y) of last vial
-def generateG(f, firstVial, lastVial):
+def generateG(f, frontLeft, backRight):
 
     # calculate distance between adjacent vials
-    x_interval = (lastVial[0]-firstVial[0])/(ncols-1.0) # -1.0 to ensure converted to float
-    y_interval = (lastVial[1]-firstVial[1])/(nrows-1.0)
+    x_interval = (backRight[0]-frontLeft[0])/(ncols-1.0) # -1.0 to ensure converted to float
+    y_interval = (backRight[1]-frontLeft[1])/(nrows-1.0)
 
-    y_current = firstVial[1]
+    y_current = frontLeft[1]
     for i in range(1, nrows+1, 1):
         if i % 2 == 0:
-            x_current = lastVial[0]
+            x_current = backRight[0]
         else:
-            x_current = firstVial[0]
+            x_current = frontLeft[0]
         for j in range(1, ncols+1, 1):
             f.write('x' + str(x_current) + ' y' + str(y_current) + '\n')
             f.write('m8\n')
@@ -105,9 +105,9 @@ fobj.write('$h\n')
 fobj.write('m3\n')
 
 # lower nozzle to fill height
-fobj.write('z'+str(z_clearance)+'\n')
+fobj.write('z'+str(z_fill)+'\n')
 
-generateG(fobj, box1FirstVial, box1LastVial)
+generateG(fobj, box1FrontLeft, box1BackRight)
 
 # return to home position
 fobj.write('z' + str(z_home) + '\n')
@@ -128,10 +128,10 @@ fobj.write('$h\n')
 fobj.write('m3\n')
 
 # lower nozzle to fill height
-fobj.write('z'+str(z_clearance)+'\n')
+fobj.write('z'+str(z_fill)+'\n')
 
-generateG(fobj, box1FirstVial, box1LastVial)
-generateG(fobj, box2FirstVial, box2LastVial)
+generateG(fobj, box1FrontLeft, box1BackRight)
+generateG(fobj, box2FrontLeft, box2BackRight)
 
 fobj.write('z' + str(z_home) + '\n')
 fobj.write('x' + str(x_home) + ' y' + str(y_home) + '\n')
