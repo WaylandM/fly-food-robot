@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-07-23">
+<meta name="date" content="2017-07-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -219,6 +219,35 @@ ok
 <div id="startSystem" class="section level2">
 <h2><span class="header-section-number">4.2</span> Start system</h2>
 <ol style="list-style-type: decimal">
+<li>Attach the nozzle end of the Norprene tubing to the holder on the Z-axis actuator using releasable cable ties (figure <a href="gcode.html#fig:attachNozzle">4.1</a>).
+<div class="figure" style="text-align: center"><span id="fig:attachNozzle"></span>
+<img src="images/pump4.jpg" alt="Attachment of nozzle end of tubing to the Z-axis actuator." width="75%" />
+<p class="caption">
+Figure 4.1: Attachment of nozzle end of tubing to the Z-axis actuator.
+</p>
+</div></li>
+<li>Attach the Masterflex Norprene tubing to the right-hand side vertical post using a releasable cable tie. Ensure there is a large loop in the tubing between this attachment point and the nozzle so that the x-axis actuator can move freely (figure <a href="gcode.html#fig:tubingPost">4.2</a>)
+<div class="figure" style="text-align: center"><span id="fig:tubingPost"></span>
+<img src="images/pump5.jpg" alt="Attachment of Norprene tubing to the right-hand side vertical post." width="75%" />
+<p class="caption">
+Figure 4.2: Attachment of Norprene tubing to the right-hand side vertical post.
+</p>
+</div></li>
+<li>Feed the tubing through the peristaltic pump (figure <a href="gcode.html#fig:tubingPump">4.3</a>) and into your vat of fly food (figure <a href="gcode.html#fig:flyFoodVat">4.4</a>).</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:tubingPump"></span>
+<img src="images/pump6.jpg" alt="Norprene tubing passing through peristaltic pump." width="75%" />
+<p class="caption">
+Figure 4.3: Norprene tubing passing through peristaltic pump.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:flyFoodVat"></span>
+<img src="images/pump7.jpg" alt="Vat of fly food." width="75%" />
+<p class="caption">
+Figure 4.4: Vat of fly food.
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
 <li>Switch on all devices:</li>
 </ol>
 <ul>
@@ -226,23 +255,23 @@ ok
 <li>raspberry pi</li>
 <li>peristaltic pump</li>
 </ul>
-<ol start="2" style="list-style-type: decimal">
+<ol start="5" style="list-style-type: decimal">
 <li>Prime pump</li>
 </ol>
 <ul>
-<li>Position a beaker under the nozzle (figure <a href="gcode.html#fig:primeBeaker">4.1</a>).</li>
-<li>Press and hold the prime button on the front of the peristaltic pump until a continuous stream of fly food is pumped into the beaker (figure <a href="gcode.html#fig:primeButton">4.2</a>)</li>
+<li>Position a beaker under the nozzle (figure <a href="gcode.html#fig:primeBeaker">4.5</a>).</li>
+<li>Press and hold the prime button on the front of the peristaltic pump until a continuous stream of fly food is pumped into the beaker (figure <a href="gcode.html#fig:primeButton">4.6</a>)</li>
 </ul>
 <div class="figure" style="text-align: center"><span id="fig:primeBeaker"></span>
 <img src="images/prime_beaker.jpg" alt="Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump." width="75%" />
 <p class="caption">
-Figure 4.1: Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump.
+Figure 4.5: Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump.
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:primeButton"></span>
 <img src="images/prime_button.jpg" alt="Prime button on peristaltic pump." width="75%" />
 <p class="caption">
-Figure 4.2: Prime button on peristaltic pump.
+Figure 4.6: Prime button on peristaltic pump.
 </p>
 </div>
 </div>
@@ -251,12 +280,12 @@ Figure 4.2: Prime button on peristaltic pump.
 <div class="figure" style="text-align: center"><span id="fig:loadBoxes2"></span>
 <img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
 <p class="caption">
-Figure 4.3: Loading boxes of vials.
+Figure 4.7: Loading boxes of vials.
 </p>
 </div>
-<p>First we need to determine the Cartesian coordinates of the first and last vial in each box.</p>
+<p>First we need to determine the Cartesian coordinates of vials in diagonally opposite corners of each box.</p>
 <ol style="list-style-type: decimal">
-<li>Load boxes onto the platform of the robot (figure <a href="gcode.html#fig:loadBoxes2">4.3</a>).</li>
+<li>Load boxes onto the platform of the robot (figure <a href="gcode.html#fig:loadBoxes2">4.7</a>).</li>
 </ol>
 <ul>
 <li>The first box should be flush with the fence and the guide rail.</li>
@@ -271,43 +300,57 @@ Figure 4.3: Loading boxes of vials.
 <li>Default password for the <strong>pi</strong> user account is ‘raspberry’.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li><p>Use minicom to connect to the Grbl controller running on the Arduino:</p>
+<li><p>Use minicom to connect to the Grbl controller running on the Arduino, so that we can interactively control the robot from the command line:</p>
 <pre><code>sudo minicom -D /dev/ttyACM0 -b115200</code></pre></li>
 <li><p>Make sure nozzle is at ** home ** position by issuing homing command:</p>
 <pre><code>$h</code></pre></li>
-<li><p>First we will determine the Cartesian coordinates of the first vial in the first box; this is the vial in the front left corner.</p></li>
+<li><p>First we will determine the Cartesian coordinates of the vial in the front left corner of the first box.</p></li>
 </ol>
 <ul>
 <li><p>Make small movements in X and Y until the nozzle is centred over this vial, <em>e.g.</em>:</p>
 <pre><code>x-8 y-8</code></pre></li>
-<li><p>Lower the nozzle in small increments until it is just 2-3mm above the the top of the first vial (figure ), <em>e.g.</em>:</p>
+<li><p>Lower the nozzle in small increments until it is just 2-3mm above the the top of the vial (figure <a href="gcode.html#fig:box1FrontLeft">4.8</a>), <em>e.g.</em>:</p>
 <pre><code>z-20</code></pre></li>
 <li><p>Query the current X, Y and Z coordinates:</p>
 <pre><code>?</code></pre>
 <p>Make a note of all three coordinates.</p></li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:box1FirstVial"></span>
-<img src="images/box1_first_vial.jpg" alt="Nozzle positioned over the first vial in box 1." width="50%" />
+<div class="figure" style="text-align: center"><span id="fig:box1FrontLeft"></span>
+<img src="images/box1_first_vial.jpg" alt="Nozzle positioned over the front left vial in box 1." width="50%" />
 <p class="caption">
-Figure 4.4: Nozzle positioned over the first vial in box 1.
+Figure 4.8: Nozzle positioned over the front left vial in box 1.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:box1LastVial"></span>
-<img src="images/box1_last_vial.jpg" alt="Nozzle positioned over last vial in box 1." width="50%" />
+<ol start="7" style="list-style-type: decimal">
+<li>Move the nozzle laterally until it is over the back right vial of the first box (figure <a href="#fig:box1RightBack"><strong>??</strong></a>).</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:box1BackRight"></span>
+<img src="images/box1_last_vial.jpg" alt="Nozzle positioned over the back right vial in box 1." width="50%" />
 <p class="caption">
-Figure 4.5: Nozzle positioned over last vial in box 1.
+Figure 4.9: Nozzle positioned over the back right vial in box 1.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:box2FirstVial"></span>
-<img src="images/box2_first_vial.jpg" alt="Nozzle positioned over the first vial in box 2." width="50%" />
+<ul>
+<li><p>Query nozzle position and make a note of the X and Y coordinates:</p>
+<pre><code>?</code></pre></li>
+</ul>
+<ol start="8" style="list-style-type: decimal">
+<li>Move the nozzle laterally until it is over the front left vial of the second box (figure <a href="gcode.html#fig:box2FrontLeft">4.10</a>).</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:box2FrontLeft"></span>
+<img src="images/box2_first_vial.jpg" alt="Nozzle positioned over the front left vial in box 2." width="50%" />
 <p class="caption">
-Figure 4.6: Nozzle positioned over the first vial in box 2.
+Figure 4.10: Nozzle positioned over the front left vial in box 2.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:box2LastVial"></span>
-<img src="images/box2_last_vial.jpg" alt="Nozzle positioned over the last vial in box 2." width="50%" />
+<ul>
+<li><p>Query nozzle position and make a note of the X and Y coordinates:</p>
+<pre><code>?</code></pre></li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:box2BackRight"></span>
+<img src="images/box2_last_vial.jpg" alt="Nozzle positioned over the back right vial in box 2." width="50%" />
 <p class="caption">
-Figure 4.7: Nozzle positioned over the last vial in box 2.
+Figure 4.11: Nozzle positioned over the back right vial in box 2.
 </p>
 </div>
 </div>
