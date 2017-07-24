@@ -84,7 +84,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-07-23}
+  \date{2017-07-24}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -238,7 +238,7 @@ it's in
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Launch the Arduino IDE
+  Launch the Arduino IDE (figure \ref{fig:arduinoIDE})
 \end{enumerate}
 
 \begin{itemize}
@@ -272,7 +272,8 @@ it's in
 \item
   \textbf{IMPORTANT:} Select the \texttt{Grbl} folder
   \textbf{\emph{inside}} the \texttt{grbl-XXX} folder, which
-  \textbf{only} contains the source files and an example directory.
+  \textbf{only} contains the source files and an example directory
+  (figure \ref{fig:addGrblLib}).
 \end{itemize}
 
 \begin{figure}
@@ -304,7 +305,8 @@ it's in
 \tightlist
 \item
   Click the \texttt{File} drop-down menu, navigate to
-  \texttt{Examples-\textgreater{}Grbl}, and select \texttt{GrblUpload}.
+  \texttt{Examples-\textgreater{}Grbl}, and select \texttt{GrblUpload}
+  (figure \ref{fig:grblUploadFile}).
 \end{itemize}
 
 \begin{figure}
@@ -330,7 +332,7 @@ it's in
   Connect your computer directly to the Arduino using the USB cable.
   Unplug the USB cable from the raspberry pi and plug it into your
   computer. Remember to reconnect the raspberry pi to the Arduino after
-  you have finished configuring Grbl.
+  you have finished configuring Grbl (figure \ref{fig:laptop2arduino}).
 \end{itemize}
 
 \begin{figure}
@@ -358,11 +360,11 @@ it's in
 Grbl}\label{check-serial-connection-to-grbl}
 
 \emph{\textbf{NOTE: Before powering up the gShield and motors, check
-that the actuator carriages for all three axes are approximately
-centred. Initially we do not know in which direction the actuator
-carriages will travel when G-code commands are issued, so positioning
-each in the middle of its range reduces the risk of collisions with the
-end stops.}}
+that the actuator carriages for all three axes are approximately centred
+(figure \ref{fig:actuatorsCentred}). Initially we do not know in which
+direction the actuator carriages will travel when G-code commands are
+issued, so positioning each in the middle of its range reduces the risk
+of collisions with the end stops.}}
 
 \begin{figure}
 
@@ -400,7 +402,7 @@ end stops.}}
 \tightlist
 \item
   Note that line-ending is set to \texttt{Carriage\ return} and baud
-  rate is set to \texttt{115200}
+  rate is set to \texttt{115200} (figure \ref{fig:serialMonitor})
 \end{itemize}
 
 \begin{enumerate}
@@ -477,6 +479,9 @@ axis.}\label{check-directionality-of-each-axis.}
 
 \begin{itemize}
 \tightlist
+\item
+  Orientation of the robot is shown in figure
+  \ref{fig:robotOrientation}.
 \item
   At present the origins of all three axes are mid-way along each
   actuator, because this was the position of the actuator carriages when
@@ -753,7 +758,7 @@ $132=200.000
 \section{Setting motor current}\label{setting-motor-current}
 
 The gShield has trimpots for adjusting the motor current of each axis,
-as shown in Figure \ref{fig:gShield}.
+as shown in figure \ref{fig:gShield}.
 
 \begin{figure}
 
@@ -871,7 +876,7 @@ Expand filesystem on micro SD card:
     sudo reboot
 \end{verbatim}
 
-\section{Install python scripts}\label{install-python-scripts}
+\section{Install python scripts}\label{installScripts}
 
 Make sure you are in pi's home directory:
 
@@ -974,6 +979,73 @@ vials are known, the G-code can be programmatically generated.
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
+  Attach the nozzle end of the Norprene tubing to the holder on the
+  Z-axis actuator using releasable cable ties (figure
+  \ref{fig:attachNozzle}).
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/pump4} 
+
+}
+
+\caption{Attachment of nozzle end of tubing to the Z-axis actuator.}\label{fig:attachNozzle}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Attach the Masterflex Norprene tubing to the right-hand side vertical
+  post using a releasable cable tie. Ensure there is a large loop in the
+  tubing between this attachment point and the nozzle so that the x-axis
+  actuator can move freely (figure \ref{fig:tubingPost})
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/pump5} 
+
+}
+
+\caption{Attachment of Norprene tubing to the right-hand side vertical post.}\label{fig:tubingPost}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Feed the tubing through the peristaltic pump (figure
+  \ref{fig:tubingPump}) and into your vat of fly food (figure
+  \ref{fig:flyFoodVat}).
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/pump6} 
+
+}
+
+\caption{Norprene tubing passing through peristaltic pump.}\label{fig:tubingPump}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{images/pump7} 
+
+}
+
+\caption{Vat of fly food.}\label{fig:flyFoodVat}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
   Switch on all devices:
 \end{enumerate}
 
@@ -989,7 +1061,7 @@ vials are known, the G-code can be programmatically generated.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
+\setcounter{enumi}{4}
 \tightlist
 \item
   Prime pump
@@ -1023,7 +1095,7 @@ vials are known, the G-code can be programmatically generated.
 \caption{Prime button on peristaltic pump.}\label{fig:primeButton}
 \end{figure}
 
-\section{Determine box coordinates}\label{determine-box-coordinates}
+\section{Determine box coordinates}\label{boxCoordinates}
 
 \begin{figure}
 
@@ -1034,8 +1106,8 @@ vials are known, the G-code can be programmatically generated.
 \caption{Loading boxes of vials.}\label{fig:loadBoxes2}
 \end{figure}
 
-First we need to determine the Cartesian coordinates of the first and
-last vial in each box.
+First we need to determine the Cartesian coordinates of vials in
+diagonally opposite corners of each box.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1082,7 +1154,8 @@ last vial in each box.
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{2}
 \item
-  Use minicom to connect to the Grbl controller running on the Arduino:
+  Use minicom to connect to the Grbl controller running on the Arduino,
+  so that we can interactively control the robot from the command line:
 
 \begin{verbatim}
 sudo minicom -D /dev/ttyACM0 -b115200
@@ -1094,8 +1167,8 @@ sudo minicom -D /dev/ttyACM0 -b115200
 $h
 \end{verbatim}
 \item
-  First we will determine the Cartesian coordinates of the first vial in
-  the first box; this is the vial in the front left corner.
+  First we will determine the Cartesian coordinates of the vial in the
+  front left corner of the first box.
 \end{enumerate}
 
 \begin{itemize}
@@ -1108,13 +1181,14 @@ x-8 y-8
 \end{verbatim}
 \item
   Lower the nozzle in small increments until it is just 2-3mm above the
-  the top of the first vial (figure ), \emph{e.g.}:
+  the top of the vial (figure \ref{fig:box1FrontLeft}), \emph{e.g.}:
 
 \begin{verbatim}
 z-20
 \end{verbatim}
 \item
-  Query the current X, Y and Z coordinates:
+  Query the current X, Y and Z coordinates by issuing the following
+  command:
 
 \begin{verbatim}
 ?
@@ -1123,10 +1197,143 @@ z-20
   Make a note of all three coordinates.
 \end{itemize}
 
-box1\_first\_vial.jpg box1\_last\_vial.jpg box2\_first\_vial.jpg
-box2\_last\_vial.jpg
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/box1_first_vial} 
+
+}
+
+\caption{Nozzle positioned over the front left vial in box 1.}\label{fig:box1FrontLeft}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Issue G-code commands to move the nozzle laterally until it is over
+  the back right vial of the first box (figure \ref{fig:box1BackRight}).
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/box1_last_vial} 
+
+}
+
+\caption{Nozzle positioned over the back right vial in box 1.}\label{fig:box1BackRight}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  Use \texttt{?} command to query nozzle position, and make a note of
+  the X and Y coordinates:
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Move the nozzle laterally until it is over the front left vial of the
+  second box (figure \ref{fig:box2FrontLeft}), then record X and Y
+  coordinates.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/box2_first_vial} 
+
+}
+
+\caption{Nozzle positioned over the front left vial in box 2.}\label{fig:box2FrontLeft}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Finally determine the X and Y coordinates of the back right vial in
+  the second box (figure \ref{fig:box2BackRight}).
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/box2_last_vial} 
+
+}
+
+\caption{Nozzle positioned over the back right vial in box 2.}\label{fig:box2BackRight}
+\end{figure}
 
 \section{Calibrate pump}\label{calibrate-pump}
+
+The peristaltic pump is started and stopped using the \texttt{m8} and
+\texttt{m9} G-code commands, respectively (table \ref{tab:gCodes}). To
+maximize speed, the pump will be run at its maximum flow rate of
+30ml/second. In our fly facility, we add 9ml of food to each vial,
+therefore based on the maximum flow rate, we should only need to run the
+pump for 0.3 seconds to dispense 9ml of food. However, there is latency
+in the system and the pump does not reach its maximum flow rate
+instantaneously on activation. Therefore, it is important to determine
+the \emph{fill time} empirically. We do this by programming the robot to
+test fill a box of vials using a range of \emph{fill times}. The
+\textbf{calibrate\_pump.py} script downloaded to the Raspberry Pi in
+stage \ref{installScripts} can be used to generate the appropriate
+G-code program.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Edit \textbf{calibrate\_pump.py}:
+
+\begin{verbatim}
+sudo nano /home/pi/robot/py/calibrate_pump.py
+\end{verbatim}
+\item
+  Near the top of the file (line 32 onwards) are various settings:
+\end{enumerate}
+
+\begin{verbatim}
+
+# SETTINGS
+
+# filename
+filename = '/home/pi/robot/nc/calibrate_pump.nc'
+
+# home/datum + homing pull-off (mm) (value of Grbl setting $27)
+x_home = -5
+y_home = -5
+z_home = -5
+
+# z value providing minimal clearance between nozzle and top of vials
+z_fill = -62 
+
+# peristaltic pump settings
+min_fill_time = 0.3
+max_fill_time = 0.6
+# pause to allow for drips before moving to next vial
+drip_pause = 0.1 
+
+# vial coordinates (x,y)
+frontLeft = (-8,-14)
+backRight = (-236,-240)
+
+nrows=10
+ncols=10
+\end{verbatim}
+
+The filename is the full path to the G-code file that will be generated
+by the python script. The parameters x\_home, y\_home and z\_home are
+the Cartesian coordinates of the home position (\emph{i.e.} home/datum +
+homing pull-off (mm)). Modify z\_fill to the appropriate nozzle height
+for filling vials (this was determined in step 5 of section
+\ref{boxCoordinates}). Vial coordinates (frontLeft and backRight)
+
+Our \emph{fill time} estimate based on the pump's specified flow rate is
+a good starting point.
 
 \section{Generate G-code instructions for filling
 vials}\label{generate-g-code-instructions-for-filling-vials}

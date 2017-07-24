@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="operation.html">
-
+<link rel="prev" href="settings.html">
+<link rel="next" href="homedatum-homing-pull-off-mm-value-of-grbl-setting-27.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -101,11 +101,18 @@
 <li class="chapter" data-level="4.2" data-path="gcode.html"><a href="gcode.html#startSystem"><i class="fa fa-check"></i><b>4.2</b> Start system</a></li>
 <li class="chapter" data-level="4.3" data-path="gcode.html"><a href="gcode.html#boxCoordinates"><i class="fa fa-check"></i><b>4.3</b> Determine box coordinates</a></li>
 <li class="chapter" data-level="4.4" data-path="gcode.html"><a href="gcode.html#calibrate-pump"><i class="fa fa-check"></i><b>4.4</b> Calibrate pump</a></li>
-<li class="chapter" data-level="4.5" data-path="gcode.html"><a href="gcode.html#generate-g-code-instructions-for-filling-vials"><i class="fa fa-check"></i><b>4.5</b> Generate G-code instructions for filling vials</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>5</b> Operation</a><ul>
-<li class="chapter" data-level="5.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>5.1</b> Prepare system</a></li>
-<li class="chapter" data-level="5.2" data-path="operation.html"><a href="operation.html#fill-boxes"><i class="fa fa-check"></i><b>5.2</b> Fill boxes</a></li>
+<li class="chapter" data-level="5" data-path="settings.html"><a href="settings.html"><i class="fa fa-check"></i><b>5</b> SETTINGS</a></li>
+<li class="chapter" data-level="6" data-path="filename.html"><a href="filename.html"><i class="fa fa-check"></i><b>6</b> filename</a></li>
+<li class="chapter" data-level="7" data-path="homedatum-homing-pull-off-mm-value-of-grbl-setting-27.html"><a href="homedatum-homing-pull-off-mm-value-of-grbl-setting-27.html"><i class="fa fa-check"></i><b>7</b> home/datum + homing pull-off (mm) (value of Grbl setting $27)</a></li>
+<li class="chapter" data-level="8" data-path="z-value-providing-minimal-clearance-between-nozzle-and-top-of-vials.html"><a href="z-value-providing-minimal-clearance-between-nozzle-and-top-of-vials.html"><i class="fa fa-check"></i><b>8</b> z value providing minimal clearance between nozzle and top of vials</a></li>
+<li class="chapter" data-level="9" data-path="peristaltic-pump-settings.html"><a href="peristaltic-pump-settings.html"><i class="fa fa-check"></i><b>9</b> peristaltic pump settings</a></li>
+<li class="chapter" data-level="10" data-path="vial-coordinates-xy.html"><a href="vial-coordinates-xy.html"><i class="fa fa-check"></i><b>10</b> vial coordinates (x,y)</a><ul>
+<li class="chapter" data-level="10.1" data-path="vial-coordinates-xy.html"><a href="vial-coordinates-xy.html#generate-g-code-instructions-for-filling-vials"><i class="fa fa-check"></i><b>10.1</b> Generate G-code instructions for filling vials</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>11</b> Operation</a><ul>
+<li class="chapter" data-level="11.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>11.1</b> Prepare system</a></li>
+<li class="chapter" data-level="11.2" data-path="operation.html"><a href="operation.html#fill-boxes"><i class="fa fa-check"></i><b>11.2</b> Fill boxes</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -128,25 +135,17 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-
-<div id="refs" class="references">
-<div>
-<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
-</div>
-<div>
-<p>———. 2017. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://github.com/rstudio/bookdown" class="uri">https://github.com/rstudio/bookdown</a>.</p>
-</div>
-</div>
+<div id="filename" class="section level1">
+<h1><span class="header-section-number">6</span> filename</h1>
+<p>filename = ‘/home/pi/robot/nc/calibrate_pump.nc’</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="operation.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="settings.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="homedatum-homing-pull-off-mm-value-of-grbl-setting-27.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -175,7 +174,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/WaylandM/fly-food-robot/edit/master/06-references.Rmd",
+"link": "https://github.com/WaylandM/fly-food-robot/edit/master/04-g-code.Rmd",
 "text": "Edit"
 },
 "download": ["fly-food-robot.pdf"],

@@ -85,7 +85,7 @@ Expand filesystem on micro SD card:
     sudo reboot
 ```
 
-## Install python scripts
+## Install python scripts {#installScripts}
 
 Make sure you are in pi's home directory:
 

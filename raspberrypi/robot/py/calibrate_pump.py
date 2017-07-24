@@ -43,7 +43,7 @@ z_home = -5
 z_fill = -62 
 
 # peristaltic pump settings
-min_fill_time = 0.2
+min_fill_time = 0.3
 max_fill_time = 0.6
 # pause to allow for drips before moving to next vial
 drip_pause = 0.1 
