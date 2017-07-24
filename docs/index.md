@@ -16,8 +16,7 @@ cover-image: images/system.jpg
 
 # Preface{-}
 
-
-\begin{center}\includegraphics[width=0.75\linewidth]{images/system} \end{center}
+<img src="images/system.jpg" width="75%" style="display: block; margin: auto;" />
 
 <!---, fig.cap="Robot"--->
 

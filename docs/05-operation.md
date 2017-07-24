@@ -24,27 +24,19 @@ Figure \@ref(fig:loadBoxes2)
 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.6\linewidth]{images/gui} 
-
-}
-
-\caption{Touchscreen interface.}(\#fig:touchscreen)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/gui.jpg" alt="Touchscreen interface." width="60%" />
+<p class="caption">(\#fig:touchscreen)Touchscreen interface.</p>
+</div>
 
 
 
 
 Figure \@ref(fig:touchscreen)
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.6\linewidth]{images/gui_stop2} 
-
-}
-
-\caption{Appearance of touchscreen interface when a job is running.}(\#fig:stopRobot)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/gui_stop2.jpg" alt="Appearance of touchscreen interface when a job is running." width="60%" />
+<p class="caption">(\#fig:stopRobot)Appearance of touchscreen interface when a job is running.</p>
+</div>
 
 Figure \@ref(fig:stopRobot)

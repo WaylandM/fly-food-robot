@@ -10,7 +10,7 @@ Running job without GUI - for testing
 -->
 
 
-```
+<!--
 ssh pi@192.168.1.3
 
 sudo minicom -D /dev/ttyACM0 -b115200
@@ -38,32 +38,25 @@ ok
 
 ./robot/py/fill_boxes.py
 
-```
+-->
 
 ## Overview
 The movement of the robot is programmed in [G-code](https://en.wikipedia.org/wiki/G-code). We only need nine G-code commands to control the robot (table \@ref(tab:gCodes)).
 
-\begin{table}
 
-\caption{(\#tab:gCodes)G-code commands used to control robot.}
-\centering
-\begin{tabular}[t]{ll}
-\toprule
-Code & Description\\
-\midrule
-x & absolute position of x-axis\\
-y & absolute position of y-axis\\
-z & absolute position of z-axis\\
-g4 & dwell time (control parameter p specifies seconds)\\
-m3 & set pump rotation to clockwise\\
-\addlinespace
-m4 & set pump rotation to counter clockwise\\
-m8 & start pump\\
-m9 & stop pump\\
-\$h & initiate homing cycle\\
-\bottomrule
-\end{tabular}
-\end{table}
+Table: (\#tab:gCodes)G-code commands used to control robot.
+
+Code   Description                                        
+-----  ---------------------------------------------------
+x      absolute position of x-axis                        
+y      absolute position of y-axis                        
+z      absolute position of z-axis                        
+g4     dwell time (control parameter p specifies seconds) 
+m3     set pump rotation to clockwise                     
+m4     set pump rotation to counter clockwise             
+m8     start pump                                         
+m9     stop pump                                          
+$h     initiate homing cycle                              
 
 A G-code program for filling vials of food could be created manually, by listing the necessary commands sequentially in a text file.  However, this would be laborious and error prone. If the size of the boxes of vials are known, the G-code can be programmatically generated. 
 
@@ -71,45 +64,29 @@ A G-code program for filling vials of food could be created manually, by listing
 
 1. Attach the nozzle end of the Norprene tubing to the holder on the Z-axis actuator using releasable cable ties (figure \@ref(fig:attachNozzle)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/pump4} 
-
-}
-
-\caption{Attachment of nozzle end of tubing to the Z-axis actuator.}(\#fig:attachNozzle)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/pump4.jpg" alt="Attachment of nozzle end of tubing to the Z-axis actuator." width="75%" />
+<p class="caption">(\#fig:attachNozzle)Attachment of nozzle end of tubing to the Z-axis actuator.</p>
+</div>
 
 2. Attach the Masterflex Norprene tubing to the right-hand side vertical post using a releasable cable tie. Ensure there is a large loop in the tubing between this attachment point and the nozzle so that the x-axis actuator can move freely (figure \@ref(fig:tubingPost))
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/pump5} 
-
-}
-
-\caption{Attachment of Norprene tubing to the right-hand side vertical post.}(\#fig:tubingPost)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/pump5.jpg" alt="Attachment of Norprene tubing to the right-hand side vertical post." width="75%" />
+<p class="caption">(\#fig:tubingPost)Attachment of Norprene tubing to the right-hand side vertical post.</p>
+</div>
 
 3. Feed the tubing through the peristaltic pump (figure \@ref(fig:tubingPump)) and into your vat of fly food (figure \@ref(fig:flyFoodVat)).
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="images/pump6.jpg" alt="Norprene tubing passing through peristaltic pump." width="75%" />
+<p class="caption">(\#fig:tubingPump)Norprene tubing passing through peristaltic pump.</p>
+</div>
 
-{\centering \includegraphics[width=0.75\linewidth]{images/pump6} 
-
-}
-
-\caption{Norprene tubing passing through peristaltic pump.}(\#fig:tubingPump)
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/pump7} 
-
-}
-
-\caption{Vat of fly food.}(\#fig:flyFoodVat)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/pump7.jpg" alt="Vat of fly food." width="75%" />
+<p class="caption">(\#fig:flyFoodVat)Vat of fly food.</p>
+</div>
 
 
 4. Switch on all devices: 
@@ -121,35 +98,23 @@ A G-code program for filling vials of food could be created manually, by listing
  * Position a beaker under the nozzle  (figure \@ref(fig:primeBeaker)).
  * Press and hold the prime button on the front of the peristaltic pump until a continuous stream of fly food is pumped into the beaker (figure \@ref(fig:primeButton))
 
-\begin{figure}
+<div class="figure" style="text-align: center">
+<img src="images/prime_beaker.jpg" alt="Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump." width="75%" />
+<p class="caption">(\#fig:primeBeaker)Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump.</p>
+</div>
 
-{\centering \includegraphics[width=0.75\linewidth]{images/prime_beaker} 
-
-}
-
-\caption{Positioning of beaker under nozzle to collect fly food expelled during priming of peristaltic pump.}(\#fig:primeBeaker)
-\end{figure}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.75\linewidth]{images/prime_button} 
-
-}
-
-\caption{Prime button on peristaltic pump.}(\#fig:primeButton)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/prime_button.jpg" alt="Prime button on peristaltic pump." width="75%" />
+<p class="caption">(\#fig:primeButton)Prime button on peristaltic pump.</p>
+</div>
 
 
 ## Determine box coordinates {#boxCoordinates}
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{images/one_box_loaded} \includegraphics[width=0.5\linewidth]{images/two_boxes_loaded} 
-
-}
-
-\caption{Loading boxes of vials.}(\#fig:loadBoxes2)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
+<p class="caption">(\#fig:loadBoxes2)Loading boxes of vials.</p>
+</div>
 
 
 First we need to determine the Cartesian coordinates of vials in diagonally opposite corners of each box.
@@ -192,48 +157,32 @@ z-20
 Make a note of all three coordinates. 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{images/box1_first_vial} 
-
-}
-
-\caption{Nozzle positioned over the front left vial in box 1.}(\#fig:box1FrontLeft)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/box1_first_vial.jpg" alt="Nozzle positioned over the front left vial in box 1." width="50%" />
+<p class="caption">(\#fig:box1FrontLeft)Nozzle positioned over the front left vial in box 1.</p>
+</div>
 
 6. Issue G-code commands to move the nozzle laterally until it is over the back right vial of the first box (figure \@ref(fig:box1BackRight)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{images/box1_last_vial} 
-
-}
-
-\caption{Nozzle positioned over the back right vial in box 1.}(\#fig:box1BackRight)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/box1_last_vial.jpg" alt="Nozzle positioned over the back right vial in box 1." width="50%" />
+<p class="caption">(\#fig:box1BackRight)Nozzle positioned over the back right vial in box 1.</p>
+</div>
 * Use ```?``` command to query nozzle position, and make a note of the X and Y coordinates:
 
 7. Move the nozzle laterally until it is over the front left vial of the second box (figure \@ref(fig:box2FrontLeft)), then record X and Y coordinates.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{images/box2_first_vial} 
-
-}
-
-\caption{Nozzle positioned over the front left vial in box 2.}(\#fig:box2FrontLeft)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/box2_first_vial.jpg" alt="Nozzle positioned over the front left vial in box 2." width="50%" />
+<p class="caption">(\#fig:box2FrontLeft)Nozzle positioned over the front left vial in box 2.</p>
+</div>
 
 8. Finally determine the X and Y coordinates of the back right vial in the second box (figure \@ref(fig:box2BackRight)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{images/box2_last_vial} 
-
-}
-
-\caption{Nozzle positioned over the back right vial in box 2.}(\#fig:box2BackRight)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/box2_last_vial.jpg" alt="Nozzle positioned over the back right vial in box 2." width="50%" />
+<p class="caption">(\#fig:box2BackRight)Nozzle positioned over the back right vial in box 2.</p>
+</div>
 
 
 
@@ -247,12 +196,12 @@ Make a note of all three coordinates.
 -->
 The peristaltic pump is started and stopped using the ```m8``` and ```m9``` G-code commands, respectively (table \@ref(tab:gCodes)). To maximize speed, the pump will be run at its maximum flow rate of 30ml/second. In our fly facility, we add 9ml of food to each vial, therefore based on the maximum flow rate, we should only need to run the pump for 0.3 seconds to dispense 9ml of food. However, there is latency in the system and the pump does not reach its maximum flow rate instantaneously on activation. Therefore, it is important to determine the *fill time* empirically. We do this by programming the robot to test fill a box of vials using a range of *fill times*. The **calibrate_pump.py** script downloaded to the Raspberry Pi in stage \@ref(installScripts) can be used to generate the appropriate G-code program. 
 
-1. Edit **calibrate_pump.py**:
+1. Open **calibrate_pump.py** for editing:
 ```
 sudo nano /home/pi/robot/py/calibrate_pump.py
 ```
 
-2. Near the top of the file (line 32 onwards) are various settings:
+2. Near the top of the file (line 32 onwards) are various settings to be modified:
 
 ``` 
 
@@ -283,11 +232,28 @@ nrows=10
 ncols=10
 ```
 
-The filename is the full path to the G-code file that will be generated by the python script. The parameters x_home, y_home and z_home are the Cartesian coordinates of the home position (*i.e.* home/datum + homing pull-off (mm)). Modify z_fill to the appropriate nozzle height for filling vials (this was determined in step 5 of section \@ref(boxCoordinates)). Vial coordinates (frontLeft and backRight) 
+* The **filename** is the full path to the G-code file that will be generated by the python script. 
+* The parameters **x_home, y_home** and **z_home** are the Cartesian coordinates of the home position (*i.e.* home/datum + homing pull-off (mm)). 
+* Modify **z_fill** to the appropriate nozzle height for filling vials (this was determined in step 5 of section \@ref(boxCoordinates)). 
+* The **min_fill_time** should be set to our estimate of *fill time* based on the pump's specified flow rate. We will set **max_fill_time** to twice the value of **min_fill_time**.
+* The vial coordinates (**frontLeft** and **frontRight**) are those determined for the front left and back right vials in the first box (refer to steps 5 and 6 of section \@ref(boxCoordinates)). 
+* Our boxes have ten rows, each containing ten vials, so we set **nrows** and **ncols** to 10.
 
+3. After editing the settings in **calibrate_pump.py**, run the script to generate a G-code program:
+```
+./robot/py/calibrate_pump.py
+```
 
-Our *fill time* estimate based on the pump's specified flow rate is a good starting point.
+[0.2, 0.24, 0.29, 0.33, 0.38, 0.42, 0.47, 0.51, 0.56, 0.6]
+
+4. 
+```
+./robot/py/stream2.py robot/nc/calibrate_pump.nc /dev/ttyACM0
+```
 
 ## Generate G-code instructions for filling vials
 
 
+```
+./robot/py/fill_boxes.py
+```
