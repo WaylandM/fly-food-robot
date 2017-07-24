@@ -10,7 +10,7 @@ Running job without GUI - for testing
 -->
 
 
-```
+<!--
 ssh pi@192.168.1.3
 
 sudo minicom -D /dev/ttyACM0 -b115200
@@ -38,7 +38,7 @@ ok
 
 ./robot/py/fill_boxes.py
 
-```
+-->
 
 ## Overview
 The movement of the robot is programmed in [G-code](https://en.wikipedia.org/wiki/G-code). We only need nine G-code commands to control the robot (table \@ref(tab:gCodes)).
@@ -224,9 +224,20 @@ The **min_fill_time** should be set to our estimate of *fill time* based on the 
 The vial coordinates (**frontLeft** and **frontRight**) are those determined for the front left and back right vials in the first box (refer to steps 5 and 6 of section \@ref(boxCoordinates)). Our boxes have ten rows, each containing ten vials, so we set **nrows** and **ncols** to 10.
 
 3. After editing the settings in **calibrate_pump.py**, run the script to generate a G-code program:
+```
+./robot/py/calibrate_pump.py
+```
 
 [0.2, 0.24, 0.29, 0.33, 0.38, 0.42, 0.47, 0.51, 0.56, 0.6]
+
+4. 
+```
+./robot/py/stream2.py robot/nc/calibrate_pump.nc /dev/ttyACM0
+```
 
 ## Generate G-code instructions for filling vials
 
 
+```
+./robot/py/fill_boxes.py
+```
