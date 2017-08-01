@@ -228,8 +228,22 @@ ncols=10
 ```
 ./robot/py/calibrate_pump.py
 ```
+This will generate a G-code program: **/home/pi/robot/nc/calibrate_pump.nc** which will fill the first row of 
 
-[0.2, 0.24, 0.29, 0.33, 0.38, 0.42, 0.47, 0.51, 0.56, 0.6]
+
+```{r calibrationFillTimes, echo=FALSE}
+boxRow <- seq(1,10)
+fillTime <- c(0.2, 0.24, 0.29, 0.33, 0.38, 0.42, 0.47, 0.51, 0.56, 0.6)
+fillTimeTable <- as.data.frame(cbind(boxRow,fillTime))
+names(fillTimeTable) <- c("Box Row", "Fill Time")
+knitr::kable(
+  fillTimeTable, booktabs = TRUE,
+  caption = 'Example calibration fill times.'
+)
+```
+
+
+Table \@ref(tab:calibrationFillTimes)
 
 4. 
 ```

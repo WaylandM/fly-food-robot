@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-07-24">
+<meta name="date" content="2017-08-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -408,9 +408,61 @@ ncols=10</code></pre>
 </ul>
 <ol start="3" style="list-style-type: decimal">
 <li><p>After editing the settings in <strong>calibrate_pump.py</strong>, run the script to generate a G-code program:</p>
-<pre><code>./robot/py/calibrate_pump.py</code></pre></li>
+<pre><code>./robot/py/calibrate_pump.py</code></pre>
+<p>This will generate a G-code program: <strong>/home/pi/robot/nc/calibrate_pump.nc</strong> which will fill the first row of</p></li>
 </ol>
-<p>[0.2, 0.24, 0.29, 0.33, 0.38, 0.42, 0.47, 0.51, 0.56, 0.6]</p>
+<table>
+<caption><span id="tab:calibrationFillTimes">Table 4.2: </span>Example calibration fill times.</caption>
+<thead>
+<tr class="header">
+<th align="right">Box Row</th>
+<th align="right">Fill Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0.20</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">0.24</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">0.29</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">0.33</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">0.38</td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="right">0.42</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">0.47</td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="right">0.51</td>
+</tr>
+<tr class="odd">
+<td align="right">9</td>
+<td align="right">0.56</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">0.60</td>
+</tr>
+</tbody>
+</table>
+<p>Table <a href="gcode.html#tab:calibrationFillTimes">4.2</a></p>
 <ol start="4" style="list-style-type: decimal">
 <li><pre><code>./robot/py/stream2.py robot/nc/calibrate_pump.nc /dev/ttyACM0</code></pre></li>
 </ol>

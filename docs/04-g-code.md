@@ -243,8 +243,27 @@ ncols=10
 ```
 ./robot/py/calibrate_pump.py
 ```
+This will generate a G-code program: **/home/pi/robot/nc/calibrate_pump.nc** which will fill the first row of 
 
-[0.2, 0.24, 0.29, 0.33, 0.38, 0.42, 0.47, 0.51, 0.56, 0.6]
+
+
+Table: (\#tab:calibrationFillTimes)Example calibration fill times.
+
+ Box Row   Fill Time
+--------  ----------
+       1        0.20
+       2        0.24
+       3        0.29
+       4        0.33
+       5        0.38
+       6        0.42
+       7        0.47
+       8        0.51
+       9        0.56
+      10        0.60
+
+
+Table \@ref(tab:calibrationFillTimes)
 
 4. 
 ```
