@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-08-01">
+<meta name="date" content="2017-08-06">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -366,7 +366,7 @@ Figure 4.11: Nozzle positioned over the back right vial in box 2.
 # ml/s = 1800/60 = 30
 # fill time = 0.3
 -->
-<p>The peristaltic pump is started and stopped using the <code>m8</code> and <code>m9</code> G-code commands, respectively (table <a href="gcode.html#tab:gCodes">4.1</a>). To maximize speed, the pump will be run at its maximum flow rate of 30ml/second. In our fly facility, we add 9ml of food to each vial, therefore based on the maximum flow rate, we should only need to run the pump for 0.3 seconds to dispense 9ml of food. However, there is latency in the system and the pump does not reach its maximum flow rate instantaneously on activation. Therefore, it is important to determine the <em>fill time</em> empirically. We do this by programming the robot to test fill a box of vials using a range of <em>fill times</em>. The <strong>calibrate_pump.py</strong> script downloaded to the Raspberry Pi in stage <a href="raspi.html#installScripts">3.6</a> can be used to generate the appropriate G-code program.</p>
+<p>The peristaltic pump is started and stopped using the <code>m8</code> and <code>m9</code> G-code commands, respectively (table <a href="gcode.html#tab:gCodes">4.1</a>). To maximize speed, the pump will be run at its maximum flow rate of 30ml/second. In our fly facility, we add 9ml of food to each vial, therefore based on the maximum flow rate, we should only need to run the pump for 0.3 seconds to dispense 9ml of food. However, there is latency in the system and the pump does not reach its maximum flow rate instantaneously on activation. Therefore, it is important to determine the <em>fill time</em> empirically. We do this by programming the robot to test fill a single box of vials using a range of <em>fill times</em>. The <strong>calibrate_pump.py</strong> script downloaded to the Raspberry Pi in stage <a href="raspi.html#installScripts">3.6</a> can be used to generate the appropriate G-code program.</p>
 <ol style="list-style-type: decimal">
 <li><p>Open <strong>calibrate_pump.py</strong> for editing:</p>
 <pre><code>sudo nano /home/pi/robot/py/calibrate_pump.py</code></pre></li>
@@ -409,7 +409,8 @@ ncols=10</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li><p>After editing the settings in <strong>calibrate_pump.py</strong>, run the script to generate a G-code program:</p>
 <pre><code>./robot/py/calibrate_pump.py</code></pre>
-<p>This will generate a G-code program: <strong>/home/pi/robot/nc/calibrate_pump.nc</strong> which will fill the first row of</p></li>
+<p>This will generate a G-code program: <strong>/home/pi/robot/nc/calibrate_pump.nc</strong> which will iteratively increase the fill time for each successive row of vials. The <strong>min_fill_time</strong> will be used for the first row of vials and the fill time will be increased by (<strong>max_fill_time</strong> - <strong>min_fill_time</strong>) / (<strong>nrows</strong> - 1.0) for each successive row (<em>e.g.</em> table <a href="gcode.html#tab:calibrationFillTimes">4.2</a>). Note that the fill times are rounded to the nearest 100th of a second. The fill time for each row is listed in the comments at the top of the <strong>/home/pi/robot/nc/calibrate_pump.nc</strong> file; to view this information run:</p>
+<pre><code>head -n12 ~/robot/nc/calibrate_pump.nc</code></pre></li>
 </ol>
 <table>
 <caption><span id="tab:calibrationFillTimes">Table 4.2: </span>Example calibration fill times.</caption>
@@ -462,7 +463,6 @@ ncols=10</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Table <a href="gcode.html#tab:calibrationFillTimes">4.2</a></p>
 <ol start="4" style="list-style-type: decimal">
 <li><pre><code>./robot/py/stream2.py robot/nc/calibrate_pump.nc /dev/ttyACM0</code></pre></li>
 </ol>

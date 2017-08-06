@@ -194,7 +194,7 @@ Make a note of all three coordinates.
 # ml/s = 1800/60 = 30
 # fill time = 0.3
 -->
-The peristaltic pump is started and stopped using the ```m8``` and ```m9``` G-code commands, respectively (table \@ref(tab:gCodes)). To maximize speed, the pump will be run at its maximum flow rate of 30ml/second. In our fly facility, we add 9ml of food to each vial, therefore based on the maximum flow rate, we should only need to run the pump for 0.3 seconds to dispense 9ml of food. However, there is latency in the system and the pump does not reach its maximum flow rate instantaneously on activation. Therefore, it is important to determine the *fill time* empirically. We do this by programming the robot to test fill a box of vials using a range of *fill times*. The **calibrate_pump.py** script downloaded to the Raspberry Pi in stage \@ref(installScripts) can be used to generate the appropriate G-code program. 
+The peristaltic pump is started and stopped using the ```m8``` and ```m9``` G-code commands, respectively (table \@ref(tab:gCodes)). To maximize speed, the pump will be run at its maximum flow rate of 30ml/second. In our fly facility, we add 9ml of food to each vial, therefore based on the maximum flow rate, we should only need to run the pump for 0.3 seconds to dispense 9ml of food. However, there is latency in the system and the pump does not reach its maximum flow rate instantaneously on activation. Therefore, it is important to determine the *fill time* empirically. We do this by programming the robot to test fill a single box of vials using a range of *fill times*. The **calibrate_pump.py** script downloaded to the Raspberry Pi in stage \@ref(installScripts) can be used to generate the appropriate G-code program. 
 
 1. Open **calibrate_pump.py** for editing:
 ```
@@ -243,7 +243,10 @@ ncols=10
 ```
 ./robot/py/calibrate_pump.py
 ```
-This will generate a G-code program: **/home/pi/robot/nc/calibrate_pump.nc** which will fill the first row of 
+This will generate a G-code program: **/home/pi/robot/nc/calibrate_pump.nc** which will iteratively increase the fill time for each successive row of vials. The **min_fill_time** will be used for the first row of vials and the fill time will be increased by (**max_fill_time** - **min_fill_time**) / (**nrows** - 1.0) for each successive row (*e.g.* table \@ref(tab:calibrationFillTimes)). Note that the fill times are rounded to the nearest 100th of a second. The fill time for each row is listed in the comments at the top of the **/home/pi/robot/nc/calibrate_pump.nc** file; to view this information run:
+```
+head -n12 ~/robot/nc/calibrate_pump.nc
+```
 
 
 
@@ -263,7 +266,7 @@ Table: (\#tab:calibrationFillTimes)Example calibration fill times.
       10        0.60
 
 
-Table \@ref(tab:calibrationFillTimes)
+
 
 4. 
 ```
