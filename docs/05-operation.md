@@ -10,7 +10,7 @@ Check orientation of boxes and check vials aligned
 
 From GUI select fill one or two boxes
 
-Follow instructions in section \@ref(startSystem) to start-up system.
+## Shutdown
 
 
 

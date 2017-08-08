@@ -327,4 +327,7 @@ nVials=nrows*ncols
 * The vial coordinates (**box1FrontLeft**, **box1BackRight**, **box2FrontLeft** and **box2BackRight**) were determined in section \@ref(boxCoordinates).
 * Our boxes have ten rows, each containing ten vials, so we set **nrows** and **ncols** to 10.
 
-
+3. After editing the settings in **fill_boxes.py**, run the script to generate the two G-code programs:
+```
+./robot/py/fill_boxes.py
+```
