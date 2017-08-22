@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-08-08">
+<meta name="date" content="2017-08-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -103,9 +103,10 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>5</b> Program robot to fill vials</a><ul>
 <li class="chapter" data-level="5.1" data-path="gcode.html"><a href="gcode.html#overview-2"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
-<li class="chapter" data-level="5.2" data-path="gcode.html"><a href="gcode.html#boxCoordinates"><i class="fa fa-check"></i><b>5.2</b> Determine box coordinates</a></li>
-<li class="chapter" data-level="5.3" data-path="gcode.html"><a href="gcode.html#calibratePump"><i class="fa fa-check"></i><b>5.3</b> Calibrate pump</a></li>
-<li class="chapter" data-level="5.4" data-path="gcode.html"><a href="gcode.html#generate-g-code"><i class="fa fa-check"></i><b>5.4</b> Generate G-code</a></li>
+<li class="chapter" data-level="5.2" data-path="gcode.html"><a href="gcode.html#loadBoxes"><i class="fa fa-check"></i><b>5.2</b> Load boxes</a></li>
+<li class="chapter" data-level="5.3" data-path="gcode.html"><a href="gcode.html#boxCoordinates"><i class="fa fa-check"></i><b>5.3</b> Determine box coordinates</a></li>
+<li class="chapter" data-level="5.4" data-path="gcode.html"><a href="gcode.html#calibratePump"><i class="fa fa-check"></i><b>5.4</b> Calibrate pump</a></li>
+<li class="chapter" data-level="5.5" data-path="gcode.html"><a href="gcode.html#generate-programs"><i class="fa fa-check"></i><b>5.5</b> Generate programs</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>6</b> Routine operation</a><ul>
 <li class="chapter" data-level="6.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>6.1</b> Prepare system</a></li>
@@ -137,30 +138,34 @@
 <h1><span class="header-section-number">6</span> Routine operation</h1>
 <div id="prepare-system" class="section level2">
 <h2><span class="header-section-number">6.1</span> Prepare system</h2>
-<p>Instructions for starting the system are provided in section <a href="#startSystem"><strong>??</strong></a></p>
+<p>Instructions for starting the system are provided in chapter <a href="startup.html#startup">4</a>.</p>
 </div>
 <div id="fill-boxes" class="section level2">
 <h2><span class="header-section-number">6.2</span> Fill boxes</h2>
-<p>Load boxes onto platform as described in step 1 of section <a href="gcode.html#boxCoordinates">5.2</a>.</p>
-<p>Check orientation of boxes and check vials aligned</p>
-<p>From GUI select fill one or two boxes</p>
-</div>
-<div id="shutdown" class="section level2">
-<h2><span class="header-section-number">6.3</span> Shutdown</h2>
+<p>Load boxes onto platform as described in section <a href="gcode.html#loadBoxes">5.2</a>.</p>
+<p>From the touchscreen menu select <strong>1 Box</strong> or <strong>2 Boxes</strong> depending on the number of boxes on the platform (figure <a href="operation.html#fig:touchscreen">6.1</a>). The robot will <strong>home</strong> to zero the cartesian coordinate system, and then commence filling the vials.</p>
 <div class="figure" style="text-align: center"><span id="fig:touchscreen"></span>
 <img src="images/gui.jpg" alt="Touchscreen interface." width="60%" />
 <p class="caption">
 Figure 6.1: Touchscreen interface.
 </p>
 </div>
-<p>Figure <a href="operation.html#fig:touchscreen">6.1</a></p>
+<p>During filling the robot can be stopped by clicking on the <strong>Stop</strong> button (figure <a href="operation.html#fig:stopRobot">6.2</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:stopRobot"></span>
 <img src="images/gui_stop2.jpg" alt="Appearance of touchscreen interface when a job is running." width="60%" />
 <p class="caption">
 Figure 6.2: Appearance of touchscreen interface when a job is running.
 </p>
 </div>
-<p>Figure <a href="operation.html#fig:stopRobot">6.2</a></p>
+</div>
+<div id="shutdown" class="section level2">
+<h2><span class="header-section-number">6.3</span> Shutdown</h2>
+<ul>
+<li>The raspberry pi should be shutdown using the <strong>shutdown</strong> button on the touchscreen.</li>
+<li>The Norprene tubing should be removed from the vat of fly food, then any food remaining in the tubing can be expelled by pressing and holding the <strong>prime</strong> button on the peristaltic pump. Ensure there is a receptacle under the nozzle to catch the expelled fly food. The Norprene tubing should be removed from the robot for cleaning/sterilization.</li>
+<li>All devices (raspberry pi, power supply unit for gShield and motors, and peristaltic pump) should be switched off.</li>
+<li>The robot can be wiped clean if necessary using a damp cloth. The platform can be removed for thorough cleaning.</li>
+</ul>
 
 </div>
 </div>

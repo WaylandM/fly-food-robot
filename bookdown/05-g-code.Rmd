@@ -1,7 +1,5 @@
 # Program robot to fill vials {#gcode}
 
-Running job without GUI - for testing
-
 <!--
 # need 8-9 ml
 # pump speed 1800ml/min
@@ -57,35 +55,37 @@ knitr::kable(
 A G-code program for filling vials of food could be created manually, by listing the necessary commands sequentially in a text file.  However, this would be laborious and error prone. If the size of the boxes of vials are known, the G-code can be programmatically generated. 
 
 
-## Determine box coordinates {#boxCoordinates}
+## Load boxes {#loadBoxes}
 
 ```{r loadBoxes2, echo = F, fig.cap = 'Loading boxes of vials.', fig.align = 'center', fig.show='hold', out.width = '50%'}
 knitr::include_graphics(c("images/one_box_loaded.jpg", "images/two_boxes_loaded.jpg"))
 ```
 
-
-First we need to determine the Cartesian coordinates of vials in diagonally opposite corners of each box.
-
-1. Load boxes onto the platform of the robot (figure \@ref(fig:loadBoxes2)).
+Load boxes onto the platform of the robot (figure \@ref(fig:loadBoxes2)).
  * The first box should be flush with the fence and the guide rail.
  * The second box should be flush with the first and the guide rail.
  * The boxes we are using have a pair of double-thickness side-walls and a pair of single-thickness side-walls. The pairs are on opposite sides of the box. With this type of box it is important to note the orientation of the boxes when the Cartesian coordinates of the vials are determined, because the same orientation must be used when filling vials with food. We load the boxes with a double-thickness side-wall facing forwards.
 
-2. Login to raspberry pi using ssh. My raspberry pi has the IP address 192.168.1.3 and so I would use:
+
+## Determine box coordinates {#boxCoordinates}
+
+We need to determine the Cartesian coordinates of vials in diagonally opposite corners of each box.
+
+1. Login to raspberry pi using ssh. My raspberry pi has the IP address 192.168.1.3 and so I would use:
 * ``` ssh pi@192.168.1.3 ```
 * Default password for the **pi** user account is 'raspberry'.
 
-3. Use minicom to connect to the Grbl controller running on the Arduino, so that we can interactively control the robot from the command line:
+2. Use minicom to connect to the Grbl controller running on the Arduino, so that we can interactively control the robot from the command line:
 ```
 sudo minicom -D /dev/ttyACM0 -b115200
 ```
 
-4. Make sure nozzle is at ** home ** position by issuing homing command:
+3. Make sure nozzle is at ** home ** position by issuing homing command:
 ```
 $h
 ```
 
-5. First we will determine the Cartesian coordinates of the vial in the front left corner of the first box.
+4. First we will determine the Cartesian coordinates of the vial in the front left corner of the first box.
 
 * Make small movements in X and Y until the nozzle is centred over this vial, *e.g.*:
 ```
@@ -108,20 +108,20 @@ Make a note of all three coordinates.
 knitr::include_graphics("images/box1_first_vial.jpg")
 ```
 
-6. Issue G-code commands to move the nozzle laterally until it is over the back right vial of the first box (figure \@ref(fig:box1BackRight)).
+5. Issue G-code commands to move the nozzle laterally until it is over the back right vial of the first box (figure \@ref(fig:box1BackRight)).
 
 ```{r box1BackRight, echo = F, fig.cap = 'Nozzle positioned over the back right vial in box 1.', fig.align = 'center', fig.show='hold', out.width = '50%'}
 knitr::include_graphics("images/box1_last_vial.jpg")
 ```
 * Use ```?``` command to query nozzle position, and make a note of the X and Y coordinates:
 
-7. Move the nozzle laterally until it is over the front left vial of the second box (figure \@ref(fig:box2FrontLeft)), then record X and Y coordinates.
+6. Move the nozzle laterally until it is over the front left vial of the second box (figure \@ref(fig:box2FrontLeft)), then record X and Y coordinates.
 
 ```{r box2FrontLeft, echo = F, fig.cap = 'Nozzle positioned over the front left vial in box 2.', fig.align = 'center', fig.show='hold', out.width = '50%'}
 knitr::include_graphics("images/box2_first_vial.jpg")
 ```
 
-8. Finally determine the X and Y coordinates of the back right vial in the second box (figure \@ref(fig:box2BackRight)).
+7. Finally determine the X and Y coordinates of the back right vial in the second box (figure \@ref(fig:box2BackRight)).
 
 ```{r box2BackRight, echo = F, fig.cap = 'Nozzle positioned over the back right vial in box 2.', fig.align = 'center', fig.show='hold', out.width = '50%'}
 knitr::include_graphics("images/box2_last_vial.jpg")
@@ -211,7 +211,7 @@ knitr::kable(
 ```
 Once the robot has completed the calibration run and returned the nozzle to the home position, inspect the fill level in each row of vials. Identify the row in which vials are filled with the desired volume of food and then refer to the **/home/pi/robot/calibrate_pump.nc** file to find out the fill time used for that particular row.
 
-## Generate G-code
+## Generate programs
 Once the pump has been calibrated we are ready to generate the G-code instructions for the routine filling of vials. The **fill_boxes.py** script downloaded to the Raspberry Pi in stage \@ref(installScripts) is used to generate two G-code programs: 
 
 * **1_box.nc** - fill one box of vials

@@ -25,7 +25,7 @@
 <meta name="author" content="Matt Wayland">
 
 
-<meta name="date" content="2017-08-08">
+<meta name="date" content="2017-08-22">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -103,9 +103,10 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>5</b> Program robot to fill vials</a><ul>
 <li class="chapter" data-level="5.1" data-path="gcode.html"><a href="gcode.html#overview-2"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
-<li class="chapter" data-level="5.2" data-path="gcode.html"><a href="gcode.html#boxCoordinates"><i class="fa fa-check"></i><b>5.2</b> Determine box coordinates</a></li>
-<li class="chapter" data-level="5.3" data-path="gcode.html"><a href="gcode.html#calibratePump"><i class="fa fa-check"></i><b>5.3</b> Calibrate pump</a></li>
-<li class="chapter" data-level="5.4" data-path="gcode.html"><a href="gcode.html#generate-g-code"><i class="fa fa-check"></i><b>5.4</b> Generate G-code</a></li>
+<li class="chapter" data-level="5.2" data-path="gcode.html"><a href="gcode.html#loadBoxes"><i class="fa fa-check"></i><b>5.2</b> Load boxes</a></li>
+<li class="chapter" data-level="5.3" data-path="gcode.html"><a href="gcode.html#boxCoordinates"><i class="fa fa-check"></i><b>5.3</b> Determine box coordinates</a></li>
+<li class="chapter" data-level="5.4" data-path="gcode.html"><a href="gcode.html#calibratePump"><i class="fa fa-check"></i><b>5.4</b> Calibrate pump</a></li>
+<li class="chapter" data-level="5.5" data-path="gcode.html"><a href="gcode.html#generate-programs"><i class="fa fa-check"></i><b>5.5</b> Generate programs</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>6</b> Routine operation</a><ul>
 <li class="chapter" data-level="6.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>6.1</b> Prepare system</a></li>
@@ -135,7 +136,6 @@
             <section class="normal" id="section-">
 <div id="gcode" class="section level1">
 <h1><span class="header-section-number">5</span> Program robot to fill vials</h1>
-<p>Running job without GUI - for testing</p>
 <!--
 # need 8-9 ml
 # pump speed 1800ml/min
@@ -223,31 +223,27 @@ ok
 </table>
 <p>A G-code program for filling vials of food could be created manually, by listing the necessary commands sequentially in a text file. However, this would be laborious and error prone. If the size of the boxes of vials are known, the G-code can be programmatically generated.</p>
 </div>
-<div id="boxCoordinates" class="section level2">
-<h2><span class="header-section-number">5.2</span> Determine box coordinates</h2>
+<div id="loadBoxes" class="section level2">
+<h2><span class="header-section-number">5.2</span> Load boxes</h2>
 <div class="figure" style="text-align: center"><span id="fig:loadBoxes2"></span>
 <img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
 <p class="caption">
 Figure 5.1: Loading boxes of vials.
 </p>
 </div>
-<p>First we need to determine the Cartesian coordinates of vials in diagonally opposite corners of each box.</p>
+<p>Load boxes onto the platform of the robot (figure <a href="gcode.html#fig:loadBoxes2">5.1</a>). * The first box should be flush with the fence and the guide rail. * The second box should be flush with the first and the guide rail. * The boxes we are using have a pair of double-thickness side-walls and a pair of single-thickness side-walls. The pairs are on opposite sides of the box. With this type of box it is important to note the orientation of the boxes when the Cartesian coordinates of the vials are determined, because the same orientation must be used when filling vials with food. We load the boxes with a double-thickness side-wall facing forwards.</p>
+</div>
+<div id="boxCoordinates" class="section level2">
+<h2><span class="header-section-number">5.3</span> Determine box coordinates</h2>
+<p>We need to determine the Cartesian coordinates of vials in diagonally opposite corners of each box.</p>
 <ol style="list-style-type: decimal">
-<li>Load boxes onto the platform of the robot (figure <a href="gcode.html#fig:loadBoxes2">5.1</a>).</li>
-</ol>
-<ul>
-<li>The first box should be flush with the fence and the guide rail.</li>
-<li>The second box should be flush with the first and the guide rail.</li>
-<li>The boxes we are using have a pair of double-thickness side-walls and a pair of single-thickness side-walls. The pairs are on opposite sides of the box. With this type of box it is important to note the orientation of the boxes when the Cartesian coordinates of the vials are determined, because the same orientation must be used when filling vials with food. We load the boxes with a double-thickness side-wall facing forwards.</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
 <li>Login to raspberry pi using ssh. My raspberry pi has the IP address 192.168.1.3 and so I would use:</li>
 </ol>
 <ul>
 <li><code>ssh pi@192.168.1.3</code></li>
 <li>Default password for the <strong>pi</strong> user account is ‘raspberry’.</li>
 </ul>
-<ol start="3" style="list-style-type: decimal">
+<ol start="2" style="list-style-type: decimal">
 <li><p>Use minicom to connect to the Grbl controller running on the Arduino, so that we can interactively control the robot from the command line:</p>
 <pre><code>sudo minicom -D /dev/ttyACM0 -b115200</code></pre></li>
 <li><p>Make sure nozzle is at ** home ** position by issuing homing command:</p>
@@ -269,7 +265,7 @@ Figure 5.1: Loading boxes of vials.
 Figure 5.2: Nozzle positioned over the front left vial in box 1.
 </p>
 </div>
-<ol start="6" style="list-style-type: decimal">
+<ol start="5" style="list-style-type: decimal">
 <li>Issue G-code commands to move the nozzle laterally until it is over the back right vial of the first box (figure <a href="gcode.html#fig:box1BackRight">5.3</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:box1BackRight"></span>
@@ -281,7 +277,7 @@ Figure 5.3: Nozzle positioned over the back right vial in box 1.
 <ul>
 <li>Use <code>?</code> command to query nozzle position, and make a note of the X and Y coordinates:</li>
 </ul>
-<ol start="7" style="list-style-type: decimal">
+<ol start="6" style="list-style-type: decimal">
 <li>Move the nozzle laterally until it is over the front left vial of the second box (figure <a href="gcode.html#fig:box2FrontLeft">5.4</a>), then record X and Y coordinates.</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:box2FrontLeft"></span>
@@ -290,7 +286,7 @@ Figure 5.3: Nozzle positioned over the back right vial in box 1.
 Figure 5.4: Nozzle positioned over the front left vial in box 2.
 </p>
 </div>
-<ol start="8" style="list-style-type: decimal">
+<ol start="7" style="list-style-type: decimal">
 <li>Finally determine the X and Y coordinates of the back right vial in the second box (figure <a href="gcode.html#fig:box2BackRight">5.5</a>).</li>
 </ol>
 <div class="figure" style="text-align: center"><span id="fig:box2BackRight"></span>
@@ -301,7 +297,7 @@ Figure 5.5: Nozzle positioned over the back right vial in box 2.
 </div>
 </div>
 <div id="calibratePump" class="section level2">
-<h2><span class="header-section-number">5.3</span> Calibrate pump</h2>
+<h2><span class="header-section-number">5.4</span> Calibrate pump</h2>
 <!--
 # need 8-9 ml
 # pump speed 1800ml/min
@@ -343,9 +339,9 @@ ncols=10</code></pre>
 <ul>
 <li>The <strong>filename</strong> is the full path to the G-code file that will be generated by the python script.</li>
 <li>The parameters <strong>x_home, y_home</strong> and <strong>z_home</strong> are the Cartesian coordinates of the home position (<em>i.e.</em> home/datum + homing pull-off (mm)).</li>
-<li>Modify <strong>z_fill</strong> to the appropriate nozzle height for filling vials (this was determined in step 5 of section <a href="gcode.html#boxCoordinates">5.2</a>).</li>
+<li>Modify <strong>z_fill</strong> to the appropriate nozzle height for filling vials (this was determined in step 5 of section <a href="gcode.html#boxCoordinates">5.3</a>).</li>
 <li>The <strong>min_fill_time</strong> should be set to our estimate of <em>fill time</em> based on the pump’s specified flow rate. We will set <strong>max_fill_time</strong> to twice the value of <strong>min_fill_time</strong>.</li>
-<li>The vial coordinates (<strong>frontLeft</strong> and <strong>frontRight</strong>) are those determined for the front left and back right vials in the first box (refer to steps 5 and 6 of section <a href="gcode.html#boxCoordinates">5.2</a>).</li>
+<li>The vial coordinates (<strong>frontLeft</strong> and <strong>frontRight</strong>) are those determined for the front left and back right vials in the first box (refer to steps 5 and 6 of section <a href="gcode.html#boxCoordinates">5.3</a>).</li>
 <li>Our boxes have ten rows, each containing ten vials, so we set <strong>nrows</strong> and <strong>ncols</strong> to 10.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
@@ -411,8 +407,8 @@ ncols=10</code></pre>
 <p>Once the robot has completed the calibration run and returned the nozzle to the home position, inspect the fill level in each row of vials. Identify the row in which vials are filled with the desired volume of food and then refer to the <strong>/home/pi/robot/calibrate_pump.nc</strong> file to find out the fill time used for that particular row.</p></li>
 </ol>
 </div>
-<div id="generate-g-code" class="section level2">
-<h2><span class="header-section-number">5.4</span> Generate G-code</h2>
+<div id="generate-programs" class="section level2">
+<h2><span class="header-section-number">5.5</span> Generate programs</h2>
 <p>Once the pump has been calibrated we are ready to generate the G-code instructions for the routine filling of vials. The <strong>fill_boxes.py</strong> script downloaded to the Raspberry Pi in stage <a href="raspi.html#installScripts">3.6</a> is used to generate two G-code programs:</p>
 <ul>
 <li><strong>1_box.nc</strong> - fill one box of vials</li>
@@ -456,10 +452,10 @@ nVials=nrows*ncols</code></pre>
 <ul>
 <li><strong>filename1Box</strong> and <strong>filename2Boxes</strong> specify the filename and full path to the two G-code programs that will be generated. You should not need to modify these values. The GUI script (<strong>/home/pi/robot/py/fly_gui.py</strong>) expects the two programs to have the default names and paths; if you alter the names or paths of these files, you will need to edit the GUI script.</li>
 <li>The parameters <strong>x_home, y_home</strong> and <strong>z_home</strong> are the Cartesian coordinates of the home position (<em>i.e.</em> home/datum + homing pull-off (mm)).</li>
-<li>Modify <strong>z_fill</strong> to the appropriate nozzle height for filling vials (this was determined in step 5 of section <a href="gcode.html#boxCoordinates">5.2</a>).</li>
-<li><strong>fill_time</strong> was determined in the previous section <a href="gcode.html#calibratePump">5.3</a>.</li>
+<li>Modify <strong>z_fill</strong> to the appropriate nozzle height for filling vials (this was determined in step 5 of section <a href="gcode.html#boxCoordinates">5.3</a>).</li>
+<li><strong>fill_time</strong> was determined in the previous section <a href="gcode.html#calibratePump">5.4</a>.</li>
 <li>The default value of <strong>drip_pause</strong> should be appropriate for most systems.</li>
-<li>The vial coordinates (<strong>box1FrontLeft</strong>, <strong>box1BackRight</strong>, <strong>box2FrontLeft</strong> and <strong>box2BackRight</strong>) were determined in section <a href="gcode.html#boxCoordinates">5.2</a>.</li>
+<li>The vial coordinates (<strong>box1FrontLeft</strong>, <strong>box1BackRight</strong>, <strong>box2FrontLeft</strong> and <strong>box2BackRight</strong>) were determined in section <a href="gcode.html#boxCoordinates">5.3</a>.</li>
 <li>Our boxes have ten rows, each containing ten vials, so we set <strong>nrows</strong> and <strong>ncols</strong> to 10.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">

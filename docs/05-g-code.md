@@ -1,7 +1,5 @@
 # Program robot to fill vials {#gcode}
 
-Running job without GUI - for testing
-
 <!--
 # need 8-9 ml
 # pump speed 1800ml/min
@@ -43,54 +41,67 @@ ok
 ## Overview
 The movement of the robot is programmed in [G-code](https://en.wikipedia.org/wiki/G-code). We only need nine G-code commands to control the robot (table \@ref(tab:gCodes)).
 
+\begin{table}
 
-Table: (\#tab:gCodes)G-code commands used to control robot.
-
-Code   Description                                        
------  ---------------------------------------------------
-x      absolute position of x-axis                        
-y      absolute position of y-axis                        
-z      absolute position of z-axis                        
-g4     dwell time (control parameter p specifies seconds) 
-m3     set pump rotation to clockwise                     
-m4     set pump rotation to counter clockwise             
-m8     start pump                                         
-m9     stop pump                                          
-$h     initiate homing cycle                              
+\caption{(\#tab:gCodes)G-code commands used to control robot.}
+\centering
+\begin{tabular}[t]{ll}
+\toprule
+Code & Description\\
+\midrule
+x & absolute position of x-axis\\
+y & absolute position of y-axis\\
+z & absolute position of z-axis\\
+g4 & dwell time (control parameter p specifies seconds)\\
+m3 & set pump rotation to clockwise\\
+\addlinespace
+m4 & set pump rotation to counter clockwise\\
+m8 & start pump\\
+m9 & stop pump\\
+\$h & initiate homing cycle\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 A G-code program for filling vials of food could be created manually, by listing the necessary commands sequentially in a text file.  However, this would be laborious and error prone. If the size of the boxes of vials are known, the G-code can be programmatically generated. 
 
 
-## Determine box coordinates {#boxCoordinates}
+## Load boxes {#loadBoxes}
 
-<div class="figure" style="text-align: center">
-<img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
-<p class="caption">(\#fig:loadBoxes2)Loading boxes of vials.</p>
-</div>
+\begin{figure}
 
+{\centering \includegraphics[width=0.5\linewidth]{images/one_box_loaded} \includegraphics[width=0.5\linewidth]{images/two_boxes_loaded} 
 
-First we need to determine the Cartesian coordinates of vials in diagonally opposite corners of each box.
+}
 
-1. Load boxes onto the platform of the robot (figure \@ref(fig:loadBoxes2)).
+\caption{Loading boxes of vials.}(\#fig:loadBoxes2)
+\end{figure}
+
+Load boxes onto the platform of the robot (figure \@ref(fig:loadBoxes2)).
  * The first box should be flush with the fence and the guide rail.
  * The second box should be flush with the first and the guide rail.
  * The boxes we are using have a pair of double-thickness side-walls and a pair of single-thickness side-walls. The pairs are on opposite sides of the box. With this type of box it is important to note the orientation of the boxes when the Cartesian coordinates of the vials are determined, because the same orientation must be used when filling vials with food. We load the boxes with a double-thickness side-wall facing forwards.
 
-2. Login to raspberry pi using ssh. My raspberry pi has the IP address 192.168.1.3 and so I would use:
+
+## Determine box coordinates {#boxCoordinates}
+
+We need to determine the Cartesian coordinates of vials in diagonally opposite corners of each box.
+
+1. Login to raspberry pi using ssh. My raspberry pi has the IP address 192.168.1.3 and so I would use:
 * ``` ssh pi@192.168.1.3 ```
 * Default password for the **pi** user account is 'raspberry'.
 
-3. Use minicom to connect to the Grbl controller running on the Arduino, so that we can interactively control the robot from the command line:
+2. Use minicom to connect to the Grbl controller running on the Arduino, so that we can interactively control the robot from the command line:
 ```
 sudo minicom -D /dev/ttyACM0 -b115200
 ```
 
-4. Make sure nozzle is at ** home ** position by issuing homing command:
+3. Make sure nozzle is at ** home ** position by issuing homing command:
 ```
 $h
 ```
 
-5. First we will determine the Cartesian coordinates of the vial in the front left corner of the first box.
+4. First we will determine the Cartesian coordinates of the vial in the front left corner of the first box.
 
 * Make small movements in X and Y until the nozzle is centred over this vial, *e.g.*:
 ```
@@ -109,32 +120,48 @@ z-20
 Make a note of all three coordinates. 
 
 
-<div class="figure" style="text-align: center">
-<img src="images/box1_first_vial.jpg" alt="Nozzle positioned over the front left vial in box 1." width="50%" />
-<p class="caption">(\#fig:box1FrontLeft)Nozzle positioned over the front left vial in box 1.</p>
-</div>
+\begin{figure}
 
-6. Issue G-code commands to move the nozzle laterally until it is over the back right vial of the first box (figure \@ref(fig:box1BackRight)).
+{\centering \includegraphics[width=0.5\linewidth]{images/box1_first_vial} 
 
-<div class="figure" style="text-align: center">
-<img src="images/box1_last_vial.jpg" alt="Nozzle positioned over the back right vial in box 1." width="50%" />
-<p class="caption">(\#fig:box1BackRight)Nozzle positioned over the back right vial in box 1.</p>
-</div>
+}
+
+\caption{Nozzle positioned over the front left vial in box 1.}(\#fig:box1FrontLeft)
+\end{figure}
+
+5. Issue G-code commands to move the nozzle laterally until it is over the back right vial of the first box (figure \@ref(fig:box1BackRight)).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/box1_last_vial} 
+
+}
+
+\caption{Nozzle positioned over the back right vial in box 1.}(\#fig:box1BackRight)
+\end{figure}
 * Use ```?``` command to query nozzle position, and make a note of the X and Y coordinates:
 
-7. Move the nozzle laterally until it is over the front left vial of the second box (figure \@ref(fig:box2FrontLeft)), then record X and Y coordinates.
+6. Move the nozzle laterally until it is over the front left vial of the second box (figure \@ref(fig:box2FrontLeft)), then record X and Y coordinates.
 
-<div class="figure" style="text-align: center">
-<img src="images/box2_first_vial.jpg" alt="Nozzle positioned over the front left vial in box 2." width="50%" />
-<p class="caption">(\#fig:box2FrontLeft)Nozzle positioned over the front left vial in box 2.</p>
-</div>
+\begin{figure}
 
-8. Finally determine the X and Y coordinates of the back right vial in the second box (figure \@ref(fig:box2BackRight)).
+{\centering \includegraphics[width=0.5\linewidth]{images/box2_first_vial} 
 
-<div class="figure" style="text-align: center">
-<img src="images/box2_last_vial.jpg" alt="Nozzle positioned over the back right vial in box 2." width="50%" />
-<p class="caption">(\#fig:box2BackRight)Nozzle positioned over the back right vial in box 2.</p>
-</div>
+}
+
+\caption{Nozzle positioned over the front left vial in box 2.}(\#fig:box2FrontLeft)
+\end{figure}
+
+7. Finally determine the X and Y coordinates of the back right vial in the second box (figure \@ref(fig:box2BackRight)).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/box2_last_vial} 
+
+}
+
+\caption{Nozzle positioned over the back right vial in box 2.}(\#fig:box2BackRight)
+\end{figure}
 
 
 
@@ -201,21 +228,28 @@ head -n12 ~/robot/nc/calibrate_pump.nc
 ```
 
 
+\begin{table}
 
-Table: (\#tab:calibrationFillTimes)Example calibration fill times.
-
- Box Row   Fill Time
---------  ----------
-       1        0.30
-       2        0.33
-       3        0.37
-       4        0.40
-       5        0.43
-       6        0.47
-       7        0.50
-       8        0.53
-       9        0.57
-      10        0.60
+\caption{(\#tab:calibrationFillTimes)Example calibration fill times.}
+\centering
+\begin{tabular}[t]{rr}
+\toprule
+Box Row & Fill Time\\
+\midrule
+1 & 0.30\\
+2 & 0.33\\
+3 & 0.37\\
+4 & 0.40\\
+5 & 0.43\\
+\addlinespace
+6 & 0.47\\
+7 & 0.50\\
+8 & 0.53\\
+9 & 0.57\\
+10 & 0.60\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 4. Send the G-code pump-calibration program to the Grbl controller
@@ -225,7 +259,7 @@ Table: (\#tab:calibrationFillTimes)Example calibration fill times.
 ```
 Once the robot has completed the calibration run and returned the nozzle to the home position, inspect the fill level in each row of vials. Identify the row in which vials are filled with the desired volume of food and then refer to the **/home/pi/robot/calibrate_pump.nc** file to find out the fill time used for that particular row.
 
-## Generate G-code
+## Generate programs
 Once the pump has been calibrated we are ready to generate the G-code instructions for the routine filling of vials. The **fill_boxes.py** script downloaded to the Raspberry Pi in stage \@ref(installScripts) is used to generate two G-code programs: 
 
 * **1_box.nc** - fill one box of vials
