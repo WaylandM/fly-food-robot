@@ -1,4 +1,6 @@
-![zenodo](https://zenodo.org/badge/DOI/10.5281/zenodo.846812.svg)
+[![DOI](https://zenodo.org/badge/86048412.svg)](https://zenodo.org/badge/latestdoi/86048412)
+
+
 
 # Cartesian coordinate robot for dispensing fruit fly food
 
