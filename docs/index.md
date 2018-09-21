@@ -1,7 +1,7 @@
 --- 
 title: "CNC Fly Food Dispenser"
 author: "Matt Wayland"
-date: "2017-08-22"
+date: "2018-09-21"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -16,8 +16,7 @@ cover-image: images/system.jpg
 
 # Preface{-}
 
-
-\begin{center}\includegraphics[width=0.75\linewidth]{images/system} \end{center}
+<img src="images/system.jpg" width="75%" style="display: block; margin: auto;" />
 
 <!---, fig.cap="Robot"--->
 
@@ -36,6 +35,9 @@ License for software and documentation:
 ## Contact{-}
 <a href="mailto:mw283@cam.ac.uk">Matt Wayland</a>
 
+## Publication{-}
+Article in [Journal of Open Hardware](https://openhardware.metajnl.com/):
+https://openhardware.metajnl.com/articles/10.5334/joh.9/
 
 ## Colophon{-}
 

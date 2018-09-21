@@ -41,41 +41,30 @@ ok
 ## Overview
 The movement of the robot is programmed in [G-code](https://en.wikipedia.org/wiki/G-code). We only need nine G-code commands to control the robot (table \@ref(tab:gCodes)).
 
-\begin{table}
 
-\caption{(\#tab:gCodes)G-code commands used to control robot.}
-\centering
-\begin{tabular}[t]{ll}
-\toprule
-Code & Description\\
-\midrule
-x & absolute position of x-axis\\
-y & absolute position of y-axis\\
-z & absolute position of z-axis\\
-g4 & dwell time (control parameter p specifies seconds)\\
-m3 & set pump rotation to clockwise\\
-\addlinespace
-m4 & set pump rotation to counter clockwise\\
-m8 & start pump\\
-m9 & stop pump\\
-\$h & initiate homing cycle\\
-\bottomrule
-\end{tabular}
-\end{table}
+Table: (\#tab:gCodes)G-code commands used to control robot.
+
+Code   Description                                        
+-----  ---------------------------------------------------
+x      absolute position of x-axis                        
+y      absolute position of y-axis                        
+z      absolute position of z-axis                        
+g4     dwell time (control parameter p specifies seconds) 
+m3     set pump rotation to clockwise                     
+m4     set pump rotation to counter clockwise             
+m8     start pump                                         
+m9     stop pump                                          
+$h     initiate homing cycle                              
 
 A G-code program for filling vials of food could be created manually, by listing the necessary commands sequentially in a text file.  However, this would be laborious and error prone. If the size of the boxes of vials are known, the G-code can be programmatically generated. 
 
 
 ## Load boxes {#loadBoxes}
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{images/one_box_loaded} \includegraphics[width=0.5\linewidth]{images/two_boxes_loaded} 
-
-}
-
-\caption{Loading boxes of vials.}(\#fig:loadBoxes2)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
+<p class="caption">(\#fig:loadBoxes2)Loading boxes of vials.</p>
+</div>
 
 Load boxes onto the platform of the robot (figure \@ref(fig:loadBoxes2)).
  * The first box should be flush with the fence and the guide rail.
@@ -120,48 +109,32 @@ z-20
 Make a note of all three coordinates. 
 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{images/box1_first_vial} 
-
-}
-
-\caption{Nozzle positioned over the front left vial in box 1.}(\#fig:box1FrontLeft)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/box1_first_vial.jpg" alt="Nozzle positioned over the front left vial in box 1." width="50%" />
+<p class="caption">(\#fig:box1FrontLeft)Nozzle positioned over the front left vial in box 1.</p>
+</div>
 
 5. Issue G-code commands to move the nozzle laterally until it is over the back right vial of the first box (figure \@ref(fig:box1BackRight)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{images/box1_last_vial} 
-
-}
-
-\caption{Nozzle positioned over the back right vial in box 1.}(\#fig:box1BackRight)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/box1_last_vial.jpg" alt="Nozzle positioned over the back right vial in box 1." width="50%" />
+<p class="caption">(\#fig:box1BackRight)Nozzle positioned over the back right vial in box 1.</p>
+</div>
 * Use ```?``` command to query nozzle position, and make a note of the X and Y coordinates:
 
 6. Move the nozzle laterally until it is over the front left vial of the second box (figure \@ref(fig:box2FrontLeft)), then record X and Y coordinates.
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{images/box2_first_vial} 
-
-}
-
-\caption{Nozzle positioned over the front left vial in box 2.}(\#fig:box2FrontLeft)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/box2_first_vial.jpg" alt="Nozzle positioned over the front left vial in box 2." width="50%" />
+<p class="caption">(\#fig:box2FrontLeft)Nozzle positioned over the front left vial in box 2.</p>
+</div>
 
 7. Finally determine the X and Y coordinates of the back right vial in the second box (figure \@ref(fig:box2BackRight)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.5\linewidth]{images/box2_last_vial} 
-
-}
-
-\caption{Nozzle positioned over the back right vial in box 2.}(\#fig:box2BackRight)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/box2_last_vial.jpg" alt="Nozzle positioned over the back right vial in box 2." width="50%" />
+<p class="caption">(\#fig:box2BackRight)Nozzle positioned over the back right vial in box 2.</p>
+</div>
 
 
 
@@ -228,28 +201,21 @@ head -n12 ~/robot/nc/calibrate_pump.nc
 ```
 
 
-\begin{table}
 
-\caption{(\#tab:calibrationFillTimes)Example calibration fill times.}
-\centering
-\begin{tabular}[t]{rr}
-\toprule
-Box Row & Fill Time\\
-\midrule
-1 & 0.30\\
-2 & 0.33\\
-3 & 0.37\\
-4 & 0.40\\
-5 & 0.43\\
-\addlinespace
-6 & 0.47\\
-7 & 0.50\\
-8 & 0.53\\
-9 & 0.57\\
-10 & 0.60\\
-\bottomrule
-\end{tabular}
-\end{table}
+Table: (\#tab:calibrationFillTimes)Example calibration fill times.
+
+ Box Row   Fill Time
+--------  ----------
+       1        0.30
+       2        0.33
+       3        0.37
+       4        0.40
+       5        0.43
+       6        0.47
+       7        0.50
+       8        0.53
+       9        0.57
+      10        0.60
 
 
 4. Send the G-code pump-calibration program to the Grbl controller

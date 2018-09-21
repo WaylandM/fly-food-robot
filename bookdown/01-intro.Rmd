@@ -10,4 +10,6 @@ Software installation and configuration on the Arduino and raspberry pi are deta
 
 https://doi.org/10.6084/m9.figshare.5175223.v1
  
- 
+An article providing an overview of this project has been published in the [Journal of Open Hardware](https://openhardware.metajnl.com/):
+https://openhardware.metajnl.com/articles/10.5334/joh.9/
+

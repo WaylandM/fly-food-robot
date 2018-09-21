@@ -10,25 +10,17 @@ Load boxes onto platform as described in section \@ref(loadBoxes).
 
 From the touchscreen menu select **1 Box** or **2 Boxes** depending on the number of boxes on the platform (figure \@ref(fig:touchscreen)). The robot will **home** to zero the cartesian coordinate system, and then commence filling the vials. 
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.6\linewidth]{images/gui} 
-
-}
-
-\caption{Touchscreen interface.}(\#fig:touchscreen)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/gui.jpg" alt="Touchscreen interface." width="60%" />
+<p class="caption">(\#fig:touchscreen)Touchscreen interface.</p>
+</div>
 
 During filling the robot can be stopped by clicking on the **Stop** button (figure \@ref(fig:stopRobot)).
 
-\begin{figure}
-
-{\centering \includegraphics[width=0.6\linewidth]{images/gui_stop2} 
-
-}
-
-\caption{Appearance of touchscreen interface when a job is running.}(\#fig:stopRobot)
-\end{figure}
+<div class="figure" style="text-align: center">
+<img src="images/gui_stop2.jpg" alt="Appearance of touchscreen interface when a job is running." width="60%" />
+<p class="caption">(\#fig:stopRobot)Appearance of touchscreen interface when a job is running.</p>
+</div>
 
 
 ## Shutdown

@@ -84,7 +84,7 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2017-08-22}
+  \date{2018-09-21}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -104,8 +104,11 @@
 \newtheorem{proposition}{Proposition}[chapter]
 \theoremstyle{definition}
 \newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -133,6 +136,13 @@ License for software and documentation:
 \addcontentsline{toc}{section}{Contact}
 
 Matt Wayland
+
+\section*{Publication}\label{publication}
+\addcontentsline{toc}{section}{Publication}
+
+Article in \href{https://openhardware.metajnl.com/}{Journal of Open
+Hardware}:
+\url{https://openhardware.metajnl.com/articles/10.5334/joh.9/}
 
 \section*{Colophon}\label{colophon}
 \addcontentsline{toc}{section}{Colophon}
@@ -180,6 +190,10 @@ Instructions for the routine use of the robot are provided in chapter
 \ref{operation}. To see a video of the robot in action, go to:
 
 \url{https://doi.org/10.6084/m9.figshare.5175223.v1}
+
+An article providing an overview of this project has been published in
+the \href{https://openhardware.metajnl.com/}{Journal of Open Hardware}:
+\url{https://openhardware.metajnl.com/articles/10.5334/joh.9/}
 
 \chapter{Grbl installation and configuration}\label{grbl}
 
@@ -1532,7 +1546,7 @@ button (figure \ref{fig:stopRobot}).
   platform can be removed for thorough cleaning.
 \end{itemize}
 
-\bibliography{packages.bib,book.bib}
+\bibliography{book.bib,packages.bib}
 
 
 \end{document}

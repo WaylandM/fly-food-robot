@@ -20,3 +20,8 @@ https://github.com/WaylandM/fly-food-robot/tree/master/raspberrypi/robot/
 ## Operating instructions
 A bookdown book describing software installation, configuration and operation of the robot can be found here:
 https://waylandm.github.io/fly-food-robot/
+
+## Publication
+An article providing an overview of this project has been published in the [Journal of Open Hardware](https://openhardware.metajnl.com/):
+https://openhardware.metajnl.com/articles/10.5334/joh.9/
+

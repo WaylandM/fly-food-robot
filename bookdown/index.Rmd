@@ -37,6 +37,9 @@ License for software and documentation:
 ## Contact{-}
 <a href="mailto:mw283@cam.ac.uk">Matt Wayland</a>
 
+## Publication{-}
+Article in [Journal of Open Hardware](https://openhardware.metajnl.com/):
+https://openhardware.metajnl.com/articles/10.5334/joh.9/
 
 ## Colophon{-}
 
