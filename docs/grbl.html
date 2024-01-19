@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CNC Fly Food Dispenser</title>
-  <meta name="description" content="Manual for CNC Fly Food Dispenser">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Grbl installation and configuration | CNC Fly Food Dispenser</title>
+  <meta name="description" content="Manual for CNC Fly Food Dispenser" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="CNC Fly Food Dispenser" />
+  <meta property="og:title" content="2 Grbl installation and configuration | CNC Fly Food Dispenser" />
   <meta property="og:type" content="book" />
-  
-  <meta property="og:image" content="images/system.jpg" />
+  <meta property="og:image" content="/images/system.jpg" />
   <meta property="og:description" content="Manual for CNC Fly Food Dispenser" />
   <meta name="github-repo" content="waylandm/fly-food-robot" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="CNC Fly Food Dispenser" />
+  <meta name="twitter:title" content="2 Grbl installation and configuration | CNC Fly Food Dispenser" />
   
   <meta name="twitter:description" content="Manual for CNC Fly Food Dispenser" />
-  <meta name="twitter:image" content="images/system.jpg" />
+  <meta name="twitter:image" content="/images/system.jpg" />
 
-<meta name="author" content="Matt Wayland">
+<meta name="author" content="Matt Wayland" />
 
 
-<meta name="date" content="2018-09-21">
+<meta name="date" content="2024-01-19" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html">
-<link rel="next" href="raspi.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="raspi.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,7 +49,38 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -66,7 +98,8 @@
 <li><a href="./">Fly Food Robot</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#github"><i class="fa fa-check"></i>Github</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
@@ -74,11 +107,13 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#colophon"><i class="fa fa-check"></i>Colophon</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="grbl.html"><a href="grbl.html"><i class="fa fa-check"></i><b>2</b> Grbl installation and configuration</a><ul>
+<li class="chapter" data-level="2" data-path="grbl.html"><a href="grbl.html"><i class="fa fa-check"></i><b>2</b> Grbl installation and configuration</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="grbl.html"><a href="grbl.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
 <li class="chapter" data-level="2.2" data-path="grbl.html"><a href="grbl.html#flashing-grbl-to-arduino"><i class="fa fa-check"></i><b>2.2</b> Flashing Grbl to Arduino</a></li>
 <li class="chapter" data-level="2.3" data-path="grbl.html"><a href="grbl.html#check-serial-connection-to-grbl"><i class="fa fa-check"></i><b>2.3</b> Check serial connection to Grbl</a></li>
-<li class="chapter" data-level="2.4" data-path="grbl.html"><a href="grbl.html#grbl-configuration"><i class="fa fa-check"></i><b>2.4</b> Grbl configuration</a><ul>
+<li class="chapter" data-level="2.4" data-path="grbl.html"><a href="grbl.html#grbl-configuration"><i class="fa fa-check"></i><b>2.4</b> Grbl configuration</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="grbl.html"><a href="grbl.html#read-current-configuration"><i class="fa fa-check"></i><b>2.4.1</b> Read current configuration</a></li>
 <li class="chapter" data-level="2.4.2" data-path="grbl.html"><a href="grbl.html#check-directionality-of-each-axis."><i class="fa fa-check"></i><b>2.4.2</b> Check directionality of each axis.</a></li>
 <li class="chapter" data-level="2.4.3" data-path="grbl.html"><a href="grbl.html#activate-hard-limits"><i class="fa fa-check"></i><b>2.4.3</b> Activate hard limits</a></li>
@@ -89,7 +124,8 @@
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="grbl.html"><a href="grbl.html#setting-motor-current"><i class="fa fa-check"></i><b>2.5</b> Setting motor current</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="raspi.html"><a href="raspi.html"><i class="fa fa-check"></i><b>3</b> Raspberry Pi setup</a><ul>
+<li class="chapter" data-level="3" data-path="raspi.html"><a href="raspi.html"><i class="fa fa-check"></i><b>3</b> Raspberry Pi setup</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="raspi.html"><a href="raspi.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="raspi.html"><a href="raspi.html#install-image"><i class="fa fa-check"></i><b>3.2</b> Install image</a></li>
 <li class="chapter" data-level="3.3" data-path="raspi.html"><a href="raspi.html#network-configuration"><i class="fa fa-check"></i><b>3.3</b> Network configuration</a></li>
@@ -97,19 +133,22 @@
 <li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.5</b> Expand filesystem</a></li>
 <li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#installScripts"><i class="fa fa-check"></i><b>3.6</b> Install python scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="startup.html"><a href="startup.html"><i class="fa fa-check"></i><b>4</b> System start-up</a><ul>
+<li class="chapter" data-level="4" data-path="startup.html"><a href="startup.html"><i class="fa fa-check"></i><b>4</b> System start-up</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="startup.html"><a href="startup.html#attach-norprene-tubing"><i class="fa fa-check"></i><b>4.1</b> Attach Norprene tubing</a></li>
 <li class="chapter" data-level="4.2" data-path="startup.html"><a href="startup.html#switch-on-all-devices"><i class="fa fa-check"></i><b>4.2</b> Switch on all devices</a></li>
 <li class="chapter" data-level="4.3" data-path="startup.html"><a href="startup.html#prime-pump"><i class="fa fa-check"></i><b>4.3</b> Prime pump</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>5</b> Program robot to fill vials</a><ul>
+<li class="chapter" data-level="5" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>5</b> Program robot to fill vials</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="gcode.html"><a href="gcode.html#overview-2"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
 <li class="chapter" data-level="5.2" data-path="gcode.html"><a href="gcode.html#loadBoxes"><i class="fa fa-check"></i><b>5.2</b> Load boxes</a></li>
 <li class="chapter" data-level="5.3" data-path="gcode.html"><a href="gcode.html#boxCoordinates"><i class="fa fa-check"></i><b>5.3</b> Determine box coordinates</a></li>
 <li class="chapter" data-level="5.4" data-path="gcode.html"><a href="gcode.html#calibratePump"><i class="fa fa-check"></i><b>5.4</b> Calibrate pump</a></li>
 <li class="chapter" data-level="5.5" data-path="gcode.html"><a href="gcode.html#generate-programs"><i class="fa fa-check"></i><b>5.5</b> Generate programs</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>6</b> Routine operation</a><ul>
+<li class="chapter" data-level="6" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>6</b> Routine operation</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>6.1</b> Prepare system</a></li>
 <li class="chapter" data-level="6.2" data-path="operation.html"><a href="operation.html#fill-boxes"><i class="fa fa-check"></i><b>6.2</b> Fill boxes</a></li>
 <li class="chapter" data-level="6.3" data-path="operation.html"><a href="operation.html#shutdown"><i class="fa fa-check"></i><b>6.3</b> Shutdown</a></li>
@@ -135,14 +174,14 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="grbl" class="section level1">
-<h1><span class="header-section-number">2</span> Grbl installation and configuration</h1>
-<div id="overview" class="section level2">
-<h2><span class="header-section-number">2.1</span> Overview</h2>
+<div id="grbl" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Grbl installation and configuration<a href="grbl.html#grbl" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="overview" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Overview<a href="grbl.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>CNC motion control is provided by grbl (<a href="https://github.com/gnea/grbl" class="uri">https://github.com/gnea/grbl</a>), an open source, embedded, high performance g-code parser. Grbl is written in optimized C and runs directly on an Arduino. This is used in conjunction with the gShield (formerly known as grblshield) which provides the hardware drivers for the stepper motors. Grbl sends out TTL signals on pins A3 and 13 of the Arduino to control coolant flow and spindle direction, respectively. Here these signals are used to remotely control a peristaltic pump.</p>
 </div>
-<div id="flashing-grbl-to-arduino" class="section level2">
-<h2><span class="header-section-number">2.2</span> Flashing Grbl to Arduino</h2>
+<div id="flashing-grbl-to-arduino" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Flashing Grbl to Arduino<a href="grbl.html#flashing-grbl-to-arduino" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To flash Grbl to the Arduino you will need a computer with the latest version of the <a href="https://www.arduino.cc/en/Main/Software">Arduino IDE</a> installed. The following instructions for flashing Grbl to the Arduino are taken from: <a href="https://github.com/gnea/grbl/wiki/Compiling-Grbl" class="uri">https://github.com/gnea/grbl/wiki/Compiling-Grbl</a></p>
 <p><em><strong>NOTE: Before starting, delete prior Grbl library installations from the Arduino IDE. Otherwise, you’ll have compiling issues! On a Mac, Arduino libraries are located in <code>~/Documents/Arduino/libraries/</code>. On Windows, it’s in <code>My Documents\Arduino\libraries</code>.</strong></em></p>
 <ol style="list-style-type: decimal">
@@ -161,7 +200,7 @@
 <ul>
 <li>Make sure you are using the most recent version of the Arduino IDE!</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:arduinoIDE"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:arduinoIDE"></span>
 <img src="images/arduino_IDE.png" alt="Arduino IDE" width="75%" />
 <p class="caption">
 Figure 2.1: Arduino IDE
@@ -174,7 +213,7 @@ Figure 2.1: Arduino IDE
 <li>Click the <code>Sketch</code> drop-down menu, navigate to <code>Include Library</code> and select <code>Add .ZIP Library</code>.</li>
 <li><strong>IMPORTANT:</strong> Select the <code>Grbl</code> folder <strong><em>inside</em></strong> the <code>grbl-XXX</code> folder, which <strong>only</strong> contains the source files and an example directory (figure <a href="grbl.html#fig:addGrblLib">2.2</a>).</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:addGrblLib"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:addGrblLib"></span>
 <img src="images/add_grbl_lib.png" alt="Loading Grbl library into the Arduino IDE" width="75%" />
 <p class="caption">
 Figure 2.2: Loading Grbl library into the Arduino IDE
@@ -189,7 +228,7 @@ Figure 2.2: Loading Grbl library into the Arduino IDE
 <ul>
 <li>Click the <code>File</code> drop-down menu, navigate to <code>Examples-&gt;Grbl</code>, and select <code>GrblUpload</code> (figure <a href="grbl.html#fig:grblUploadFile">2.3</a>).</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:grblUploadFile"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:grblUploadFile"></span>
 <img src="images/grbl_upload_file.png" alt="GrblUpload example file" width="75%" />
 <p class="caption">
 Figure 2.3: GrblUpload example file
@@ -201,7 +240,7 @@ Figure 2.3: GrblUpload example file
 <ul>
 <li>Connect your computer directly to the Arduino using the USB cable. Unplug the USB cable from the raspberry pi and plug it into your computer. Remember to reconnect the raspberry pi to the Arduino after you have finished configuring Grbl (figure <a href="grbl.html#fig:laptop2arduino">2.4</a>).</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:laptop2arduino"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:laptop2arduino"></span>
 <img src="images/laptop_connected_to_arduino.jpg" alt="Laptop connected directly to Arduino" width="75%" />
 <p class="caption">
 Figure 2.4: Laptop connected directly to Arduino
@@ -212,10 +251,10 @@ Figure 2.4: Laptop connected directly to Arduino
 <li>Click the <code>Upload</code>, and Grbl should compile and flash to your Arduino! (Flashing with a programmer also works by using the <code>Upload Using Programmer</code> menu command.)</li>
 </ul>
 </div>
-<div id="check-serial-connection-to-grbl" class="section level2">
-<h2><span class="header-section-number">2.3</span> Check serial connection to Grbl</h2>
+<div id="check-serial-connection-to-grbl" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Check serial connection to Grbl<a href="grbl.html#check-serial-connection-to-grbl" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><em><strong>NOTE: Before powering up the gShield and motors, check that the actuator carriages for all three axes are approximately centred (figure <a href="grbl.html#fig:actuatorsCentred">2.5</a>). Initially we do not know in which direction the actuator carriages will travel when G-code commands are issued, so positioning each in the middle of its range reduces the risk of collisions with the end stops.</strong></em></p>
-<div class="figure" style="text-align: center"><span id="fig:actuatorsCentred"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:actuatorsCentred"></span>
 <img src="images/actuator_carriages_centred.jpg" alt="Actuator carriages centred in preparation for powering-up motors for first time" width="75%" />
 <p class="caption">
 Figure 2.5: Actuator carriages centred in preparation for powering-up motors for first time
@@ -227,7 +266,7 @@ Figure 2.5: Actuator carriages centred in preparation for powering-up motors for
 <ul>
 <li>Click <code>Tools</code> drop-down menu, and select <code>Serial Monitor</code></li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:serialMonitor"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:serialMonitor"></span>
 <img src="images/arduino_IDE_serial_monitor.png" alt="Arduino IDE Serial Monitor" width="75%" />
 <p class="caption">
 Figure 2.6: Arduino IDE Serial Monitor
@@ -253,19 +292,19 @@ Figure 2.6: Arduino IDE Serial Monitor
 <li>Repeat for the other axes, replacing the x in the commands with y or z. Make a note of the direction the actuator carriages move with each command.</li>
 </ul>
 </div>
-<div id="grbl-configuration" class="section level2">
-<h2><span class="header-section-number">2.4</span> Grbl configuration</h2>
-<div id="read-current-configuration" class="section level3">
-<h3><span class="header-section-number">2.4.1</span> Read current configuration</h3>
+<div id="grbl-configuration" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Grbl configuration<a href="grbl.html#grbl-configuration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="read-current-configuration" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Read current configuration<a href="grbl.html#read-current-configuration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>The <code>$$</code> command will report Grbl’s current configuration.</li>
 <li>Descriptions of these settings can be found here: <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration" class="uri">https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration</a></li>
 <li>These settings will be modified in subsequent steps.</li>
 </ul>
 </div>
-<div id="check-directionality-of-each-axis." class="section level3">
-<h3><span class="header-section-number">2.4.2</span> Check directionality of each axis.</h3>
-<div class="figure" style="text-align: center"><span id="fig:robotOrientation"></span>
+<div id="check-directionality-of-each-axis." class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Check directionality of each axis.<a href="grbl.html#check-directionality-of-each-axis." class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:robotOrientation"></span>
 <img src="images/robot_orientation.png" alt="Orientation of robot." width="75%" />
 <p class="caption">
 Figure 2.7: Orientation of robot.
@@ -366,62 +405,70 @@ Table: (\#tab:invertMaskSettings) Masks for direction port inversion.
 </tbody>
 </table>
 </div>
-<div id="activate-hard-limits" class="section level3">
-<h3><span class="header-section-number">2.4.3</span> Activate hard limits</h3>
+<div id="activate-hard-limits" class="section level3 hasAnchor" number="2.4.3">
+<h3><span class="header-section-number">2.4.3</span> Activate hard limits<a href="grbl.html#activate-hard-limits" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Hard limits are a safety feature to prevent the machine from travelling beyond the limits of travel. Grbl monitors the paired limit switches on each axis and if a switch is triggered it will immediately switch off all motors. Hard limits are activated by setting <strong>$21</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#21---hard-limits-boolean">hard limits ( boolean)</a> to 1:</p>
 <pre><code>$21=1</code></pre>
 </div>
-<div id="setup-homing" class="section level3">
-<h3><span class="header-section-number">2.4.4</span> Setup homing</h3>
+<div id="setup-homing" class="section level3 hasAnchor" number="2.4.4">
+<h3><span class="header-section-number">2.4.4</span> Setup homing<a href="grbl.html#setup-homing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The homing cycle is used to set the origin of the Cartesian coordinate system used by the robot. During the homing cycle Grbl moves each actuator in the positive direction until the limit switches are triggered. The homing cycle is activated by setting <strong>$22</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#22---homing-cycle-boolean">homing cycle (boolean)</a> to 1:</p>
 <pre><code>$22=1</code></pre>
 <p>Initiate a homing cycle using the following command: <code>$h</code>. All actuator carriages should move to the origin of their axes. The origin of the Cartesian coordinate system (home) for the robot is shown in figures <a href="grbl.html#fig:xyOrigin">2.8</a> and <a href="grbl.html#fig:zOrigin">2.9</a></p>
-<div class="figure" style="text-align: center"><span id="fig:xyOrigin"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:xyOrigin"></span>
 <img src="images/xy_origin.jpg" alt="Origin of XY coordinate system." width="75%" />
 <p class="caption">
 Figure 2.8: Origin of XY coordinate system.
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:zOrigin"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:zOrigin"></span>
 <img src="images/z_origin.jpg" alt="Origin of Z axis." width="75%" />
 <p class="caption">
 Figure 2.9: Origin of Z axis.
 </p>
 </div>
 <p>We also need to set <strong>$24</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#24---homing-feed-mmmin">homing feed rate</a> and <strong>$25</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#25---homing-seek-mmmin">homing seek rate</a>. Homing seek rate is the initial speed at which Grbl searches for the limit switches. Once it has them, it makes slower approach at the homing feed rate to get a more precise location for machine zero. We will set homing seek rate to 1000 mm/min <code>$24=100</code> and homing feed rate to 100 mm/min <code>$25=1000</code>.</p>
-<p>At the end of a homing cycle each actuator carriage must be moved off its home limit switch, otherwise the hard limit will be triggered. The <strong>$27</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#27---homing-pull-off-mm">Homing pull-off (mm)</a> specifies the distance required to clear the limit switches. For our robot we will use a value of 5mm:</p>
+<p>At the end of a homing cycle each actuator carriage must be moved off its home limit switch, otherwise the hard limit will be triggered.
+The <strong>$27</strong> <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#27---homing-pull-off-mm">Homing pull-off (mm)</a> specifies the distance required to clear the limit switches. For our robot we will use a value of 5mm:</p>
 <pre><code>$27=5</code></pre>
 </div>
-<div id="motor-step-size" class="section level3">
-<h3><span class="header-section-number">2.4.5</span> Motor step size</h3>
-<p><strong>$100</strong>, <strong>$101</strong> and <strong>$102</strong> define <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#100-101-and-102--xyz-stepsmm">[X,Y,Z] steps/mm</a>. Suitable values for our stepper motors are:</p>
+<div id="motor-step-size" class="section level3 hasAnchor" number="2.4.5">
+<h3><span class="header-section-number">2.4.5</span> Motor step size<a href="grbl.html#motor-step-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>$100</strong>, <strong>$101</strong> and <strong>$102</strong> define <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#100-101-and-102--xyz-stepsmm">[X,Y,Z] steps/mm</a>.
+Suitable values for our stepper motors are:</p>
 <pre><code>$100=40
 $101=40
 $102=49.673</code></pre>
 <p>If you are using a different type of stepper motor, the step size can be easily calculated by measuring how far each actuator moves in response to a G-code command. For example, we would calculate the step size for the X actuator as follows.</p>
 <ol style="list-style-type: decimal">
-<li><p>Using the serial monitor in the Arduino IDE, issue the following command to <em>home</em> the machine:</p>
-<pre><code>$h</code></pre></li>
-<li><p>Read the current position of the machine, as reported by the Grbl controller:</p>
-<pre><code>?</code></pre>
-After homing the Cartesian coordinates should be zero minus the homing pull-off:</li>
+<li>Using the serial monitor in the Arduino IDE, issue the following command to <em>home</em> the machine:</li>
 </ol>
-<ul>
-<li>x = -5</li>
-<li>y = -5</li>
-<li>z = -5</li>
-</ul>
+<pre><code>$h</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Read the current position of the machine, as reported by the Grbl controller:</li>
+</ol>
+<pre><code>?</code></pre>
+<p>After homing the Cartesian coordinates should be zero minus the homing pull-off:
+* x = -5
+* y = -5
+* z = -5</p>
 <ol start="3" style="list-style-type: decimal">
 <li><p>Make a note of the physical position of the nozzle.</p></li>
-<li><p>Issue a g-code command to move to the -100mm position on the x-axis:</p>
+<li><p>Issue a g-code command to move to the -100mm position on the x-axis:</p></li>
+</ol>
 <pre><code>x-100</code></pre>
-<p>Keep decreasing the value of x until the x-actuator carriage almost meets the limit switch on the right hand side of the machine. The greater the distance moved, the more precise our calculation of step-size will be.</p></li>
-<li><p>Query Grbl’s machine coordinates:</p>
-<pre><code>?</code></pre></li>
+<p>Keep decreasing the value of x until the x-actuator carriage almost meets the limit switch on the right hand side of the machine. The greater the distance moved, the more precise our calculation of step-size will be.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Query Grbl’s machine coordinates:</li>
+</ol>
+<pre><code>?</code></pre>
+<ol start="6" style="list-style-type: decimal">
 <li><p>Measure the physical distance travelled along the x-axis in millimetres.</p></li>
-<li><p>Find <strong>$100</strong>, the currently configured step size for the x-axis:</p>
-<pre><code>$$</code></pre></li>
-<li><p>Calculate the correct value for step-size:</p></li>
+<li><p>Find <strong>$100</strong>, the currently configured step size for the x-axis:</p></li>
+</ol>
+<pre><code>$$</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>Calculate the correct value for step-size:</li>
 </ol>
 <pre><code>current_step_size = steps/mm in current configuration
 grbl_start = start position reported by Grbl controller (mm)
@@ -430,8 +477,8 @@ physical_distance = physical distance moved by actuator (mm)
 
 steps/mm = -(curr_steps_per_mm * (end_pos_grbl-start_pos_grbl)) / physical_distance</code></pre>
 </div>
-<div id="feed-rates-and-acceleration" class="section level3">
-<h3><span class="header-section-number">2.4.6</span> Feed rates and acceleration</h3>
+<div id="feed-rates-and-acceleration" class="section level3 hasAnchor" number="2.4.6">
+<h3><span class="header-section-number">2.4.6</span> Feed rates and acceleration<a href="grbl.html#feed-rates-and-acceleration" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>$110</strong>, <strong>$111</strong> and <strong>$112</strong> set the <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#110-111-and-112--xyz-max-rate-mmmin">maximum rates (mm/min)</a> for the X, Y and Z actuators, respectively. We will use the following values:</p>
 <pre><code>$110=5000
 $111=5000
@@ -441,8 +488,8 @@ $112=2500</code></pre>
 $121=50
 $122=50</code></pre>
 </div>
-<div id="summary-of-settings" class="section level3">
-<h3><span class="header-section-number">2.4.7</span> Summary of settings</h3>
+<div id="summary-of-settings" class="section level3 hasAnchor" number="2.4.7">
+<h3><span class="header-section-number">2.4.7</span> Summary of settings<a href="grbl.html#summary-of-settings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <pre><code>$0=10
 $1=25
 $2=0
@@ -479,16 +526,17 @@ $131=500.000
 $132=200.000</code></pre>
 </div>
 </div>
-<div id="setting-motor-current" class="section level2">
-<h2><span class="header-section-number">2.5</span> Setting motor current</h2>
+<div id="setting-motor-current" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Setting motor current<a href="grbl.html#setting-motor-current" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The gShield has trimpots for adjusting the motor current of each axis, as shown in figure <a href="grbl.html#fig:gShield">2.10</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:gShield"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:gShield"></span>
 <img src="images/gShield-trimpots.jpg" alt="gShield trimpots" width="75%" />
 <p class="caption">
 Figure 2.10: gShield trimpots
 </p>
 </div>
-<p>Instructions for setting motor current are provided here: <a href="https://github.com/synthetos/grblShield/wiki/Using-grblShield#setting-motor-current" class="uri">https://github.com/synthetos/grblShield/wiki/Using-grblShield#setting-motor-current</a></p>
+<p>Instructions for setting motor current are provided here:
+<a href="https://github.com/synthetos/grblShield/wiki/Using-grblShield#setting-motor-current" class="uri">https://github.com/synthetos/grblShield/wiki/Using-grblShield#setting-motor-current</a></p>
 
 </div>
 </div>
@@ -502,12 +550,13 @@ Figure 2.10: gShield trimpots
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -515,12 +564,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -531,7 +580,19 @@ gitbook.start({
 "link": "https://github.com/WaylandM/fly-food-robot/edit/master/02-grbl.Rmd",
 "text": "Edit"
 },
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
 "download": ["fly-food-robot.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

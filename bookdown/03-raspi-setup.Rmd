@@ -4,13 +4,17 @@
 The raspberry pi is used to generate, then stream g-code to the Arduino. A small thin-film-transistor (TFT) touchscreen serves as the user interface to the raspberry pi. 
 
 ## Install image
-The first step is to install Adafruit's custom raspberry pi image on the micro SD card. The custom image is described here:
+~~The first step is to install Adafruit's custom raspberry pi image on the micro SD card. The custom image is described here:~~
 
-https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi/easy-install
+~~```https://learn.adafruit.com/adafruit-pitft-28-inch-resistive-touchscreen-display-raspberry-pi/easy-install```~~
 
-We want the classic version which boots into X by default, rather then the lite version that boots to the command line. The classic version can be downloaded from this link:
+~~We want the classic version which boots into X by default, rather then the lite version that boots to the command line. The classic version can be downloaded from this link:~~
 
-https://s3.amazonaws.com/adafruit-raspberry-pi/2016-10-18-pitft-28r.zip
+~~```https://s3.amazonaws.com/adafruit-raspberry-pi/2016-10-18-pitft-28r.zip```~~
+
+Adafruit's custom raspberry pi image is no longer available. I have created an image (pitft.img) based on Adafruit's original that is preconfigured for use with the robot. It can be downloaded from:
+
+https://zenodo.org/records/10534021
 
 Instructions on installing images on SD cards can be found here:
 
@@ -20,7 +24,7 @@ https://www.raspberrypi.org/documentation/installation/installing-images/
 ## Network configuration
 The small screen of the pitft makes using most applications quite tricky. Therefore the first thing we should do after installing the image is configure networking, so that we can access the raspberry pi remotely using ssh.
 
-To set a static IP address for the ethernet adapter, add the following lines to ```/etc/dhcpcd.conf```:
+To set a static IP address for the ethernet adapter, edit the following lines of ```/etc/dhcpcd.conf```:
 
 ```
 interface eth0
@@ -42,6 +46,8 @@ The default password for the **pi** user account is **raspberry**
 
 
 ## Install minicom
+
+*N.B. Minicom is pre-installed on my pitft.img*
 
 Minicom is useful for manual control of the robot and for editing grbl settings. 
 
@@ -86,6 +92,7 @@ Expand filesystem on micro SD card:
 ```
 
 ## Install python scripts {#installScripts}
+*N.B. The python scripts are pre-installed on my pitft.img*
 
 Make sure you are in pi's home directory:
 

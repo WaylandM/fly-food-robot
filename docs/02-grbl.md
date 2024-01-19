@@ -122,16 +122,16 @@ Table: (\#tab:invertMaskSettings) Masks for direction port inversion.
 
 Table: (\#tab:invertMaskSettings)Masks for direction port inversion.
 
-Setting Value   Mask       Invert X   Invert Y   Invert Z 
---------------  ---------  ---------  ---------  ---------
-0               00000000   N          N          N        
-1               00000001   Y          N          N        
-2               00000010   N          Y          N        
-3               00000011   Y          Y          N        
-4               00000100   N          N          Y        
-5               00000101   Y          N          Y        
-6               00000110   N          Y          Y        
-7               00000111   Y          Y          Y        
+|Setting Value |Mask     |Invert X |Invert Y |Invert Z |
+|:-------------|:--------|:--------|:--------|:--------|
+|0             |00000000 |N        |N        |N        |
+|1             |00000001 |Y        |N        |N        |
+|2             |00000010 |N        |Y        |N        |
+|3             |00000011 |Y        |Y        |N        |
+|4             |00000100 |N        |N        |Y        |
+|5             |00000101 |Y        |N        |Y        |
+|6             |00000110 |N        |Y        |Y        |
+|7             |00000111 |Y        |Y        |Y        |
 
 ### Activate hard limits
 Hard limits are a safety feature to prevent the machine from travelling beyond the limits of travel. Grbl monitors the paired limit switches on each axis and if a switch is triggered it will immediately switch off all motors. Hard limits are activated by setting **$21** [hard limits ( boolean)](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration#21---hard-limits-boolean) to 1: 

@@ -44,17 +44,17 @@ The movement of the robot is programmed in [G-code](https://en.wikipedia.org/wik
 
 Table: (\#tab:gCodes)G-code commands used to control robot.
 
-Code   Description                                        
------  ---------------------------------------------------
-x      absolute position of x-axis                        
-y      absolute position of y-axis                        
-z      absolute position of z-axis                        
-g4     dwell time (control parameter p specifies seconds) 
-m3     set pump rotation to clockwise                     
-m4     set pump rotation to counter clockwise             
-m8     start pump                                         
-m9     stop pump                                          
-$h     initiate homing cycle                              
+|Code |Description                                        |
+|:----|:--------------------------------------------------|
+|x    |absolute position of x-axis                        |
+|y    |absolute position of y-axis                        |
+|z    |absolute position of z-axis                        |
+|g4   |dwell time (control parameter p specifies seconds) |
+|m3   |set pump rotation to clockwise                     |
+|m4   |set pump rotation to counter clockwise             |
+|m8   |start pump                                         |
+|m9   |stop pump                                          |
+|$h   |initiate homing cycle                              |
 
 A G-code program for filling vials of food could be created manually, by listing the necessary commands sequentially in a text file.  However, this would be laborious and error prone. If the size of the boxes of vials are known, the G-code can be programmatically generated. 
 
@@ -204,18 +204,18 @@ head -n12 ~/robot/nc/calibrate_pump.nc
 
 Table: (\#tab:calibrationFillTimes)Example calibration fill times.
 
- Box Row   Fill Time
---------  ----------
-       1        0.30
-       2        0.33
-       3        0.37
-       4        0.40
-       5        0.43
-       6        0.47
-       7        0.50
-       8        0.53
-       9        0.57
-      10        0.60
+| Box Row| Fill Time|
+|-------:|---------:|
+|       1|      0.30|
+|       2|      0.33|
+|       3|      0.37|
+|       4|      0.40|
+|       5|      0.43|
+|       6|      0.47|
+|       7|      0.50|
+|       8|      0.53|
+|       9|      0.57|
+|      10|      0.60|
 
 
 4. Send the G-code pump-calibration program to the Grbl controller

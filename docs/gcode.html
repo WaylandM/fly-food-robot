@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>CNC Fly Food Dispenser</title>
-  <meta name="description" content="Manual for CNC Fly Food Dispenser">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Program robot to fill vials | CNC Fly Food Dispenser</title>
+  <meta name="description" content="Manual for CNC Fly Food Dispenser" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="CNC Fly Food Dispenser" />
+  <meta property="og:title" content="5 Program robot to fill vials | CNC Fly Food Dispenser" />
   <meta property="og:type" content="book" />
-  
-  <meta property="og:image" content="images/system.jpg" />
+  <meta property="og:image" content="/images/system.jpg" />
   <meta property="og:description" content="Manual for CNC Fly Food Dispenser" />
   <meta name="github-repo" content="waylandm/fly-food-robot" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="CNC Fly Food Dispenser" />
+  <meta name="twitter:title" content="5 Program robot to fill vials | CNC Fly Food Dispenser" />
   
   <meta name="twitter:description" content="Manual for CNC Fly Food Dispenser" />
-  <meta name="twitter:image" content="images/system.jpg" />
+  <meta name="twitter:image" content="/images/system.jpg" />
 
-<meta name="author" content="Matt Wayland">
+<meta name="author" content="Matt Wayland" />
 
 
-<meta name="date" content="2018-09-21">
+<meta name="date" content="2024-01-19" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="startup.html">
-<link rel="next" href="operation.html">
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="prev" href="startup.html"/>
+<link rel="next" href="operation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,7 +49,38 @@
 
 
 
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -66,7 +98,8 @@
 <li><a href="./">Fly Food Robot</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#github"><i class="fa fa-check"></i>Github</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#license"><i class="fa fa-check"></i>License</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i>Contact</a></li>
@@ -74,11 +107,13 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#colophon"><i class="fa fa-check"></i>Colophon</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
-<li class="chapter" data-level="2" data-path="grbl.html"><a href="grbl.html"><i class="fa fa-check"></i><b>2</b> Grbl installation and configuration</a><ul>
+<li class="chapter" data-level="2" data-path="grbl.html"><a href="grbl.html"><i class="fa fa-check"></i><b>2</b> Grbl installation and configuration</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="grbl.html"><a href="grbl.html#overview"><i class="fa fa-check"></i><b>2.1</b> Overview</a></li>
 <li class="chapter" data-level="2.2" data-path="grbl.html"><a href="grbl.html#flashing-grbl-to-arduino"><i class="fa fa-check"></i><b>2.2</b> Flashing Grbl to Arduino</a></li>
 <li class="chapter" data-level="2.3" data-path="grbl.html"><a href="grbl.html#check-serial-connection-to-grbl"><i class="fa fa-check"></i><b>2.3</b> Check serial connection to Grbl</a></li>
-<li class="chapter" data-level="2.4" data-path="grbl.html"><a href="grbl.html#grbl-configuration"><i class="fa fa-check"></i><b>2.4</b> Grbl configuration</a><ul>
+<li class="chapter" data-level="2.4" data-path="grbl.html"><a href="grbl.html#grbl-configuration"><i class="fa fa-check"></i><b>2.4</b> Grbl configuration</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="grbl.html"><a href="grbl.html#read-current-configuration"><i class="fa fa-check"></i><b>2.4.1</b> Read current configuration</a></li>
 <li class="chapter" data-level="2.4.2" data-path="grbl.html"><a href="grbl.html#check-directionality-of-each-axis."><i class="fa fa-check"></i><b>2.4.2</b> Check directionality of each axis.</a></li>
 <li class="chapter" data-level="2.4.3" data-path="grbl.html"><a href="grbl.html#activate-hard-limits"><i class="fa fa-check"></i><b>2.4.3</b> Activate hard limits</a></li>
@@ -89,7 +124,8 @@
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="grbl.html"><a href="grbl.html#setting-motor-current"><i class="fa fa-check"></i><b>2.5</b> Setting motor current</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="raspi.html"><a href="raspi.html"><i class="fa fa-check"></i><b>3</b> Raspberry Pi setup</a><ul>
+<li class="chapter" data-level="3" data-path="raspi.html"><a href="raspi.html"><i class="fa fa-check"></i><b>3</b> Raspberry Pi setup</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="raspi.html"><a href="raspi.html#overview-1"><i class="fa fa-check"></i><b>3.1</b> Overview</a></li>
 <li class="chapter" data-level="3.2" data-path="raspi.html"><a href="raspi.html#install-image"><i class="fa fa-check"></i><b>3.2</b> Install image</a></li>
 <li class="chapter" data-level="3.3" data-path="raspi.html"><a href="raspi.html#network-configuration"><i class="fa fa-check"></i><b>3.3</b> Network configuration</a></li>
@@ -97,19 +133,22 @@
 <li class="chapter" data-level="3.5" data-path="raspi.html"><a href="raspi.html#expand-filesystem"><i class="fa fa-check"></i><b>3.5</b> Expand filesystem</a></li>
 <li class="chapter" data-level="3.6" data-path="raspi.html"><a href="raspi.html#installScripts"><i class="fa fa-check"></i><b>3.6</b> Install python scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="startup.html"><a href="startup.html"><i class="fa fa-check"></i><b>4</b> System start-up</a><ul>
+<li class="chapter" data-level="4" data-path="startup.html"><a href="startup.html"><i class="fa fa-check"></i><b>4</b> System start-up</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="startup.html"><a href="startup.html#attach-norprene-tubing"><i class="fa fa-check"></i><b>4.1</b> Attach Norprene tubing</a></li>
 <li class="chapter" data-level="4.2" data-path="startup.html"><a href="startup.html#switch-on-all-devices"><i class="fa fa-check"></i><b>4.2</b> Switch on all devices</a></li>
 <li class="chapter" data-level="4.3" data-path="startup.html"><a href="startup.html#prime-pump"><i class="fa fa-check"></i><b>4.3</b> Prime pump</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>5</b> Program robot to fill vials</a><ul>
+<li class="chapter" data-level="5" data-path="gcode.html"><a href="gcode.html"><i class="fa fa-check"></i><b>5</b> Program robot to fill vials</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="gcode.html"><a href="gcode.html#overview-2"><i class="fa fa-check"></i><b>5.1</b> Overview</a></li>
 <li class="chapter" data-level="5.2" data-path="gcode.html"><a href="gcode.html#loadBoxes"><i class="fa fa-check"></i><b>5.2</b> Load boxes</a></li>
 <li class="chapter" data-level="5.3" data-path="gcode.html"><a href="gcode.html#boxCoordinates"><i class="fa fa-check"></i><b>5.3</b> Determine box coordinates</a></li>
 <li class="chapter" data-level="5.4" data-path="gcode.html"><a href="gcode.html#calibratePump"><i class="fa fa-check"></i><b>5.4</b> Calibrate pump</a></li>
 <li class="chapter" data-level="5.5" data-path="gcode.html"><a href="gcode.html#generate-programs"><i class="fa fa-check"></i><b>5.5</b> Generate programs</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>6</b> Routine operation</a><ul>
+<li class="chapter" data-level="6" data-path="operation.html"><a href="operation.html"><i class="fa fa-check"></i><b>6</b> Routine operation</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="operation.html"><a href="operation.html#prepare-system"><i class="fa fa-check"></i><b>6.1</b> Prepare system</a></li>
 <li class="chapter" data-level="6.2" data-path="operation.html"><a href="operation.html#fill-boxes"><i class="fa fa-check"></i><b>6.2</b> Fill boxes</a></li>
 <li class="chapter" data-level="6.3" data-path="operation.html"><a href="operation.html#shutdown"><i class="fa fa-check"></i><b>6.3</b> Shutdown</a></li>
@@ -135,8 +174,8 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="gcode" class="section level1">
-<h1><span class="header-section-number">5</span> Program robot to fill vials</h1>
+<div id="gcode" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Program robot to fill vials<a href="gcode.html#gcode" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <!--
 # need 8-9 ml
 # pump speed 1800ml/min
@@ -172,8 +211,8 @@ ok
 ./robot/py/fill_boxes.py
 
 -->
-<div id="overview-2" class="section level2">
-<h2><span class="header-section-number">5.1</span> Overview</h2>
+<div id="overview-2" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Overview<a href="gcode.html#overview-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The movement of the robot is programmed in <a href="https://en.wikipedia.org/wiki/G-code">G-code</a>. We only need nine G-code commands to control the robot (table <a href="gcode.html#tab:gCodes">5.1</a>).</p>
 <table>
 <caption><span id="tab:gCodes">Table 5.1: </span>G-code commands used to control robot.</caption>
@@ -224,18 +263,21 @@ ok
 </table>
 <p>A G-code program for filling vials of food could be created manually, by listing the necessary commands sequentially in a text file. However, this would be laborious and error prone. If the size of the boxes of vials are known, the G-code can be programmatically generated.</p>
 </div>
-<div id="loadBoxes" class="section level2">
-<h2><span class="header-section-number">5.2</span> Load boxes</h2>
-<div class="figure" style="text-align: center"><span id="fig:loadBoxes2"></span>
+<div id="loadBoxes" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Load boxes<a href="gcode.html#loadBoxes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:loadBoxes2"></span>
 <img src="images/one_box_loaded.jpg" alt="Loading boxes of vials." width="50%" /><img src="images/two_boxes_loaded.jpg" alt="Loading boxes of vials." width="50%" />
 <p class="caption">
 Figure 5.1: Loading boxes of vials.
 </p>
 </div>
-<p>Load boxes onto the platform of the robot (figure <a href="gcode.html#fig:loadBoxes2">5.1</a>). * The first box should be flush with the fence and the guide rail. * The second box should be flush with the first and the guide rail. * The boxes we are using have a pair of double-thickness side-walls and a pair of single-thickness side-walls. The pairs are on opposite sides of the box. With this type of box it is important to note the orientation of the boxes when the Cartesian coordinates of the vials are determined, because the same orientation must be used when filling vials with food. We load the boxes with a double-thickness side-wall facing forwards.</p>
+<p>Load boxes onto the platform of the robot (figure <a href="gcode.html#fig:loadBoxes2">5.1</a>).
+* The first box should be flush with the fence and the guide rail.
+* The second box should be flush with the first and the guide rail.
+* The boxes we are using have a pair of double-thickness side-walls and a pair of single-thickness side-walls. The pairs are on opposite sides of the box. With this type of box it is important to note the orientation of the boxes when the Cartesian coordinates of the vials are determined, because the same orientation must be used when filling vials with food. We load the boxes with a double-thickness side-wall facing forwards.</p>
 </div>
-<div id="boxCoordinates" class="section level2">
-<h2><span class="header-section-number">5.3</span> Determine box coordinates</h2>
+<div id="boxCoordinates" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Determine box coordinates<a href="gcode.html#boxCoordinates" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We need to determine the Cartesian coordinates of vials in diagonally opposite corners of each box.</p>
 <ol style="list-style-type: decimal">
 <li>Login to raspberry pi using ssh. My raspberry pi has the IP address 192.168.1.3 and so I would use:</li>
@@ -245,22 +287,30 @@ Figure 5.1: Loading boxes of vials.
 <li>Default password for the <strong>pi</strong> user account is ‘raspberry’.</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Use minicom to connect to the Grbl controller running on the Arduino, so that we can interactively control the robot from the command line:</p>
-<pre><code>sudo minicom -D /dev/ttyACM0 -b115200</code></pre></li>
-<li><p>Make sure nozzle is at ** home ** position by issuing homing command:</p>
-<pre><code>$h</code></pre></li>
-<li><p>First we will determine the Cartesian coordinates of the vial in the front left corner of the first box.</p></li>
+<li>Use minicom to connect to the Grbl controller running on the Arduino, so that we can interactively control the robot from the command line:</li>
+</ol>
+<pre><code>sudo minicom -D /dev/ttyACM0 -b115200</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Make sure nozzle is at ** home ** position by issuing homing command:</li>
+</ol>
+<pre><code>$h</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>First we will determine the Cartesian coordinates of the vial in the front left corner of the first box.</li>
 </ol>
 <ul>
-<li><p>Make small movements in X and Y until the nozzle is centred over this vial, <em>e.g.</em>:</p>
-<pre><code>x-8 y-8</code></pre></li>
-<li><p>Lower the nozzle in small increments until it is just 2-3mm above the the top of the vial (figure <a href="gcode.html#fig:box1FrontLeft">5.2</a>), <em>e.g.</em>:</p>
-<pre><code>z-20</code></pre></li>
-<li><p>Query the current X, Y and Z coordinates by issuing the following command:</p>
-<pre><code>?</code></pre>
-<p>Make a note of all three coordinates.</p></li>
+<li>Make small movements in X and Y until the nozzle is centred over this vial, <em>e.g.</em>:</li>
 </ul>
-<div class="figure" style="text-align: center"><span id="fig:box1FrontLeft"></span>
+<pre><code>x-8 y-8</code></pre>
+<ul>
+<li>Lower the nozzle in small increments until it is just 2-3mm above the the top of the vial (figure <a href="gcode.html#fig:box1FrontLeft">5.2</a>), <em>e.g.</em>:</li>
+</ul>
+<pre><code>z-20</code></pre>
+<ul>
+<li>Query the current X, Y and Z coordinates by issuing the following command:</li>
+</ul>
+<pre><code>?</code></pre>
+<p>Make a note of all three coordinates.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:box1FrontLeft"></span>
 <img src="images/box1_first_vial.jpg" alt="Nozzle positioned over the front left vial in box 1." width="50%" />
 <p class="caption">
 Figure 5.2: Nozzle positioned over the front left vial in box 1.
@@ -269,7 +319,7 @@ Figure 5.2: Nozzle positioned over the front left vial in box 1.
 <ol start="5" style="list-style-type: decimal">
 <li>Issue G-code commands to move the nozzle laterally until it is over the back right vial of the first box (figure <a href="gcode.html#fig:box1BackRight">5.3</a>).</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:box1BackRight"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:box1BackRight"></span>
 <img src="images/box1_last_vial.jpg" alt="Nozzle positioned over the back right vial in box 1." width="50%" />
 <p class="caption">
 Figure 5.3: Nozzle positioned over the back right vial in box 1.
@@ -281,7 +331,7 @@ Figure 5.3: Nozzle positioned over the back right vial in box 1.
 <ol start="6" style="list-style-type: decimal">
 <li>Move the nozzle laterally until it is over the front left vial of the second box (figure <a href="gcode.html#fig:box2FrontLeft">5.4</a>), then record X and Y coordinates.</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:box2FrontLeft"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:box2FrontLeft"></span>
 <img src="images/box2_first_vial.jpg" alt="Nozzle positioned over the front left vial in box 2." width="50%" />
 <p class="caption">
 Figure 5.4: Nozzle positioned over the front left vial in box 2.
@@ -290,15 +340,15 @@ Figure 5.4: Nozzle positioned over the front left vial in box 2.
 <ol start="7" style="list-style-type: decimal">
 <li>Finally determine the X and Y coordinates of the back right vial in the second box (figure <a href="gcode.html#fig:box2BackRight">5.5</a>).</li>
 </ol>
-<div class="figure" style="text-align: center"><span id="fig:box2BackRight"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:box2BackRight"></span>
 <img src="images/box2_last_vial.jpg" alt="Nozzle positioned over the back right vial in box 2." width="50%" />
 <p class="caption">
 Figure 5.5: Nozzle positioned over the back right vial in box 2.
 </p>
 </div>
 </div>
-<div id="calibratePump" class="section level2">
-<h2><span class="header-section-number">5.4</span> Calibrate pump</h2>
+<div id="calibratePump" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Calibrate pump<a href="gcode.html#calibratePump" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <!--
 # need 8-9 ml
 # pump speed 1800ml/min
@@ -307,9 +357,11 @@ Figure 5.5: Nozzle positioned over the back right vial in box 2.
 -->
 <p>The peristaltic pump is started and stopped using the <code>m8</code> and <code>m9</code> G-code commands, respectively (table <a href="gcode.html#tab:gCodes">5.1</a>). To maximize speed, the pump will be run at its maximum flow rate of 30ml/second. In our fly facility, we add 9ml of food to each vial, therefore based on the maximum flow rate, we should only need to run the pump for 0.3 seconds to dispense 9ml of food. However, there is latency in the system and the pump does not reach its maximum flow rate instantaneously on activation. Therefore, it is important to determine the <em>fill time</em> empirically. We do this by programming the robot to test fill a single box of vials using a range of <em>fill times</em>. The <strong>calibrate_pump.py</strong> script downloaded to the Raspberry Pi in stage <a href="raspi.html#installScripts">3.6</a> can be used to generate the appropriate G-code program.</p>
 <ol style="list-style-type: decimal">
-<li><p>Open <strong>calibrate_pump.py</strong> for editing:</p>
-<pre><code>sudo nano /home/pi/robot/py/calibrate_pump.py</code></pre></li>
-<li><p>Near the top of the file (line 32 onwards) are various settings to be modified:</p></li>
+<li>Open <strong>calibrate_pump.py</strong> for editing:</li>
+</ol>
+<pre><code>sudo nano /home/pi/robot/py/calibrate_pump.py</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Near the top of the file (line 32 onwards) are various settings to be modified:</li>
 </ol>
 <pre><code>
 # SETTINGS
@@ -346,11 +398,11 @@ ncols=10</code></pre>
 <li>Our boxes have ten rows, each containing ten vials, so we set <strong>nrows</strong> and <strong>ncols</strong> to 10.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li><p>After editing the settings in <strong>calibrate_pump.py</strong>, run the script to generate a G-code program:</p>
+<li>After editing the settings in <strong>calibrate_pump.py</strong>, run the script to generate a G-code program:</li>
+</ol>
 <pre><code>./robot/py/calibrate_pump.py</code></pre>
 <p>This will generate a G-code program: <strong>/home/pi/robot/nc/calibrate_pump.nc</strong> which will iteratively increase the fill time for each successive row of vials. The <strong>min_fill_time</strong> will be used for the first row of vials and the fill time will be increased by (<strong>max_fill_time</strong> - <strong>min_fill_time</strong>) / (<strong>nrows</strong> - 1.0) for each successive row (<em>e.g.</em> table <a href="gcode.html#tab:calibrationFillTimes">5.2</a>). Note that the fill times are rounded to the nearest 100th of a second. The fill time for each row is listed in the comments at the top of the <strong>/home/pi/robot/nc/calibrate_pump.nc</strong> file; to view this information run:</p>
-<pre><code>head -n12 ~/robot/nc/calibrate_pump.nc</code></pre></li>
-</ol>
+<pre><code>head -n12 ~/robot/nc/calibrate_pump.nc</code></pre>
 <table>
 <caption><span id="tab:calibrationFillTimes">Table 5.2: </span>Example calibration fill times.</caption>
 <thead>
@@ -403,22 +455,25 @@ ncols=10</code></pre>
 </tbody>
 </table>
 <ol start="4" style="list-style-type: decimal">
-<li><p>Send the G-code pump-calibration program to the Grbl controller <strong>/home/pi/robot/py/stream2.py</strong> can be used to stream a text file of G-code commands to Grbl:</p>
-<pre><code>./robot/py/stream2.py robot/nc/calibrate_pump.nc /dev/ttyACM0</code></pre>
-<p>Once the robot has completed the calibration run and returned the nozzle to the home position, inspect the fill level in each row of vials. Identify the row in which vials are filled with the desired volume of food and then refer to the <strong>/home/pi/robot/calibrate_pump.nc</strong> file to find out the fill time used for that particular row.</p></li>
+<li>Send the G-code pump-calibration program to the Grbl controller
+<strong>/home/pi/robot/py/stream2.py</strong> can be used to stream a text file of G-code commands to Grbl:</li>
 </ol>
+<pre><code>./robot/py/stream2.py robot/nc/calibrate_pump.nc /dev/ttyACM0</code></pre>
+<p>Once the robot has completed the calibration run and returned the nozzle to the home position, inspect the fill level in each row of vials. Identify the row in which vials are filled with the desired volume of food and then refer to the <strong>/home/pi/robot/calibrate_pump.nc</strong> file to find out the fill time used for that particular row.</p>
 </div>
-<div id="generate-programs" class="section level2">
-<h2><span class="header-section-number">5.5</span> Generate programs</h2>
+<div id="generate-programs" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Generate programs<a href="gcode.html#generate-programs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Once the pump has been calibrated we are ready to generate the G-code instructions for the routine filling of vials. The <strong>fill_boxes.py</strong> script downloaded to the Raspberry Pi in stage <a href="raspi.html#installScripts">3.6</a> is used to generate two G-code programs:</p>
 <ul>
 <li><strong>1_box.nc</strong> - fill one box of vials</li>
 <li><strong>2_boxes.nc</strong> - fill two boxes of vials</li>
 </ul>
 <ol style="list-style-type: decimal">
-<li><p>Open <strong>fill_boxes.py</strong> for editing:</p>
-<pre><code>sudo nano /home/pi/robot/py/fill_boxes.py</code></pre></li>
-<li><p>Near the top of the file (line 32 onwards) are various settings to be modified:</p></li>
+<li>Open <strong>fill_boxes.py</strong> for editing:</li>
+</ol>
+<pre><code>sudo nano /home/pi/robot/py/fill_boxes.py</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Near the top of the file (line 32 onwards) are various settings to be modified:</li>
 </ol>
 <pre><code>
 # SETTINGS
@@ -460,9 +515,9 @@ nVials=nrows*ncols</code></pre>
 <li>Our boxes have ten rows, each containing ten vials, so we set <strong>nrows</strong> and <strong>ncols</strong> to 10.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li><p>After editing the settings in <strong>fill_boxes.py</strong>, run the script to generate the two G-code programs:</p>
-<pre><code>./robot/py/fill_boxes.py</code></pre></li>
+<li>After editing the settings in <strong>fill_boxes.py</strong>, run the script to generate the two G-code programs:</li>
 </ol>
+<pre><code>./robot/py/fill_boxes.py</code></pre>
 
 </div>
 </div>
@@ -476,12 +531,13 @@ nVials=nrows*ncols</code></pre>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -489,12 +545,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -505,7 +561,19 @@ gitbook.start({
 "link": "https://github.com/WaylandM/fly-food-robot/edit/master/05-g-code.Rmd",
 "text": "Edit"
 },
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
 "download": ["fly-food-robot.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
